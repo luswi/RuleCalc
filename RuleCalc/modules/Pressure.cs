@@ -62,7 +62,7 @@ namespace EPT.modules
             ProtectText(zdkTB, e);
         }
 
-
+        // Public variables for save menu
         public static string SetValueForText1 = "";
 
         //-------------------
