@@ -47,7 +47,7 @@
   <ItemGroup>
     <Compile Include="classes\Information.cs" />
     <Compile Include="classes\SaveXML.cs" />
-    <Compile Include="classes\seaClass.cs" />
+    <Compile Include="classes\pressureClass.cs" />
     <Compile Include="RuleCalc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +85,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -99,6 +100,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="img\ship_data.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

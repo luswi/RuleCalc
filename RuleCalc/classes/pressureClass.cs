@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EPT.classes
 {
-    public class seaClass
+    public class pressureClass
     {
         //---------------------------------
         // Variables used for calculations
@@ -18,7 +18,7 @@ namespace EPT.classes
 
         public double cCalc { get; set; }
 
-        public bool seaCalculation(seaClass v)
+        public bool seaCalculation(pressureClass v)
         {
             bool isSuccess = false;
             if (1 > 0)

@@ -18,7 +18,12 @@ namespace EPT.modules
         public Pressure()
         {
             InitializeComponent();
+
+            //Unicode labels
+            //https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts
+            labelLpp.Text = "L" + (char)0X209A + (char)0X209A;
         }
+
 
         //----------------------------------------------
         // Check if number and only one "." for input.
@@ -68,8 +73,8 @@ namespace EPT.modules
         //-------------------
         // Main APP section
         //-------------------
-
-        seaClass v = new seaClass();
+        
+        pressureClass v = new pressureClass();
 
         public void calculateBT_Click(object sender, EventArgs e)
         {
@@ -78,31 +83,21 @@ namespace EPT.modules
             v.zfdk = double.Parse(zfdkTB.Text);
 
 
-
+            
 
             // Results
             bool success = v.seaCalculation(v);
             if (success == true)
             {
-
                 cCalcTB.Text = Convert.ToString(v.cCalc);
 
-
                 SetValueForText1 = cCalcTB.Text;
-
-
-                //EPT frm2 = new EPT();
-                //frm2.Show();
-
             }
             else
             {
                 MessageBox.Show("Something goes wrong!");
             }
         }
-
-
-
 
         //--------------
         // Save to XML
@@ -123,9 +118,6 @@ namespace EPT.modules
                 MessageBox.Show(ex.Message);
             }
         }
-
-
-
 
         //--------------------
         // Load data at start
