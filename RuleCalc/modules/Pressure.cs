@@ -21,7 +21,8 @@ namespace EPT.modules
 
             //Unicode labels
             //https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts
-            labelLpp.Text = "L" + (char)0X209A + (char)0X209A;
+            //labelLpp.Text = "L" + (char)0X209A + (char)0X209A;
+            
         }
 
 
@@ -59,16 +60,11 @@ namespace EPT.modules
                 }
             }
         }
-        //------------
-        // Protect 
-        //------------
-        private void zdkTB_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            ProtectText(zdkTB, e);
-        }
+
 
         // Public variables for save menu
-        public static string SetValueForText1 = "";
+        public static string lppSave = "";
+        public static string lSave = "";
 
         //-------------------
         // Main APP section
@@ -91,31 +87,12 @@ namespace EPT.modules
             {
                 cCalcTB.Text = Convert.ToString(v.cCalc);
 
-                SetValueForText1 = cCalcTB.Text;
+                lppSave = LppTB.Text;
+                lSave = LTB.Text;
             }
             else
             {
                 MessageBox.Show("Something goes wrong!");
-            }
-        }
-
-        //--------------
-        // Save to XML
-        //--------------
-        public void saveXMLToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Information info = new Information();
-
-                info.Data1 = cCalcTB.Text;
-                // -->
-
-                SaveXML.SaveData(info, "data.xml");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
 
@@ -130,7 +107,10 @@ namespace EPT.modules
                 XmlSerializer xs = new XmlSerializer(typeof(Information));
                 FileStream read = new FileStream("data.xml", FileMode.Open, FileAccess.Read, FileShare.Read);
                 Information info = (Information)xs.Deserialize(read);
-                cCalcTB.Text = info.Data1;
+                LppTB.Text = info.lppData;
+                LTB.Text = info.lData;
+
+                cCalcTB.Text = info.lppData;
             }
         }
 
@@ -144,7 +124,7 @@ namespace EPT.modules
                 {
 
                     Information info = new Information();
-                    info.Data1 = cCalcTB.Text;
+                    info.lppData = LppTB.Text;
                     // -->
 
                     SaveXML.SaveData(info, "data.xml");
@@ -154,6 +134,69 @@ namespace EPT.modules
                     MessageBox.Show(ex.Message);
                 }
             
+        }
+        //------------
+        // Protect 
+        //------------
+        private void zdkTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ProtectText(zdkTB, e);
+        }
+
+        private void LppTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ProtectText(LppTB, e);
+        }
+
+        private void LTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ProtectText(LTB, e);
+        }
+
+        private void BTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ProtectText(BTB, e);
+        }
+
+        private void DTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ProtectText(DTB, e);
+        }
+
+        private void VTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ProtectText(VTB, e);
+        }
+
+        private void CbTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ProtectText(CbTB, e);
+        }
+
+        private void TballTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ProtectText(TballTB, e);
+        }
+
+        private void TscTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ProtectText(TscTB, e);
+        }
+
+        private void FRTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ProtectText(FRTB, e);
+        }
+
+        private void zfdkTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ProtectText(zfdkTB, e);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            lppSave = LppTB.Text;
+            lSave = LTB.Text;
         }
     }
 }

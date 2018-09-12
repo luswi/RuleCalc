@@ -8,14 +8,24 @@ namespace EPT.classes
 {
     public class Information
     {
-        private string data1;
-        private string data2;
-        private string data3;
+        private string lppSave;
+        private string lSave;
+        private string bSave;
 
-        public string Data1
+        public string lppData
         {
-            get { return data1; }
-            set { data1 = value; }
+            get { return lppSave; }
+            set { lppSave = value; }
+        }
+        public string lData
+        {
+            get { return lSave; }
+            set { lSave = value; }
+        }
+        public string bData
+        {
+            get { return bSave; }
+            set { bSave = value; }
         }
     }
 }

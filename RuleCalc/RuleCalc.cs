@@ -26,10 +26,17 @@ namespace EPT
             //------------------
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
-
         }
+       
 
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure that you would like to cancel the installer?", "Cancel Installer", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
         private void panelMain_Paint(object sender, PaintEventArgs e)
         {
             modules.intro intro = new modules.intro();
@@ -57,14 +64,16 @@ namespace EPT
         //--------------
         // Save to XML
         //--------------
-        private void saveXMLToolStripMenuItem_Click(object sender, EventArgs e)
+        public void saveXMLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
 
                 Information info = new Information();
                 //info.Data1 = cCalcTB.Text;
-                info.Data1 = modules.Pressure.SetValueForText1;
+                info.lppData = modules.Pressure.lppSave;
+                info.lData = modules.Pressure.lSave;
+                
                 // -->
 
                 SaveXML.SaveData(info, "data.xml");
