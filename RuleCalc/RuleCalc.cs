@@ -27,16 +27,19 @@ namespace EPT
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
         }
-       
-
-
+        //-------------------
+        // Exit confirmation
+        //-------------------
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Are you sure that you would like to cancel the installer?", "Cancel Installer", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show("Are you sure that you would like to close RuleCalc", "Close RuleCalc", MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 e.Cancel = true;
             }
         }
+        //-------------------
+        // loads intro form
+        //-------------------
         private void panelMain_Paint(object sender, PaintEventArgs e)
         {
             modules.intro intro = new modules.intro();
@@ -46,7 +49,9 @@ namespace EPT
             intro.Dock = DockStyle.Fill;
             intro.Show();
         }
-
+        //--------------------
+        // Open Pressule tool
+        //--------------------
         private void pressureToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Controls.Clear();
@@ -58,29 +63,36 @@ namespace EPT
             pressure.Dock = DockStyle.Fill;
             pressure.Show();
         }
-
-        
-
         //--------------
         // Save to XML
         //--------------
         public void saveXMLToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
+            if (modules.Pressure.lppSave != "")
             {
+                try
+                {
 
-                Information info = new Information();
-                //info.Data1 = cCalcTB.Text;
-                info.lppData = modules.Pressure.lppSave;
-                info.lData = modules.Pressure.lSave;
-                
-                // -->
+                    Information info = new Information();
+                    
+                    info.lppData = modules.Pressure.lppSave;
+                    info.lData = modules.Pressure.lSave;
+                    info.bData = modules.Pressure.bSave;
+                    info.dData = modules.Pressure.dSave;
 
-                SaveXML.SaveData(info, "data.xml");
+                    // -->
+
+                    SaveXML.SaveData(info, "data.xml");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Please select module first!");
             }
         }
 

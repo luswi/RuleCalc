@@ -46,7 +46,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(659, 24);
+            this.menuStrip.Size = new System.Drawing.Size(674, 24);
             this.menuStrip.TabIndex = 19;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -90,7 +90,7 @@
             // 
             this.panelMain.Location = new System.Drawing.Point(0, 27);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(788, 694);
+            this.panelMain.Size = new System.Drawing.Size(788, 712);
             this.panelMain.TabIndex = 20;
             this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
@@ -98,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(659, 681);
+            this.ClientSize = new System.Drawing.Size(674, 751);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;

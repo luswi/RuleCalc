@@ -154,7 +154,6 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControl11.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -183,7 +182,6 @@
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.button1);
             this.tabPage6.Controls.Add(this.groupBox10);
             this.tabPage6.Controls.Add(this.pictureBox1);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
@@ -279,8 +277,9 @@
             this.BTB.Location = new System.Drawing.Point(256, 76);
             this.BTB.Name = "BTB";
             this.BTB.Size = new System.Drawing.Size(100, 21);
-            this.BTB.TabIndex = 24;
-            this.BTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BTB_KeyPress);
+            this.BTB.TabIndex = 3;
+            this.BTB.TextChanged += new System.EventHandler(this.updateForSave);
+            this.BTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
             // label49
             // 
@@ -298,8 +297,9 @@
             this.LppTB.Location = new System.Drawing.Point(256, 24);
             this.LppTB.Name = "LppTB";
             this.LppTB.Size = new System.Drawing.Size(100, 21);
-            this.LppTB.TabIndex = 23;
-            this.LppTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LppTB_KeyPress);
+            this.LppTB.TabIndex = 1;
+            this.LppTB.TextChanged += new System.EventHandler(this.updateForSave);
+            this.LppTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
             // label50
             // 
@@ -337,8 +337,9 @@
             this.LTB.Location = new System.Drawing.Point(256, 50);
             this.LTB.Name = "LTB";
             this.LTB.Size = new System.Drawing.Size(100, 21);
-            this.LTB.TabIndex = 27;
-            this.LTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LTB_KeyPress);
+            this.LTB.TabIndex = 2;
+            this.LTB.TextChanged += new System.EventHandler(this.updateForSave);
+            this.LTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
             // label44
             // 
@@ -378,7 +379,8 @@
             this.zfdkTB.Size = new System.Drawing.Size(100, 21);
             this.zfdkTB.TabIndex = 35;
             this.toolTip.SetToolTip(this.zfdkTB, "distance from baseline to freeboard deck considered at side");
-            this.zfdkTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.zfdkTB_KeyPress);
+            this.zfdkTB.TextChanged += new System.EventHandler(this.updateForSave);
+            this.zfdkTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
             // label46
             // 
@@ -398,7 +400,8 @@
             this.zdkTB.Size = new System.Drawing.Size(100, 21);
             this.zdkTB.TabIndex = 36;
             this.toolTip.SetToolTip(this.zdkTB, "distance from baseline to freeboard deck considered at side");
-            this.zdkTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.zdkTB_KeyPress);
+            this.zdkTB.TextChanged += new System.EventHandler(this.updateForSave);
+            this.zdkTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
             // label47
             // 
@@ -467,7 +470,8 @@
             this.FRTB.Name = "FRTB";
             this.FRTB.Size = new System.Drawing.Size(100, 21);
             this.FRTB.TabIndex = 78;
-            this.FRTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FRTB_KeyPress);
+            this.FRTB.TextChanged += new System.EventHandler(this.updateForSave);
+            this.FRTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
             // label20
             // 
@@ -566,7 +570,8 @@
             this.TscTB.Name = "TscTB";
             this.TscTB.Size = new System.Drawing.Size(100, 21);
             this.TscTB.TabIndex = 73;
-            this.TscTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TscTB_KeyPress);
+            this.TscTB.TextChanged += new System.EventHandler(this.updateForSave);
+            this.TscTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
             // label25
             // 
@@ -614,8 +619,9 @@
             this.DTB.Location = new System.Drawing.Point(256, 102);
             this.DTB.Name = "DTB";
             this.DTB.Size = new System.Drawing.Size(100, 21);
-            this.DTB.TabIndex = 57;
-            this.DTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DTB_KeyPress);
+            this.DTB.TabIndex = 4;
+            this.DTB.TextChanged += new System.EventHandler(this.updateForSave);
+            this.DTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
             // label35
             // 
@@ -664,7 +670,8 @@
             this.TballTB.Name = "TballTB";
             this.TballTB.Size = new System.Drawing.Size(100, 21);
             this.TballTB.TabIndex = 68;
-            this.TballTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TballTB_KeyPress);
+            this.TballTB.TextChanged += new System.EventHandler(this.updateForSave);
+            this.TballTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
             // VTB
             // 
@@ -673,7 +680,8 @@
             this.VTB.Name = "VTB";
             this.VTB.Size = new System.Drawing.Size(100, 21);
             this.VTB.TabIndex = 60;
-            this.VTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VTB_KeyPress);
+            this.VTB.TextChanged += new System.EventHandler(this.updateForSave);
+            this.VTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
             // label32
             // 
@@ -732,7 +740,8 @@
             this.CbTB.Name = "CbTB";
             this.CbTB.Size = new System.Drawing.Size(100, 21);
             this.CbTB.TabIndex = 63;
-            this.CbTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CbTB_KeyPress);
+            this.CbTB.TextChanged += new System.EventHandler(this.updateForSave);
+            this.CbTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
             // labelCb
             // 
@@ -1021,7 +1030,6 @@
             this.saveBT.TabIndex = 22;
             this.saveBT.Text = "Save to XML";
             this.saveBT.UseVisualStyleBackColor = true;
-            this.saveBT.Click += new System.EventHandler(this.saveBT_Click);
             // 
             // calculateBT
             // 
@@ -1448,16 +1456,6 @@
             this.toolTip.ReshowDelay = 100;
             this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(178, 541);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 92;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Pressure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1617,6 +1615,5 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Button button1;
     }
 }
