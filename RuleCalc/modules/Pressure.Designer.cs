@@ -96,7 +96,7 @@
             this.Info = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button = new System.Windows.Forms.Button();
             this.add_col = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvCalculate = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -107,7 +107,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNames)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCalculate)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl11
@@ -801,7 +801,7 @@
             this.tabPage1.Controls.Add(this.dgvNames);
             this.tabPage1.Controls.Add(this.button);
             this.tabPage1.Controls.Add(this.add_col);
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.dgvCalculate);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -854,21 +854,21 @@
             this.add_col.Text = "Add Column";
             this.add_col.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvCalculate
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCalculate.AllowUserToAddRows = false;
+            this.dgvCalculate.AllowUserToDeleteRows = false;
+            this.dgvCalculate.AllowUserToResizeColumns = false;
+            this.dgvCalculate.AllowUserToResizeRows = false;
+            this.dgvCalculate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCalculate.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            this.dataGridView1.Location = new System.Drawing.Point(112, 6);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(474, 548);
-            this.dataGridView1.TabIndex = 19;
+            this.dgvCalculate.Location = new System.Drawing.Point(112, 6);
+            this.dgvCalculate.MultiSelect = false;
+            this.dgvCalculate.Name = "dgvCalculate";
+            this.dgvCalculate.RowHeadersVisible = false;
+            this.dgvCalculate.Size = new System.Drawing.Size(474, 548);
+            this.dgvCalculate.TabIndex = 19;
             // 
             // Column1
             // 
@@ -921,7 +921,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNames)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCalculate)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -997,7 +997,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Info;
         private System.Windows.Forms.Button button;
         private System.Windows.Forms.Button add_col;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCalculate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Button newCalcPoint;
     }

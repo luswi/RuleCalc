@@ -104,14 +104,41 @@ namespace EPT.modules
 
                 
             }
-            // add rows
+            //----------------------------------
+            // add rows for calculation table
+            //----------------------------------
             for (int i = 0; i<= 42; i++ )
             {
-                i = dataGridView1.Rows.Add();
+                i = dgvCalculate.Rows.Add();
 
             }
-            dataGridView1.Rows[2].Cells[0].Value = "tescik";
-            dataGridView1.Rows[2].ReadOnly = true;
+            dgvCalculate.Rows[4].Cells[0].Value = null; //this is important.
+            DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
+            c.Items.Add("On");
+            c.Items.Add("Off");
+            dgvCalculate.Rows[4].Cells[0] = c;
+
+            //works
+            //for (int i = 0; i < oDg.RowCount; i++)
+            //{
+            //    for (int j = 0; j < oDg.ColumnCount; j++)
+            //    {
+            //        oDg.Rows[i].Cells[j].Value = null; //this is important.
+            //        DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
+            //        c.Items.Add("On");
+            //        c.Items.Add("Off");
+            //        oDg.Rows[i].Cells[j] = c;
+            //    }
+            //}
+
+
+
+
+            //test area start
+            dgvCalculate.Rows[2].Cells[0].Value = "tescik";
+            dgvCalculate.Rows[2].ReadOnly = true;
+           
+            //test area end
 
 
 
@@ -134,7 +161,6 @@ namespace EPT.modules
             dgvNames.Rows.Add("x [m] load point");
             dgvNames.Rows.Add("y [m] load point");
             dgvNames.Rows.Add("z [m] load point");
-
             dgvNames.Rows.Add("Bx");
             dgvNames.Rows.Add("lbdg [m] (Stiffener bending span)");
             dgvNames.Rows.Add("s [mm] (stiffener spacing)");
@@ -168,7 +194,9 @@ namespace EPT.modules
         }
 
 
-        // color row
+        //--------------------------------
+        // color rows depends from group
+        //--------------------------------
         public void RowsColor()
         {
             for (int i = 0; i< dgvNames.Rows.Count; i++)
@@ -209,29 +237,34 @@ namespace EPT.modules
        
 
 
-
+        // test area
         private void button1_Click(object sender, EventArgs e)
         {
             // string someString = dataGridView1[0, 2].Value.ToString();
             // dataGridView1.Rows[4].Cells[0].Value = someString;
 
-            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+            for (int i = 0; i < dgvCalculate.Columns.Count; i++)
             {
-                string kolumna = dataGridView1[i, 1].Value.ToString();
-                dataGridView1.Rows[3].Cells[i].Value = kolumna;
+                string kolumna = dgvCalculate[i, 1].Value.ToString();
+                dgvCalculate.Rows[3].Cells[i].Value = kolumna;
             }
-
-
         }
+        // test area end
 
+        //---------------------------------------
+        // Add new column for calculating point
+        //---------------------------------------
         private void newCalcPoint_Click(object sender, EventArgs e)
         {
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "asdasd" });
+            dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "asdasd" });
         }
 
+        //---------------------
+        // synchronize 2 grids
+        //---------------------
         private void dgvNames_Scroll(object sender, ScrollEventArgs e)
         {
-            dataGridView1.FirstDisplayedScrollingRowIndex = dgvNames.FirstDisplayedScrollingRowIndex;
+            dgvCalculate.FirstDisplayedScrollingRowIndex = dgvNames.FirstDisplayedScrollingRowIndex;
         }
     }
 }
