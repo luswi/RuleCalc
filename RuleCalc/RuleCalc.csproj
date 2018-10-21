@@ -109,8 +109,5 @@
   <ItemGroup>
     <None Include="img\vessel.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="vessel.ico" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

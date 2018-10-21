@@ -73,7 +73,7 @@ namespace EPT.modules
             bool success = v.seaCalculation(v);
             if (success == true)
             {
-                cCalcTB.Text = Convert.ToString(v.cCalc);
+                //cCalcTB.Text = Convert.ToString(v.cCalc);
 
             }
             else
@@ -100,9 +100,94 @@ namespace EPT.modules
                 DTB.Text = info.dData;
 
 
-                cCalcTB.Text = info.lppData;
+                //cCalcTB.Text = info.lppData;
+
+                
+            }
+            // add rows
+            for (int i = 0; i<= 42; i++ )
+            {
+                i = dataGridView1.Rows.Add();
+
+            }
+            dataGridView1.Rows[2].Cells[0].Value = "tescik";
+            dataGridView1.Rows[2].ReadOnly = true;
+
+
+
+
+            dgvNames.Rows.Add("x [m] load point");
+            dgvNames.Rows.Add("y [m] load point");
+            dgvNames.Rows.Add("z [m] load point");
+            dgvNames.Rows.Add("Bx [m]");
+            dgvNames.Rows.Add("R_eH [MPa]");
+            dgvNames.Rows.Add("b [mm]");
+            dgvNames.Rows.Add("a [mm] (EPP Length]");
+            dgvNames.Rows.Add("Alpha (aspect ratio)");
+            dgvNames.Rows.Add("P [MPa]");
+            dgvNames.Rows.Add("t req gross [mm]");
+            dgvNames.Rows.Add("tc plate [mm]");
+            dgvNames.Rows.Add("th act. [mm]");
+            dgvNames.Rows.Add("th. status");
+            dgvNames.Rows.Add("plate slenderness status");
+            dgvNames.Rows.Add("");
+            dgvNames.Rows.Add("x [m] load point");
+            dgvNames.Rows.Add("y [m] load point");
+            dgvNames.Rows.Add("z [m] load point");
+
+            dgvNames.Rows.Add("Bx");
+            dgvNames.Rows.Add("lbdg [m] (Stiffener bending span)");
+            dgvNames.Rows.Add("s [mm] (stiffener spacing)");
+            dgvNames.Rows.Add("f_u (HP-profile)");
+            dgvNames.Rows.Add("f_bdg (10 for trv. Stiff?)");
+            dgvNames.Rows.Add("R_eH [MPa]");
+            dgvNames.Rows.Add("dshr [mm]");
+            dgvNames.Rows.Add("hstif [mm]");
+            dgvNames.Rows.Add("tp [mm]");
+            dgvNames.Rows.Add("ϕw [deg]");
+            dgvNames.Rows.Add("lshr [m]");
+            dgvNames.Rows.Add("fshr");
+            dgvNames.Rows.Add("ΤeH [MPa]");
+            dgvNames.Rows.Add("P [MPa]");
+            dgvNames.Rows.Add("tc stiffener [mm]");
+            dgvNames.Rows.Add("t req gross [mm]");
+            dgvNames.Rows.Add("th act. [mm]");
+            dgvNames.Rows.Add("th. status");
+            dgvNames.Rows.Add("tw slenderness");
+            dgvNames.Rows.Add("zreq ");
+            dgvNames.Rows.Add("b web [mm]");
+            dgvNames.Rows.Add("b flange [mm]");
+            dgvNames.Rows.Add("t flange [mm]");
+            dgvNames.Rows.Add("Z [cm^3]");
+            dgvNames.Rows.Add("Z status");
+
+
+            RowsColor();
+
+
+        }
+
+
+        // color row
+        public void RowsColor()
+        {
+            for (int i = 0; i< dgvNames.Rows.Count; i++)
+            {
+                if (i <= 4)
+                {
+                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.Azure;
+                }
+                else if (i > 4 & i < 7)
+                {
+                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.Bisque;
+                }
+                else
+                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.Coral;
+
             }
         }
+
+
         //--------------------------------
         // Public variables for save menu
         //--------------------------------
@@ -120,6 +205,33 @@ namespace EPT.modules
             lSave = LTB.Text;
             bSave = BTB.Text;
             dSave = DTB.Text;
+        }
+       
+
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // string someString = dataGridView1[0, 2].Value.ToString();
+            // dataGridView1.Rows[4].Cells[0].Value = someString;
+
+            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                string kolumna = dataGridView1[i, 1].Value.ToString();
+                dataGridView1.Rows[3].Cells[i].Value = kolumna;
+            }
+
+
+        }
+
+        private void newCalcPoint_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "asdasd" });
+        }
+
+        private void dgvNames_Scroll(object sender, ScrollEventArgs e)
+        {
+            dataGridView1.FirstDisplayedScrollingRowIndex = dgvNames.FirstDisplayedScrollingRowIndex;
         }
     }
 }
