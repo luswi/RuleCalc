@@ -92,6 +92,7 @@
             this.labelCb = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.newCalcPoint = new System.Windows.Forms.Button();
             this.dgvNames = new System.Windows.Forms.DataGridView();
             this.Info = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button = new System.Windows.Forms.Button();
@@ -100,7 +101,6 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.newCalcPoint = new System.Windows.Forms.Button();
             this.tabControl11.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -810,6 +810,16 @@
             this.tabPage1.Text = "Sea Pressure";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // newCalcPoint
+            // 
+            this.newCalcPoint.Location = new System.Drawing.Point(65, 598);
+            this.newCalcPoint.Name = "newCalcPoint";
+            this.newCalcPoint.Size = new System.Drawing.Size(175, 23);
+            this.newCalcPoint.TabIndex = 23;
+            this.newCalcPoint.Text = "New calculating point";
+            this.newCalcPoint.UseVisualStyleBackColor = true;
+            this.newCalcPoint.Click += new System.EventHandler(this.newCalcPoint_Click);
+            // 
             // dgvNames
             // 
             this.dgvNames.AllowUserToAddRows = false;
@@ -892,16 +902,6 @@
             this.toolTip.IsBalloon = true;
             this.toolTip.ReshowDelay = 100;
             this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            // 
-            // newCalcPoint
-            // 
-            this.newCalcPoint.Location = new System.Drawing.Point(65, 598);
-            this.newCalcPoint.Name = "newCalcPoint";
-            this.newCalcPoint.Size = new System.Drawing.Size(175, 23);
-            this.newCalcPoint.TabIndex = 23;
-            this.newCalcPoint.Text = "New calculating point";
-            this.newCalcPoint.UseVisualStyleBackColor = true;
-            this.newCalcPoint.Click += new System.EventHandler(this.newCalcPoint_Click);
             // 
             // Pressure
             // 

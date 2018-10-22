@@ -54,10 +54,12 @@ namespace EPT.modules
             }
         }
 
+
+
         //-------------------
         // Main APP section
         //-------------------
-        
+
         pressureClass v = new pressureClass();
 
         public void calculateBT_Click(object sender, EventArgs e)
@@ -112,6 +114,14 @@ namespace EPT.modules
                 i = dgvCalculate.Rows.Add();
 
             }
+            //------------------
+            // Hide scroll bar
+            //------------------
+            dgvCalculate.ScrollBars = ScrollBars.None;
+
+
+
+            //test area for combobox
             dgvCalculate.Rows[4].Cells[0].Value = null; //this is important.
             DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
             c.Items.Add("On");
