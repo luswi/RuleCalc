@@ -56,6 +56,10 @@ namespace EPT.modules
 
 
 
+
+
+
+
         //-------------------
         // Main APP section
         //-------------------
@@ -100,20 +104,25 @@ namespace EPT.modules
                 LTB.Text = info.lData;
                 BTB.Text = info.bData;
                 DTB.Text = info.dData;
+                //----------------------------------
+                // add rows for calculation table
+                //----------------------------------
+                for (int i = 0; i <= 42; i++)
+                {
+                    i = dgvCalculate.Rows.Add();
+
+                }
+
+                //test
+                dgvCalculate.Rows[0].Cells[0].Value = info.lppData;
+
 
 
                 //cCalcTB.Text = info.lppData;
 
-                
-            }
-            //----------------------------------
-            // add rows for calculation table
-            //----------------------------------
-            for (int i = 0; i<= 42; i++ )
-            {
-                i = dgvCalculate.Rows.Add();
 
             }
+  
             //------------------
             // Hide scroll bar
             //------------------
@@ -275,6 +284,33 @@ namespace EPT.modules
         private void dgvNames_Scroll(object sender, ScrollEventArgs e)
         {
             dgvCalculate.FirstDisplayedScrollingRowIndex = dgvNames.FirstDisplayedScrollingRowIndex;
+        }
+
+
+        //----------------------------------------------
+        // DataGridView number and only one "." check
+        //----------------------------------------------
+        private void dgvCalculate_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (dgvCalculate.CurrentCell.ColumnIndex == 0)
+            {
+                e.Control.KeyPress += new KeyPressEventHandler(dgvCalculate_KeyPress);
+            }
+        }
+
+        private void dgvCalculate_KeyPress(object sender, KeyPressEventArgs e)
+        {   
+            // digits and "." only
+            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            // only one "."
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+
         }
     }
 }

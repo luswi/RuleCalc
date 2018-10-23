@@ -14,11 +14,14 @@ namespace EPT.classes
         private string dSave;
         private string vSave;
         private string cbSave;
-        private string tballSave;
+        private string tbalSave;
         private string tscSave;
+        private string gmSave;
+        private string krSave;
+        private string saSave;
         private string frSave;
-        private string zdkSave;
-        private string zfdkSave;
+        private string bkSave;
+        
 
         public string lppData
         {
@@ -39,6 +42,21 @@ namespace EPT.classes
         {
             get { return dSave; }
             set { dSave = value; }
+        }
+        public string vData
+        {
+            get { return vSave; }
+            set { vSave = value; }
+        }
+        public string cbData
+        {
+            get { return cbSave; }
+            set { cbSave = value; }
+        }
+        public string tbalData
+        {
+            get { return tbalSave; }
+            set { tbalSave = value; }
         }
     }
 }
