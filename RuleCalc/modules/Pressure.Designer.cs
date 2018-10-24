@@ -33,18 +33,14 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.saveBT = new System.Windows.Forms.Button();
             this.calculateBT = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.label45 = new System.Windows.Forms.Label();
+            this.bkCB = new System.Windows.Forms.ComboBox();
             this.label49 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.saCB = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.frTB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
             this.BTB = new System.Windows.Forms.TextBox();
             this.LppTB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,16 +48,15 @@
             this.LTB = new System.Windows.Forms.TextBox();
             this.label44 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.zfdkTB = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
-            this.zdkTB = new System.Windows.Forms.TextBox();
+            this.krTB = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.FRTB = new System.Windows.Forms.TextBox();
+            this.gmTB = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -81,7 +76,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.TballTB = new System.Windows.Forms.TextBox();
+            this.TbalTB = new System.Windows.Forms.TextBox();
             this.VTB = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -98,11 +93,11 @@
             this.button = new System.Windows.Forms.Button();
             this.add_col = new System.Windows.Forms.Button();
             this.dgvCalculate = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl11.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -129,9 +124,6 @@
             // 
             this.tabPage6.Controls.Add(this.saveBT);
             this.tabPage6.Controls.Add(this.calculateBT);
-            this.tabPage6.Controls.Add(this.comboBox1);
-            this.tabPage6.Controls.Add(this.label10);
-            this.tabPage6.Controls.Add(this.label19);
             this.tabPage6.Controls.Add(this.groupBox10);
             this.tabPage6.Controls.Add(this.pictureBox1);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
@@ -159,53 +151,15 @@
             this.calculateBT.Text = "Calculate";
             this.calculateBT.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "R0 (No reduction)",
-            "R1 (10% reduction)",
-            "R2 (20% reduction)",
-            "R3 (30% reduction)",
-            "R4 (40% reduction)",
-            "R5 (50% reduction)"});
-            this.comboBox1.Location = new System.Drawing.Point(68, 586);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(141, 24);
-            this.comboBox1.TabIndex = 94;
-            this.toolTip.SetToolTip(this.comboBox1, "reduction factor related to service restrictions ");
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.Location = new System.Drawing.Point(39, 596);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(8, 12);
-            this.label10.TabIndex = 93;
-            this.label10.Text = "r";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label19.Location = new System.Drawing.Point(29, 589);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(10, 15);
-            this.label19.TabIndex = 92;
-            this.label19.Text = "f";
-            // 
             // groupBox10
             // 
-            this.groupBox10.Controls.Add(this.label45);
+            this.groupBox10.Controls.Add(this.bkCB);
             this.groupBox10.Controls.Add(this.label49);
-            this.groupBox10.Controls.Add(this.textBox3);
+            this.groupBox10.Controls.Add(this.saCB);
             this.groupBox10.Controls.Add(this.label11);
             this.groupBox10.Controls.Add(this.label18);
-            this.groupBox10.Controls.Add(this.textBox1);
+            this.groupBox10.Controls.Add(this.frTB);
             this.groupBox10.Controls.Add(this.label1);
-            this.groupBox10.Controls.Add(this.label48);
             this.groupBox10.Controls.Add(this.BTB);
             this.groupBox10.Controls.Add(this.LppTB);
             this.groupBox10.Controls.Add(this.label2);
@@ -213,16 +167,15 @@
             this.groupBox10.Controls.Add(this.LTB);
             this.groupBox10.Controls.Add(this.label44);
             this.groupBox10.Controls.Add(this.label4);
-            this.groupBox10.Controls.Add(this.zfdkTB);
             this.groupBox10.Controls.Add(this.label46);
-            this.groupBox10.Controls.Add(this.zdkTB);
+            this.groupBox10.Controls.Add(this.krTB);
             this.groupBox10.Controls.Add(this.label47);
             this.groupBox10.Controls.Add(this.label14);
             this.groupBox10.Controls.Add(this.label41);
             this.groupBox10.Controls.Add(this.label15);
             this.groupBox10.Controls.Add(this.label42);
             this.groupBox10.Controls.Add(this.label16);
-            this.groupBox10.Controls.Add(this.FRTB);
+            this.groupBox10.Controls.Add(this.gmTB);
             this.groupBox10.Controls.Add(this.label20);
             this.groupBox10.Controls.Add(this.label43);
             this.groupBox10.Controls.Add(this.label21);
@@ -242,7 +195,7 @@
             this.groupBox10.Controls.Add(this.label28);
             this.groupBox10.Controls.Add(this.label34);
             this.groupBox10.Controls.Add(this.label27);
-            this.groupBox10.Controls.Add(this.TballTB);
+            this.groupBox10.Controls.Add(this.TbalTB);
             this.groupBox10.Controls.Add(this.VTB);
             this.groupBox10.Controls.Add(this.label32);
             this.groupBox10.Controls.Add(this.label30);
@@ -259,40 +212,54 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Ship data";
             // 
-            // label45
+            // bkCB
             // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label45.Location = new System.Drawing.Point(362, 339);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(24, 15);
-            this.label45.TabIndex = 96;
-            this.label45.Text = "[m]";
+            this.bkCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bkCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bkCB.FormattingEnabled = true;
+            this.bkCB.Items.AddRange(new object[] {
+            "YES",
+            "NO"});
+            this.bkCB.Location = new System.Drawing.Point(256, 342);
+            this.bkCB.Name = "bkCB";
+            this.bkCB.Size = new System.Drawing.Size(121, 23);
+            this.bkCB.TabIndex = 97;
+            this.bkCB.TextChanged += new System.EventHandler(this.updateForSave);
             // 
             // label49
             // 
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label49.Location = new System.Drawing.Point(6, 335);
+            this.label49.Location = new System.Drawing.Point(6, 343);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(61, 15);
             this.label49.TabIndex = 95;
             this.label49.Text = "Bilge keel";
             // 
-            // textBox3
+            // saCB
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox3.Location = new System.Drawing.Point(256, 338);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 21);
-            this.textBox3.TabIndex = 94;
-            this.toolTip.SetToolTip(this.textBox3, "distance from baseline to freeboard deck considered at side");
+            this.saCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.saCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.saCB.FormattingEnabled = true;
+            this.saCB.Items.AddRange(new object[] {
+            "R0 (No reduction)",
+            "R1 (10% reduction)",
+            "R2 (20% reduction)",
+            "R3 (30% reduction)",
+            "R4 (40% reduction)",
+            "RE (50% reduction)"});
+            this.saCB.Location = new System.Drawing.Point(256, 285);
+            this.saCB.Name = "saCB";
+            this.saCB.Size = new System.Drawing.Size(141, 23);
+            this.saCB.TabIndex = 11;
+            this.toolTip.SetToolTip(this.saCB, "reduction factor related to service restrictions ");
+            this.saCB.TextChanged += new System.EventHandler(this.updateForSave);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label11.Location = new System.Drawing.Point(362, 312);
+            this.label11.Location = new System.Drawing.Point(362, 316);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(24, 15);
             this.label11.TabIndex = 93;
@@ -302,20 +269,23 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label18.Location = new System.Drawing.Point(6, 308);
+            this.label18.Location = new System.Drawing.Point(6, 316);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(14, 15);
             this.label18.TabIndex = 92;
             this.label18.Text = "fr";
             // 
-            // textBox1
+            // frTB
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.Location = new System.Drawing.Point(256, 311);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 91;
-            this.toolTip.SetToolTip(this.textBox1, "distance from baseline to freeboard deck considered at side");
+            this.frTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.frTB.Location = new System.Drawing.Point(256, 315);
+            this.frTB.Name = "frTB";
+            this.frTB.ReadOnly = true;
+            this.frTB.Size = new System.Drawing.Size(100, 21);
+            this.frTB.TabIndex = 12;
+            this.toolTip.SetToolTip(this.frTB, "distance from baseline to freeboard deck considered at side");
+            this.frTB.TextChanged += new System.EventHandler(this.updateForSave);
+            this.frTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
             // label1
             // 
@@ -327,16 +297,6 @@
             this.label1.TabIndex = 46;
             this.label1.Text = "Length between perpendiculars";
             // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label48.Location = new System.Drawing.Point(362, 285);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(24, 15);
-            this.label48.TabIndex = 90;
-            this.label48.Text = "[m]";
-            // 
             // BTB
             // 
             this.BTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -346,6 +306,7 @@
             this.BTB.TabIndex = 3;
             this.BTB.TextChanged += new System.EventHandler(this.updateForSave);
             this.BTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
+            this.BTB.Leave += new System.EventHandler(this.BTB_Leave);
             // 
             // LppTB
             // 
@@ -407,17 +368,6 @@
             this.label4.TabIndex = 28;
             this.label4.Text = "Maximum service speed";
             // 
-            // zfdkTB
-            // 
-            this.zfdkTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zfdkTB.Location = new System.Drawing.Point(256, 284);
-            this.zfdkTB.Name = "zfdkTB";
-            this.zfdkTB.Size = new System.Drawing.Size(100, 21);
-            this.zfdkTB.TabIndex = 35;
-            this.toolTip.SetToolTip(this.zfdkTB, "distance from baseline to freeboard deck considered at side");
-            this.zfdkTB.TextChanged += new System.EventHandler(this.updateForSave);
-            this.zfdkTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
-            // 
             // label46
             // 
             this.label46.AutoSize = true;
@@ -428,16 +378,17 @@
             this.label46.TabIndex = 82;
             this.label46.Text = "kr";
             // 
-            // zdkTB
+            // krTB
             // 
-            this.zdkTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zdkTB.Location = new System.Drawing.Point(256, 258);
-            this.zdkTB.Name = "zdkTB";
-            this.zdkTB.Size = new System.Drawing.Size(100, 21);
-            this.zdkTB.TabIndex = 36;
-            this.toolTip.SetToolTip(this.zdkTB, "distance from baseline to freeboard deck considered at side");
-            this.zdkTB.TextChanged += new System.EventHandler(this.updateForSave);
-            this.zdkTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
+            this.krTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.krTB.Location = new System.Drawing.Point(256, 258);
+            this.krTB.Name = "krTB";
+            this.krTB.ReadOnly = true;
+            this.krTB.Size = new System.Drawing.Size(100, 21);
+            this.krTB.TabIndex = 10;
+            this.toolTip.SetToolTip(this.krTB, "distance from baseline to freeboard deck considered at side");
+            this.krTB.TextChanged += new System.EventHandler(this.updateForSave);
+            this.krTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
             // label47
             // 
@@ -499,15 +450,16 @@
             this.label16.TabIndex = 49;
             this.label16.Text = "Moulded breadth of ship";
             // 
-            // FRTB
+            // gmTB
             // 
-            this.FRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.FRTB.Location = new System.Drawing.Point(256, 232);
-            this.FRTB.Name = "FRTB";
-            this.FRTB.Size = new System.Drawing.Size(100, 21);
-            this.FRTB.TabIndex = 78;
-            this.FRTB.TextChanged += new System.EventHandler(this.updateForSave);
-            this.FRTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
+            this.gmTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.gmTB.Location = new System.Drawing.Point(256, 232);
+            this.gmTB.Name = "gmTB";
+            this.gmTB.ReadOnly = true;
+            this.gmTB.Size = new System.Drawing.Size(100, 21);
+            this.gmTB.TabIndex = 9;
+            this.gmTB.TextChanged += new System.EventHandler(this.updateForSave);
+            this.gmTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
             // label20
             // 
@@ -605,7 +557,7 @@
             this.TscTB.Location = new System.Drawing.Point(256, 206);
             this.TscTB.Name = "TscTB";
             this.TscTB.Size = new System.Drawing.Size(100, 21);
-            this.TscTB.TabIndex = 73;
+            this.TscTB.TabIndex = 8;
             this.TscTB.TextChanged += new System.EventHandler(this.updateForSave);
             this.TscTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
@@ -699,15 +651,15 @@
             this.label27.TabIndex = 59;
             this.label27.Text = "[m]";
             // 
-            // TballTB
+            // TbalTB
             // 
-            this.TballTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TballTB.Location = new System.Drawing.Point(256, 180);
-            this.TballTB.Name = "TballTB";
-            this.TballTB.Size = new System.Drawing.Size(100, 21);
-            this.TballTB.TabIndex = 68;
-            this.TballTB.TextChanged += new System.EventHandler(this.updateForSave);
-            this.TballTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
+            this.TbalTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TbalTB.Location = new System.Drawing.Point(256, 180);
+            this.TbalTB.Name = "TbalTB";
+            this.TbalTB.Size = new System.Drawing.Size(100, 21);
+            this.TbalTB.TabIndex = 7;
+            this.TbalTB.TextChanged += new System.EventHandler(this.updateForSave);
+            this.TbalTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
             // VTB
             // 
@@ -715,7 +667,7 @@
             this.VTB.Location = new System.Drawing.Point(256, 128);
             this.VTB.Name = "VTB";
             this.VTB.Size = new System.Drawing.Size(100, 21);
-            this.VTB.TabIndex = 60;
+            this.VTB.TabIndex = 5;
             this.VTB.TextChanged += new System.EventHandler(this.updateForSave);
             this.VTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
@@ -775,7 +727,7 @@
             this.CbTB.Location = new System.Drawing.Point(256, 155);
             this.CbTB.Name = "CbTB";
             this.CbTB.Size = new System.Drawing.Size(100, 21);
-            this.CbTB.TabIndex = 63;
+            this.CbTB.TabIndex = 6;
             this.CbTB.TextChanged += new System.EventHandler(this.updateForSave);
             this.CbTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
@@ -886,6 +838,12 @@
             this.dgvCalculate.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvCalculate_EditingControlShowing);
             this.dgvCalculate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvCalculate_KeyPress);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Point";
+            this.Column1.Name = "Column1";
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -895,20 +853,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tanks Pressure";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // toolTip
-            // 
-            this.toolTip.AutoPopDelay = 5000;
-            this.toolTip.InitialDelay = 1;
-            this.toolTip.IsBalloon = true;
-            this.toolTip.ReshowDelay = 100;
-            this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Point";
-            this.Column1.Name = "Column1";
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // tabPage3
             // 
@@ -928,6 +872,14 @@
             this.tabPage4.Text = "Deckhouse Pressure";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // toolTip
+            // 
+            this.toolTip.AutoPopDelay = 5000;
+            this.toolTip.InitialDelay = 1;
+            this.toolTip.IsBalloon = true;
+            this.toolTip.ReshowDelay = 100;
+            this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
             // Pressure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -940,7 +892,6 @@
             this.Load += new System.EventHandler(this.Pressure_Load);
             this.tabControl11.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -990,11 +941,10 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox TballTB;
+        private System.Windows.Forms.TextBox TbalTB;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.ToolTip toolTip;
@@ -1002,22 +952,17 @@
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.TextBox FRTB;
+        private System.Windows.Forms.TextBox gmTB;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.TextBox zdkTB;
-        private System.Windows.Forms.TextBox zfdkTB;
+        private System.Windows.Forms.TextBox krTB;
         private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox frTB;
         private System.Windows.Forms.Button saveBT;
         private System.Windows.Forms.Button calculateBT;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox saCB;
         private System.Windows.Forms.DataGridView dgvNames;
         private System.Windows.Forms.DataGridViewTextBoxColumn Info;
         private System.Windows.Forms.Button button;
@@ -1027,5 +972,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.ComboBox bkCB;
     }
 }

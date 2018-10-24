@@ -58,5 +58,35 @@ namespace EPT.classes
             get { return tbalSave; }
             set { tbalSave = value; }
         }
+        public string tscData
+        {
+            get { return tscSave; }
+            set { tscSave = value; }
+        }
+        public string gmData
+        {
+            get { return gmSave; }
+            set { gmSave = value; }
+        }
+        public string krData
+        {
+            get { return krSave; }
+            set { krSave = value; }
+        }
+        public string saData
+        {
+            get { return saSave; }
+            set { saSave = value; }
+        }
+        public string frData
+        {
+            get { return frSave; }
+            set { frSave = value; }
+        }
+        public string bkData
+        {
+            get { return bkSave; }
+            set { bkSave = value; }
+        }
     }
 }

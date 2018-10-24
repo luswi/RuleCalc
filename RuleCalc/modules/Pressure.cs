@@ -69,8 +69,8 @@ namespace EPT.modules
         public void calculateBT_Click(object sender, EventArgs e)
         {
             // Pick up values from textboxes
-            v.zdk = double.Parse(zdkTB.Text);
-            v.zfdk = double.Parse(zfdkTB.Text);
+            v.zdk = double.Parse(krTB.Text);
+            
 
 
             
@@ -104,6 +104,17 @@ namespace EPT.modules
                 LTB.Text = info.lData;
                 BTB.Text = info.bData;
                 DTB.Text = info.dData;
+                VTB.Text = info.vData;
+                CbTB.Text = info.cbData;
+                TbalTB.Text = info.tbalData;
+                TscTB.Text = info.tscData;
+                gmTB.Text = info.gmData;
+                krTB.Text = info.krData;
+                saCB.Text = info.saData;
+                frTB.Text = info.frData;
+                bkCB.Text = info.bkData;
+                
+
                 //----------------------------------
                 // add rows for calculation table
                 //----------------------------------
@@ -242,6 +253,15 @@ namespace EPT.modules
         public static string lSave = "";
         public static string bSave = "";
         public static string dSave = "";
+        public static string vSave = "";
+        public static string cbSave = "";
+        public static string tbalSave = "";
+        public static string tscSave = "";
+        public static string gmSave = "";
+        public static string krSave = "";
+        public static string saSave = "";
+        public static string frSave = "";
+        public static string bkSave = "";
 
         //---------------------------
         // update textboxes for save
@@ -252,6 +272,15 @@ namespace EPT.modules
             lSave = LTB.Text;
             bSave = BTB.Text;
             dSave = DTB.Text;
+            vSave = VTB.Text;
+            cbSave = CbTB.Text;
+            tbalSave = TbalTB.Text;
+            tscSave = TscTB.Text;
+            gmSave = gmTB.Text;
+            krSave = krTB.Text;
+            saSave = saCB.Text;
+            frSave = frTB.Text;
+            bkSave = bkCB.Text;
         }
        
 
@@ -311,6 +340,13 @@ namespace EPT.modules
                 e.Handled = true;
             }
 
+        }
+        // for comments and clear!!!!!
+        private void BTB_Leave(object sender, EventArgs e)
+        {
+            double b = Convert.ToDouble(BTB.Text);
+            double calc = b * 0.07;
+            gmTB.Text = calc.ToString("0.00");
         }
     }
 }

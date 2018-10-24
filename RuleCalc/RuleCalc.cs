@@ -79,6 +79,15 @@ namespace EPT
                     info.lData = modules.Pressure.lSave;
                     info.bData = modules.Pressure.bSave;
                     info.dData = modules.Pressure.dSave;
+                    info.vData = modules.Pressure.vSave;
+                    info.cbData = modules.Pressure.cbSave;
+                    info.tbalData = modules.Pressure.tbalSave;
+                    info.tscData = modules.Pressure.tscSave;
+                    info.gmData = modules.Pressure.gmSave;
+                    info.krData = modules.Pressure.krSave;
+                    info.saData = modules.Pressure.saSave;
+                    info.frData = modules.Pressure.frSave;
+                    info.bkData = modules.Pressure.bkSave;
 
                     // -->
 
