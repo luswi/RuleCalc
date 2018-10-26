@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using EPT.classes;
 using System.IO;
 using System.Xml.Serialization;
+using System.Xml;
 
 namespace EPT.modules
 {
@@ -113,8 +114,8 @@ namespace EPT.modules
                 saCB.Text = info.saData;
                 frTB.Text = info.frData;
                 bkCB.Text = info.bkData;
-                
 
+                
                 //----------------------------------
                 // add rows for calculation table
                 //----------------------------------
@@ -123,7 +124,7 @@ namespace EPT.modules
                     i = dgvCalculate.Rows.Add();
 
                 }
-
+                dropmenu();
                 //test
                 dgvCalculate.Rows[0].Cells[0].Value = info.lppData;
 
@@ -141,13 +142,7 @@ namespace EPT.modules
 
 
 
-            //test area for combobox
-            dgvCalculate.Rows[4].Cells[0].Value = null; //this is important.
-            DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
-            c.Items.Add("On");
-            c.Items.Add("Off");
-            dgvCalculate.Rows[4].Cells[0] = c;
-
+            
             //works
             //for (int i = 0; i < oDg.RowCount; i++)
             //{
@@ -223,6 +218,18 @@ namespace EPT.modules
 
         }
 
+        //test area for combobox
+        public void dropmenu()
+        {
+            for (int i = 0; i < dgvCalculate.ColumnCount; i++)
+            {
+                dgvCalculate.Rows[4].Cells[i].Value = null; //this is important.
+                DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
+                c.Items.Add("On");
+                c.Items.Add("Off");
+                dgvCalculate.Rows[4].Cells[i] = c;
+            }
+        }
 
         //--------------------------------
         // color rows depends from group
@@ -282,22 +289,6 @@ namespace EPT.modules
             frSave = frTB.Text;
             bkSave = bkCB.Text;
         }
-       
-
-
-        // test area
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // string someString = dataGridView1[0, 2].Value.ToString();
-            // dataGridView1.Rows[4].Cells[0].Value = someString;
-
-            for (int i = 0; i < dgvCalculate.Columns.Count; i++)
-            {
-                string kolumna = dgvCalculate[i, 1].Value.ToString();
-                dgvCalculate.Rows[3].Cells[i].Value = kolumna;
-            }
-        }
-        // test area end
 
         //---------------------------------------
         // Add new column for calculating point
@@ -305,6 +296,7 @@ namespace EPT.modules
         private void newCalcPoint_Click(object sender, EventArgs e)
         {
             dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "asdasd" });
+            dropmenu();
         }
 
         //---------------------
@@ -344,9 +336,109 @@ namespace EPT.modules
         // for comments and clear!!!!!
         private void BTB_Leave(object sender, EventArgs e)
         {
-            double b = Convert.ToDouble(BTB.Text);
-            double calc = b * 0.07;
-            gmTB.Text = calc.ToString("0.00");
+            double bTB = Convert.ToDouble(BTB.Text);
+            double gmCalc = bTB * 0.07;
+            double krCalc = bTB * 0.39;
+            gmTB.Text = gmCalc.ToString("0.00");
+            krTB.Text = krCalc.ToString("0.00");
+        }
+
+        private void saCB_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (saCB.Text == "R0 (No reduction)")
+            {
+                frTB.Text = "1.0";
+            }
+            else if(saCB.Text == "R1 (10% reduction)")
+            {
+                frTB.Text = "0.9";
+            }
+            else if(saCB.Text == "R2 (20% reduction)")
+            {
+                frTB.Text = "0.8";
+            }
+            else if (saCB.Text == "R3 (30% reduction)")
+            {
+                frTB.Text = "0.7";
+            }
+            else if (saCB.Text == "R4 (40% reduction)")
+            {
+                frTB.Text = "0.6";
+            }
+            else if (saCB.Text == "RE (50% reduction)")
+            {
+                frTB.Text = "0.5";
+            }
+
+
+
+        }
+        // obliczenia test
+        private void button_Click(object sender, EventArgs e)
+        {
+            // string someString = dataGridView1[0, 2].Value.ToString();
+            // dataGridView1.Rows[4].Cells[0].Value = someString;
+
+            for (int i = 0; i < dgvCalculate.Columns.Count; i++)
+            {
+                string kolumna = dgvCalculate[i, 4].Value.ToString();
+                dgvCalculate.Rows[6].Cells[i].Value = kolumna;
+            }
+        }
+
+
+
+
+
+
+        private void save_test_Click(object sender, EventArgs e)
+        {
+            DataTable GetDataTableFromDGV(DataGridView dgv)
+            {
+                var dt = new DataTable();
+                foreach (DataGridViewColumn column in dgv.Columns)
+                {
+                    if (column.Visible)
+                    {
+                        // You could potentially name the column based on the DGV column name (beware of dupes)
+                        // or assign a type based on the data type of the data bound to this DGV column.
+                        dt.Columns.Add();
+                    }
+                }
+
+                object[] cellValues = new object[dgv.Columns.Count];
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    for (int i = 0; i < row.Cells.Count; i++)
+                    {
+                        cellValues[i] = row.Cells[i].Value;
+                    }
+                    dt.Rows.Add(cellValues);
+                }
+
+                return dt;
+            }
+            DataTable dT = GetDataTableFromDGV(dgvCalculate);
+            DataSet dS = new DataSet();
+            dS.Tables.Add(dT);
+            dS.WriteXml(File.OpenWrite("xmmml.xml"));
+
+        }
+
+        private void load_test_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                XmlReader xmlFile;
+                xmlFile = XmlReader.Create("xmmml.xml", new XmlReaderSettings());
+                DataSet ds = new DataSet();
+                ds.ReadXml(xmlFile);
+                dgvCalculate.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

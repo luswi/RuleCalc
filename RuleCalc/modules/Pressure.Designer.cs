@@ -87,6 +87,7 @@
             this.labelCb = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.save_test = new System.Windows.Forms.Button();
             this.newCalcPoint = new System.Windows.Forms.Button();
             this.dgvNames = new System.Windows.Forms.DataGridView();
             this.Info = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,6 +99,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.load_test = new System.Windows.Forms.Button();
             this.tabControl11.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -253,6 +255,7 @@
             this.saCB.Size = new System.Drawing.Size(141, 23);
             this.saCB.TabIndex = 11;
             this.toolTip.SetToolTip(this.saCB, "reduction factor related to service restrictions ");
+            this.saCB.SelectedValueChanged += new System.EventHandler(this.saCB_SelectedValueChanged);
             this.saCB.TextChanged += new System.EventHandler(this.updateForSave);
             // 
             // label11
@@ -283,7 +286,6 @@
             this.frTB.ReadOnly = true;
             this.frTB.Size = new System.Drawing.Size(100, 21);
             this.frTB.TabIndex = 12;
-            this.toolTip.SetToolTip(this.frTB, "distance from baseline to freeboard deck considered at side");
             this.frTB.TextChanged += new System.EventHandler(this.updateForSave);
             this.frTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
@@ -386,7 +388,6 @@
             this.krTB.ReadOnly = true;
             this.krTB.Size = new System.Drawing.Size(100, 21);
             this.krTB.TabIndex = 10;
-            this.toolTip.SetToolTip(this.krTB, "distance from baseline to freeboard deck considered at side");
             this.krTB.TextChanged += new System.EventHandler(this.updateForSave);
             this.krTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
@@ -753,6 +754,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.load_test);
+            this.tabPage1.Controls.Add(this.save_test);
             this.tabPage1.Controls.Add(this.newCalcPoint);
             this.tabPage1.Controls.Add(this.dgvNames);
             this.tabPage1.Controls.Add(this.button);
@@ -765,6 +768,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sea Pressure";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // save_test
+            // 
+            this.save_test.Location = new System.Drawing.Point(529, 598);
+            this.save_test.Name = "save_test";
+            this.save_test.Size = new System.Drawing.Size(75, 23);
+            this.save_test.TabIndex = 24;
+            this.save_test.Text = "save_test";
+            this.save_test.UseVisualStyleBackColor = true;
+            this.save_test.Click += new System.EventHandler(this.save_test_Click);
             // 
             // newCalcPoint
             // 
@@ -810,6 +823,7 @@
             this.button.TabIndex = 21;
             this.button.Text = "button1";
             this.button.UseVisualStyleBackColor = true;
+            this.button.Click += new System.EventHandler(this.button_Click);
             // 
             // add_col
             // 
@@ -879,6 +893,16 @@
             this.toolTip.IsBalloon = true;
             this.toolTip.ReshowDelay = 100;
             this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
+            // load_test
+            // 
+            this.load_test.Location = new System.Drawing.Point(529, 628);
+            this.load_test.Name = "load_test";
+            this.load_test.Size = new System.Drawing.Size(75, 23);
+            this.load_test.TabIndex = 25;
+            this.load_test.Text = "load";
+            this.load_test.UseVisualStyleBackColor = true;
+            this.load_test.Click += new System.EventHandler(this.load_test_Click);
             // 
             // Pressure
             // 
@@ -969,9 +993,11 @@
         private System.Windows.Forms.Button add_col;
         private System.Windows.Forms.DataGridView dgvCalculate;
         private System.Windows.Forms.Button newCalcPoint;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.ComboBox bkCB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Button save_test;
+        private System.Windows.Forms.Button load_test;
     }
 }
