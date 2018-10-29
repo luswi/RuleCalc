@@ -115,17 +115,9 @@ namespace EPT.modules
                 bkCB.Text = info.bkData;
                 
 
-                //----------------------------------
-                // add rows for calculation table
-                //----------------------------------
-                for (int i = 0; i <= 42; i++)
-                {
-                    i = dgvCalculate.Rows.Add();
-
-                }
 
                 //test
-                dgvCalculate.Rows[0].Cells[0].Value = info.lppData;
+                //dgvCalculate.Rows[0].Cells[0].Value = info.lppData;
 
 
 
@@ -141,12 +133,7 @@ namespace EPT.modules
 
 
 
-            //test area for combobox
-            dgvCalculate.Rows[4].Cells[0].Value = null; //this is important.
-            DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
-            c.Items.Add("On");
-            c.Items.Add("Off");
-            dgvCalculate.Rows[4].Cells[0] = c;
+
 
             //works
             //for (int i = 0; i < oDg.RowCount; i++)
@@ -165,8 +152,8 @@ namespace EPT.modules
 
 
             //test area start
-            dgvCalculate.Rows[2].Cells[0].Value = "tescik";
-            dgvCalculate.Rows[2].ReadOnly = true;
+            //dgvCalculate.Rows[2].Cells[0].Value = "tescik";
+            //dgvCalculate.Rows[2].ReadOnly = true;
            
             //test area end
 
@@ -347,6 +334,32 @@ namespace EPT.modules
             double b = Convert.ToDouble(BTB.Text);
             double calc = b * 0.07;
             gmTB.Text = calc.ToString("0.00");
+        }
+
+        private void add_col_Click(object sender, EventArgs e)
+        {
+            //int i = 0; i < dgvCalculate.Columns.Count; i++)
+            if (0 == dgvCalculate.ColumnCount)
+            {
+                dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
+            }
+            else
+            {
+                dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
+
+            }
+            //add rows but we need column
+            for (int i = 0; i <= 42; i++)
+            {
+                i = dgvCalculate.Rows.Add();
+                
+            }
+            //test area for combobox
+            dgvCalculate.Rows[4].Cells[0].Value = null; //this is important.
+            DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
+            c.Items.Add("On");
+            c.Items.Add("Off");
+            dgvCalculate.Rows[4].Cells[0] = c;
         }
     }
 }
