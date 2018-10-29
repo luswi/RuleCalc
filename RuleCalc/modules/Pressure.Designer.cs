@@ -87,6 +87,7 @@
             this.labelCb = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.load_test = new System.Windows.Forms.Button();
             this.save_test = new System.Windows.Forms.Button();
             this.newCalcPoint = new System.Windows.Forms.Button();
             this.dgvNames = new System.Windows.Forms.DataGridView();
@@ -94,12 +95,10 @@
             this.button = new System.Windows.Forms.Button();
             this.add_col = new System.Windows.Forms.Button();
             this.dgvCalculate = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.load_test = new System.Windows.Forms.Button();
             this.tabControl11.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -769,6 +768,16 @@
             this.tabPage1.Text = "Sea Pressure";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // load_test
+            // 
+            this.load_test.Location = new System.Drawing.Point(529, 628);
+            this.load_test.Name = "load_test";
+            this.load_test.Size = new System.Drawing.Size(75, 23);
+            this.load_test.TabIndex = 25;
+            this.load_test.Text = "load";
+            this.load_test.UseVisualStyleBackColor = true;
+            this.load_test.Click += new System.EventHandler(this.load_test_Click);
+            // 
             // save_test
             // 
             this.save_test.Location = new System.Drawing.Point(529, 598);
@@ -833,6 +842,7 @@
             this.add_col.TabIndex = 20;
             this.add_col.Text = "Add Column";
             this.add_col.UseVisualStyleBackColor = true;
+            this.add_col.Click += new System.EventHandler(this.add_col_Click);
             // 
             // dgvCalculate
             // 
@@ -841,8 +851,6 @@
             this.dgvCalculate.AllowUserToResizeColumns = false;
             this.dgvCalculate.AllowUserToResizeRows = false;
             this.dgvCalculate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCalculate.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
             this.dgvCalculate.Location = new System.Drawing.Point(112, 6);
             this.dgvCalculate.MultiSelect = false;
             this.dgvCalculate.Name = "dgvCalculate";
@@ -851,12 +859,6 @@
             this.dgvCalculate.TabIndex = 19;
             this.dgvCalculate.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvCalculate_EditingControlShowing);
             this.dgvCalculate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvCalculate_KeyPress);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Point";
-            this.Column1.Name = "Column1";
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // tabPage2
             // 
@@ -893,16 +895,6 @@
             this.toolTip.IsBalloon = true;
             this.toolTip.ReshowDelay = 100;
             this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            // 
-            // load_test
-            // 
-            this.load_test.Location = new System.Drawing.Point(529, 628);
-            this.load_test.Name = "load_test";
-            this.load_test.Size = new System.Drawing.Size(75, 23);
-            this.load_test.TabIndex = 25;
-            this.load_test.Text = "load";
-            this.load_test.UseVisualStyleBackColor = true;
-            this.load_test.Click += new System.EventHandler(this.load_test_Click);
             // 
             // Pressure
             // 
@@ -996,7 +988,6 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.ComboBox bkCB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Button save_test;
         private System.Windows.Forms.Button load_test;
     }

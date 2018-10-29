@@ -116,17 +116,10 @@ namespace EPT.modules
                 bkCB.Text = info.bkData;
 
                 
-                //----------------------------------
-                // add rows for calculation table
-                //----------------------------------
-                for (int i = 0; i <= 42; i++)
-                {
-                    i = dgvCalculate.Rows.Add();
 
-                }
-                dropmenu();
+              //  dropmenu();
                 //test
-                dgvCalculate.Rows[0].Cells[0].Value = info.lppData;
+                //dgvCalculate.Rows[0].Cells[0].Value = info.lppData;
 
 
 
@@ -160,8 +153,8 @@ namespace EPT.modules
 
 
             //test area start
-            dgvCalculate.Rows[2].Cells[0].Value = "tescik";
-            dgvCalculate.Rows[2].ReadOnly = true;
+            //dgvCalculate.Rows[2].Cells[0].Value = "tescik";
+            //dgvCalculate.Rows[2].ReadOnly = true;
            
             //test area end
 
@@ -295,7 +288,26 @@ namespace EPT.modules
         //---------------------------------------
         private void newCalcPoint_Click(object sender, EventArgs e)
         {
-            dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "asdasd" });
+            if (dgvCalculate.ColumnCount == 0)
+            {
+                dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
+
+            }
+            else
+            {
+
+
+                dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
+                //dropmenu();
+            }
+            //----------------------------------
+            // add rows for calculation table
+            //----------------------------------
+            for (int i = 0; i <= 42; i++)
+            {
+                i = dgvCalculate.Rows.Add();
+                
+            }
             dropmenu();
         }
 
@@ -421,7 +433,8 @@ namespace EPT.modules
             DataTable dT = GetDataTableFromDGV(dgvCalculate);
             DataSet dS = new DataSet();
             dS.Tables.Add(dT);
-            dS.WriteXml(File.OpenWrite("xmmml.xml"));
+            dS.WriteXml(File.OpenWrite("calc_save.xml"));
+            
 
         }
 
@@ -430,15 +443,71 @@ namespace EPT.modules
             try
             {
                 XmlReader xmlFile;
-                xmlFile = XmlReader.Create("xmmml.xml", new XmlReaderSettings());
+                xmlFile = XmlReader.Create("calc_save.xml", new XmlReaderSettings());
                 DataSet ds = new DataSet();
                 ds.ReadXml(xmlFile);
                 dgvCalculate.DataSource = ds.Tables[0];
+                xmlFile.Close();
+
+                dgvCalculate.Rows[6].Cells[0].Value = "qwewqewqeqwe";
+
+                for (int i = 0; i < dgvCalculate.ColumnCount; i++)
+                {
+                    //dgvCalculate.Rows[0].Cells[i].Value = null; //this is important.
+                    DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
+                    c.Items.Add("On");
+                    c.Items.Add("Off");
+                    //dgvCalculate.Rows[5].Cells[i].Value = dgvCalculate.Rows[4].Cells[i].Value;
+                    dgvCalculate.Rows[4].Cells[i].Value = ds.Tables[0].Rows[4][i].ToString();
+                    dgvCalculate.Rows[4].Cells[i] = c;
+                }
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        static DataSet ds_input = new DataSet();
+
+
+
+        private void add_col_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                XmlReader xmlFile;
+                xmlFile = XmlReader.Create("calc_save.xml", new XmlReaderSettings());
+                DataSet ds = new DataSet();
+                ds.ReadXml(xmlFile);
+                dgvCalculate.DataSource = ds.Tables[0];
+                xmlFile.Close();
+
+                dgvCalculate.Rows[6].Cells[0].Value = "qwewqewqeqwe";
+
+                for (int i = 0; i < dgvCalculate.ColumnCount; i++)
+                {
+                    //dgvCalculate.Rows[0].Cells[i].Value = null; //this is important.
+                    DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
+                    c.Items.Add("On");
+                    c.Items.Add("Off");
+                    //dgvCalculate.Rows[5].Cells[i].Value = dgvCalculate.Rows[4].Cells[i].Value;
+                    dgvCalculate.Rows[4].Cells[i].Value = ds.Tables[0].Rows[4][i].ToString();
+                    dgvCalculate.Rows[4].Cells[i] = c;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+
+
+
+            dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
+
         }
     }
 }
