@@ -980,7 +980,6 @@
         private System.Windows.Forms.Button calculateBT;
         private System.Windows.Forms.ComboBox saCB;
         private System.Windows.Forms.DataGridView dgvNames;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Info;
         private System.Windows.Forms.Button button;
         private System.Windows.Forms.Button add_col;
         private System.Windows.Forms.DataGridView dgvCalculate;
@@ -990,5 +989,6 @@
         private System.Windows.Forms.ComboBox bkCB;
         private System.Windows.Forms.Button save_test;
         private System.Windows.Forms.Button load_test;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Info;
     }
 }

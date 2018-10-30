@@ -115,13 +115,10 @@ namespace EPT.modules
                 frTB.Text = info.frData;
                 bkCB.Text = info.bkData;
 
-                
 
-              //  dropmenu();
+                //  dropmenu();
                 //test
                 //dgvCalculate.Rows[0].Cells[0].Value = info.lppData;
-
-
 
                 //cCalcTB.Text = info.lppData;
 
@@ -135,7 +132,7 @@ namespace EPT.modules
 
 
 
-            
+
             //works
             //for (int i = 0; i < oDg.RowCount; i++)
             //{
@@ -155,12 +152,13 @@ namespace EPT.modules
             //test area start
             //dgvCalculate.Rows[2].Cells[0].Value = "tescik";
             //dgvCalculate.Rows[2].ReadOnly = true;
-           
+
             //test area end
 
 
 
 
+            dgvNames.Rows.Add("Plate");
             dgvNames.Rows.Add("x [m] load point");
             dgvNames.Rows.Add("y [m] load point");
             dgvNames.Rows.Add("z [m] load point");
@@ -175,7 +173,7 @@ namespace EPT.modules
             dgvNames.Rows.Add("th act. [mm]");
             dgvNames.Rows.Add("th. status");
             dgvNames.Rows.Add("plate slenderness status");
-            dgvNames.Rows.Add("");
+            dgvNames.Rows.Add("Stiffener");
             dgvNames.Rows.Add("x [m] load point");
             dgvNames.Rows.Add("y [m] load point");
             dgvNames.Rows.Add("z [m] load point");
@@ -206,8 +204,9 @@ namespace EPT.modules
             dgvNames.Rows.Add("Z status");
 
 
-            RowsColor();
-
+            RowsColorNames();
+            RowsBold();
+    
 
         }
 
@@ -227,11 +226,19 @@ namespace EPT.modules
         //--------------------------------
         // color rows depends from group
         //--------------------------------
-        public void RowsColor()
+        public void RowsColorNames()
         {
             for (int i = 0; i< dgvNames.Rows.Count; i++)
             {
-                if (i <= 4)
+                if (i == 0)
+                {
+                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
+                }
+                else if (i == 15)
+                {
+                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
+                }
+                else if (i <= 4)
                 {
                     dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.Azure;
                 }
@@ -243,6 +250,47 @@ namespace EPT.modules
                     dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.Coral;
 
             }
+        }
+
+        //--------------------------------
+        // color rows depends from group
+        //--------------------------------
+        public void RowsColorCalculate()
+        {
+            for (int i = 0; i < dgvCalculate.Rows.Count; i++)
+            {
+                if (i == 0)
+                {
+                    dgvCalculate.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
+                    dgvCalculate.Rows[i].ReadOnly = true;
+                }
+                else if (i == 15)
+                {
+                    dgvCalculate.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
+                    dgvCalculate.Rows[i].ReadOnly = true;
+                }
+                else if (i <= 4)
+                {
+                    dgvCalculate.Rows[i].DefaultCellStyle.BackColor = Color.Azure;
+                }
+                else if (i > 4 & i < 7)
+                {
+                    dgvCalculate.Rows[i].DefaultCellStyle.BackColor = Color.Bisque;
+                }
+                else
+                    dgvCalculate.Rows[i].DefaultCellStyle.BackColor = Color.Coral;
+
+            }
+        }
+
+        //--------------------
+        // BOLD specific row
+        //--------------------
+
+        public void RowsBold()
+        {
+            dgvNames.Rows[0].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            dgvNames.Rows[15].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
         }
 
 
@@ -291,7 +339,7 @@ namespace EPT.modules
             if (dgvCalculate.ColumnCount == 0)
             {
                 dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
-
+                //RowsColorCalculate();
             }
             else
             {
@@ -299,16 +347,18 @@ namespace EPT.modules
 
                 dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
                 //dropmenu();
+                //RowsColorCalculate();
             }
             //----------------------------------
             // add rows for calculation table
             //----------------------------------
-            for (int i = 0; i <= 42; i++)
+            for (int i = 0; i <= 43; i++)
             {
                 i = dgvCalculate.Rows.Add();
                 
             }
             dropmenu();
+            RowsColorCalculate();
         }
 
         //---------------------
