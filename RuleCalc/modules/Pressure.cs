@@ -202,7 +202,11 @@ namespace EPT.modules
             dgvNames.Rows.Add("t flange [mm]");
             dgvNames.Rows.Add("Z [cm^3]");
             dgvNames.Rows.Add("Z status");
+            
 
+
+            dgvNames[0, 1].Selected = true;
+            dgvNames.ClearSelection();
 
             RowsColorNames();
             RowsBold();
