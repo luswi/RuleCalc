@@ -812,7 +812,7 @@
             this.dgvNames.Name = "dgvNames";
             this.dgvNames.ReadOnly = true;
             this.dgvNames.RowHeadersVisible = false;
-            this.dgvNames.Size = new System.Drawing.Size(100, 548);
+            this.dgvNames.Size = new System.Drawing.Size(120, 548);
             this.dgvNames.TabIndex = 22;
             this.dgvNames.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgvNames_Scroll);
             // 
@@ -851,11 +851,11 @@
             this.dgvCalculate.AllowUserToResizeColumns = false;
             this.dgvCalculate.AllowUserToResizeRows = false;
             this.dgvCalculate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCalculate.Location = new System.Drawing.Point(112, 6);
+            this.dgvCalculate.Location = new System.Drawing.Point(132, 6);
             this.dgvCalculate.MultiSelect = false;
             this.dgvCalculate.Name = "dgvCalculate";
             this.dgvCalculate.RowHeadersVisible = false;
-            this.dgvCalculate.Size = new System.Drawing.Size(474, 548);
+            this.dgvCalculate.Size = new System.Drawing.Size(454, 548);
             this.dgvCalculate.TabIndex = 19;
             this.dgvCalculate.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvCalculate_EditingControlShowing);
             this.dgvCalculate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvCalculate_KeyPress);
