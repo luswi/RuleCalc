@@ -55,12 +55,6 @@ namespace EPT.modules
             }
         }
 
-
-
-
-
-
-
         //-------------------
         // Main APP section
         //-------------------
@@ -71,10 +65,6 @@ namespace EPT.modules
         {
             // Pick up values from textboxes
             v.zdk = double.Parse(krTB.Text);
-            
-
-
-            
 
             // Results
             bool success = v.seaCalculation(v);
@@ -105,56 +95,19 @@ namespace EPT.modules
                 LTB.Text = info.lData;
                 BTB.Text = info.bData;
                 DTB.Text = info.dData;
-                VTB.Text = info.vData;
                 CbTB.Text = info.cbData;
                 TbalTB.Text = info.tbalData;
                 TscTB.Text = info.tscData;
                 gmTB.Text = info.gmData;
                 krTB.Text = info.krData;
                 saCB.Text = info.saData;
-                frTB.Text = info.frData;
                 bkCB.Text = info.bkData;
-
-
-                //  dropmenu();
-                //test
-                //dgvCalculate.Rows[0].Cells[0].Value = info.lppData;
-
-                //cCalcTB.Text = info.lppData;
-
-
             }
   
             //------------------
             // Hide scroll bar
             //------------------
             dgvCalculate.ScrollBars = ScrollBars.None;
-
-
-
-
-            //works
-            //for (int i = 0; i < oDg.RowCount; i++)
-            //{
-            //    for (int j = 0; j < oDg.ColumnCount; j++)
-            //    {
-            //        oDg.Rows[i].Cells[j].Value = null; //this is important.
-            //        DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
-            //        c.Items.Add("On");
-            //        c.Items.Add("Off");
-            //        oDg.Rows[i].Cells[j] = c;
-            //    }
-            //}
-
-
-
-
-            //test area start
-            //dgvCalculate.Rows[2].Cells[0].Value = "tescik";
-            //dgvCalculate.Rows[2].ReadOnly = true;
-
-            //test area end
-
 
 
 
@@ -324,14 +277,12 @@ namespace EPT.modules
             lSave = LTB.Text;
             bSave = BTB.Text;
             dSave = DTB.Text;
-            vSave = VTB.Text;
             cbSave = CbTB.Text;
             tbalSave = TbalTB.Text;
             tscSave = TscTB.Text;
             gmSave = gmTB.Text;
             krSave = krTB.Text;
             saSave = saCB.Text;
-            frSave = frTB.Text;
             bkSave = bkCB.Text;
         }
 
@@ -359,6 +310,7 @@ namespace EPT.modules
             for (int i = 0; i <= 43; i++)
             {
                 i = dgvCalculate.Rows.Add();
+                
                 
             }
             dropmenu();
@@ -413,27 +365,27 @@ namespace EPT.modules
         {
             if (saCB.Text == "R0 (No reduction)")
             {
-                frTB.Text = "1.0";
+                double frTB = 1.0;
             }
             else if(saCB.Text == "R1 (10% reduction)")
             {
-                frTB.Text = "0.9";
+                double frTB = 0.9;
             }
             else if(saCB.Text == "R2 (20% reduction)")
             {
-                frTB.Text = "0.8";
+                double frTB = 0.8;
             }
             else if (saCB.Text == "R3 (30% reduction)")
             {
-                frTB.Text = "0.7";
+                double frTB = 0.7;
             }
             else if (saCB.Text == "R4 (40% reduction)")
             {
-                frTB.Text = "0.6";
+                double frTB = 0.6;
             }
             else if (saCB.Text == "RE (50% reduction)")
             {
-                frTB.Text = "0.5";
+                double frTB = 0.5;
             }
 
 
@@ -503,11 +455,11 @@ namespace EPT.modules
                 dgvCalculate.DataSource = ds.Tables[0];
                 xmlFile.Close();
 
-                dgvCalculate.Rows[6].Cells[0].Value = "qwewqewqeqwe";
+                //dgvCalculate.Rows[6].Cells[0].Value = "qwewqewqeqwe";
 
                 for (int i = 0; i < dgvCalculate.ColumnCount; i++)
                 {
-                    //dgvCalculate.Rows[0].Cells[i].Value = null; //this is important.
+                    dgvCalculate.Rows[0].Cells[i].Value = null; //this is important.
                     DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
                     c.Items.Add("On");
                     c.Items.Add("Off");
@@ -542,11 +494,9 @@ namespace EPT.modules
 
                 for (int i = 0; i < dgvCalculate.ColumnCount; i++)
                 {
-                    //dgvCalculate.Rows[0].Cells[i].Value = null; //this is important.
                     DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
                     c.Items.Add("On");
                     c.Items.Add("Off");
-                    //dgvCalculate.Rows[5].Cells[i].Value = dgvCalculate.Rows[4].Cells[i].Value;
                     dgvCalculate.Rows[4].Cells[i].Value = ds.Tables[0].Rows[4][i].ToString();
                     dgvCalculate.Rows[4].Cells[i] = c;
                 }
