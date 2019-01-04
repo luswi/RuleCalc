@@ -34,6 +34,7 @@
             this.saveBT = new System.Windows.Forms.Button();
             this.calculateBT = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.bkCB = new System.Windows.Forms.ComboBox();
             this.label49 = new System.Windows.Forms.Label();
             this.saCB = new System.Windows.Forms.ComboBox();
@@ -92,7 +93,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.label3 = new System.Windows.Forms.Label();
             this.tabControl11.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -200,6 +200,16 @@
             this.groupBox10.TabIndex = 91;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Ship data";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(227, 59);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(24, 12);
+            this.label3.TabIndex = 98;
+            this.label3.Text = "Rule";
             // 
             // bkCB
             // 
@@ -687,9 +697,9 @@
             // 
             // load_test
             // 
-            this.load_test.Location = new System.Drawing.Point(529, 628);
+            this.load_test.Location = new System.Drawing.Point(246, 599);
             this.load_test.Name = "load_test";
-            this.load_test.Size = new System.Drawing.Size(75, 23);
+            this.load_test.Size = new System.Drawing.Size(145, 23);
             this.load_test.TabIndex = 25;
             this.load_test.Text = "load";
             this.load_test.UseVisualStyleBackColor = true;
@@ -812,16 +822,6 @@
             this.toolTip.IsBalloon = true;
             this.toolTip.ReshowDelay = 100;
             this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(227, 59);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 12);
-            this.label3.TabIndex = 98;
-            this.label3.Text = "Rule";
             // 
             // Pressure
             // 

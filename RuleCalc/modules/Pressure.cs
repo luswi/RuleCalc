@@ -294,27 +294,25 @@ namespace EPT.modules
             if (dgvCalculate.ColumnCount == 0)
             {
                 dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
-                //RowsColorCalculate();
+                //----------------------------------
+                // add rows for calculation table
+                //----------------------------------
+                for (int i = 0; i <= 43; i++)
+                {
+                    i = dgvCalculate.Rows.Add();
+
+
+                }
+                dropmenu();
+                RowsColorCalculate();
             }
             else
             {
-
-
                 dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
-                //dropmenu();
-                //RowsColorCalculate();
+                dropmenu();
+
             }
-            //----------------------------------
-            // add rows for calculation table
-            //----------------------------------
-            for (int i = 0; i <= 43; i++)
-            {
-                i = dgvCalculate.Rows.Add();
-                
-                
-            }
-            dropmenu();
-            RowsColorCalculate();
+
         }
 
         //---------------------
@@ -466,6 +464,7 @@ namespace EPT.modules
                     //dgvCalculate.Rows[5].Cells[i].Value = dgvCalculate.Rows[4].Cells[i].Value;
                     dgvCalculate.Rows[4].Cells[i].Value = ds.Tables[0].Rows[4][i].ToString();
                     dgvCalculate.Rows[4].Cells[i] = c;
+                    RowsColorCalculate();
                 }
 
             }
