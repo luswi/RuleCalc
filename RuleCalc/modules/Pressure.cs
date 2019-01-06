@@ -167,18 +167,32 @@ namespace EPT.modules
 
         }
 
-        //test area for combobox
+        //------------
+        // combobox
+        //------------
         public void dropmenu()
         {
             for (int i = 0; i < dgvCalculate.ColumnCount; i++)
             {
-                dgvCalculate.Rows[4].Cells[i].Value = null; //this is important.
+                //dgvCalculate.Rows[4].Cells[i].Value = null; //this is important.
+                
                 DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
-                c.Items.Add("On");
-                c.Items.Add("Off");
-                dgvCalculate.Rows[4].Cells[i] = c;
+
+                if ((string)dgvCalculate.Rows[4].Cells[i].Value == null)
+                {
+                    c.Items.Add("On");
+                    c.Items.Add("Off");
+                    dgvCalculate.Rows[4].Cells[i] = c;
+
+                }
+
+
             }
         }
+
+        //
+        // 
+        //
 
         //--------------------------------
         // color rows depends from group
@@ -511,6 +525,11 @@ namespace EPT.modules
 
             dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dgvCalculate.Columns.RemoveAt(2);
         }
     }
 }
