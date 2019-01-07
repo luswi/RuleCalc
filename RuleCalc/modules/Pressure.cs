@@ -108,6 +108,7 @@ namespace EPT.modules
             // Hide scroll bar
             //------------------
             dgvCalculate.ScrollBars = ScrollBars.None;
+            
 
 
 
@@ -308,6 +309,10 @@ namespace EPT.modules
             if (dgvCalculate.ColumnCount == 0)
             {
                 dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
+
+               
+
+
                 //----------------------------------
                 // add rows for calculation table
                 //----------------------------------
@@ -315,8 +320,15 @@ namespace EPT.modules
                 {
                     i = dgvCalculate.Rows.Add();
 
-
                 }
+                var deleteButton = new DataGridViewButtonColumn();
+                deleteButton.Name = "dgvDeleteButton";
+                deleteButton.HeaderText = "Delete";
+                deleteButton.Text = "Delete";
+                deleteButton.UseColumnTextForButtonValue = true;
+                this.dgvDelete.Columns.Add(deleteButton);
+                this.dgvDelete.Rows.Add();
+                //this.dgvDelete.Rows[0].Cells[0].Value = "test";
                 dropmenu();
                 RowsColorCalculate();
             }
@@ -324,8 +336,17 @@ namespace EPT.modules
             {
                 dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
                 dropmenu();
-
+                var deleteButton = new DataGridViewButtonColumn();
+                deleteButton.Name = "dgvDeleteButton";
+                deleteButton.HeaderText = "Delete";
+                deleteButton.Text = "Delete";
+                deleteButton.UseColumnTextForButtonValue = true;
+                this.dgvDelete.Columns.Add(deleteButton);
+                //this.dgvDelete.Rows.Add();
+                //this.dgvDelete.Rows[0].Cells[0].Value = "test";
             }
+
+            
 
         }
 
@@ -481,6 +502,22 @@ namespace EPT.modules
                     RowsColorCalculate();
                 }
 
+                for (int i = 0; i < dgvCalculate.Columns.Count; i++)
+                {
+                
+                var deleteButton = new DataGridViewButtonColumn();
+                deleteButton.Name = "dgvDeleteButton";
+                deleteButton.HeaderText = "Delete";
+                deleteButton.Text = "Delete";
+                deleteButton.UseColumnTextForButtonValue = true;
+                this.dgvDelete.Columns.Add(deleteButton);
+                    if (dgvDelete.Rows.Count == 0)
+                    {
+                        dgvDelete.Rows.Add();
+                    }
+
+                    
+                }
             }
             catch (Exception ex)
             {
@@ -492,44 +529,31 @@ namespace EPT.modules
 
 
 
-        private void add_col_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                XmlReader xmlFile;
-                xmlFile = XmlReader.Create("calc_save.xml", new XmlReaderSettings());
-                DataSet ds = new DataSet();
-                ds.ReadXml(xmlFile);
-                dgvCalculate.DataSource = ds.Tables[0];
-                xmlFile.Close();
-
-                dgvCalculate.Rows[6].Cells[0].Value = "qwewqewqeqwe";
-
-                for (int i = 0; i < dgvCalculate.ColumnCount; i++)
-                {
-                    DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
-                    c.Items.Add("On");
-                    c.Items.Add("Off");
-                    dgvCalculate.Rows[4].Cells[i].Value = ds.Tables[0].Rows[4][i].ToString();
-                    dgvCalculate.Rows[4].Cells[i] = c;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
-
-
-
-            dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
-
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
             dgvCalculate.Columns.RemoveAt(2);
+        }
+
+        private void dgvDelete_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            for (int i = 0; i < dgvCalculate.Columns.Count; i++)
+            {
+                if (e.ColumnIndex == dgvDelete.Columns[i].DisplayIndex)
+                {
+                    dgvCalculate.Columns.RemoveAt(e.ColumnIndex);
+                    dgvDelete.Columns.RemoveAt(e.ColumnIndex);
+                }
+            }
+
+
+        }
+
+        private void dgvDelete_Scroll(object sender, ScrollEventArgs e)
+        {
+            dgvCalculate.HorizontalScrollingOffset = dgvDelete.HorizontalScrollingOffset;
         }
     }
 }
