@@ -308,19 +308,22 @@ namespace EPT.modules
         {
             if (dgvCalculate.ColumnCount == 0)
             {
+
                 dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
 
-               
 
 
+                
                 //----------------------------------
                 // add rows for calculation table
                 //----------------------------------
-                for (int i = 0; i <= 43; i++)
-                {
-                    i = dgvCalculate.Rows.Add();
+                    for (int i = 0; i <= 43; i++)
+                    {
+                        i = dgvCalculate.Rows.Add();
+                        //MessageBox.Show("juz istnieje");
+                    }
 
-                }
+
                 var deleteButton = new DataGridViewButtonColumn();
                 deleteButton.Name = "dgvDeleteButton";
                 deleteButton.HeaderText = "Delete";
@@ -355,7 +358,11 @@ namespace EPT.modules
         //---------------------
         private void dgvNames_Scroll(object sender, ScrollEventArgs e)
         {
-            dgvCalculate.FirstDisplayedScrollingRowIndex = dgvNames.FirstDisplayedScrollingRowIndex;
+            if (dgvCalculate.Columns.Count != 0)
+            {
+                dgvCalculate.FirstDisplayedScrollingRowIndex = dgvNames.FirstDisplayedScrollingRowIndex;
+            }
+            
         }
 
 
@@ -444,36 +451,31 @@ namespace EPT.modules
 
         private void save_test_Click(object sender, EventArgs e)
         {
-            DataTable GetDataTableFromDGV(DataGridView dgv)
+
+
+            DataTable dt = new DataTable("itemstable");
+
+            for (int i = 0; i < dgvCalculate.ColumnCount; i++)
             {
-                var dt = new DataTable();
-                foreach (DataGridViewColumn column in dgv.Columns)
-                {
-                    if (column.Visible)
-                    {
-                        // You could potentially name the column based on the DGV column name (beware of dupes)
-                        // or assign a type based on the data type of the data bound to this DGV column.
-                        dt.Columns.Add();
-                    }
-                }
-
-                object[] cellValues = new object[dgv.Columns.Count];
-                foreach (DataGridViewRow row in dgv.Rows)
-                {
-                    for (int i = 0; i < row.Cells.Count; i++)
-                    {
-                        cellValues[i] = row.Cells[i].Value;
-                    }
-                    dt.Rows.Add(cellValues);
-                }
-
-                return dt;
+                dt.Columns.Add(dgvCalculate.Columns[i].Name, typeof(System.String));
             }
-            DataTable dT = GetDataTableFromDGV(dgvCalculate);
-            DataSet dS = new DataSet();
-            dS.Tables.Add(dT);
-            dS.WriteXml(File.OpenWrite("calc_save.xml"));
-            
+
+            DataRow myrow;
+            int icols = dgvCalculate.Columns.Count;
+            foreach (DataGridViewRow drow in this.dgvCalculate.Rows)
+            {
+                myrow = dt.NewRow();
+                for (int i = 0; i <= icols - 1; i++)
+                {
+
+                    myrow[i] = drow.Cells[i].Value;
+                }
+                dt.Rows.Add(myrow);
+            }
+
+            dt.WriteXml("calc_Save.xml");
+
+
 
         }
 
