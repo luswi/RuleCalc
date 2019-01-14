@@ -54,11 +54,9 @@ namespace EPT.modules
                 }
             }
         }
-
         //-------------------
         // Main APP section
         //-------------------
-
         pressureClass v = new pressureClass();
 
         public void calculateBT_Click(object sender, EventArgs e)
@@ -78,11 +76,9 @@ namespace EPT.modules
                 MessageBox.Show("Something goes wrong!");
             }
         }
-
         //--------------------
         // Load data at start
         //--------------------
-
         private void Pressure_Load(object sender, EventArgs e)
         {
             if (File.Exists("data.xml"))
@@ -103,71 +99,63 @@ namespace EPT.modules
                 saCB.Text = info.saData;
                 bkCB.Text = info.bkData;
             }
-  
-            //------------------
-            // Hide scroll bar
-            //------------------
-            dgvCalculate.ScrollBars = ScrollBars.None;
-            
-
-
-
-            dgvNames.Rows.Add("Plate");
-            dgvNames.Rows.Add("x [m] load point");
-            dgvNames.Rows.Add("y [m] load point");
-            dgvNames.Rows.Add("z [m] load point");
-            dgvNames.Rows.Add("Bx [m]");
-            dgvNames.Rows.Add("R_eH [MPa]");
-            dgvNames.Rows.Add("b [mm]");
-            dgvNames.Rows.Add("a [mm] (EPP Length]");
-            dgvNames.Rows.Add("Alpha (aspect ratio)");
-            dgvNames.Rows.Add("P [MPa]");
-            dgvNames.Rows.Add("t req gross [mm]");
-            dgvNames.Rows.Add("tc plate [mm]");
-            dgvNames.Rows.Add("th act. [mm]");
-            dgvNames.Rows.Add("th. status");
-            dgvNames.Rows.Add("plate slenderness status");
-            dgvNames.Rows.Add("Stiffener");
-            dgvNames.Rows.Add("x [m] load point");
-            dgvNames.Rows.Add("y [m] load point");
-            dgvNames.Rows.Add("z [m] load point");
-            dgvNames.Rows.Add("Bx");
-            dgvNames.Rows.Add("lbdg [m] (Stiffener bending span)");
-            dgvNames.Rows.Add("s [mm] (stiffener spacing)");
-            dgvNames.Rows.Add("f_u (HP-profile)");
-            dgvNames.Rows.Add("f_bdg (10 for trv. Stiff?)");
-            dgvNames.Rows.Add("R_eH [MPa]");
-            dgvNames.Rows.Add("dshr [mm]");
-            dgvNames.Rows.Add("hstif [mm]");
-            dgvNames.Rows.Add("tp [mm]");
-            dgvNames.Rows.Add("ϕw [deg]");
-            dgvNames.Rows.Add("lshr [m]");
-            dgvNames.Rows.Add("fshr");
-            dgvNames.Rows.Add("ΤeH [MPa]");
-            dgvNames.Rows.Add("P [MPa]");
-            dgvNames.Rows.Add("tc stiffener [mm]");
-            dgvNames.Rows.Add("t req gross [mm]");
-            dgvNames.Rows.Add("th act. [mm]");
-            dgvNames.Rows.Add("th. status");
-            dgvNames.Rows.Add("tw slenderness");
-            dgvNames.Rows.Add("zreq ");
-            dgvNames.Rows.Add("b web [mm]");
-            dgvNames.Rows.Add("b flange [mm]");
-            dgvNames.Rows.Add("t flange [mm]");
-            dgvNames.Rows.Add("Z [cm^3]");
-            dgvNames.Rows.Add("Z status");
-            
-
-
-            dgvNames[0, 1].Selected = true;
-            dgvNames.ClearSelection();
-
-            RowsColorNames();
-            RowsBold();
-    
-
+        //------------------
+        // Hide scroll bar
+        //------------------
+        //remove scrollbar from dgvCalculate table
+        dgvCalculate.ScrollBars = ScrollBars.None;
+        //load data into dgvNames
+        dgvNames.Rows.Add("Plate");
+        dgvNames.Rows.Add("x [m] load point");
+        dgvNames.Rows.Add("y [m] load point");
+        dgvNames.Rows.Add("z [m] load point");
+        dgvNames.Rows.Add("Bx [m]");
+        dgvNames.Rows.Add("R_eH [MPa]");
+        dgvNames.Rows.Add("b [mm]");
+        dgvNames.Rows.Add("a [mm] (EPP Length]");
+        dgvNames.Rows.Add("Alpha (aspect ratio)");
+        dgvNames.Rows.Add("P [MPa]");
+        dgvNames.Rows.Add("t req gross [mm]");
+        dgvNames.Rows.Add("tc plate [mm]");
+        dgvNames.Rows.Add("th act. [mm]");
+        dgvNames.Rows.Add("th. status");
+        dgvNames.Rows.Add("plate slenderness status");
+        dgvNames.Rows.Add("Stiffener");
+        dgvNames.Rows.Add("x [m] load point");
+        dgvNames.Rows.Add("y [m] load point");
+        dgvNames.Rows.Add("z [m] load point");
+        dgvNames.Rows.Add("Bx");
+        dgvNames.Rows.Add("lbdg [m] (Stiffener bending span)");
+        dgvNames.Rows.Add("s [mm] (stiffener spacing)");
+        dgvNames.Rows.Add("f_u (HP-profile)");
+        dgvNames.Rows.Add("f_bdg (10 for trv. Stiff?)");
+        dgvNames.Rows.Add("R_eH [MPa]");
+        dgvNames.Rows.Add("dshr [mm]");
+        dgvNames.Rows.Add("hstif [mm]");
+        dgvNames.Rows.Add("tp [mm]");
+        dgvNames.Rows.Add("ϕw [deg]");
+        dgvNames.Rows.Add("lshr [m]");
+        dgvNames.Rows.Add("fshr");
+        dgvNames.Rows.Add("ΤeH [MPa]");
+        dgvNames.Rows.Add("P [MPa]");
+        dgvNames.Rows.Add("tc stiffener [mm]");
+        dgvNames.Rows.Add("t req gross [mm]");
+        dgvNames.Rows.Add("th act. [mm]");
+        dgvNames.Rows.Add("th. status");
+        dgvNames.Rows.Add("tw slenderness");
+        dgvNames.Rows.Add("zreq ");
+        dgvNames.Rows.Add("b web [mm]");
+        dgvNames.Rows.Add("b flange [mm]");
+        dgvNames.Rows.Add("t flange [mm]");
+        dgvNames.Rows.Add("Z [cm^3]");
+        dgvNames.Rows.Add("Z status");
+        //clear selected 1st row
+        dgvNames[0, 1].Selected = true;
+        dgvNames.ClearSelection();
+        //color and bold fonts/ceels
+        RowsColorNames();
+        RowsBold();
         }
-
         //------------
         // combobox
         //------------
@@ -175,8 +163,6 @@ namespace EPT.modules
         {
             for (int i = 0; i < dgvCalculate.ColumnCount; i++)
             {
-                //dgvCalculate.Rows[4].Cells[i].Value = null; //this is important.
-                
                 DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
 
                 if ((string)dgvCalculate.Rows[4].Cells[i].Value == null)
@@ -186,15 +172,8 @@ namespace EPT.modules
                     dgvCalculate.Rows[4].Cells[i] = c;
 
                 }
-
-
             }
         }
-
-        //
-        // 
-        //
-
         //--------------------------------
         // color rows depends from group
         //--------------------------------
@@ -220,10 +199,8 @@ namespace EPT.modules
                 }
                 else
                     dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.Coral;
-
             }
         }
-
         //--------------------------------
         // color rows depends from group
         //--------------------------------
@@ -251,21 +228,16 @@ namespace EPT.modules
                 }
                 else
                     dgvCalculate.Rows[i].DefaultCellStyle.BackColor = Color.Coral;
-
             }
         }
-
         //--------------------
         // BOLD specific row
         //--------------------
-
         public void RowsBold()
         {
             dgvNames.Rows[0].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
             dgvNames.Rows[15].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
         }
-
-
         //--------------------------------
         // Public variables for save menu
         //--------------------------------
@@ -282,9 +254,8 @@ namespace EPT.modules
         public static string saSave = "";
         public static string frSave = "";
         public static string bkSave = "";
-
         //---------------------------
-        // update textboxes for save
+        // Update textboxes for save
         //---------------------------
         private void updateForSave(object sender, EventArgs e)
         {
@@ -300,7 +271,6 @@ namespace EPT.modules
             saSave = saCB.Text;
             bkSave = bkCB.Text;
         }
-
         //---------------------------------------
         // Add new column for calculating point
         //---------------------------------------
@@ -308,21 +278,20 @@ namespace EPT.modules
         {
             if (dgvCalculate.ColumnCount == 0)
             {
+                // clear datasource to avoid errors after data load
+                this.dgvCalculate.DataSource = null;
+                this.dgvCalculate.Rows.Clear();
+                this.dgvDelete.DataSource = null;
+                this.dgvDelete.Rows.Clear();
 
                 dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
-
-
-
-                
                 //----------------------------------
                 // add rows for calculation table
                 //----------------------------------
                     for (int i = 0; i <= 43; i++)
                     {
                         i = dgvCalculate.Rows.Add();
-                        //MessageBox.Show("juz istnieje");
                     }
-
 
                 var deleteButton = new DataGridViewButtonColumn();
                 deleteButton.Name = "dgvDeleteButton";
@@ -331,7 +300,7 @@ namespace EPT.modules
                 deleteButton.UseColumnTextForButtonValue = true;
                 this.dgvDelete.Columns.Add(deleteButton);
                 this.dgvDelete.Rows.Add();
-                //this.dgvDelete.Rows[0].Cells[0].Value = "test";
+
                 dropmenu();
                 RowsColorCalculate();
             }
@@ -345,14 +314,8 @@ namespace EPT.modules
                 deleteButton.Text = "Delete";
                 deleteButton.UseColumnTextForButtonValue = true;
                 this.dgvDelete.Columns.Add(deleteButton);
-                //this.dgvDelete.Rows.Add();
-                //this.dgvDelete.Rows[0].Cells[0].Value = "test";
             }
-
-            
-
         }
-
         //---------------------
         // synchronize 2 grids
         //---------------------
@@ -364,10 +327,8 @@ namespace EPT.modules
             }
             
         }
-
-
         //----------------------------------------------
-        // DataGridView number and only one "." check
+        // ??????????????????????????????????????????????????????????????????
         //----------------------------------------------
         private void dgvCalculate_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
@@ -376,7 +337,9 @@ namespace EPT.modules
                 e.Control.KeyPress += new KeyPressEventHandler(dgvCalculate_KeyPress);
             }
         }
-
+        //----------------------------------------------
+        // DataGridView number and only one "." check
+        //----------------------------------------------
         private void dgvCalculate_KeyPress(object sender, KeyPressEventArgs e)
         {   
             // digits and "." only
@@ -389,9 +352,10 @@ namespace EPT.modules
             {
                 e.Handled = true;
             }
-
         }
-        // for comments and clear!!!!!
+       
+        
+        // for comments and clear!!!!!!!!!!!????????????????????????????
         private void BTB_Leave(object sender, EventArgs e)
         {
             double bTB = Convert.ToDouble(BTB.Text);
@@ -427,11 +391,14 @@ namespace EPT.modules
             {
                 double frTB = 0.5;
             }
-
-
-
         }
-        // obliczenia test
+
+
+
+
+
+
+        // obliczenia test ???????????????????????????????????????????????????????
         private void button_Click(object sender, EventArgs e)
         {
             // string someString = dataGridView1[0, 2].Value.ToString();
@@ -446,13 +413,13 @@ namespace EPT.modules
 
 
 
-
+        //------------------------------------------------------------
+        // ???????????????????????????????????????????????????????????????????
+        //------------------------------------------------------------
 
 
         private void save_test_Click(object sender, EventArgs e)
         {
-
-
             DataTable dt = new DataTable("itemstable");
 
             for (int i = 0; i < dgvCalculate.ColumnCount; i++)
@@ -481,49 +448,61 @@ namespace EPT.modules
 
         private void load_test_Click(object sender, EventArgs e)
         {
-            try
-            {
-                XmlReader xmlFile;
-                xmlFile = XmlReader.Create("calc_save.xml", new XmlReaderSettings());
-                DataSet ds = new DataSet();
-                ds.ReadXml(xmlFile);
-                dgvCalculate.DataSource = ds.Tables[0];
-                xmlFile.Close();
 
-                //dgvCalculate.Rows[6].Cells[0].Value = "qwewqewqeqwe";
-
-                for (int i = 0; i < dgvCalculate.ColumnCount; i++)
-                {
-                    dgvCalculate.Rows[0].Cells[i].Value = null; //this is important.
-                    DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
-                    c.Items.Add("On");
-                    c.Items.Add("Off");
-                    //dgvCalculate.Rows[5].Cells[i].Value = dgvCalculate.Rows[4].Cells[i].Value;
-                    dgvCalculate.Rows[4].Cells[i].Value = ds.Tables[0].Rows[4][i].ToString();
-                    dgvCalculate.Rows[4].Cells[i] = c;
-                    RowsColorCalculate();
-                }
-
-                for (int i = 0; i < dgvCalculate.Columns.Count; i++)
+            //check to avoid load data when table already exist.
+            if(dgvCalculate.ColumnCount == 0)
+                { 
+                try
                 {
                 
-                var deleteButton = new DataGridViewButtonColumn();
-                deleteButton.Name = "dgvDeleteButton";
-                deleteButton.HeaderText = "Delete";
-                deleteButton.Text = "Delete";
-                deleteButton.UseColumnTextForButtonValue = true;
-                this.dgvDelete.Columns.Add(deleteButton);
-                    if (dgvDelete.Rows.Count == 0)
+
+
+                    XmlReader xmlFile;
+                    xmlFile = XmlReader.Create("calc_save.xml", new XmlReaderSettings());
+                    DataSet ds = new DataSet();
+                    ds.ReadXml(xmlFile);
+                    dgvCalculate.DataSource = ds.Tables[0];
+                    xmlFile.Close();
+
+                    //dgvCalculate.Rows[6].Cells[0].Value = "qwewqewqeqwe";
+
+                    for (int i = 0; i < dgvCalculate.ColumnCount; i++)
                     {
-                        dgvDelete.Rows.Add();
+                        dgvCalculate.Rows[0].Cells[i].Value = null; //this is important.
+                        DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
+                        c.Items.Add("On");
+                        c.Items.Add("Off");
+                        //dgvCalculate.Rows[5].Cells[i].Value = dgvCalculate.Rows[4].Cells[i].Value;
+                        dgvCalculate.Rows[4].Cells[i].Value = ds.Tables[0].Rows[4][i].ToString();
+                        dgvCalculate.Rows[4].Cells[i] = c;
+                        RowsColorCalculate();
                     }
 
+                    for (int i = 0; i < dgvCalculate.Columns.Count; i++)
+                    {
+                
+                    var deleteButton = new DataGridViewButtonColumn();
+                    deleteButton.Name = "dgvDeleteButton";
+                    deleteButton.HeaderText = "Delete";
+                    deleteButton.Text = "Delete";
+                    deleteButton.UseColumnTextForButtonValue = true;
+                    this.dgvDelete.Columns.Add(deleteButton);
+                        if (dgvDelete.Rows.Count == 0)
+                        {
+                            dgvDelete.Rows.Add();
+                        }
+
                     
+                    }
                 }
-            }
-            catch (Exception ex)
+                catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
+            else
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Tabela juz istnieje");
             }
         }
 
@@ -533,10 +512,7 @@ namespace EPT.modules
 
         
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            dgvCalculate.Columns.RemoveAt(2);
-        }
+
 
         private void dgvDelete_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -557,5 +533,7 @@ namespace EPT.modules
         {
             dgvCalculate.HorizontalScrollingOffset = dgvDelete.HorizontalScrollingOffset;
         }
+
+        
     }
 }
