@@ -81,14 +81,14 @@
             this.labelCb = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dgvDelete = new System.Windows.Forms.DataGridView();
-            this.load_test = new System.Windows.Forms.Button();
-            this.save_test = new System.Windows.Forms.Button();
+            this.dgvDeleteSP = new System.Windows.Forms.DataGridView();
+            this.loadDataSP = new System.Windows.Forms.Button();
+            this.saveCalcSP = new System.Windows.Forms.Button();
             this.newCalcPoint = new System.Windows.Forms.Button();
             this.dgvNames = new System.Windows.Forms.DataGridView();
             this.Info = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button = new System.Windows.Forms.Button();
-            this.dgvCalculate = new System.Windows.Forms.DataGridView();
+            this.buttonTEST = new System.Windows.Forms.Button();
+            this.dgvCalculateSP = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -98,9 +98,9 @@
             this.groupBox10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteSP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNames)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCalculate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCalculateSP)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl11
@@ -681,13 +681,13 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.dgvDelete);
-            this.tabPage1.Controls.Add(this.load_test);
-            this.tabPage1.Controls.Add(this.save_test);
+            this.tabPage1.Controls.Add(this.dgvDeleteSP);
+            this.tabPage1.Controls.Add(this.loadDataSP);
+            this.tabPage1.Controls.Add(this.saveCalcSP);
             this.tabPage1.Controls.Add(this.newCalcPoint);
             this.tabPage1.Controls.Add(this.dgvNames);
-            this.tabPage1.Controls.Add(this.button);
-            this.tabPage1.Controls.Add(this.dgvCalculate);
+            this.tabPage1.Controls.Add(this.buttonTEST);
+            this.tabPage1.Controls.Add(this.dgvCalculateSP);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -696,48 +696,48 @@
             this.tabPage1.Text = "Sea Pressure";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dgvDelete
+            // dgvDeleteSP
             // 
-            this.dgvDelete.AllowUserToAddRows = false;
-            this.dgvDelete.AllowUserToDeleteRows = false;
-            this.dgvDelete.AllowUserToResizeColumns = false;
-            this.dgvDelete.AllowUserToResizeRows = false;
-            this.dgvDelete.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDelete.ColumnHeadersVisible = false;
-            this.dgvDelete.Location = new System.Drawing.Point(132, 560);
-            this.dgvDelete.MultiSelect = false;
-            this.dgvDelete.Name = "dgvDelete";
-            this.dgvDelete.RowHeadersVisible = false;
-            this.dgvDelete.Size = new System.Drawing.Size(454, 44);
-            this.dgvDelete.TabIndex = 27;
-            this.dgvDelete.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDelete_CellClick);
-            this.dgvDelete.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgvDelete_Scroll);
+            this.dgvDeleteSP.AllowUserToAddRows = false;
+            this.dgvDeleteSP.AllowUserToDeleteRows = false;
+            this.dgvDeleteSP.AllowUserToResizeColumns = false;
+            this.dgvDeleteSP.AllowUserToResizeRows = false;
+            this.dgvDeleteSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDeleteSP.ColumnHeadersVisible = false;
+            this.dgvDeleteSP.Location = new System.Drawing.Point(132, 560);
+            this.dgvDeleteSP.MultiSelect = false;
+            this.dgvDeleteSP.Name = "dgvDeleteSP";
+            this.dgvDeleteSP.RowHeadersVisible = false;
+            this.dgvDeleteSP.Size = new System.Drawing.Size(454, 44);
+            this.dgvDeleteSP.TabIndex = 27;
+            this.dgvDeleteSP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeleteSP_CellClick);
+            this.dgvDeleteSP.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgvDeleteSP_Scroll);
             // 
-            // load_test
+            // loadDataSP
             // 
-            this.load_test.Location = new System.Drawing.Point(6, 639);
-            this.load_test.Name = "load_test";
-            this.load_test.Size = new System.Drawing.Size(153, 23);
-            this.load_test.TabIndex = 25;
-            this.load_test.Text = "Load saved data";
-            this.load_test.UseVisualStyleBackColor = true;
-            this.load_test.Click += new System.EventHandler(this.load_test_Click);
+            this.loadDataSP.Location = new System.Drawing.Point(6, 589);
+            this.loadDataSP.Name = "loadDataSP";
+            this.loadDataSP.Size = new System.Drawing.Size(120, 23);
+            this.loadDataSP.TabIndex = 25;
+            this.loadDataSP.Text = "Load saved data";
+            this.loadDataSP.UseVisualStyleBackColor = true;
+            this.loadDataSP.Click += new System.EventHandler(this.loadDataSP_Click);
             // 
-            // save_test
+            // saveCalcSP
             // 
-            this.save_test.Location = new System.Drawing.Point(165, 639);
-            this.save_test.Name = "save_test";
-            this.save_test.Size = new System.Drawing.Size(75, 23);
-            this.save_test.TabIndex = 24;
-            this.save_test.Text = "save_test";
-            this.save_test.UseVisualStyleBackColor = true;
-            this.save_test.Click += new System.EventHandler(this.save_test_Click);
+            this.saveCalcSP.Location = new System.Drawing.Point(6, 618);
+            this.saveCalcSP.Name = "saveCalcSP";
+            this.saveCalcSP.Size = new System.Drawing.Size(120, 44);
+            this.saveCalcSP.TabIndex = 24;
+            this.saveCalcSP.Text = "Save Sea Pressure data";
+            this.saveCalcSP.UseVisualStyleBackColor = true;
+            this.saveCalcSP.Click += new System.EventHandler(this.saveCalcSP_Click);
             // 
             // newCalcPoint
             // 
-            this.newCalcPoint.Location = new System.Drawing.Point(6, 610);
+            this.newCalcPoint.Location = new System.Drawing.Point(6, 560);
             this.newCalcPoint.Name = "newCalcPoint";
-            this.newCalcPoint.Size = new System.Drawing.Size(175, 23);
+            this.newCalcPoint.Size = new System.Drawing.Size(120, 23);
             this.newCalcPoint.TabIndex = 23;
             this.newCalcPoint.Text = "New calculating point";
             this.newCalcPoint.UseVisualStyleBackColor = true;
@@ -769,31 +769,31 @@
             this.Info.ReadOnly = true;
             this.Info.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // button
+            // buttonTEST
             // 
-            this.button.Location = new System.Drawing.Point(459, 639);
-            this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(75, 23);
-            this.button.TabIndex = 21;
-            this.button.Text = "button1";
-            this.button.UseVisualStyleBackColor = true;
-            this.button.Click += new System.EventHandler(this.button_Click);
+            this.buttonTEST.Location = new System.Drawing.Point(511, 629);
+            this.buttonTEST.Name = "buttonTEST";
+            this.buttonTEST.Size = new System.Drawing.Size(75, 23);
+            this.buttonTEST.TabIndex = 21;
+            this.buttonTEST.Text = "buttonTest";
+            this.buttonTEST.UseVisualStyleBackColor = true;
+            this.buttonTEST.Click += new System.EventHandler(this.buttonTest_Click);
             // 
-            // dgvCalculate
+            // dgvCalculateSP
             // 
-            this.dgvCalculate.AllowUserToAddRows = false;
-            this.dgvCalculate.AllowUserToDeleteRows = false;
-            this.dgvCalculate.AllowUserToResizeColumns = false;
-            this.dgvCalculate.AllowUserToResizeRows = false;
-            this.dgvCalculate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCalculate.Location = new System.Drawing.Point(132, 6);
-            this.dgvCalculate.MultiSelect = false;
-            this.dgvCalculate.Name = "dgvCalculate";
-            this.dgvCalculate.RowHeadersVisible = false;
-            this.dgvCalculate.Size = new System.Drawing.Size(454, 548);
-            this.dgvCalculate.TabIndex = 19;
-            this.dgvCalculate.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvCalculate_EditingControlShowing);
-            this.dgvCalculate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvCalculate_KeyPress);
+            this.dgvCalculateSP.AllowUserToAddRows = false;
+            this.dgvCalculateSP.AllowUserToDeleteRows = false;
+            this.dgvCalculateSP.AllowUserToResizeColumns = false;
+            this.dgvCalculateSP.AllowUserToResizeRows = false;
+            this.dgvCalculateSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCalculateSP.Location = new System.Drawing.Point(132, 6);
+            this.dgvCalculateSP.MultiSelect = false;
+            this.dgvCalculateSP.Name = "dgvCalculateSP";
+            this.dgvCalculateSP.RowHeadersVisible = false;
+            this.dgvCalculateSP.Size = new System.Drawing.Size(454, 548);
+            this.dgvCalculateSP.TabIndex = 19;
+            this.dgvCalculateSP.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvCheck_EditingControlShowing);
+            this.dgvCalculateSP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvCheck_KeyPress);
             // 
             // tabPage2
             // 
@@ -847,9 +847,9 @@
             this.groupBox10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDelete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteSP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNames)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCalculate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCalculateSP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -909,16 +909,16 @@
         private System.Windows.Forms.Button calculateBT;
         private System.Windows.Forms.ComboBox saCB;
         private System.Windows.Forms.DataGridView dgvNames;
-        private System.Windows.Forms.Button button;
-        private System.Windows.Forms.DataGridView dgvCalculate;
+        private System.Windows.Forms.Button buttonTEST;
+        private System.Windows.Forms.DataGridView dgvCalculateSP;
         private System.Windows.Forms.Button newCalcPoint;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.ComboBox bkCB;
-        private System.Windows.Forms.Button save_test;
-        private System.Windows.Forms.Button load_test;
+        private System.Windows.Forms.Button saveCalcSP;
+        private System.Windows.Forms.Button loadDataSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn Info;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dgvDelete;
+        private System.Windows.Forms.DataGridView dgvDeleteSP;
     }
 }

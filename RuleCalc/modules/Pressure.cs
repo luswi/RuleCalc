@@ -102,8 +102,8 @@ namespace EPT.modules
         //------------------
         // Hide scroll bar
         //------------------
-        //remove scrollbar from dgvCalculate table
-        dgvCalculate.ScrollBars = ScrollBars.None;
+        //remove scrollbar from dgvCalculateSP table
+        dgvCalculateSP.ScrollBars = ScrollBars.None;
         //load data into dgvNames
         dgvNames.Rows.Add("Plate");
         dgvNames.Rows.Add("x [m] load point");
@@ -161,15 +161,15 @@ namespace EPT.modules
         //------------
         public void dropmenu()
         {
-            for (int i = 0; i < dgvCalculate.ColumnCount; i++)
+            for (int i = 0; i < dgvCalculateSP.ColumnCount; i++)
             {
                 DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
 
-                if ((string)dgvCalculate.Rows[4].Cells[i].Value == null)
+                if ((string)dgvCalculateSP.Rows[4].Cells[i].Value == null)
                 {
                     c.Items.Add("On");
                     c.Items.Add("Off");
-                    dgvCalculate.Rows[4].Cells[i] = c;
+                    dgvCalculateSP.Rows[4].Cells[i] = c;
 
                 }
             }
@@ -206,28 +206,28 @@ namespace EPT.modules
         //--------------------------------
         public void RowsColorCalculate()
         {
-            for (int i = 0; i < dgvCalculate.Rows.Count; i++)
+            for (int i = 0; i < dgvCalculateSP.Rows.Count; i++)
             {
                 if (i == 0)
                 {
-                    dgvCalculate.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
-                    dgvCalculate.Rows[i].ReadOnly = true;
+                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
+                    dgvCalculateSP.Rows[i].ReadOnly = true;
                 }
                 else if (i == 15)
                 {
-                    dgvCalculate.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
-                    dgvCalculate.Rows[i].ReadOnly = true;
+                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
+                    dgvCalculateSP.Rows[i].ReadOnly = true;
                 }
                 else if (i <= 4)
                 {
-                    dgvCalculate.Rows[i].DefaultCellStyle.BackColor = Color.Azure;
+                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.Azure;
                 }
                 else if (i > 4 & i < 7)
                 {
-                    dgvCalculate.Rows[i].DefaultCellStyle.BackColor = Color.Bisque;
+                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.Bisque;
                 }
                 else
-                    dgvCalculate.Rows[i].DefaultCellStyle.BackColor = Color.Coral;
+                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.Coral;
             }
         }
         //--------------------
@@ -276,21 +276,21 @@ namespace EPT.modules
         //---------------------------------------
         private void newCalcPoint_Click(object sender, EventArgs e)
         {
-            if (dgvCalculate.ColumnCount == 0)
+            if (dgvCalculateSP.ColumnCount == 0)
             {
                 // clear datasource to avoid errors after data load
-                this.dgvCalculate.DataSource = null;
-                this.dgvCalculate.Rows.Clear();
-                this.dgvDelete.DataSource = null;
-                this.dgvDelete.Rows.Clear();
+                this.dgvCalculateSP.DataSource = null;
+                this.dgvCalculateSP.Rows.Clear();
+                this.dgvDeleteSP.DataSource = null;
+                this.dgvDeleteSP.Rows.Clear();
 
-                dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
+                dgvCalculateSP.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
                 //----------------------------------
                 // add rows for calculation table
                 //----------------------------------
                     for (int i = 0; i <= 43; i++)
                     {
-                        i = dgvCalculate.Rows.Add();
+                        i = dgvCalculateSP.Rows.Add();
                     }
 
                 var deleteButton = new DataGridViewButtonColumn();
@@ -298,22 +298,22 @@ namespace EPT.modules
                 deleteButton.HeaderText = "Delete";
                 deleteButton.Text = "Delete";
                 deleteButton.UseColumnTextForButtonValue = true;
-                this.dgvDelete.Columns.Add(deleteButton);
-                this.dgvDelete.Rows.Add();
+                this.dgvDeleteSP.Columns.Add(deleteButton);
+                this.dgvDeleteSP.Rows.Add();
 
                 dropmenu();
                 RowsColorCalculate();
             }
             else
             {
-                dgvCalculate.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
+                dgvCalculateSP.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
                 dropmenu();
                 var deleteButton = new DataGridViewButtonColumn();
                 deleteButton.Name = "dgvDeleteButton";
                 deleteButton.HeaderText = "Delete";
                 deleteButton.Text = "Delete";
                 deleteButton.UseColumnTextForButtonValue = true;
-                this.dgvDelete.Columns.Add(deleteButton);
+                this.dgvDeleteSP.Columns.Add(deleteButton);
             }
         }
         //---------------------
@@ -321,26 +321,26 @@ namespace EPT.modules
         //---------------------
         private void dgvNames_Scroll(object sender, ScrollEventArgs e)
         {
-            if (dgvCalculate.Columns.Count != 0)
+            if (dgvCalculateSP.Columns.Count != 0)
             {
-                dgvCalculate.FirstDisplayedScrollingRowIndex = dgvNames.FirstDisplayedScrollingRowIndex;
+                dgvCalculateSP.FirstDisplayedScrollingRowIndex = dgvNames.FirstDisplayedScrollingRowIndex;
             }
             
         }
-        //----------------------------------------------
-        // ??????????????????????????????????????????????????????????????????
-        //----------------------------------------------
-        private void dgvCalculate_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        //----------------------------------------------------------------
+        // DataGridView number and only one "." check IMPORTANT in Events
+        //----------------------------------------------------------------
+        private void dgvCheck_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            if (dgvCalculate.CurrentCell.ColumnIndex == 0)
+            if (dgvCalculateSP.CurrentCell.ColumnIndex == 0)
             {
-                e.Control.KeyPress += new KeyPressEventHandler(dgvCalculate_KeyPress);
+                e.Control.KeyPress += new KeyPressEventHandler(dgvCheck_KeyPress);
             }
         }
-        //----------------------------------------------
-        // DataGridView number and only one "." check
-        //----------------------------------------------
-        private void dgvCalculate_KeyPress(object sender, KeyPressEventArgs e)
+        //----------------------------------------------------------------------------------
+        // DataGridView number and only one "." check (after check remove from Events !!!)
+        //----------------------------------------------------------------------------------
+        private void dgvCheck_KeyPress(object sender, KeyPressEventArgs e)
         {   
             // digits and "." only
             if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
@@ -353,9 +353,9 @@ namespace EPT.modules
                 e.Handled = true;
             }
         }
-       
-        
-        // for comments and clear!!!!!!!!!!!????????????????????????????
+        //-------------------------------------
+        // Calculate GM and kr according to B
+        //-------------------------------------
         private void BTB_Leave(object sender, EventArgs e)
         {
             double bTB = Convert.ToDouble(BTB.Text);
@@ -364,7 +364,9 @@ namespace EPT.modules
             gmTB.Text = gmCalc.ToString("0.00");
             krTB.Text = krCalc.ToString("0.00");
         }
-
+        //-------------------------
+        // Values for Service area
+        //-------------------------
         private void saCB_SelectedValueChanged(object sender, EventArgs e)
         {
             if (saCB.Text == "R0 (No reduction)")
@@ -392,44 +394,21 @@ namespace EPT.modules
                 double frTB = 0.5;
             }
         }
-
-
-
-
-
-
-        // obliczenia test ???????????????????????????????????????????????????????
-        private void button_Click(object sender, EventArgs e)
-        {
-            // string someString = dataGridView1[0, 2].Value.ToString();
-            // dataGridView1.Rows[4].Cells[0].Value = someString;
-
-            for (int i = 0; i < dgvCalculate.Columns.Count; i++)
-            {
-                string kolumna = dgvCalculate[i, 4].Value.ToString();
-                dgvCalculate.Rows[6].Cells[i].Value = kolumna;
-            }
-        }
-
-
-
         //------------------------------------------------------------
-        // ???????????????????????????????????????????????????????????????????
+        // Save button for Calculate Table (Sea Pressure)
         //------------------------------------------------------------
-
-
-        private void save_test_Click(object sender, EventArgs e)
+        private void saveCalcSP_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable("itemstable");
 
-            for (int i = 0; i < dgvCalculate.ColumnCount; i++)
+            for (int i = 0; i < dgvCalculateSP.ColumnCount; i++)
             {
-                dt.Columns.Add(dgvCalculate.Columns[i].Name, typeof(System.String));
+                dt.Columns.Add(dgvCalculateSP.Columns[i].Name, typeof(System.String));
             }
 
             DataRow myrow;
-            int icols = dgvCalculate.Columns.Count;
-            foreach (DataGridViewRow drow in this.dgvCalculate.Rows)
+            int icols = dgvCalculateSP.Columns.Count;
+            foreach (DataGridViewRow drow in this.dgvCalculateSP.Rows)
             {
                 myrow = dt.NewRow();
                 for (int i = 0; i <= icols - 1; i++)
@@ -440,59 +419,53 @@ namespace EPT.modules
                 dt.Rows.Add(myrow);
             }
 
-            dt.WriteXml("calc_Save.xml");
-
-
+            dt.WriteXml("saveCalcSP.xml");
 
         }
-
-        private void load_test_Click(object sender, EventArgs e)
+        //----------------------------------
+        // Load saved data for Sea Pressure
+        //----------------------------------
+        private void loadDataSP_Click(object sender, EventArgs e)
         {
 
             //check to avoid load data when table already exist.
-            if(dgvCalculate.ColumnCount == 0)
+            if(dgvCalculateSP.ColumnCount == 0)
                 { 
                 try
                 {
-                
-
-
+                    // load data into table
                     XmlReader xmlFile;
-                    xmlFile = XmlReader.Create("calc_save.xml", new XmlReaderSettings());
+                    xmlFile = XmlReader.Create("saveCalcSP.xml", new XmlReaderSettings());
                     DataSet ds = new DataSet();
                     ds.ReadXml(xmlFile);
-                    dgvCalculate.DataSource = ds.Tables[0];
+                    dgvCalculateSP.DataSource = ds.Tables[0];
                     xmlFile.Close();
 
-                    //dgvCalculate.Rows[6].Cells[0].Value = "qwewqewqeqwe";
-
-                    for (int i = 0; i < dgvCalculate.ColumnCount; i++)
+                    // load ComboBox
+                    for (int i = 0; i < dgvCalculateSP.ColumnCount; i++)
                     {
-                        dgvCalculate.Rows[0].Cells[i].Value = null; //this is important.
+                        dgvCalculateSP.Rows[0].Cells[i].Value = null; //this is important.
                         DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
                         c.Items.Add("On");
                         c.Items.Add("Off");
-                        //dgvCalculate.Rows[5].Cells[i].Value = dgvCalculate.Rows[4].Cells[i].Value;
-                        dgvCalculate.Rows[4].Cells[i].Value = ds.Tables[0].Rows[4][i].ToString();
-                        dgvCalculate.Rows[4].Cells[i] = c;
+                    
+                        dgvCalculateSP.Rows[4].Cells[i].Value = ds.Tables[0].Rows[4][i].ToString();
+                        dgvCalculateSP.Rows[4].Cells[i] = c;
                         RowsColorCalculate();
                     }
-
-                    for (int i = 0; i < dgvCalculate.Columns.Count; i++)
+                    // load Delete Buttons
+                    for (int i = 0; i < dgvCalculateSP.Columns.Count; i++)
                     {
-                
-                    var deleteButton = new DataGridViewButtonColumn();
-                    deleteButton.Name = "dgvDeleteButton";
-                    deleteButton.HeaderText = "Delete";
-                    deleteButton.Text = "Delete";
-                    deleteButton.UseColumnTextForButtonValue = true;
-                    this.dgvDelete.Columns.Add(deleteButton);
-                        if (dgvDelete.Rows.Count == 0)
-                        {
-                            dgvDelete.Rows.Add();
-                        }
-
-                    
+                        var deleteButtonSP = new DataGridViewButtonColumn();
+                        deleteButtonSP.Name = "dgvDeleteButton";
+                        deleteButtonSP.HeaderText = "Delete";
+                        deleteButtonSP.Text = "Delete";
+                        deleteButtonSP.UseColumnTextForButtonValue = true;
+                        this.dgvDeleteSP.Columns.Add(deleteButtonSP);
+                            if (dgvDeleteSP.Rows.Count == 0)
+                            {
+                                dgvDeleteSP.Rows.Add();
+                            }
                     }
                 }
                 catch (Exception ex)
@@ -502,38 +475,51 @@ namespace EPT.modules
                 }
             else
             {
-                MessageBox.Show("Tabela juz istnieje");
+                MessageBox.Show("Data inside table already exists, Please clear table before.");
             }
         }
-
         static DataSet ds_input = new DataSet();
-
-
-
-        
-
-
-
-        private void dgvDelete_CellClick(object sender, DataGridViewCellEventArgs e)
+        //--------------------------------
+        // Button delete for Sea Pressure
+        //--------------------------------
+        private void dgvDeleteSP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            for (int i = 0; i < dgvCalculate.Columns.Count; i++)
+            for (int i = 0; i < dgvCalculateSP.Columns.Count; i++)
             {
-                if (e.ColumnIndex == dgvDelete.Columns[i].DisplayIndex)
+                if (e.ColumnIndex == dgvDeleteSP.Columns[i].DisplayIndex)
                 {
-                    dgvCalculate.Columns.RemoveAt(e.ColumnIndex);
-                    dgvDelete.Columns.RemoveAt(e.ColumnIndex);
+                    dgvCalculateSP.Columns.RemoveAt(e.ColumnIndex);
+                    dgvDeleteSP.Columns.RemoveAt(e.ColumnIndex);
                 }
             }
-
-
         }
-
-        private void dgvDelete_Scroll(object sender, ScrollEventArgs e)
+        //-----------------------------------------------------------
+        // Synchronize horizontal Scroll bar calculateSP - Delete SP
+        //-----------------------------------------------------------
+        private void dgvDeleteSP_Scroll(object sender, ScrollEventArgs e)
         {
-            dgvCalculate.HorizontalScrollingOffset = dgvDelete.HorizontalScrollingOffset;
+            dgvCalculateSP.HorizontalScrollingOffset = dgvDeleteSP.HorizontalScrollingOffset;
         }
 
-        
+
+        //----------------------------------------
+        // TEST AREA FOR REMOVE == START ==
+        //----------------------------------------
+        private void buttonTest_Click(object sender, EventArgs e)
+        {
+            // string someString = dataGridView1[0, 2].Value.ToString();
+            // dataGridView1.Rows[4].Cells[0].Value = someString;
+            //dgvCalculate.Rows[5].Cells[i].Value = dgvCalculate.Rows[4].Cells[i].Value;
+            for (int i = 0; i < dgvCalculateSP.Columns.Count; i++)
+            {
+                string kolumna = dgvCalculateSP[i, 4].Value.ToString();
+                dgvCalculateSP.Rows[6].Cells[i].Value = kolumna;
+            }
+        }
+        //----------------------------------------
+        // TEST AREA FOR REMOVE == END ==
+        //----------------------------------------
+
     }
+
 }
