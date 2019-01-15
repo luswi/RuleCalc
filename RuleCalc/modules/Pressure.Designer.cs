@@ -671,7 +671,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::EPT.Properties.Resources.ship_data;
+            this.pictureBox1.Image = global::RuleCalc.Properties.Resources.ship_data;
             this.pictureBox1.Location = new System.Drawing.Point(23, 17);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(593, 166);
