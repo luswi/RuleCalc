@@ -99,62 +99,91 @@ namespace EPT.modules
                 saCB.Text = info.saData;
                 bkCB.Text = info.bkData;
             }
-        //------------------
-        // Hide scroll bar
-        //------------------
-        //remove scrollbar from dgvCalculateSP table
-        dgvCalculateSP.ScrollBars = ScrollBars.None;
-        //load data into dgvNames
-        dgvNames.Rows.Add("Plate");
-        dgvNames.Rows.Add("x [m] load point");
-        dgvNames.Rows.Add("y [m] load point");
-        dgvNames.Rows.Add("z [m] load point");
-        dgvNames.Rows.Add("Bx [m]");
-        dgvNames.Rows.Add("R_eH [MPa]");
-        dgvNames.Rows.Add("b [mm]");
-        dgvNames.Rows.Add("a [mm] (EPP Length]");
-        dgvNames.Rows.Add("Alpha (aspect ratio)");
-        dgvNames.Rows.Add("P [MPa]");
-        dgvNames.Rows.Add("t req gross [mm]");
-        dgvNames.Rows.Add("tc plate [mm]");
-        dgvNames.Rows.Add("th act. [mm]");
-        dgvNames.Rows.Add("th. status");
-        dgvNames.Rows.Add("plate slenderness status");
-        dgvNames.Rows.Add("Stiffener");
-        dgvNames.Rows.Add("x [m] load point");
-        dgvNames.Rows.Add("y [m] load point");
-        dgvNames.Rows.Add("z [m] load point");
-        dgvNames.Rows.Add("Bx");
-        dgvNames.Rows.Add("lbdg [m] (Stiffener bending span)");
-        dgvNames.Rows.Add("s [mm] (stiffener spacing)");
-        dgvNames.Rows.Add("f_u (HP-profile)");
-        dgvNames.Rows.Add("f_bdg (10 for trv. Stiff?)");
-        dgvNames.Rows.Add("R_eH [MPa]");
-        dgvNames.Rows.Add("dshr [mm]");
-        dgvNames.Rows.Add("hstif [mm]");
-        dgvNames.Rows.Add("tp [mm]");
-        dgvNames.Rows.Add("ϕw [deg]");
-        dgvNames.Rows.Add("lshr [m]");
-        dgvNames.Rows.Add("fshr");
-        dgvNames.Rows.Add("ΤeH [MPa]");
-        dgvNames.Rows.Add("P [MPa]");
-        dgvNames.Rows.Add("tc stiffener [mm]");
-        dgvNames.Rows.Add("t req gross [mm]");
-        dgvNames.Rows.Add("th act. [mm]");
-        dgvNames.Rows.Add("th. status");
-        dgvNames.Rows.Add("tw slenderness");
-        dgvNames.Rows.Add("zreq ");
-        dgvNames.Rows.Add("b web [mm]");
-        dgvNames.Rows.Add("b flange [mm]");
-        dgvNames.Rows.Add("t flange [mm]");
-        dgvNames.Rows.Add("Z [cm^3]");
-        dgvNames.Rows.Add("Z status");
-        //clear selected 1st row
-        dgvNames[0, 1].Selected = true;
-        dgvNames.ClearSelection();
-        //color and bold fonts/ceels
-        RowsColorNames();
-        RowsBold();
+            //remove scrollbar from dgvCalculateSP table
+            dgvCalculateSP.ScrollBars = ScrollBars.None;
+            //load data into dgvNames
+            // Plate informations
+            dgvNames.Rows.Add("Plate");
+            dgvNames.Rows.Add("x [m] load point");
+            dgvNames.Rows.Add("y [m] load point");
+            dgvNames.Rows.Add("z [m] load point");
+            dgvNames.Rows.Add("Bx [m]");
+            dgvNames.Rows.Add("R_eH [MPa]");
+            dgvNames.Rows.Add("b [mm]");
+            dgvNames.Rows.Add("a [mm] (EPP Length]");
+            dgvNames.Rows.Add("Alpha (aspect ratio)");
+            dgvNames.Rows.Add("tc plate [mm]");
+            dgvNames.Rows.Add("P [MPa]");
+            dgvNames.Rows.Add("t req (GROSS) [mm]");
+            dgvNames.Rows.Add("Plate thickness (GROSS) [mm]");
+            dgvNames.Rows.Add("th. status");
+            dgvNames.Rows.Add("Slenderness status");
+            // Stiffeners informations
+            dgvNames.Rows.Add("Stiffener");
+            dgvNames.Rows.Add("x [m] load point");
+            dgvNames.Rows.Add("y [m] load point");
+            dgvNames.Rows.Add("z [m] load point");
+            dgvNames.Rows.Add("Bx");
+            dgvNames.Rows.Add("lbdg [m] (Stiffener bending span)");
+            dgvNames.Rows.Add("s [mm] (stiffener spacing)");
+            dgvNames.Rows.Add("f_u");
+            dgvNames.Rows.Add("f_bdg");
+            dgvNames.Rows.Add("R_eH [MPa]");
+            dgvNames.Rows.Add("dshr [mm]");
+            dgvNames.Rows.Add("hstif (GROSS) [mm]");
+            dgvNames.Rows.Add("tp [mm]");
+            dgvNames.Rows.Add("ϕw [deg]");
+            dgvNames.Rows.Add("lshr [m]");
+            dgvNames.Rows.Add("fshr");
+            dgvNames.Rows.Add("ΤeH [MPa]");
+            dgvNames.Rows.Add("tc stiffener (total) [mm]");
+            dgvNames.Rows.Add("P [MPa]");
+            dgvNames.Rows.Add("t req (GROSS) [mm]");
+            dgvNames.Rows.Add("Web thickness (GROSS) [mm]");
+            dgvNames.Rows.Add("th. status");
+            dgvNames.Rows.Add("Slenderness status");
+            dgvNames.Rows.Add("zreq NET");
+            dgvNames.Rows.Add("Flange width (GROSS) [mm]");
+            dgvNames.Rows.Add("Flange thickness (GROSS) [mm]");
+            dgvNames.Rows.Add("Z [cm^3] (NET)");
+            dgvNames.Rows.Add("Z status");
+            //Intermediate informations
+            dgvNames.Rows.Add("Intermediate values");
+            dgvNames.Rows.Add("X’ (plate) [m]");
+            dgvNames.Rows.Add("X’ (stiff) [m]");
+            dgvNames.Rows.Add("fyB (plate)");
+            dgvNames.Rows.Add("fyB(stiffener)");
+            dgvNames.Rows.Add("fyz (plate)");
+            dgvNames.Rows.Add("fyz (stiffener)");
+            dgvNames.Rows.Add("fxL (plate)");
+            dgvNames.Rows.Add("fxL (stiffeners)");
+            dgvNames.Rows.Add("f_3");
+            dgvNames.Rows.Add("f_4 (based on f_xl, plate)");
+            dgvNames.Rows.Add("f_4 (stiffners on f_xl, stiffeners)");
+            dgvNames.Rows.Add("f_5 (plate)");
+            dgvNames.Rows.Add("f_5 (stiffners)");
+            dgvNames.Rows.Add("Cw");
+            dgvNames.Rows.Add("Pw,wl (plate) [MPa]");
+            dgvNames.Rows.Add("Pw,wl (stiffners) [MPa]");
+            dgvNames.Rows.Add("P_ENV (plate) [MPa]");
+            dgvNames.Rows.Add("P_ENV (stiffener) [MPa]");
+            dgvNames.Rows.Add("P (SEA-1) [MPa] plate");
+            dgvNames.Rows.Add("P (SEA-2) [MPa] plate");
+            dgvNames.Rows.Add("t req gross (SEA-1 AC-II) [mm] plate");
+            dgvNames.Rows.Add("t req gross (SEA-2 AC-I) [mm] plate");
+            dgvNames.Rows.Add("P (SEA-1) [MPa] stiff");
+            dgvNames.Rows.Add("P (SEA-2) [MPa] stiff");
+            dgvNames.Rows.Add("t req gross (SEA-1 AC-II) [mm] stiff");
+            dgvNames.Rows.Add("t req gross (SEA-2 AC-I) [mm] stiff");
+            dgvNames.Rows.Add("for 75° <= ϕw <= 90°");
+            dgvNames.Rows.Add("for ϕw <= 75°");
+
+            //clear selected 1st row
+            dgvNames[0, 1].Selected = true;
+            dgvNames.ClearSelection();
+            //color and bold fonts/ceels
+            RowsColorNames();
+            RowsBold();
         }
         //------------
         // combobox
@@ -189,16 +218,31 @@ namespace EPT.modules
                 {
                     dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
                 }
-                else if (i <= 4)
+                else if (i == 43)
+                {
+                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
+                }
+
+                else if (i > 9 & i < 12)
+                {
+                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
+                }
+                else if (i > 32 & i < 35)
+                {
+                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
+                }
+                else if (i == 38)
+                {
+                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
+                }
+                else if (i == 41)
+                {
+                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
+                }
+                else
                 {
                     dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.Azure;
                 }
-                else if (i > 4 & i < 7)
-                {
-                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.Bisque;
-                }
-                else
-                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.Coral;
             }
         }
         //--------------------------------
@@ -218,16 +262,32 @@ namespace EPT.modules
                     dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
                     dgvCalculateSP.Rows[i].ReadOnly = true;
                 }
-                else if (i <= 4)
+                else if (i == 43)
+                {
+                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
+                    dgvCalculateSP.Rows[i].ReadOnly = true;
+                }
+
+                else if (i > 9 & i < 12)
+                {
+                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
+                }
+                else if (i > 32 & i < 35)
+                {
+                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
+                }
+                else if (i == 38)
+                {
+                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
+                }
+                else if (i == 41)
+                {
+                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
+                }
+                else
                 {
                     dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.Azure;
                 }
-                else if (i > 4 & i < 7)
-                {
-                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.Bisque;
-                }
-                else
-                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.Coral;
             }
         }
         //--------------------
@@ -235,8 +295,18 @@ namespace EPT.modules
         //--------------------
         public void RowsBold()
         {
-            dgvNames.Rows[0].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            dgvNames.Rows[0].Cells[0].Style.Font = new Font(dgvNames.Font,  FontStyle.Bold);
+            dgvNames.Rows[10].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            dgvNames.Rows[11].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            dgvNames.Rows[13].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            dgvNames.Rows[14].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
             dgvNames.Rows[15].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            dgvNames.Rows[33].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            dgvNames.Rows[34].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            dgvNames.Rows[43].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            dgvNames.Rows[36].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            dgvNames.Rows[37].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            dgvNames.Rows[42].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
         }
         //--------------------------------
         // Public variables for save menu
@@ -278,6 +348,8 @@ namespace EPT.modules
         {
             if (dgvCalculateSP.ColumnCount == 0)
             {
+                //clear selected 1st row
+
                 // clear datasource to avoid errors after data load
                 this.dgvCalculateSP.DataSource = null;
                 this.dgvCalculateSP.Rows.Clear();
@@ -288,10 +360,12 @@ namespace EPT.modules
                 //----------------------------------
                 // add rows for calculation table
                 //----------------------------------
-                    for (int i = 0; i <= 43; i++)
+                    for (int i = 0; i <= 70; i++)
                     {
                         i = dgvCalculateSP.Rows.Add();
                     }
+                //unselect 1st cell
+                dgvCalculateSP.ClearSelection();
 
                 var deleteButton = new DataGridViewButtonColumn();
                 deleteButton.Name = "dgvDeleteButton";
@@ -433,6 +507,7 @@ namespace EPT.modules
                 { 
                 try
                 {
+
                     // load data into table
                     XmlReader xmlFile;
                     xmlFile = XmlReader.Create("saveCalcSP.xml", new XmlReaderSettings());
@@ -440,7 +515,8 @@ namespace EPT.modules
                     ds.ReadXml(xmlFile);
                     dgvCalculateSP.DataSource = ds.Tables[0];
                     xmlFile.Close();
-
+                    //unselect 1st cell
+                    dgvCalculateSP.ClearSelection();
                     // load ComboBox
                     for (int i = 0; i < dgvCalculateSP.ColumnCount; i++)
                     {
