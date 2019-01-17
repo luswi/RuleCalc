@@ -110,8 +110,8 @@
     <None Include="img\vessel.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="data.xml" />
-    <Content Include="saveCalcSP.xml" />
+    <Content Include="XML_saves\data.xml" />
+    <Content Include="XML_saves\saveCalcSP.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
