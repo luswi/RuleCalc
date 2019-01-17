@@ -331,7 +331,7 @@
             // 
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label46.Location = new System.Drawing.Point(222, 229);
+            this.label46.Location = new System.Drawing.Point(234, 235);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(17, 15);
             this.label46.TabIndex = 82;
@@ -792,6 +792,8 @@
             this.dgvCalculateSP.RowHeadersVisible = false;
             this.dgvCalculateSP.Size = new System.Drawing.Size(454, 548);
             this.dgvCalculateSP.TabIndex = 19;
+            this.dgvCalculateSP.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCalculateSP_CellEndEdit);
+            this.dgvCalculateSP.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvCalculateSP_CellFormatting);
             this.dgvCalculateSP.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvCheck_EditingControlShowing);
             this.dgvCalculateSP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvCheck_KeyPress);
             // 

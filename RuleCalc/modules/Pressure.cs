@@ -63,6 +63,7 @@ namespace EPT.modules
         {
             // Pick up values from textboxes
             v.zdk = double.Parse(krTB.Text);
+            
 
             // Results
             bool success = v.seaCalculation(v);
@@ -192,13 +193,36 @@ namespace EPT.modules
         {
             for (int i = 0; i < dgvCalculateSP.ColumnCount; i++)
             {
-                DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
+                // f_u
+                DataGridViewComboBoxCell f_u = new DataGridViewComboBoxCell();
 
-                if ((string)dgvCalculateSP.Rows[4].Cells[i].Value == null)
+                if ((string)dgvCalculateSP.Rows[22].Cells[i].Value == null)
                 {
-                    c.Items.Add("On");
-                    c.Items.Add("Off");
-                    dgvCalculateSP.Rows[4].Cells[i] = c;
+                    f_u.Items.Add("1");
+                    f_u.Items.Add("1.03");
+                    f_u.Items.Add("1.15");
+                    dgvCalculateSP.Rows[22].Cells[i] = f_u;
+                }
+                // f_bdg
+                DataGridViewComboBoxCell f_bdg = new DataGridViewComboBoxCell();
+
+                if ((string)dgvCalculateSP.Rows[23].Cells[i].Value == null)
+                {
+                    f_bdg.Items.Add("8");
+                    f_bdg.Items.Add("10");
+                    f_bdg.Items.Add("12");
+                    dgvCalculateSP.Rows[23].Cells[i] = f_bdg;
+
+                }
+                // fshr
+                DataGridViewComboBoxCell fshr = new DataGridViewComboBoxCell();
+
+                if ((string)dgvCalculateSP.Rows[30].Cells[i].Value == null)
+                {
+                    fshr.Items.Add("Upper end of vertical stiffeners");
+                    fshr.Items.Add("Lower end of vertical stiffeners");
+                    fshr.Items.Add("General");
+                    dgvCalculateSP.Rows[30].Cells[i] = fshr;
 
                 }
             }
@@ -257,6 +281,11 @@ namespace EPT.modules
                     dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
                     dgvCalculateSP.Rows[i].ReadOnly = true;
                 }
+                else if (i == 8)
+                {
+                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.Azure;
+                    dgvCalculateSP.Rows[i].ReadOnly = true;
+                }
                 else if (i == 15)
                 {
                     dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
@@ -267,7 +296,6 @@ namespace EPT.modules
                     dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
                     dgvCalculateSP.Rows[i].ReadOnly = true;
                 }
-
                 else if (i > 9 & i < 12)
                 {
                     dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
@@ -426,6 +454,8 @@ namespace EPT.modules
             {
                 e.Handled = true;
             }
+
+
         }
         //-------------------------------------
         // Calculate GM and kr according to B
@@ -521,12 +551,36 @@ namespace EPT.modules
                     for (int i = 0; i < dgvCalculateSP.ColumnCount; i++)
                     {
                         dgvCalculateSP.Rows[0].Cells[i].Value = null; //this is important.
-                        DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
-                        c.Items.Add("On");
-                        c.Items.Add("Off");
-                    
-                        dgvCalculateSP.Rows[4].Cells[i].Value = ds.Tables[0].Rows[4][i].ToString();
-                        dgvCalculateSP.Rows[4].Cells[i] = c;
+
+                        // f_u
+                        DataGridViewComboBoxCell f_u = new DataGridViewComboBoxCell();
+                        f_u.Items.Add("1");
+                        f_u.Items.Add("1.03");
+                        f_u.Items.Add("1.15");
+
+                        dgvCalculateSP.Rows[22].Cells[i].Value = ds.Tables[0].Rows[22][i].ToString();
+                        dgvCalculateSP.Rows[22].Cells[i] = f_u;
+
+                        // f_bdg
+                        DataGridViewComboBoxCell f_bdg = new DataGridViewComboBoxCell();
+                        f_bdg.Items.Add("8");
+                        f_bdg.Items.Add("10");
+                        f_bdg.Items.Add("12");
+                        dgvCalculateSP.Rows[23].Cells[i].Value = ds.Tables[0].Rows[23][i].ToString();
+                        dgvCalculateSP.Rows[23].Cells[i] = f_bdg;
+
+                        // fshr
+                        DataGridViewComboBoxCell fshr = new DataGridViewComboBoxCell();
+                        fshr.Items.Add("Upper end of vertical stiffeners");
+                        fshr.Items.Add("Lower end of vertical stiffeners");
+                        fshr.Items.Add("General");
+                        dgvCalculateSP.Rows[30].Cells[i].Value = ds.Tables[0].Rows[30][i].ToString();
+                        dgvCalculateSP.Rows[30].Cells[i] = fshr;
+                        
+
+                        
+
+
                         RowsColorCalculate();
                     }
                     // load Delete Buttons
@@ -590,8 +644,72 @@ namespace EPT.modules
             {
                 string kolumna = dgvCalculateSP[i, 4].Value.ToString();
                 dgvCalculateSP.Rows[6].Cells[i].Value = kolumna;
+
+
             }
         }
+        //-------------------
+        // Check if b < a !!
+        //-------------------
+        private void dgvCalculateSP_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // correct
+            if (dgvCalculateSP.Rows[6].Cells[e.ColumnIndex].Value != null && Convert.ToDecimal(dgvCalculateSP.Rows[6].Cells[e.ColumnIndex].Value) < Convert.ToDecimal(dgvCalculateSP.Rows[7].Cells[e.ColumnIndex].Value) && dgvCalculateSP.Rows[7].Cells[e.ColumnIndex].Value != null)
+            {
+                dgvCalculateSP.Rows[6].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
+                dgvCalculateSP.Rows[7].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
+            }
+            // waiting for value
+            else if (dgvCalculateSP.Rows[6].Cells[e.ColumnIndex].Value != null && Convert.ToDecimal(dgvCalculateSP.Rows[6].Cells[e.ColumnIndex].Value) < Convert.ToDecimal(dgvCalculateSP.Rows[7].Cells[e.ColumnIndex].Value) && dgvCalculateSP.Rows[7].Cells[e.ColumnIndex].Value == null)
+            {
+                dgvCalculateSP.Rows[6].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Azure };
+                dgvCalculateSP.Rows[7].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Azure };
+            }
+            // wrong
+            else if (dgvCalculateSP.Rows[6].Cells[e.ColumnIndex].Value != null && Convert.ToDecimal(dgvCalculateSP.Rows[6].Cells[e.ColumnIndex].Value) >= Convert.ToDecimal(dgvCalculateSP.Rows[7].Cells[e.ColumnIndex].Value) && dgvCalculateSP.Rows[7].Cells[e.ColumnIndex].Value != null)
+            {
+                dgvCalculateSP.Rows[6].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
+                dgvCalculateSP.Rows[7].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
+            }
+            // start
+            else
+            {
+                dgvCalculateSP.Rows[6].Cells[e.ColumnIndex].Style.BackColor = Color.Azure;
+                dgvCalculateSP.Rows[7].Cells[e.ColumnIndex].Style.BackColor = Color.Azure;
+            }
+        }
+
+       //------------------
+       // Calculate module
+       //------------------
+        private void dgvCalculateSP_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            for (int i = 0; i < dgvCalculateSP.Columns.Count; i++)
+            {
+
+                double bInput = Convert.ToDouble(dgvCalculateSP.Rows[6].Cells[i].Value);
+                double aInput = Convert.ToDouble(dgvCalculateSP.Rows[7].Cells[i].Value);
+
+                if (dgvCalculateSP.Rows[6].Cells[i].Value != null && dgvCalculateSP.Rows[7].Cells[i].Value != null && (1.2 - (bInput / (2.1 * aInput))) < 1)
+                {
+                    double alphaOutput = Math.Round((1.2 - (bInput / (2.1 * aInput))),2);
+                    dgvCalculateSP.Rows[8].Cells[i].Value = alphaOutput;
+                }
+                else
+                {
+                    double alphaOutput = 1;
+                    dgvCalculateSP.Rows[8].Cells[i].Value = alphaOutput;
+                }
+
+
+
+
+
+
+            }
+        }
+
+
         //----------------------------------------
         // TEST AREA FOR REMOVE == END ==
         //----------------------------------------
