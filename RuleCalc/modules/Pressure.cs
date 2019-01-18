@@ -679,14 +679,14 @@ namespace EPT.modules
             }
         }
 
-       //------------------
-       // Calculate module
-       //------------------
+       //------------------------------------
+       // Calculate module for DataGridView
+       //------------------------------------
         private void dgvCalculateSP_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             for (int i = 0; i < dgvCalculateSP.Columns.Count; i++)
             {
-
+                //calculate alpha
                 double bInput = Convert.ToDouble(dgvCalculateSP.Rows[6].Cells[i].Value);
                 double aInput = Convert.ToDouble(dgvCalculateSP.Rows[7].Cells[i].Value);
 
@@ -701,10 +701,53 @@ namespace EPT.modules
                     dgvCalculateSP.Rows[8].Cells[i].Value = alphaOutput;
                 }
 
+                //calculate X'(Plate)
+                decimal LppInput = Convert.ToDecimal(LppTB.Text);
+                decimal LInput = Convert.ToDecimal(LTB.Text);
+                decimal xplateLoadInput = Convert.ToDecimal(dgvCalculateSP.Rows[1].Cells[i].Value); // tu wywala blad bo brak pola zaciaga!!! dodac zmiany jak w x' dla usztywnien ponizej!!
 
+                if(LppInput > LInput && LppInput != 0 && LInput !=0 && xplateLoadInput != 0)
+                {
+                    decimal xPrimPlateOutput = xplateLoadInput - (LppInput - LInput);
+                    dgvCalculateSP.Rows[44].Cells[i].Value = xPrimPlateOutput;
+                }
+                else if(LppInput < LInput && LppInput != 0 && LInput != 0 && xplateLoadInput != 0)
+                {
+                    decimal xPrimPlateOutput = xplateLoadInput + (LInput - LppInput);
+                    dgvCalculateSP.Rows[44].Cells[i].Value = xPrimPlateOutput;
+                }
+                else if(LppInput == LInput && LppInput != 0 && LInput != 0 && xplateLoadInput != 0)
+                {
+                    dgvCalculateSP.Rows[44].Cells[i].Value = xplateLoadInput;
+                }
 
+                //calculate X'(Stiffener)
+                decimal xstiffLoadInput = 0;
+                object sprawdzenie = (sender as DataGridView).Rows[16].Cells[i].Value;
+                if (sprawdzenie != DBNull.Value)
+                {
+                    xstiffLoadInput = Convert.ToDecimal(sprawdzenie);
 
-
+                    if (LppInput > LInput && LppInput != 0 && LInput != 0 && xstiffLoadInput != 0)
+                    {
+                        decimal xPrimStiffOutput = xstiffLoadInput - (LppInput - LInput);
+                        dgvCalculateSP.Rows[45].Cells[i].Value = xPrimStiffOutput;
+                    }
+                    else if (LppInput < LInput && LppInput != 0 && LInput != 0 && xstiffLoadInput != 0)
+                    {
+                        decimal xPrimStiffOutput = xstiffLoadInput + (LInput - LppInput);
+                        dgvCalculateSP.Rows[45].Cells[i].Value = xPrimStiffOutput;
+                    }
+                    else if (LppInput == LInput && LppInput != 0 && LInput != 0 && xstiffLoadInput != 0)
+                    {
+                        dgvCalculateSP.Rows[45].Cells[i].Value = xstiffLoadInput;
+                    }
+                }
+                else
+                {
+                    dgvCalculateSP.Rows[45].Cells[i].Value = "No Value!";
+                }
+                
 
             }
         }

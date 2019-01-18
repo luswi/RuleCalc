@@ -109,8 +109,14 @@
   <itemstable />
   <itemstable />
   <itemstable />
-  <itemstable />
-  <itemstable />
+  <itemstable>
+    <Column1>7.14</Column1>
+    <Column2>7.34</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>7.34</Column1>
+    <Column2>No Value</Column2>
+  </itemstable>
   <itemstable />
   <itemstable />
   <itemstable />
