@@ -457,6 +457,9 @@ namespace EPT.modules
 
 
         }
+
+
+
         //-------------------------------------
         // Calculate GM and kr according to B
         //-------------------------------------
