@@ -6,7 +6,7 @@
     <Column2>8</Column2>
   </itemstable>
   <itemstable>
-    <Column1>5</Column1>
+    <Column1>4.3</Column1>
     <Column2>5</Column2>
   </itemstable>
   <itemstable>
@@ -48,15 +48,18 @@
   <itemstable />
   <itemstable>
     <Column1>8</Column1>
+    <Column2>7</Column2>
   </itemstable>
   <itemstable>
     <Column1>2.5</Column1>
+    <Column2>3</Column2>
   </itemstable>
   <itemstable>
     <Column1>9</Column1>
   </itemstable>
   <itemstable>
     <Column1>15.48</Column1>
+    <Column2>14</Column2>
   </itemstable>
   <itemstable>
     <Column1>3.5</Column1>
@@ -115,10 +118,16 @@
   </itemstable>
   <itemstable>
     <Column1>7.34</Column1>
-    <Column2>No Value!</Column2>
+    <Column2>6.34</Column2>
   </itemstable>
-  <itemstable />
-  <itemstable />
+  <itemstable>
+    <Column1>0.55</Column1>
+    <Column2>0.62</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>0.32</Column1>
+    <Column2>0.43</Column2>
+  </itemstable>
   <itemstable />
   <itemstable />
   <itemstable />

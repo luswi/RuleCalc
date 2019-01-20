@@ -312,6 +312,11 @@ namespace EPT.modules
                 {
                     dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
                 }
+                else if (i > 43 & i < 71)
+                {
+                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.WhiteSmoke;
+                    dgvCalculateSP.Rows[i].ReadOnly = true;
+                }
                 else
                 {
                     dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.Azure;
@@ -633,24 +638,6 @@ namespace EPT.modules
         {
             dgvCalculateSP.HorizontalScrollingOffset = dgvDeleteSP.HorizontalScrollingOffset;
         }
-
-
-        //----------------------------------------
-        // TEST AREA FOR REMOVE == START ==
-        //----------------------------------------
-        private void buttonTest_Click(object sender, EventArgs e)
-        {
-            // string someString = dataGridView1[0, 2].Value.ToString();
-            // dataGridView1.Rows[4].Cells[0].Value = someString;
-            //dgvCalculate.Rows[5].Cells[i].Value = dgvCalculate.Rows[4].Cells[i].Value;
-            for (int i = 0; i < dgvCalculateSP.Columns.Count; i++)
-            {
-                string kolumna = dgvCalculateSP[i, 4].Value.ToString();
-                dgvCalculateSP.Rows[6].Cells[i].Value = kolumna;
-
-
-            }
-        }
         //-------------------
         // Check if b < a !!
         //-------------------
@@ -681,7 +668,6 @@ namespace EPT.modules
                 dgvCalculateSP.Rows[7].Cells[e.ColumnIndex].Style.BackColor = Color.Azure;
             }
         }
-
        //------------------------------------
        // Calculate module for DataGridView
        //------------------------------------
@@ -707,41 +693,50 @@ namespace EPT.modules
                 //calculate X'(Plate)
                 decimal LppInput = Convert.ToDecimal(LppTB.Text);
                 decimal LInput = Convert.ToDecimal(LTB.Text);
-                decimal xplateLoadInput = Convert.ToDecimal(dgvCalculateSP.Rows[1].Cells[i].Value); // tu wywala blad bo brak pola zaciaga!!! dodac zmiany jak w x' dla usztywnien ponizej!!
 
-                if(LppInput > LInput && LppInput != 0 && LInput !=0 && xplateLoadInput != 0)
+                decimal xplateLoadInput = 0;
+                object xplateCheck = (sender as DataGridView).Rows[1].Cells[i].Value;
+                if (xplateCheck != DBNull.Value)
                 {
-                    decimal xPrimPlateOutput = xplateLoadInput - (LppInput - LInput);
-                    dgvCalculateSP.Rows[44].Cells[i].Value = xPrimPlateOutput;
-                }
-                else if(LppInput < LInput && LppInput != 0 && LInput != 0 && xplateLoadInput != 0)
-                {
-                    decimal xPrimPlateOutput = xplateLoadInput + (LInput - LppInput);
-                    dgvCalculateSP.Rows[44].Cells[i].Value = xPrimPlateOutput;
-                }
-                else if(LppInput == LInput && LppInput != 0 && LInput != 0 && xplateLoadInput != 0)
-                {
-                    dgvCalculateSP.Rows[44].Cells[i].Value = xplateLoadInput;
-                }
+                    xplateLoadInput = Convert.ToDecimal(xplateCheck);
 
+                    if (LppInput > LInput && LppInput != 0 && LInput != 0)
+                    {
+                        decimal xPrimPlateOutput = xplateLoadInput - (LppInput - LInput);
+                        dgvCalculateSP.Rows[44].Cells[i].Value = xPrimPlateOutput;
+                    }
+                    else if (LppInput < LInput && LppInput != 0 && LInput != 0)
+                    {
+                        decimal xPrimPlateOutput = xplateLoadInput + (LInput - LppInput);
+                        dgvCalculateSP.Rows[44].Cells[i].Value = xPrimPlateOutput;
+                    }
+                    else if (LppInput == LInput && LppInput != 0 && LInput != 0)
+                    {
+                        dgvCalculateSP.Rows[44].Cells[i].Value = xplateLoadInput;
+                    }
+                }
+                else
+                {
+                    dgvCalculateSP.Rows[44].Cells[i].Value = "No Value!";
+                }
                 //calculate X'(Stiffener)
                 decimal xstiffLoadInput = 0;
-                object sprawdzenie = (sender as DataGridView).Rows[16].Cells[i].Value;
-                if (sprawdzenie != DBNull.Value)
+                object xstiffCheck = (sender as DataGridView).Rows[16].Cells[i].Value;
+                if (xstiffCheck != DBNull.Value)
                 {
-                    xstiffLoadInput = Convert.ToDecimal(sprawdzenie);
+                    xstiffLoadInput = Convert.ToDecimal(xstiffCheck);
 
-                    if (LppInput > LInput && LppInput != 0 && LInput != 0 && xstiffLoadInput != 0)
+                    if (LppInput > LInput && LppInput != 0 && LInput != 0)
                     {
                         decimal xPrimStiffOutput = xstiffLoadInput - (LppInput - LInput);
                         dgvCalculateSP.Rows[45].Cells[i].Value = xPrimStiffOutput;
                     }
-                    else if (LppInput < LInput && LppInput != 0 && LInput != 0 && xstiffLoadInput != 0)
+                    else if (LppInput < LInput && LppInput != 0 && LInput != 0)
                     {
                         decimal xPrimStiffOutput = xstiffLoadInput + (LInput - LppInput);
                         dgvCalculateSP.Rows[45].Cells[i].Value = xPrimStiffOutput;
                     }
-                    else if (LppInput == LInput && LppInput != 0 && LInput != 0 && xstiffLoadInput != 0)
+                    else if (LppInput == LInput && LppInput != 0 && LInput != 0)
                     {
                         dgvCalculateSP.Rows[45].Cells[i].Value = xstiffLoadInput;
                     }
@@ -750,11 +745,65 @@ namespace EPT.modules
                 {
                     dgvCalculateSP.Rows[45].Cells[i].Value = "No Value!";
                 }
-                
+
+                // calculate fyB (Plate)
+                decimal yplateLoadInput = 0;
+                decimal bXplateInput = 0;
+                object yplateCheck = (sender as DataGridView).Rows[2].Cells[i].Value;
+                object bXplateCheck = (sender as DataGridView).Rows[4].Cells[i].Value;
+                if (yplateCheck != DBNull.Value && bXplateCheck != DBNull.Value)
+                {
+                    yplateLoadInput = Convert.ToDecimal(yplateCheck);
+                    bXplateInput = Convert.ToDecimal(bXplateCheck);
+                    decimal[] fyBplateArray = { (2*yplateLoadInput)/bXplateInput, 1 };
+
+                    decimal fybStiffOutput = fyBplateArray.Select(Math.Abs).Min();
+
+                    dgvCalculateSP.Rows[46].Cells[i].Value = Math.Round(fybStiffOutput,2);
+                }
+                else
+                {
+                    dgvCalculateSP.Rows[46].Cells[i].Value = "No Value!";
+                }
+                // calculate fyB (stiffener)
+                decimal ystiffLoadInput = 0;
+                decimal bXstiffInput = 0;
+                object ystiffCheck = (sender as DataGridView).Rows[17].Cells[i].Value;
+                object bXstiffCheck = (sender as DataGridView).Rows[19].Cells[i].Value;
+                if (ystiffCheck != DBNull.Value && bXstiffCheck != DBNull.Value)
+                {
+                    ystiffLoadInput = Convert.ToDecimal(ystiffCheck);
+                    bXstiffInput = Convert.ToDecimal(bXstiffCheck);
+                    decimal[] fyBstiffArray = { (2 * ystiffLoadInput) / bXstiffInput, 1 };
+
+                    decimal fybStiffOutput = fyBstiffArray.Select(Math.Abs).Min();
+
+                    dgvCalculateSP.Rows[47].Cells[i].Value = Math.Round(fybStiffOutput, 2);
+                }
+                else
+                {
+                    dgvCalculateSP.Rows[47].Cells[i].Value = "No Value!";
+                }
 
             }
         }
 
+        //----------------------------------------
+        // TEST AREA FOR REMOVE == START ==
+        //----------------------------------------
+        private void buttonTest_Click(object sender, EventArgs e)
+        {
+            // string someString = dataGridView1[0, 2].Value.ToString();
+            // dataGridView1.Rows[4].Cells[0].Value = someString;
+            //dgvCalculate.Rows[5].Cells[i].Value = dgvCalculate.Rows[4].Cells[i].Value;
+            for (int i = 0; i < dgvCalculateSP.Columns.Count; i++)
+            {
+                string kolumna = dgvCalculateSP[i, 4].Value.ToString();
+                dgvCalculateSP.Rows[6].Cells[i].Value = kolumna;
+
+
+            }
+        }
 
         //----------------------------------------
         // TEST AREA FOR REMOVE == END ==
