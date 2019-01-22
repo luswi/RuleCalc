@@ -859,11 +859,11 @@ namespace EPT.modules
                 if(!string.IsNullOrEmpty(LTB.Text))
                 {
                     double LruleInput = Convert.ToDouble(LTB.Text);
-                    object xPrimplateCheck = (sender as DataGridView).Rows[44].Cells[i].Value;
+                    object xPrimPlateCheck = (sender as DataGridView).Rows[44].Cells[i].Value;
 
-                    if(xPrimplateCheck !=DBNull.Value)
+                    if(xPrimPlateCheck !=DBNull.Value)
                     {
-                        xPrimPlateInput = Convert.ToDouble(xPrimplateCheck);
+                        xPrimPlateInput = Convert.ToDouble(xPrimPlateCheck);
                         double fxLplateOutput = xPrimPlateInput / LruleInput;
                         dgvCalculateSP.Rows[50].Cells[i].Value = Math.Round(fxLplateOutput, 2);
                     }
@@ -879,6 +879,119 @@ namespace EPT.modules
                 //=================
                 // fxL (stiffener)
                 //=================
+                double xPrimStiffInput = 0;
+
+                //check if L "rule" is not empty
+                if(!string.IsNullOrEmpty(LTB.Text))
+                {
+                    double LruleInput = Convert.ToDouble(LTB.Text);
+                    object xPrimStiffCheck = (sender as DataGridView).Rows[45].Cells[i].Value;
+
+                    if(xPrimStiffCheck != DBNull.Value)
+                    {
+                        xPrimStiffInput = Convert.ToDouble(xPrimStiffCheck);
+                        double fxLstiffOutput = xPrimStiffInput / LruleInput;
+                        dgvCalculateSP.Rows[51].Cells[i].Value = Math.Round(fxLstiffOutput, 2);
+                    }
+                    else
+                    {
+                        dgvCalculateSP.Rows[51].Cells[i].Value = "No Value!";
+                    }
+                }
+                else
+                {
+                    dgvCalculateSP.Rows[51].Cells[i].Value = "L Rule is empty!";
+                }
+                //======
+                // f_3
+                //======
+                // L b CB
+                if(!string.IsNullOrEmpty(LTB.Text) && !string.IsNullOrEmpty(BTB.Text) && !string.IsNullOrEmpty(CbTB.Text))
+                {
+                    double LruleInput = Convert.ToDouble(LTB.Text);
+                    double BInput = Convert.ToDouble(BTB.Text);
+                    double CbInput = Convert.ToDouble(CbTB.Text);
+
+                }
+
+                //============================
+                // f_4 (based on f_xl, plate)
+                //============================
+
+                //=================================
+                // f_4 (based on f_xl, stiffeners)
+                //=================================
+
+                //=============
+                // f_5 (plate)
+                //=============
+
+                //===================
+                // f_5 (stiffeners)
+                //===================
+
+                //=====
+                // Cw
+                //=====
+
+                //=====================
+                // Pw,wl (plate) [MPa]
+                //=====================
+
+                //==========================
+                // Pw,wl (stiffeners) [MPa]
+                //==========================
+
+                //=====================
+                // P_ENV (plate) [MPa]
+                //=====================
+
+                //==========================
+                // P_ENV (stiffeners) [MPa]
+                //==========================
+
+                //=======================
+                // P (SEA-1) [MPa] plate
+                //=======================
+
+                //=======================
+                // P (SEA-2) [MPa] plate
+                //=======================
+
+                //======================================
+                // t req gross (SEA-1 AC-II) [mm] plate
+                //======================================
+
+                //=====================================
+                // t req gross (SEA-2 AC-I) [mm] plate
+                //=====================================
+
+                //=======================
+                // P (SEA-1) [MPa] stiff
+                //=======================
+
+                //=======================
+                // P (SEA-2) [MPa] stiff
+                //=======================
+
+                //======================================
+                // t req gross (SEA-1 AC-II) [mm] stiff
+                //======================================
+
+                //=====================================
+                // t req gross (SEA-2 AC-I) [mm] stiff
+                //=====================================
+
+                //======================
+                // for 75° <= ϕw <= 90°
+                //======================
+
+                //===============
+                // for ϕw <= 75°
+                //===============
+
+
+
             }
         }
 
