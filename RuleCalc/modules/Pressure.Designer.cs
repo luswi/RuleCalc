@@ -93,6 +93,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.frTB = new System.Windows.Forms.TextBox();
             this.tabControl11.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -149,6 +150,7 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.frTB);
             this.groupBox10.Controls.Add(this.label3);
             this.groupBox10.Controls.Add(this.bkCB);
             this.groupBox10.Controls.Add(this.label49);
@@ -833,6 +835,14 @@
             this.toolTip.ReshowDelay = 100;
             this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
+            // frTB
+            // 
+            this.frTB.Location = new System.Drawing.Point(256, 334);
+            this.frTB.Name = "frTB";
+            this.frTB.Size = new System.Drawing.Size(100, 22);
+            this.frTB.TabIndex = 99;
+            this.frTB.Visible = false;
+            // 
             // Pressure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -922,5 +932,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Info;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvDeleteSP;
+        private System.Windows.Forms.TextBox frTB;
     }
 }

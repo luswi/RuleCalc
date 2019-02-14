@@ -340,6 +340,14 @@ namespace EPT.modules
             dgvNames.Rows[36].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
             dgvNames.Rows[37].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
             dgvNames.Rows[42].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            for(int i = 0; i <dgvNames.Rows.Count; i++)
+            {
+                if(i >= 60 && i<=71)
+                {
+                    dgvNames.Rows[i].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+                }
+            }
+            
         }
         //--------------------------------
         // Public variables for save menu
@@ -483,27 +491,33 @@ namespace EPT.modules
         {
             if (saCB.Text == "R0 (No reduction)")
             {
-                double frTB = 1.0;
+                double frValue = 1.0;
+                frTB.Text = frValue.ToString("0.00");
             }
             else if(saCB.Text == "R1 (10% reduction)")
             {
-                double frTB = 0.9;
+                double frValue = 0.9;
+                frTB.Text = frValue.ToString("0.00");
             }
             else if(saCB.Text == "R2 (20% reduction)")
             {
-                double frTB = 0.8;
+                double frValue = 0.8;
+                frTB.Text = frValue.ToString("0.00");
             }
             else if (saCB.Text == "R3 (30% reduction)")
             {
-                double frTB = 0.7;
+                double frValue = 0.7;
+                frTB.Text = frValue.ToString("0.00");
             }
             else if (saCB.Text == "R4 (40% reduction)")
             {
-                double frTB = 0.6;
+                double frValue = 0.6;
+                frTB.Text = frValue.ToString("0.00");
             }
             else if (saCB.Text == "RE (50% reduction)")
             {
-                double frTB = 0.5;
+                double frValue = 0.5;
+                frTB.Text = frValue.ToString("0.00");
             }
         }
         //------------------------------------------------------------
@@ -1039,11 +1053,62 @@ namespace EPT.modules
                 //=====================
                 // Pw,wl (plate) [MPa]
                 //=====================
+                
+                if(!string.IsNullOrEmpty(frTB.Text) && !string.IsNullOrEmpty(LTB.Text) && !string.IsNullOrEmpty(TscTB.Text) && !string.IsNullOrEmpty(CbTB.Text))
+                {
+                    double frTBInput = Convert.ToDouble(frTB.Text);
+                    double LTBInput = Convert.ToDouble(LTB.Text);
+                    double TscTBInput = Convert.ToDouble(TscTB.Text);
+                    double CbTBInput = Convert.ToDouble(CbTB.Text);
+
+                    object f_3Check = (sender as DataGridView).Rows[52].Cells[i].Value;
+                    object f_4PlateCheck = (sender as DataGridView).Rows[53].Cells[i].Value;
+                    object CwCheck = (sender as DataGridView).Rows[57].Cells[i].Value;
+                    if(f_3Check !=DBNull.Value && f_4PlateCheck !=DBNull.Value && CwCheck != DBNull.Value)
+                    {
+                        double f_3Input = Convert.ToDouble(f_3Check);
+                        double f_4PlateInput = Convert.ToDouble(f_4PlateCheck);
+                        double CwInput = Convert.ToDouble(CwCheck);
+
+                        double[] PwwlPlateArray = {frTBInput*(f_3Input*(2+(55/LTBInput))*(0.5*(TscTBInput/TscTBInput)+(2.5*(1))+2)*CwInput),5*frTBInput*f_4PlateInput*0.2*(4+TscTBInput/TscTBInput)*(1-CbTBInput/3)*CwInput*Math.Sqrt((1.2*LTBInput-15)/LTBInput)};
+                        double PwwlPlateArrayOutput = PwwlPlateArray.Max();
+                        dgvCalculateSP.Rows[58].Cells[i].Value = Math.Round(PwwlPlateArrayOutput, 2);
+
+                    }
+                }
+                else
+                {
+                    dgvCalculateSP.Rows[58].Cells[i].Value = "No Value!";
+                }
 
                 //==========================
                 // Pw,wl (stiffeners) [MPa]
                 //==========================
+                if (!string.IsNullOrEmpty(frTB.Text) && !string.IsNullOrEmpty(LTB.Text) && !string.IsNullOrEmpty(TscTB.Text) && !string.IsNullOrEmpty(CbTB.Text))
+                {
+                    double frTBInput = Convert.ToDouble(frTB.Text);
+                    double LTBInput = Convert.ToDouble(LTB.Text);
+                    double TscTBInput = Convert.ToDouble(TscTB.Text);
+                    double CbTBInput = Convert.ToDouble(CbTB.Text);
 
+                    object f_3Check = (sender as DataGridView).Rows[52].Cells[i].Value;
+                    object f_4StiffCheck = (sender as DataGridView).Rows[54].Cells[i].Value;
+                    object CwCheck = (sender as DataGridView).Rows[57].Cells[i].Value;
+                    if (f_3Check != DBNull.Value && f_4StiffCheck != DBNull.Value && CwCheck != DBNull.Value)
+                    {
+                        double f_3Input = Convert.ToDouble(f_3Check);
+                        double f_4StiffInput = Convert.ToDouble(f_4StiffCheck);
+                        double CwInput = Convert.ToDouble(CwCheck);
+
+                        double[] PwwlStiffArray = { frTBInput * (f_3Input * (2 + (55 / LTBInput)) * (0.5 * (TscTBInput / TscTBInput) + (2.5 * (1)) + 2) * CwInput), 5 * frTBInput * f_4StiffInput * 0.2 * (4 + TscTBInput / TscTBInput) * (1 - CbTBInput / 3) * CwInput * Math.Sqrt((1.2 * LTBInput - 15) / LTBInput) };
+                        double PwwlStiffArrayOutput = PwwlStiffArray.Max();
+                        dgvCalculateSP.Rows[59].Cells[i].Value = Math.Round(PwwlStiffArrayOutput, 2);
+                    }
+                }
+                else
+                {
+                    dgvCalculateSP.Rows[59].Cells[i].Value = "No Value!";
+                }
                 //=====================
                 // P_ENV (plate) [MPa]
                 //=====================

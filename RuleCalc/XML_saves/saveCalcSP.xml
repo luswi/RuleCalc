@@ -169,8 +169,14 @@
     <Column1>6.36</Column1>
     <Column2>6.36</Column2>
   </itemstable>
-  <itemstable />
-  <itemstable />
+  <itemstable>
+    <Column1>58.38</Column1>
+    <Column2>58.38</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>58.38</Column1>
+    <Column2>58.38</Column2>
+  </itemstable>
   <itemstable />
   <itemstable />
   <itemstable />
