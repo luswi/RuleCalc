@@ -1104,6 +1104,7 @@ namespace EPT.modules
                         double PwwlStiffArrayOutput = PwwlStiffArray.Max();
                         dgvCalculateSP.Rows[59].Cells[i].Value = Math.Round(PwwlStiffArrayOutput, 2);
                     }
+                
                 }
                 else
                 {
