@@ -141,13 +141,34 @@
     <Column1>0.1</Column1>
     <Column2>0.1</Column2>
   </itemstable>
-  <itemstable />
-  <itemstable />
-  <itemstable />
-  <itemstable />
-  <itemstable />
-  <itemstable />
-  <itemstable />
+  <itemstable>
+    <Column1>0.1</Column1>
+    <Column2>0.09</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>0.67</Column1>
+    <Column2>0.67</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>1.5</Column1>
+    <Column2>1.5</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>1.5</Column1>
+    <Column2>1.55</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>1.01</Column1>
+    <Column2>1.04</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>1.01</Column1>
+    <Column2>0.99</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>6.36</Column1>
+    <Column2>6.36</Column2>
+  </itemstable>
   <itemstable />
   <itemstable />
   <itemstable />
