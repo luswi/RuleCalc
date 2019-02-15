@@ -1113,6 +1113,37 @@ namespace EPT.modules
                 //=====================
                 // P_ENV (plate) [MPa]
                 //=====================
+                if(!string.IsNullOrEmpty(frTB.Text) && !string.IsNullOrEmpty(LTB.Text) && !string.IsNullOrEmpty(CbTB.Text))
+                {
+                    double frTBInput = Convert.ToDouble(frTB.Text);
+                    double LTBInput = Convert.ToDouble(LTB.Text);
+                    double CbTBInput = Convert.ToDouble(CbTB.Text);
+
+                    object fyzPlateCheck = (sender as DataGridView).Rows[48].Cells[i].Value;
+                    object f_3Check = (sender as DataGridView).Rows[52].Cells[i].Value;
+                    object f_4PlateCheck = (sender as DataGridView).Rows[53].Cells[i].Value;
+                    object f_5PlateCheck = (sender as DataGridView).Rows[55].Cells[i].Value;
+                    object CwCheck = (sender as DataGridView).Rows[57].Cells[i].Value;
+
+                    if(fyzPlateCheck != DBNull.Value && f_3Check != DBNull.Value && f_4PlateCheck != DBNull.Value && f_5PlateCheck != DBNull.Value && CwCheck != DBNull.Value)
+                    {
+                        double fyzPlateInput = Convert.ToDouble(fyzPlateCheck);
+                        double f_3Input = Convert.ToDouble(f_3Check);
+                        double f_4PlateInput = Convert.ToDouble(f_4PlateCheck);
+                        double f_5PlateInput = Convert.ToDouble(f_5PlateCheck);
+                        double CwInput = Convert.ToDouble(CwCheck);
+
+                        //double[] PenvPlateArray = { frTBInput*f_3Input*(2+55/LTBInput)*fyzPlateInput*CbTBInput, 5*frTBInput*f_4PlateInput*f_5PlateInput*(1-CbTBInput/3)*CwInput*Math.Sqrt((1.2*LTBInput-15)/LTBInput) };
+                        double[] PenvPlateArray = { 1 * 0.67 * (2 + 55 / 74.34) * 3.9 * 0.58 };
+                        double PenvPlateArrayOutput = PenvPlateArray.Max();
+                        dgvCalculateSP.Rows[60].Cells[i].Value = Math.Round(PenvPlateArrayOutput,2);
+                    }
+                    else
+                    {
+                        dgvCalculateSP.Rows[60].Cells[i].Value = "No Value!";
+                    }
+
+                }
 
                 //==========================
                 // P_ENV (stiffeners) [MPa]
