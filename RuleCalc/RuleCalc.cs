@@ -21,9 +21,9 @@ namespace EPT
         public RuleCalc()
         {
             InitializeComponent();
-            //------------------
+            //-------------------
             // Number "." only
-            //------------------
+            //-------------------
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
         }
