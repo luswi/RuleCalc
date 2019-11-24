@@ -340,6 +340,7 @@ namespace EPT.modules
             dgvNames.Rows[36].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
             dgvNames.Rows[37].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
             dgvNames.Rows[42].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            
             for(int i = 0; i <dgvNames.Rows.Count; i++)
             {
                 if(i >= 60 && i<=71)
@@ -657,6 +658,12 @@ namespace EPT.modules
         //-------------------
         private void dgvCalculateSP_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+
+            if(e.ColumnIndex == 0)
+            {
+                e.CellStyle.Format = "N2";
+            }
+
             // correct
             if (dgvCalculateSP.Rows[6].Cells[e.ColumnIndex].Value != null && Convert.ToDecimal(dgvCalculateSP.Rows[6].Cells[e.ColumnIndex].Value) < Convert.ToDecimal(dgvCalculateSP.Rows[7].Cells[e.ColumnIndex].Value) && dgvCalculateSP.Rows[7].Cells[e.ColumnIndex].Value != null)
             {
@@ -681,7 +688,10 @@ namespace EPT.modules
                 dgvCalculateSP.Rows[6].Cells[e.ColumnIndex].Style.BackColor = Color.Azure;
                 dgvCalculateSP.Rows[7].Cells[e.ColumnIndex].Style.BackColor = Color.Azure;
             }
+
+           
         }
+        
        //------------------------------------
        // Calculate module for DataGridView
        //------------------------------------
@@ -697,7 +707,7 @@ namespace EPT.modules
 
                 if (dgvCalculateSP.Rows[6].Cells[i].Value != null && dgvCalculateSP.Rows[7].Cells[i].Value != null && (1.2 - (bInput / (2.1 * aInput))) < 1)
                 {
-                    double alphaOutput = Math.Round((1.2 - (bInput / (2.1 * aInput))),2);
+                    double alphaOutput = (1.2 - (bInput / (2.1 * aInput)));
                     dgvCalculateSP.Rows[8].Cells[i].Value = alphaOutput;
                 }
                 else
@@ -708,28 +718,34 @@ namespace EPT.modules
                 //=====================
                 //calculate X'(Plate) ====================>>>>>>>>> dodac sprawdzenie pustych pol Lpp i LTB
                 //=====================
+                //if (!string.IsNullOrEmpty(TscTB.Text))
+
                 decimal LppInput = Convert.ToDecimal(LppTB.Text);
+                if (!string.IsNullOrEmpty(LppTB.Text) && !string.IsNullOrEmpty(LTB.Text) && LppInput != 0)
+                {
+
                 decimal LInput = Convert.ToDecimal(LTB.Text);
 
                 decimal xplateLoadInput = 0;
                 object xplateCheck = (sender as DataGridView).Rows[1].Cells[i].Value;
-                if (xplateCheck != DBNull.Value)
-                {
-                    xplateLoadInput = Convert.ToDecimal(xplateCheck);
+                    if (xplateCheck != null)
+                    {
+                        xplateLoadInput = Convert.ToDecimal(xplateCheck);
 
-                    if (LppInput > LInput && LppInput != 0 && LInput != 0)
-                    {
-                        decimal xPrimPlateOutput = xplateLoadInput - (LppInput - LInput);
-                        dgvCalculateSP.Rows[44].Cells[i].Value = xPrimPlateOutput;
-                    }
-                    else if (LppInput < LInput && LppInput != 0 && LInput != 0)
-                    {
-                        decimal xPrimPlateOutput = xplateLoadInput + (LInput - LppInput);
-                        dgvCalculateSP.Rows[44].Cells[i].Value = xPrimPlateOutput;
-                    }
-                    else if (LppInput == LInput && LppInput != 0 && LInput != 0)
-                    {
-                        dgvCalculateSP.Rows[44].Cells[i].Value = xplateLoadInput;
+                        if (LppInput > LInput && LppInput != 0 && LInput != 0)
+                        {
+                            decimal xPrimPlateOutput = xplateLoadInput - (LppInput - LInput);
+                            dgvCalculateSP.Rows[44].Cells[i].Value = xPrimPlateOutput;
+                        }
+                        else if (LppInput < LInput && LppInput != 0 && LInput != 0)
+                        {
+                            decimal xPrimPlateOutput = xplateLoadInput + (LInput - LppInput);
+                            dgvCalculateSP.Rows[44].Cells[i].Value = xPrimPlateOutput;
+                        }
+                        else if (LppInput == LInput && LppInput != 0 && LInput != 0)
+                        {
+                            dgvCalculateSP.Rows[44].Cells[i].Value = xplateLoadInput;
+                        }
                     }
                 }
                 else
@@ -739,25 +755,32 @@ namespace EPT.modules
                 //=========================
                 //calculate X'(Stiffener)
                 //=========================
-                decimal xstiffLoadInput = 0;
-                object xstiffCheck = (sender as DataGridView).Rows[16].Cells[i].Value;
-                if (xstiffCheck != DBNull.Value)
+                if (!string.IsNullOrEmpty(LppTB.Text) && !string.IsNullOrEmpty(LTB.Text) && LppInput !=0)
                 {
-                    xstiffLoadInput = Convert.ToDecimal(xstiffCheck);
 
-                    if (LppInput > LInput && LppInput != 0 && LInput != 0)
+                    
+                    decimal LInput = Convert.ToDecimal(LTB.Text);
+                    decimal xstiffLoadInput = 0;
+
+                    object xstiffCheck = (sender as DataGridView).Rows[16].Cells[i].Value;
+                    if (xstiffCheck != null)
                     {
-                        decimal xPrimStiffOutput = xstiffLoadInput - (LppInput - LInput);
-                        dgvCalculateSP.Rows[45].Cells[i].Value = xPrimStiffOutput;
-                    }
-                    else if (LppInput < LInput && LppInput != 0 && LInput != 0)
-                    {
-                        decimal xPrimStiffOutput = xstiffLoadInput + (LInput - LppInput);
-                        dgvCalculateSP.Rows[45].Cells[i].Value = xPrimStiffOutput;
-                    }
-                    else if (LppInput == LInput && LppInput != 0 && LInput != 0)
-                    {
-                        dgvCalculateSP.Rows[45].Cells[i].Value = xstiffLoadInput;
+                        xstiffLoadInput = Convert.ToDecimal(xstiffCheck);
+
+                        if (LppInput > LInput && LppInput != 0 && LInput != 0)
+                        {
+                            decimal xPrimStiffOutput = xstiffLoadInput - (LppInput - LInput);
+                            dgvCalculateSP.Rows[45].Cells[i].Value = xPrimStiffOutput;
+                        }
+                        else if (LppInput < LInput && LppInput != 0 && LInput != 0)
+                        {
+                            decimal xPrimStiffOutput = xstiffLoadInput + (LInput - LppInput);
+                            dgvCalculateSP.Rows[45].Cells[i].Value = xPrimStiffOutput;
+                        }
+                        else if (LppInput == LInput && LppInput != 0 && LInput != 0)
+                        {
+                            dgvCalculateSP.Rows[45].Cells[i].Value = xstiffLoadInput;
+                        }
                     }
                 }
                 else
@@ -771,15 +794,17 @@ namespace EPT.modules
                 decimal bXplateInput = 0;
                 object yplateCheck = (sender as DataGridView).Rows[2].Cells[i].Value;
                 object bXplateCheck = (sender as DataGridView).Rows[4].Cells[i].Value;
-                if (yplateCheck != DBNull.Value && bXplateCheck != DBNull.Value)
+                if (yplateCheck != null && bXplateCheck != null)
                 {
+
                     yplateLoadInput = Convert.ToDecimal(yplateCheck);
                     bXplateInput = Convert.ToDecimal(bXplateCheck);
                     decimal[] fyBplateArray = { (2*yplateLoadInput)/bXplateInput, 1 };
 
                     decimal fybPlateOutput = fyBplateArray.Select(Math.Abs).Min();
 
-                    dgvCalculateSP.Rows[46].Cells[i].Value = Math.Round(fybPlateOutput,2);
+                    dgvCalculateSP.Rows[46].Cells[i].Value = fybPlateOutput;
+                    
                 }
                 else
                 {
@@ -792,7 +817,7 @@ namespace EPT.modules
                 decimal bXstiffInput = 0;
                 object ystiffCheck = (sender as DataGridView).Rows[17].Cells[i].Value;
                 object bXstiffCheck = (sender as DataGridView).Rows[19].Cells[i].Value;
-                if (ystiffCheck != DBNull.Value && bXstiffCheck != DBNull.Value)
+                if (ystiffCheck != null && bXstiffCheck != null)
                 {
                     ystiffLoadInput = Convert.ToDecimal(ystiffCheck);
                     bXstiffInput = Convert.ToDecimal(bXstiffCheck);
@@ -800,7 +825,7 @@ namespace EPT.modules
 
                     decimal fybStiffOutput = fyBstiffArray.Select(Math.Abs).Min();
 
-                    dgvCalculateSP.Rows[47].Cells[i].Value = Math.Round(fybStiffOutput, 2);
+                    dgvCalculateSP.Rows[47].Cells[i].Value = fybStiffOutput;
                 }
                 else
                 {
@@ -809,8 +834,8 @@ namespace EPT.modules
                 //=============
                 // fyz (plate)
                 //=============
-                double zplateLoadInput = 0;
-                double fyBplateInput = 0;
+                double zplateLoadInput = 0.00;
+                double fyBplateInput = 0.00;
 
                 //check if Tsc is not empty!
                 if(!string.IsNullOrEmpty(TscTB.Text))
@@ -819,12 +844,12 @@ namespace EPT.modules
                     object zplateCheck = (sender as DataGridView).Rows[3].Cells[i].Value;
                     object fyBplateCheck = (sender as DataGridView).Rows[46].Cells[i].Value;
 
-                    if (zplateCheck != DBNull.Value && fyBplateCheck != DBNull.Value)
+                    if (zplateCheck != null && !fyBplateCheck.Equals("No Value!"))
                     {
                         zplateLoadInput = Convert.ToDouble(zplateCheck);
                         fyBplateInput = Convert.ToDouble(fyBplateCheck);
                         double fyzPlateOutput = 0.5 * (zplateLoadInput / tSCInput) + 2.5 * fyBplateInput + 2;
-                        dgvCalculateSP.Rows[48].Cells[i].Value = Math.Round(fyzPlateOutput, 2);
+                        dgvCalculateSP.Rows[48].Cells[i].Value = fyzPlateOutput;
                     }
                     else
                     {
@@ -833,7 +858,7 @@ namespace EPT.modules
                 }
                 else
                 {
-                    dgvCalculateSP.Rows[48].Cells[i].Value = "Tsc is empty!";
+                    dgvCalculateSP.Rows[48].Cells[i].Value = "No Value!";
                 }
                 //=================
                 // fyz (stiffener)
@@ -848,12 +873,12 @@ namespace EPT.modules
                     object zstiffCheck = (sender as DataGridView).Rows[18].Cells[i].Value;
                     object fyBstiffCheck = (sender as DataGridView).Rows[47].Cells[i].Value;
 
-                    if(zstiffCheck != DBNull.Value && fyBstiffCheck != DBNull.Value)
+                    if(zstiffCheck != null && !fyBstiffCheck.Equals("No Value!"))
                     {
                         zstiffLoadInput = Convert.ToDouble(zstiffCheck);
                         fyBstiffInput = Convert.ToDouble(fyBstiffCheck);
                         double fyzStiffOutput = 0.5 * (zstiffLoadInput / tSCInput) + 2.5 * fyBstiffInput + 2;
-                        dgvCalculateSP.Rows[49].Cells[i].Value = Math.Round(fyzStiffOutput, 2);
+                        dgvCalculateSP.Rows[49].Cells[i].Value = fyzStiffOutput;
                     }
                     else
                     {
@@ -862,7 +887,7 @@ namespace EPT.modules
                 }
                 else
                 {
-                    dgvCalculateSP.Rows[49].Cells[i].Value = "Tsc is empty!";
+                    dgvCalculateSP.Rows[49].Cells[i].Value = "No Value!";
                 }
                 //=============
                 // fxL (plate)
@@ -875,11 +900,11 @@ namespace EPT.modules
                     double LruleInput = Convert.ToDouble(LTB.Text);
                     object xPrimPlateCheck = (sender as DataGridView).Rows[44].Cells[i].Value;
 
-                    if(xPrimPlateCheck !=DBNull.Value)
+                    if(!xPrimPlateCheck.Equals("No Value!"))
                     {
                         xPrimPlateInput = Convert.ToDouble(xPrimPlateCheck);
                         double fxLplateOutput = xPrimPlateInput / LruleInput;
-                        dgvCalculateSP.Rows[50].Cells[i].Value = Math.Round(fxLplateOutput, 2);
+                        dgvCalculateSP.Rows[50].Cells[i].Value = fxLplateOutput;
                     }
                     else
                     {
@@ -888,12 +913,12 @@ namespace EPT.modules
                 }
                 else
                 {
-                    dgvCalculateSP.Rows[50].Cells[i].Value = "L Rule is empty!";
+                    dgvCalculateSP.Rows[50].Cells[i].Value = "No Value!";
                 }
                 //=================
                 // fxL (stiffener)
                 //=================
-                double xPrimStiffInput = 0;
+                double xPrimStiffInput = 0.00;
 
                 //check if L "rule" is not empty
                 if(!string.IsNullOrEmpty(LTB.Text))
@@ -901,11 +926,11 @@ namespace EPT.modules
                     double LruleInput = Convert.ToDouble(LTB.Text);
                     object xPrimStiffCheck = (sender as DataGridView).Rows[45].Cells[i].Value;
 
-                    if(xPrimStiffCheck != DBNull.Value)
+                    if(!xPrimStiffCheck.Equals ("No Value!"))
                     {
                         xPrimStiffInput = Convert.ToDouble(xPrimStiffCheck);
                         double fxLstiffOutput = xPrimStiffInput / LruleInput;
-                        dgvCalculateSP.Rows[51].Cells[i].Value = Math.Round(fxLstiffOutput, 2);
+                        dgvCalculateSP.Rows[51].Cells[i].Value = fxLstiffOutput;
                     }
                     else
                     {
@@ -914,7 +939,7 @@ namespace EPT.modules
                 }
                 else
                 {
-                    dgvCalculateSP.Rows[51].Cells[i].Value = "L Rule is empty!";
+                    dgvCalculateSP.Rows[51].Cells[i].Value = "No Value!";
                 }
                 //======
                 // f_3
@@ -929,7 +954,7 @@ namespace EPT.modules
                     double[] f_3Array = { 0.6, 0.05+CbInput, 1.1-0.1*(LruleInput/BInput) };
                     //select max value
                     double f_3ArrayOutput = f_3Array.Max();
-                    dgvCalculateSP.Rows[52].Cells[i].Value = Math.Round(f_3ArrayOutput,2);
+                    dgvCalculateSP.Rows[52].Cells[i].Value = f_3ArrayOutput;
                 }
                 else
                 {
@@ -942,20 +967,20 @@ namespace EPT.modules
                 double fxLplateInput = 0;
 
                 object fxLplateCheck = (sender as DataGridView).Rows[50].Cells[i].Value;
-                if (fxLplateCheck != DBNull.Value)
+                if (!fxLplateCheck.Equals("No Value!"))
                 {
                     fxLplateInput = Convert.ToDouble(fxLplateCheck);
                     if(fxLplateInput < 0.2)
                     {
                         double[] f_4Array = { 2, (-5 * fxLplateInput + 2) };
                         double f_4ArrayOutput = f_4Array.Min();
-                        dgvCalculateSP.Rows[53].Cells[i].Value = Math.Round(f_4ArrayOutput, 2);
+                        dgvCalculateSP.Rows[53].Cells[i].Value = f_4ArrayOutput;
                     }
                     else if (fxLplateInput > 0.6)
                     {
                         double[] f_4Array = { 3, fxLplateInput - 2 };
                         double f_4ArrayOutput = f_4Array.Min();
-                        dgvCalculateSP.Rows[53].Cells[i].Value = Math.Round(f_4ArrayOutput, 2);
+                        dgvCalculateSP.Rows[53].Cells[i].Value = f_4ArrayOutput;
                     }
                     else
                     {
@@ -970,23 +995,23 @@ namespace EPT.modules
                 //=================================
                 // f_4 (based on f_xl, stiffeners)
                 //=================================
-                double fxLstiffInput = 0;
+                double fxLstiffInput = 0.00;
 
                 object fxLstiffCheck = (sender as DataGridView).Rows[51].Cells[i].Value;
-                if (fxLstiffCheck != DBNull.Value)
+                if (!fxLstiffCheck.Equals("No Value!"))
                 {
                     fxLstiffInput = Convert.ToDouble(fxLstiffCheck);
                     if (fxLstiffInput < 0.2)
                     {
                         double[] f_4Array = { 2, (-5 * fxLstiffInput + 2) };
                         double f_4ArrayOutput = f_4Array.Min();
-                        dgvCalculateSP.Rows[54].Cells[i].Value = Math.Round(f_4ArrayOutput, 2);
+                        dgvCalculateSP.Rows[54].Cells[i].Value = f_4ArrayOutput;
                     }
                     else if (fxLplateInput > 0.6)
                     {
                         double[] f_4Array = { 3, fxLstiffInput - 2 };
                         double f_4ArrayOutput = f_4Array.Min();
-                        dgvCalculateSP.Rows[54].Cells[i].Value = Math.Round(f_4ArrayOutput, 2);
+                        dgvCalculateSP.Rows[54].Cells[i].Value = f_4ArrayOutput;
                     }
                     else
                     {
@@ -1004,12 +1029,12 @@ namespace EPT.modules
                 {
                     double TscInput = Convert.ToDouble(TscTB.Text);
                     object zPlateCheck = (sender as DataGridView).Rows[3].Cells[i].Value;
-                    if(zPlateCheck != DBNull.Value)
+                    if(zPlateCheck != null)
                     {
                         double zPlateInput = 0;
                         zPlateInput = Convert.ToDouble(zPlateCheck);
                         double f_5PlateOutput = 0.2 * (4 + (zPlateInput / TscInput));
-                        dgvCalculateSP.Rows[55].Cells[i].Value = Math.Round(f_5PlateOutput, 2);
+                        dgvCalculateSP.Rows[55].Cells[i].Value = f_5PlateOutput;
                     }
                     else
                     {
@@ -1025,12 +1050,12 @@ namespace EPT.modules
                 {
                     double TscInput = Convert.ToDouble(TscTB.Text);
                     object zStiffCheck = (sender as DataGridView).Rows[18].Cells[i].Value;
-                    if (zStiffCheck != DBNull.Value)
+                    if (zStiffCheck != null)
                     {
                         double zStiffInput = 0;
                         zStiffInput = Convert.ToDouble(zStiffCheck);
                         double f_5StiffOutput = 0.2 * (4 + (zStiffInput / TscInput));
-                        dgvCalculateSP.Rows[56].Cells[i].Value = Math.Round(f_5StiffOutput, 2);
+                        dgvCalculateSP.Rows[56].Cells[i].Value = f_5StiffOutput;
                     }
                     else
                     {
@@ -1044,7 +1069,7 @@ namespace EPT.modules
                 {
                     double LTBInput = Convert.ToDouble(LTB.Text);
                     double CwOutput = 0.0856 * LTBInput;
-                    dgvCalculateSP.Rows[57].Cells[i].Value = Math.Round(CwOutput, 2);
+                    dgvCalculateSP.Rows[57].Cells[i].Value = CwOutput;
                 }
                 else
                 {
@@ -1064,7 +1089,7 @@ namespace EPT.modules
                     object f_3Check = (sender as DataGridView).Rows[52].Cells[i].Value;
                     object f_4PlateCheck = (sender as DataGridView).Rows[53].Cells[i].Value;
                     object CwCheck = (sender as DataGridView).Rows[57].Cells[i].Value;
-                    if(f_3Check !=DBNull.Value && f_4PlateCheck !=DBNull.Value && CwCheck != DBNull.Value)
+                    if(!f_3Check.Equals("No Valu!") && !f_4PlateCheck.Equals("No Value!") && CwCheck != null)
                     {
                         double f_3Input = Convert.ToDouble(f_3Check);
                         double f_4PlateInput = Convert.ToDouble(f_4PlateCheck);
@@ -1072,7 +1097,7 @@ namespace EPT.modules
 
                         double[] PwwlPlateArray = {frTBInput*(f_3Input*(2+(55/LTBInput))*(0.5*(TscTBInput/TscTBInput)+(2.5*(1))+2)*CwInput),5*frTBInput*f_4PlateInput*0.2*(4+TscTBInput/TscTBInput)*(1-CbTBInput/3)*CwInput*Math.Sqrt((1.2*LTBInput-15)/LTBInput)};
                         double PwwlPlateArrayOutput = PwwlPlateArray.Max();
-                        dgvCalculateSP.Rows[58].Cells[i].Value = Math.Round(PwwlPlateArrayOutput, 2);
+                        dgvCalculateSP.Rows[58].Cells[i].Value = PwwlPlateArrayOutput;
 
                     }
                 }
@@ -1094,7 +1119,7 @@ namespace EPT.modules
                     object f_3Check = (sender as DataGridView).Rows[52].Cells[i].Value;
                     object f_4StiffCheck = (sender as DataGridView).Rows[54].Cells[i].Value;
                     object CwCheck = (sender as DataGridView).Rows[57].Cells[i].Value;
-                    if (f_3Check != DBNull.Value && f_4StiffCheck != DBNull.Value && CwCheck != DBNull.Value)
+                    if (!f_3Check.Equals("No Value!") && !f_4StiffCheck.Equals("No Value!") && !CwCheck.Equals("No Value!"))
                     {
                         double f_3Input = Convert.ToDouble(f_3Check);
                         double f_4StiffInput = Convert.ToDouble(f_4StiffCheck);
@@ -1102,7 +1127,7 @@ namespace EPT.modules
 
                         double[] PwwlStiffArray = { frTBInput * (f_3Input * (2 + (55 / LTBInput)) * (0.5 * (TscTBInput / TscTBInput) + (2.5 * (1)) + 2) * CwInput), 5 * frTBInput * f_4StiffInput * 0.2 * (4 + TscTBInput / TscTBInput) * (1 - CbTBInput / 3) * CwInput * Math.Sqrt((1.2 * LTBInput - 15) / LTBInput) };
                         double PwwlStiffArrayOutput = PwwlStiffArray.Max();
-                        dgvCalculateSP.Rows[59].Cells[i].Value = Math.Round(PwwlStiffArrayOutput, 2);
+                        dgvCalculateSP.Rows[59].Cells[i].Value = PwwlStiffArrayOutput;
                     }
                 
                 }
@@ -1125,7 +1150,7 @@ namespace EPT.modules
                     object f_5PlateCheck = (sender as DataGridView).Rows[55].Cells[i].Value;
                     object CwCheck = (sender as DataGridView).Rows[57].Cells[i].Value;
 
-                    if(fyzPlateCheck != DBNull.Value && f_3Check != DBNull.Value && f_4PlateCheck != DBNull.Value && f_5PlateCheck != DBNull.Value && CwCheck != DBNull.Value)
+                    if(!fyzPlateCheck.Equals("No Value!") && !f_3Check.Equals("No Value!") && !f_4PlateCheck.Equals("No Value!") && !f_5PlateCheck.Equals("No Value!") && !CwCheck.Equals("No Value!"))
                     {
                         double fyzPlateInput = Convert.ToDouble(fyzPlateCheck);
                         double f_3Input = Convert.ToDouble(f_3Check);
@@ -1133,10 +1158,9 @@ namespace EPT.modules
                         double f_5PlateInput = Convert.ToDouble(f_5PlateCheck);
                         double CwInput = Convert.ToDouble(CwCheck);
 
-                        //double[] PenvPlateArray = { frTBInput*f_3Input*(2+55/LTBInput)*fyzPlateInput*CbTBInput, 5*frTBInput*f_4PlateInput*f_5PlateInput*(1-CbTBInput/3)*CwInput*Math.Sqrt((1.2*LTBInput-15)/LTBInput) };
-                        double[] PenvPlateArray = { 1 * 0.67 * (2 + 55 / 74.34) * 3.9 * 0.58 };
+                        double[] PenvPlateArray = { frTBInput*f_3Input*(2+55/LTBInput)*fyzPlateInput*CwInput, 5*frTBInput*f_4PlateInput*f_5PlateInput*(1-CbTBInput/3)*CwInput*Math.Sqrt((1.2*LTBInput-15)/LTBInput) };
                         double PenvPlateArrayOutput = PenvPlateArray.Max();
-                        dgvCalculateSP.Rows[60].Cells[i].Value = Math.Round(PenvPlateArrayOutput,2);
+                        dgvCalculateSP.Rows[60].Cells[i].Value = PenvPlateArrayOutput;
                     }
                     else
                     {
@@ -1148,7 +1172,35 @@ namespace EPT.modules
                 //==========================
                 // P_ENV (stiffeners) [MPa]
                 //==========================
+                if(!string.IsNullOrEmpty(frTB.Text) && !string.IsNullOrEmpty(LTB.Text) && !string.IsNullOrEmpty(CbTB.Text))
+                {
+                    double frTBInput = Convert.ToDouble(frTB.Text);
+                    double LTBInput = Convert.ToDouble(LTB.Text);
+                    double CbTBInput = Convert.ToDouble(CbTB.Text);
 
+                    object fyzStiffCheck = (sender as DataGridView).Rows[49].Cells[i].Value;
+                    object f_3Check = (sender as DataGridView).Rows[52].Cells[i].Value;
+                    object f_4StiffCheck = (sender as DataGridView).Rows[54].Cells[i].Value;
+                    object f_5StiffCheck = (sender as DataGridView).Rows[56].Cells[i].Value;
+                    object CwCheck = (sender as DataGridView).Rows[57].Cells[i].Value;
+
+                    if(!fyzStiffCheck.Equals("No Value!") && !f_3Check.Equals("No Value!") && !f_4StiffCheck.Equals("No Value!") && !f_5StiffCheck.Equals("No Value!") && !CwCheck.Equals("No Value!"))
+                    {
+                        double fyzStiffInput = Convert.ToDouble(fyzStiffCheck);
+                        double f_3Input = Convert.ToDouble(f_3Check);
+                        double f_4StiffInput = Convert.ToDouble(f_4StiffCheck);
+                        double f_5StiffInput = Convert.ToDouble(f_5StiffCheck);
+                        double CwInput = Convert.ToDouble(CwCheck);
+
+                        double[] PenvStiffArray = { frTBInput * f_3Input * (2 + 55 / LTBInput) * fyzStiffInput * CwInput, 5 * frTBInput * f_4StiffInput * f_5StiffInput * (1 - CbTBInput / 3) * CwInput * Math.Sqrt((1.2 * LTBInput - 15) / LTBInput) };
+                        double PenvStiffArrayOutput = PenvStiffArray.Max();
+                        dgvCalculateSP.Rows[61].Cells[i].Value = PenvStiffArrayOutput;
+                    }
+                    else
+                    {
+                        dgvCalculateSP.Rows[61].Cells[i].Value = "No Value!";
+                    }
+                }
                 //=======================
                 // P (SEA-1) [MPa] plate
                 //=======================
