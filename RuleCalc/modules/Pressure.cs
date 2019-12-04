@@ -900,7 +900,7 @@ namespace EPT.modules
                     double LruleInput = Convert.ToDouble(LTB.Text);
                     object xPrimPlateCheck = (sender as DataGridView).Rows[44].Cells[i].Value;
 
-                    if(!xPrimPlateCheck.Equals("No Value!"))
+                    if(xPrimPlateCheck != null)
                     {
                         xPrimPlateInput = Convert.ToDouble(xPrimPlateCheck);
                         double fxLplateOutput = xPrimPlateInput / LruleInput;
@@ -926,7 +926,7 @@ namespace EPT.modules
                     double LruleInput = Convert.ToDouble(LTB.Text);
                     object xPrimStiffCheck = (sender as DataGridView).Rows[45].Cells[i].Value;
 
-                    if(!xPrimStiffCheck.Equals ("No Value!"))
+                    if(xPrimStiffCheck != null)
                     {
                         xPrimStiffInput = Convert.ToDouble(xPrimStiffCheck);
                         double fxLstiffOutput = xPrimStiffInput / LruleInput;
@@ -1204,7 +1204,22 @@ namespace EPT.modules
                 //=======================
                 // P (SEA-1) [MPa] plate
                 //=======================
+                if(!string.IsNullOrEmpty(TscTB.Text))
+                {
+                    double TscInput = Convert.ToDouble(TscTB.Text);
 
+                    double zPlateLoadInput = 0;
+                    object zPlateCheck = (sender as DataGridView).Rows[3].Cells[i].Value;
+                    if (zPlateCheck != null)
+                    {
+                        zPlateLoadInput = Convert.ToDouble(zPlateCheck);
+                        
+                        if(zplateLoadInput <= TscInput)
+                        {
+
+                        }
+                    }
+                }
                 //=======================
                 // P (SEA-2) [MPa] plate
                 //=======================
