@@ -7,7 +7,7 @@
   </itemstable>
   <itemstable>
     <Column1>4.3</Column1>
-    <Column2>5</Column2>
+    <Column2>4.3</Column2>
   </itemstable>
   <itemstable>
     <Column1>9</Column1>
@@ -30,8 +30,8 @@
     <Column2>1300</Column2>
   </itemstable>
   <itemstable>
-    <Column1>0.96</Column1>
-    <Column2>0.98</Column2>
+    <Column1>0.96190476190476182</Column1>
+    <Column2>0.98021978021978018</Column2>
   </itemstable>
   <itemstable>
     <Column1>1</Column1>
@@ -122,65 +122,66 @@
     <Column2>6.34</Column2>
   </itemstable>
   <itemstable>
-    <Column1>0.55</Column1>
-    <Column2>0.62</Column2>
+    <Column1>0.5548387096774193548387096774</Column1>
+    <Column2>0.5375</Column2>
   </itemstable>
   <itemstable>
-    <Column1>0.32</Column1>
-    <Column2>0.43</Column2>
+    <Column1>0.3229974160206718346253229974</Column1>
+    <Column2>0.4285714285714285714285714286</Column2>
   </itemstable>
   <itemstable>
-    <Column1>3.9</Column1>
-    <Column2>4.14</Column2>
+    <Column1>3.9165085388994307</Column1>
+    <Column2>3.9319852941176472</Column2>
   </itemstable>
   <itemstable>
-    <Column1>3.33</Column1>
-    <Column2>3.55</Column2>
+    <Column1>3.3369053047575621</Column1>
+    <Column2>3.5420168067226889</Column2>
   </itemstable>
   <itemstable>
-    <Column1>0.1</Column1>
-    <Column2>0.1</Column2>
+    <Column1>0.096045197740112984</Column1>
+    <Column2>0.0987355394135055</Column2>
   </itemstable>
   <itemstable>
-    <Column1>0.1</Column1>
-    <Column2>0.09</Column2>
+    <Column1>0.0987355394135055</Column1>
+    <Column2>0.0852838310465429</Column2>
   </itemstable>
   <itemstable>
-    <Column1>0.67</Column1>
-    <Column2>0.67</Column2>
+    <Column1>0.66779069767441868</Column1>
+    <Column2>0.66779069767441868</Column2>
   </itemstable>
   <itemstable>
-    <Column1>1.5</Column1>
-    <Column2>1.5</Column2>
+    <Column1>1.5197740112994351</Column1>
+    <Column2>1.5063223029324724</Column2>
   </itemstable>
   <itemstable>
-    <Column1>1.5</Column1>
-    <Column2>1.55</Column2>
+    <Column1>1.5063223029324724</Column1>
+    <Column2>1.5735808447672854</Column2>
   </itemstable>
   <itemstable>
-    <Column1>1.01</Column1>
-    <Column2>1.04</Column2>
+    <Column1>1.0117647058823529</Column1>
+    <Column2>1.0352941176470589</Column2>
   </itemstable>
   <itemstable>
-    <Column1>1.01</Column1>
-    <Column2>0.99</Column2>
+    <Column1>1.0117647058823529</Column1>
+    <Column2>0.9882352941176471</Column2>
   </itemstable>
   <itemstable>
-    <Column1>6.36</Column1>
-    <Column2>6.36</Column2>
+    <Column1>6.363504</Column1>
+    <Column2>6.363504</Column2>
   </itemstable>
   <itemstable>
-    <Column1>58.38</Column1>
-    <Column2>58.38</Column2>
+    <Column1>58.214680781395359</Column1>
+    <Column2>58.214680781395359</Column2>
   </itemstable>
   <itemstable>
-    <Column1>58.38</Column1>
-    <Column2>58.38</Column2>
+    <Column1>58.214680781395359</Column1>
+    <Column2>58.214680781395359</Column2>
   </itemstable>
   <itemstable>
-    <Column1>38.83</Column1>
-    <Column2>39.98</Column2>
+    <Column1>45.5996588739279</Column1>
+    <Column2>45.779853746839954</Column2>
   </itemstable>
+  <itemstable />
   <itemstable />
   <itemstable />
   <itemstable />

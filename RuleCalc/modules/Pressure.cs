@@ -312,7 +312,7 @@ namespace EPT.modules
                 {
                     dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
                 }
-                else if (i > 43 & i < 71)
+                else if (i > 43 & i < 70)
                 {
                     dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.WhiteSmoke;
                     dgvCalculateSP.Rows[i].ReadOnly = true;
@@ -402,7 +402,7 @@ namespace EPT.modules
                 //----------------------------------
                 // add rows for calculation table
                 //----------------------------------
-                    for (int i = 0; i <= 70; i++)
+                    for (int i = 0; i <= 71; i++)
                     {
                         i = dgvCalculateSP.Rows.Add();
                     }
@@ -900,7 +900,8 @@ namespace EPT.modules
                     double LruleInput = Convert.ToDouble(LTB.Text);
                     object xPrimPlateCheck = (sender as DataGridView).Rows[44].Cells[i].Value;
 
-                    if(xPrimPlateCheck != null)
+                    //if(!xPrimPlateCheck.Equals("No Value!"))
+                    if (xPrimPlateCheck != null)
                     {
                         xPrimPlateInput = Convert.ToDouble(xPrimPlateCheck);
                         double fxLplateOutput = xPrimPlateInput / LruleInput;
@@ -918,7 +919,7 @@ namespace EPT.modules
                 //=================
                 // fxL (stiffener)
                 //=================
-                double xPrimStiffInput = 0.00;
+                double xPrimStiffInput = 0;
 
                 //check if L "rule" is not empty
                 if(!string.IsNullOrEmpty(LTB.Text))
@@ -1089,7 +1090,7 @@ namespace EPT.modules
                     object f_3Check = (sender as DataGridView).Rows[52].Cells[i].Value;
                     object f_4PlateCheck = (sender as DataGridView).Rows[53].Cells[i].Value;
                     object CwCheck = (sender as DataGridView).Rows[57].Cells[i].Value;
-                    if(!f_3Check.Equals("No Valu!") && !f_4PlateCheck.Equals("No Value!") && CwCheck != null)
+                    if(!f_3Check.Equals("No Valu!") && !f_4PlateCheck.Equals("No Value!") && !CwCheck.Equals("No Value!"))
                     {
                         double f_3Input = Convert.ToDouble(f_3Check);
                         double f_4PlateInput = Convert.ToDouble(f_4PlateCheck);
@@ -1204,58 +1205,43 @@ namespace EPT.modules
                 //=======================
                 // P (SEA-1) [MPa] plate
                 //=======================
-                if(!string.IsNullOrEmpty(TscTB.Text))
-                {
-                    double TscInput = Convert.ToDouble(TscTB.Text);
-
-                    double zPlateLoadInput = 0;
-                    object zPlateCheck = (sender as DataGridView).Rows[3].Cells[i].Value;
-                    if (zPlateCheck != null)
-                    {
-                        zPlateLoadInput = Convert.ToDouble(zPlateCheck);
-                        
-                        if(zplateLoadInput <= TscInput)
-                        {
-
-                        }
-                    }
-                }
+                dgvCalculateSP.Rows[62].Cells[i].Value = "p sea 1";
                 //=======================
                 // P (SEA-2) [MPa] plate
                 //=======================
-
+                dgvCalculateSP.Rows[63].Cells[i].Value = "psea 2";
                 //======================================
                 // t req gross (SEA-1 AC-II) [mm] plate
                 //======================================
-
+                dgvCalculateSP.Rows[64].Cells[i].Value = "t req";
                 //=====================================
                 // t req gross (SEA-2 AC-I) [mm] plate
                 //=====================================
-
+                dgvCalculateSP.Rows[65].Cells[i].Value = "No Value!";
                 //=======================
                 // P (SEA-1) [MPa] stiff
                 //=======================
-
+                dgvCalculateSP.Rows[66].Cells[i].Value = "No Value!";
                 //=======================
                 // P (SEA-2) [MPa] stiff
                 //=======================
-
+                dgvCalculateSP.Rows[67].Cells[i].Value = "No Value!";
                 //======================================
                 // t req gross (SEA-1 AC-II) [mm] stiff
                 //======================================
-
+                dgvCalculateSP.Rows[68].Cells[i].Value = "No Value!";
                 //=====================================
                 // t req gross (SEA-2 AC-I) [mm] stiff
                 //=====================================
-
+                dgvCalculateSP.Rows[69].Cells[i].Value = "No Value!";
                 //======================
                 // for 75° <= ϕw <= 90°
                 //======================
-
+                dgvCalculateSP.Rows[70].Cells[i].Value = "for 75° <= ϕw <= 90";
                 //===============
                 // for ϕw <= 75°
                 //===============
-
+                dgvCalculateSP.Rows[71].Cells[i].Value = "for ϕw <= 75°";
 
 
             }
