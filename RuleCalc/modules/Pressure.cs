@@ -312,7 +312,7 @@ namespace EPT.modules
                 {
                     dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
                 }
-                else if (i > 43 & i < 70)
+                else if (i > 43 & i < 72)
                 {
                     dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.WhiteSmoke;
                     dgvCalculateSP.Rows[i].ReadOnly = true;
@@ -716,9 +716,8 @@ namespace EPT.modules
                     dgvCalculateSP.Rows[8].Cells[i].Value = alphaOutput;
                 }
                 //=====================
-                //calculate X'(Plate) ====================>>>>>>>>> dodac sprawdzenie pustych pol Lpp i LTB
+                //calculate X'(Plate)
                 //=====================
-                //if (!string.IsNullOrEmpty(TscTB.Text))
 
                 decimal LppInput = Convert.ToDecimal(LppTB.Text);
                 if (!string.IsNullOrEmpty(LppTB.Text) && !string.IsNullOrEmpty(LTB.Text) && LppInput != 0)
@@ -945,7 +944,6 @@ namespace EPT.modules
                 //======
                 // f_3
                 //======
-                // L b CB
                 if(!string.IsNullOrEmpty(LTB.Text) && !string.IsNullOrEmpty(BTB.Text) && !string.IsNullOrEmpty(CbTB.Text))
                 {
                     double LruleInput = Convert.ToDouble(LTB.Text);
@@ -1205,7 +1203,44 @@ namespace EPT.modules
                 //=======================
                 // P (SEA-1) [MPa] plate
                 //=======================
-                dgvCalculateSP.Rows[62].Cells[i].Value = "p sea 1";
+                if(!string.IsNullOrEmpty(TscTB.Text))
+                    {
+                    double TscTBInput = Convert.ToDouble(TscTB.Text);
+
+                    object zPlateCheck = (sender as DataGridView).Rows[3].Cells[i].Value;
+                    object PWwlCheck = (sender as DataGridView).Rows[58].Cells[i].Value;
+                    object P_EnvCheck = (sender as DataGridView).Rows[60].Cells[i].Value;
+
+                    double zPlateLoadInput = 0;
+
+                    if (zPlateCheck != null)
+                        {
+                        zPlateLoadInput = Convert.ToDouble(zPlateCheck);
+                        double PWwlInput = Convert.ToDouble(PWwlCheck);
+                        double P_EnvInput = Convert.ToDouble(P_EnvCheck);
+                        if(zPlateLoadInput <= TscTBInput)
+                            {
+                            double PseaPlateOutput = P_EnvInput + 9.81*1.025*(TscTBInput-zPlateLoadInput);
+                            dgvCalculateSP.Rows[62].Cells[i].Value = PseaPlateOutput;
+                            }
+                        else if (zPlateLoadInput < PWwlInput/(1.025*9.81)+TscTBInput)
+                            {
+                            double PseaPlateOutput = PWwlInput-1.025*9.81*(zplateLoadInput-TscTBInput);
+                            dgvCalculateSP.Rows[62].Cells[i].Value = PseaPlateOutput;
+                            }
+                        }
+                    else
+                        {
+                        double PseaPlateOutput = 0.0;
+                        dgvCalculateSP.Rows[62].Cells[i].Value = PseaPlateOutput;
+                        }
+                    }
+
+               
+                
+
+                //dgvCalculateSP.Rows[62].Cells[i].Value = "p sea 1";
+
                 //=======================
                 // P (SEA-2) [MPa] plate
                 //=======================
