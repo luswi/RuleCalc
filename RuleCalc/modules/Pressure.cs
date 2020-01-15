@@ -1220,42 +1220,99 @@ namespace EPT.modules
                         double P_EnvInput = Convert.ToDouble(P_EnvCheck);
                         if(zPlateLoadInput <= TscTBInput)
                             {
-                            double PseaPlateOutput = P_EnvInput + 9.81*1.025*(TscTBInput-zPlateLoadInput);
-                            dgvCalculateSP.Rows[62].Cells[i].Value = PseaPlateOutput;
+                            double Psea1PlateOutput = P_EnvInput + 9.81*1.025*(TscTBInput-zPlateLoadInput);
+                            dgvCalculateSP.Rows[62].Cells[i].Value = Psea1PlateOutput;
                             }
                         else if (zPlateLoadInput < PWwlInput/(1.025*9.81)+TscTBInput)
                             {
-                            double PseaPlateOutput = PWwlInput-1.025*9.81*(zplateLoadInput-TscTBInput);
-                            dgvCalculateSP.Rows[62].Cells[i].Value = PseaPlateOutput;
+                            double Psea1PlateOutput = PWwlInput-1.025*9.81*(zplateLoadInput-TscTBInput);
+                            dgvCalculateSP.Rows[62].Cells[i].Value = Psea1PlateOutput;
                             }
                         }
                     else
                         {
-                        double PseaPlateOutput = 0.0;
-                        dgvCalculateSP.Rows[62].Cells[i].Value = PseaPlateOutput;
+                        double Psea1PlateOutput = 0.0;
+                        dgvCalculateSP.Rows[62].Cells[i].Value = Psea1PlateOutput;
                         }
                     }
 
-               
-                
-
-                //dgvCalculateSP.Rows[62].Cells[i].Value = "p sea 1";
 
                 //=======================
                 // P (SEA-2) [MPa] plate
                 //=======================
-                dgvCalculateSP.Rows[63].Cells[i].Value = "psea 2";
+                if(!string.IsNullOrEmpty(TscTB.Text))
+                    {
+                    double TscTBInput = Convert.ToDouble(TscTB.Text);
+                    
+                    object zPlateCheck = (sender as DataGridView).Rows[3].Cells[i].Value;
+
+                    double zPlateLoadInput = 0;
+
+                    if(zPlateCheck != null)
+                        {
+                        zPlateLoadInput = Convert.ToDouble(zPlateCheck);
+                        if(zPlateLoadInput <= TscTBInput)
+                            {
+                            double Psea2PlateOutput = 9.81*1.025*(TscTBInput-zPlateLoadInput);
+                            dgvCalculateSP.Rows[63].Cells[i].Value = Psea2PlateOutput;
+                            }
+                        else
+                            {
+                            dgvCalculateSP.Rows[63].Cells[i].Value = 0.0;
+                            }
+                        }
+                    }
+                
                 //======================================
                 // t req gross (SEA-1 AC-II) [mm] plate
                 //======================================
-                dgvCalculateSP.Rows[64].Cells[i].Value = "t req";
+                object r_EHCheck = (sender as DataGridView).Rows[5].Cells[i].Value;
+                object bPlateCheck = (sender as DataGridView).Rows[6].Cells[i].Value;
+                object alphaCheck = (sender as DataGridView).Rows[8].Cells[i].Value;
+                object tcPlateCheck = (sender as DataGridView).Rows[9].Cells[i].Value;
+                object pSea1PlateCheck = (sender as DataGridView).Rows[62].Cells[i].Value;
+
+                if(r_EHCheck != null && bPlateCheck != null && !alphaCheck.Equals("No Value!") && tcPlateCheck != null && !pSea1PlateCheck.Equals("No Value!"))
+                    {
+                    double r_EHCheckInput = Convert.ToDouble(r_EHCheck);
+                    double bPlateCheckInput = Convert.ToDouble(bPlateCheck);
+                    double alphaCheckInput = Convert.ToDouble(alphaCheck);
+                    double tcPlateCheckInput = Convert.ToDouble(tcPlateCheck);
+                    double pSea1PlateCheckInput = Convert.ToDouble(pSea1PlateCheck);
+
+                    double treqGrossSea1 = Math.Round((0.0158*alphaCheckInput*bPlateCheckInput*Math.Sqrt(Math.Abs(pSea1PlateCheckInput)/(0.95*r_EHCheckInput))+tcPlateCheckInput),1);
+                    dgvCalculateSP.Rows[64].Cells[i].Value = treqGrossSea1;
+                    }
+                else
+                    {
+                    dgvCalculateSP.Rows[64].Cells[i].Value = "No Value!";
+                    }
+
                 //=====================================
                 // t req gross (SEA-2 AC-I) [mm] plate
                 //=====================================
-                dgvCalculateSP.Rows[65].Cells[i].Value = "No Value!";
+                object pSea2PlateCheck = (sender as DataGridView).Rows[63].Cells[i].Value;
+
+                if(r_EHCheck != null && bPlateCheck != null && !alphaCheck.Equals("No Value!") && tcPlateCheck != null && !pSea2PlateCheck.Equals("No Value!"))
+                    {
+                    double r_EHCheckInput = Convert.ToDouble(r_EHCheck);
+                    double bPlateCheckInput = Convert.ToDouble(bPlateCheck);
+                    double alphaCheckInput = Convert.ToDouble(alphaCheck);
+                    double tcPlateCheckInput = Convert.ToDouble(tcPlateCheck);
+                    double pSea2PlateCheckInput = Convert.ToDouble(pSea2PlateCheck);
+
+                    double treqGrossSea2 = Math.Round((0.0158*alphaCheckInput*bPlateCheckInput*Math.Sqrt(Math.Abs(pSea2PlateCheckInput)/(0.8*r_EHCheckInput))+tcPlateCheckInput),1);
+                    dgvCalculateSP.Rows[65].Cells[i].Value = treqGrossSea2;
+                    }
+                else
+                    {
+                    dgvCalculateSP.Rows[65].Cells[i].Value = "No Value!";
+                    }
+
                 //=======================
                 // P (SEA-1) [MPa] stiff
                 //=======================
+
                 dgvCalculateSP.Rows[66].Cells[i].Value = "No Value!";
                 //=======================
                 // P (SEA-2) [MPa] stiff
