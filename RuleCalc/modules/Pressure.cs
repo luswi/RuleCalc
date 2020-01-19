@@ -1208,24 +1208,24 @@ namespace EPT.modules
                     double TscTBInput = Convert.ToDouble(TscTB.Text);
 
                     object zPlateCheck = (sender as DataGridView).Rows[3].Cells[i].Value;
-                    object PWwlCheck = (sender as DataGridView).Rows[58].Cells[i].Value;
-                    object P_EnvCheck = (sender as DataGridView).Rows[60].Cells[i].Value;
+                    object PWwlPlateCheck = (sender as DataGridView).Rows[58].Cells[i].Value;
+                    object P_EnvPlateCheck = (sender as DataGridView).Rows[60].Cells[i].Value;
 
                     double zPlateLoadInput = 0;
 
                     if (zPlateCheck != null)
                         {
                         zPlateLoadInput = Convert.ToDouble(zPlateCheck);
-                        double PWwlInput = Convert.ToDouble(PWwlCheck);
-                        double P_EnvInput = Convert.ToDouble(P_EnvCheck);
+                        double PWwlPlateInput = Convert.ToDouble(PWwlPlateCheck);
+                        double P_EnvPlateInput = Convert.ToDouble(P_EnvPlateCheck);
                         if(zPlateLoadInput <= TscTBInput)
                             {
-                            double Psea1PlateOutput = P_EnvInput + 9.81*1.025*(TscTBInput-zPlateLoadInput);
+                            double Psea1PlateOutput = P_EnvPlateInput + 9.81*1.025*(TscTBInput-zPlateLoadInput);
                             dgvCalculateSP.Rows[62].Cells[i].Value = Psea1PlateOutput;
                             }
-                        else if (zPlateLoadInput < PWwlInput/(1.025*9.81)+TscTBInput)
+                        else if (zPlateLoadInput < PWwlPlateInput/(1.025*9.81)+TscTBInput)
                             {
-                            double Psea1PlateOutput = PWwlInput-1.025*9.81*(zplateLoadInput-TscTBInput);
+                            double Psea1PlateOutput = PWwlPlateInput-1.025*9.81*(zplateLoadInput-TscTBInput);
                             dgvCalculateSP.Rows[62].Cells[i].Value = Psea1PlateOutput;
                             }
                         }
@@ -1312,15 +1312,136 @@ namespace EPT.modules
                 //=======================
                 // P (SEA-1) [MPa] stiff
                 //=======================
+                if(!string.IsNullOrEmpty(TscTB.Text))
+                    {
+                    double TscTBInput = Convert.ToDouble(TscTB.Text);
 
-                dgvCalculateSP.Rows[66].Cells[i].Value = "No Value!";
+                    object zStiffCheck = (sender as DataGridView).Rows[18].Cells[i].Value;
+                    object PWwlStiffCheck = (sender as DataGridView).Rows[59].Cells[i].Value;
+                    object P_EnvStiffCheck = (sender as DataGridView).Rows[61].Cells[i].Value;
+
+                    double zStiffLoadInput = 0;
+
+                    if (zStiffCheck != null)
+                        {
+                        zStiffLoadInput = Convert.ToDouble(zStiffCheck);
+                        double PWwlStiffInput = Convert.ToDouble(PWwlStiffCheck);
+                        double P_EnvStiffInput = Convert.ToDouble(P_EnvStiffCheck);
+                        if(zStiffLoadInput <= TscTBInput)
+                            {
+                            double Psea1StiffOutput = P_EnvStiffInput + 9.81*1.025*(TscTBInput-zStiffLoadInput);
+                            dgvCalculateSP.Rows[66].Cells[i].Value = Psea1StiffOutput;
+                            }
+                        else if (zStiffLoadInput < PWwlStiffInput/(1.025*9.81)+TscTBInput)
+                            {
+                            double Psea1StiffOutput = PWwlStiffInput-1.025*9.81*(zStiffLoadInput-TscTBInput);
+                            dgvCalculateSP.Rows[66].Cells[i].Value = Psea1StiffOutput;
+                            }
+                        }
+                    else
+                        {
+                        double Psea1StiffOutput = 0.0;
+                        dgvCalculateSP.Rows[66].Cells[i].Value = Psea1StiffOutput;
+                        }
+                    }
+                
                 //=======================
                 // P (SEA-2) [MPa] stiff
                 //=======================
-                dgvCalculateSP.Rows[67].Cells[i].Value = "No Value!";
+                if(!string.IsNullOrEmpty(TscTB.Text))
+                    {
+                    double TscTBInput = Convert.ToDouble(TscTB.Text);
+                    
+                    object zStiffCheck = (sender as DataGridView).Rows[18].Cells[i].Value;
+
+                    double zStiffLoadInput = 0;
+
+                    if(zStiffCheck != null)
+                        {
+                        zStiffLoadInput = Convert.ToDouble(zStiffCheck);
+                        if(zStiffLoadInput <= TscTBInput)
+                            {
+                            double Psea2StiffOutput = 9.81*1.025*(TscTBInput-zStiffLoadInput);
+                            dgvCalculateSP.Rows[67].Cells[i].Value = Psea2StiffOutput;
+                            }
+                        else
+                            {
+                            dgvCalculateSP.Rows[67].Cells[i].Value = 0.0;
+                            }
+                        }
+                    }
+                
                 //======================================
                 // t req gross (SEA-1 AC-II) [mm] stiff
                 //======================================
+                object r_EHCheck = (sender as DataGridView).Rows[5].Cells[i].Value;
+                object bPlateCheck = (sender as DataGridView).Rows[6].Cells[i].Value;
+                object alphaCheck = (sender as DataGridView).Rows[8].Cells[i].Value;
+                object tcPlateCheck = (sender as DataGridView).Rows[9].Cells[i].Value;
+                object pSea1PlateCheck = (sender as DataGridView).Rows[62].Cells[i].Value;
+
+                if(r_EHCheck != null && bPlateCheck != null && !alphaCheck.Equals("No Value!") && tcPlateCheck != null && !pSea1PlateCheck.Equals("No Value!"))
+                    {
+                    double r_EHCheckInput = Convert.ToDouble(r_EHCheck);
+                    double bPlateCheckInput = Convert.ToDouble(bPlateCheck);
+                    double alphaCheckInput = Convert.ToDouble(alphaCheck);
+                    double tcPlateCheckInput = Convert.ToDouble(tcPlateCheck);
+                    double pSea1PlateCheckInput = Convert.ToDouble(pSea1PlateCheck);
+
+                    double treqGrossSea1 = Math.Round((0.0158*alphaCheckInput*bPlateCheckInput*Math.Sqrt(Math.Abs(pSea1PlateCheckInput)/(0.95*r_EHCheckInput))+tcPlateCheckInput),1);
+                    dgvCalculateSP.Rows[64].Cells[i].Value = treqGrossSea1;
+                    }
+                else
+                    {
+                    dgvCalculateSP.Rows[64].Cells[i].Value = "No Value!";
+                    }
+
+
+                        //fshr.Items.Add("Upper end of vertical stiffeners"); 0.4
+                        //fshr.Items.Add("Lower end of vertical stiffeners"); 0.7
+                        //fshr.Items.Add("General"); 0.5
+
+                //-------------------------
+        // Values for Service area
+        //-------------------------
+        private void saCB_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (saCB.Text == "R0 (No reduction)")
+            {
+                double frValue = 1.0;
+                frTB.Text = frValue.ToString("0.00");
+            }
+            else if(saCB.Text == "R1 (10% reduction)")
+            {
+                double frValue = 0.9;
+                frTB.Text = frValue.ToString("0.00");
+            }
+            else if(saCB.Text == "R2 (20% reduction)")
+            {
+                double frValue = 0.8;
+                frTB.Text = frValue.ToString("0.00");
+            }
+            else if (saCB.Text == "R3 (30% reduction)")
+            {
+                double frValue = 0.7;
+                frTB.Text = frValue.ToString("0.00");
+            }
+            else if (saCB.Text == "R4 (40% reduction)")
+            {
+                double frValue = 0.6;
+                frTB.Text = frValue.ToString("0.00");
+            }
+            else if (saCB.Text == "RE (50% reduction)")
+            {
+                double frValue = 0.5;
+                frTB.Text = frValue.ToString("0.00");
+            }
+        }
+
+
+                //=ROUND(((B36*ABS(B81)*B26*B34)/(B30*0.9*B37)+B38)*2;0)/2
+                //=ROUND((0.0158*B10*B8*SQRT(ABS(B77)/(0.95*B7))+B11)*2;0)/2
+
                 dgvCalculateSP.Rows[68].Cells[i].Value = "No Value!";
                 //=====================================
                 // t req gross (SEA-2 AC-I) [mm] stiff
