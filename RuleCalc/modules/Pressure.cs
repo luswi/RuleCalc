@@ -291,6 +291,11 @@ namespace EPT.modules
                     dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
                     dgvCalculateSP.Rows[i].ReadOnly = true;
                 }
+                else if (i == 27)
+                {
+                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.WhiteSmoke;
+                    dgvCalculateSP.Rows[i].ReadOnly = true;
+                }
                 else if (i == 43)
                 {
                     dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
@@ -1370,17 +1375,37 @@ namespace EPT.modules
                             }
                         }
                     }
-                
+
                 //======================================
                 // t req gross (SEA-1 AC-II) [mm] stiff
                 //======================================
-                object r_EHCheck = (sender as DataGridView).Rows[5].Cells[i].Value;
-                object bPlateCheck = (sender as DataGridView).Rows[6].Cells[i].Value;
-                object alphaCheck = (sender as DataGridView).Rows[8].Cells[i].Value;
-                object tcPlateCheck = (sender as DataGridView).Rows[9].Cells[i].Value;
-                object pSea1PlateCheck = (sender as DataGridView).Rows[62].Cells[i].Value;
 
-                if(r_EHCheck != null && bPlateCheck != null && !alphaCheck.Equals("No Value!") && tcPlateCheck != null && !pSea1PlateCheck.Equals("No Value!"))
+                //=ROUND(((B36*ABS(B81)*B26*B34)/(B30*0,9*B37)+B38)*2;0)/2
+
+                object fShr = (sender as DataGridView).Rows[30].Cells[i].Value;
+                
+
+                if(fShr.Equals("Upper end of vertical stiffeners"))
+                {
+                    double fShrValue = 0.4;            
+                }
+                else if(fShr.Equals("Lower end of vertical stiffeners"))
+                {
+                    double fShrValue = 0.7;
+                }
+                else if(fShr.Equals("General"))
+                {
+                    double fShrValue = 0.5;
+                }
+
+                object pSea1StifCheck = (sender as DataGridView).Rows[66].Cells[i].Value;
+                object sStiffCheck = (sender as DataGridView).Rows[21].Cells[i].Value;
+                object dShrCheck = (sender as DataGridView).Rows[25].Cells[i].Value;
+                object lShrCheck = (sender as DataGridView).Rows[29].Cells[i].Value;
+                object tEhCheck = (sender as DataGridView).Rows[32].Cells[i].Value;
+                object tcStiffCheck = (sender as DataGridView).Rows[33].Cells[i].Value;
+
+                if(pSea1StifCheck != null && sStiffCheck != null && !alphaCheck.Equals("No Value!"))
                     {
                     double r_EHCheckInput = Convert.ToDouble(r_EHCheck);
                     double bPlateCheckInput = Convert.ToDouble(bPlateCheck);
@@ -1396,52 +1421,6 @@ namespace EPT.modules
                     dgvCalculateSP.Rows[64].Cells[i].Value = "No Value!";
                     }
 
-
-                        //fshr.Items.Add("Upper end of vertical stiffeners"); 0.4
-                        //fshr.Items.Add("Lower end of vertical stiffeners"); 0.7
-                        //fshr.Items.Add("General"); 0.5
-
-                //-------------------------
-        // Values for Service area
-        //-------------------------
-        private void saCB_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (saCB.Text == "R0 (No reduction)")
-            {
-                double frValue = 1.0;
-                frTB.Text = frValue.ToString("0.00");
-            }
-            else if(saCB.Text == "R1 (10% reduction)")
-            {
-                double frValue = 0.9;
-                frTB.Text = frValue.ToString("0.00");
-            }
-            else if(saCB.Text == "R2 (20% reduction)")
-            {
-                double frValue = 0.8;
-                frTB.Text = frValue.ToString("0.00");
-            }
-            else if (saCB.Text == "R3 (30% reduction)")
-            {
-                double frValue = 0.7;
-                frTB.Text = frValue.ToString("0.00");
-            }
-            else if (saCB.Text == "R4 (40% reduction)")
-            {
-                double frValue = 0.6;
-                frTB.Text = frValue.ToString("0.00");
-            }
-            else if (saCB.Text == "RE (50% reduction)")
-            {
-                double frValue = 0.5;
-                frTB.Text = frValue.ToString("0.00");
-            }
-        }
-
-
-                //=ROUND(((B36*ABS(B81)*B26*B34)/(B30*0.9*B37)+B38)*2;0)/2
-                //=ROUND((0.0158*B10*B8*SQRT(ABS(B77)/(0.95*B7))+B11)*2;0)/2
-
                 dgvCalculateSP.Rows[68].Cells[i].Value = "No Value!";
                 //=====================================
                 // t req gross (SEA-2 AC-I) [mm] stiff
@@ -1450,12 +1429,28 @@ namespace EPT.modules
                 //======================
                 // for 75° <= ϕw <= 90°
                 //======================
-                dgvCalculateSP.Rows[70].Cells[i].Value = "for 75° <= ϕw <= 90";
+                dgvCalculateSP.Rows[27].Cells[i].Value = (sender as DataGridView).Rows[12].Cells[i].Value;
+
+                object tpStiffCheck = (sender as DataGridView).Rows[27].Cells[i].Value;
+                object hStiffCheck = (sender as DataGridView).Rows[26].Cells[i].Value;
+
+                if (tpStiffCheck != null && hStiffCheck != DBNull.Value)
+                {
+                    double tpStiffCheckInput = Convert.ToDouble(tpStiffCheck);
+                    double hStiffCheckInput = Convert.ToDouble(hStiffCheck);
+                    dgvCalculateSP.Rows[70].Cells[i].Value = tpStiffCheckInput + hStiffCheckInput;
+                }
+                else
+                {
+                    dgvCalculateSP.Rows[70].Cells[i].Value = "No Value!";
+                }
+
                 //===============
                 // for ϕw <= 75°
                 //===============
                 dgvCalculateSP.Rows[71].Cells[i].Value = "for ϕw <= 75°";
-
+                //ϕw [deg] [28]
+                //for 75° <= ϕw <= 90° [70]
 
             }
         }
