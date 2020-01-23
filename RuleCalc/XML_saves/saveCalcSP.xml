@@ -79,20 +79,32 @@
   <itemstable>
     <Column1>235</Column1>
   </itemstable>
-  <itemstable />
+  <itemstable>
+    <Column1>220</Column1>
+    <Column2>No Value!</Column2>
+  </itemstable>
   <itemstable>
     <Column1>200</Column1>
   </itemstable>
-  <itemstable />
+  <itemstable>
+    <Column1>20</Column1>
+    <Column2>20</Column2>
+  </itemstable>
   <itemstable>
     <Column1>90</Column1>
   </itemstable>
-  <itemstable />
   <itemstable>
-    <Column1 />
+    <Column1>3.5</Column1>
+    <Column2>0</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>Upper end of vertical stiffeners</Column1>
     <Column2 />
   </itemstable>
-  <itemstable />
+  <itemstable>
+    <Column1>135.67731325956206</Column1>
+    <Column2>0</Column2>
+  </itemstable>
   <itemstable>
     <Column1>1</Column1>
   </itemstable>
@@ -181,15 +193,51 @@
     <Column1>45.5996588739279</Column1>
     <Column2>45.779853746839954</Column2>
   </itemstable>
-  <itemstable />
-  <itemstable />
-  <itemstable />
-  <itemstable />
-  <itemstable />
-  <itemstable />
-  <itemstable />
-  <itemstable />
-  <itemstable />
-  <itemstable />
-  <itemstable />
+  <itemstable>
+    <Column1>39.0815656821283</Column1>
+    <Column2>41.239475545139733</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>53.187055781395358</Column1>
+    <Column2>43.131805781395357</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>0</Column1>
+    <Column2>0</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>5.5</Column1>
+    <Column2>5.1</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>1</Column1>
+    <Column2>1</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>53.187055781395358</Column1>
+    <Column2>46.267100545139733</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>0</Column1>
+    <Column2>5.027625</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>2.5</Column1>
+    <Column2>No Value!</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>1</Column1>
+    <Column2>No Value!</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>220</Column1>
+    <Column2>No Value!</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>220</Column1>
+    <Column2>No Value!</Column2>
+  </itemstable>
+  <itemstable>
+    <Column1>0.4</Column1>
+  </itemstable>
 </DocumentElement>
