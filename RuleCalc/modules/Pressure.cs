@@ -1519,7 +1519,7 @@ namespace EPT.modules
                 }
                 else
                 {
-                    dgvCalculateSP.Rows[70].Cells[i].Value = "No Value!";
+                    dgvCalculateSP.Rows[70].Cells[i].Value = 0.0;
                 }
 
                 //===============
