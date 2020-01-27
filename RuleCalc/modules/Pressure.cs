@@ -1578,11 +1578,11 @@ namespace EPT.modules
                 //====================
                 if(!t_req_sea1AC2.Equals("No Value!") && !t_req_sea2AC1.Equals("No Value!"))
                 {
-
+                    dgvCalculateSP.Rows[11].Cells[i].Value = 0;
                 }
                 else
                 {
-
+                    dgvCalculateSP.Rows[11].Cells[i].Value = "No Value!";
                 }
                  
             }

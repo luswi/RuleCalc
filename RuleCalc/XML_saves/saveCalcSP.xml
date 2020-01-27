@@ -3,64 +3,54 @@
   <itemstable />
   <itemstable>
     <Column1>7.8</Column1>
-    <Column2>8</Column2>
   </itemstable>
   <itemstable>
     <Column1>4.3</Column1>
-    <Column2>4.3</Column2>
   </itemstable>
   <itemstable>
-    <Column1>9</Column1>
-    <Column2>10</Column2>
+    <Column1>9.0</Column1>
   </itemstable>
   <itemstable>
     <Column1>15.5</Column1>
-    <Column2>16</Column2>
   </itemstable>
   <itemstable>
     <Column1>235</Column1>
-    <Column2>235</Column2>
   </itemstable>
   <itemstable>
     <Column1>600</Column1>
-    <Column2>600</Column2>
   </itemstable>
   <itemstable>
     <Column1>1200</Column1>
-    <Column2>1300</Column2>
   </itemstable>
   <itemstable>
     <Column1>0.96190476190476182</Column1>
-    <Column2>0.98021978021978018</Column2>
   </itemstable>
   <itemstable>
     <Column1>1</Column1>
-    <Column2>1</Column2>
   </itemstable>
-  <itemstable />
-  <itemstable />
+  <itemstable>
+    <Column1>SEA-1cos</Column1>
+  </itemstable>
+  <itemstable>
+    <Column1>0</Column1>
+  </itemstable>
   <itemstable>
     <Column1>20</Column1>
-    <Column2>20</Column2>
   </itemstable>
   <itemstable />
   <itemstable />
   <itemstable />
   <itemstable>
     <Column1>8</Column1>
-    <Column2>7</Column2>
   </itemstable>
   <itemstable>
     <Column1>2.5</Column1>
-    <Column2>3</Column2>
   </itemstable>
   <itemstable>
     <Column1>9</Column1>
-    <Column2>8</Column2>
   </itemstable>
   <itemstable>
     <Column1>15.48</Column1>
-    <Column2>14</Column2>
   </itemstable>
   <itemstable>
     <Column1>3.5</Column1>
@@ -70,174 +60,133 @@
   </itemstable>
   <itemstable>
     <Column1>1</Column1>
-    <Column2 />
   </itemstable>
   <itemstable>
     <Column1>12</Column1>
-    <Column2 />
   </itemstable>
   <itemstable>
     <Column1>235</Column1>
   </itemstable>
   <itemstable>
     <Column1>220</Column1>
-    <Column2>No Value!</Column2>
   </itemstable>
   <itemstable>
     <Column1>200</Column1>
   </itemstable>
   <itemstable>
     <Column1>20</Column1>
-    <Column2>20</Column2>
   </itemstable>
   <itemstable>
     <Column1>90</Column1>
   </itemstable>
   <itemstable>
     <Column1>3.5</Column1>
-    <Column2>0</Column2>
   </itemstable>
   <itemstable>
-    <Column1>Upper end of vertical stiffeners</Column1>
-    <Column2 />
+    <Column1>Lower end of vertical stiffeners</Column1>
   </itemstable>
   <itemstable>
     <Column1>135.67731325956206</Column1>
-    <Column2>0</Column2>
   </itemstable>
   <itemstable>
     <Column1>1</Column1>
   </itemstable>
   <itemstable />
   <itemstable />
-  <itemstable>
-    <Column1>20</Column1>
-  </itemstable>
   <itemstable />
   <itemstable />
   <itemstable />
-  <itemstable>
-    <Column1>100</Column1>
-  </itemstable>
-  <itemstable>
-    <Column1>20</Column1>
-  </itemstable>
+  <itemstable />
+  <itemstable />
+  <itemstable />
   <itemstable />
   <itemstable />
   <itemstable />
   <itemstable>
     <Column1>7.14</Column1>
-    <Column2>7.34</Column2>
   </itemstable>
   <itemstable>
     <Column1>7.34</Column1>
-    <Column2>6.34</Column2>
   </itemstable>
   <itemstable>
     <Column1>0.5548387096774193548387096774</Column1>
-    <Column2>0.5375</Column2>
   </itemstable>
   <itemstable>
     <Column1>0.3229974160206718346253229974</Column1>
-    <Column2>0.4285714285714285714285714286</Column2>
   </itemstable>
   <itemstable>
     <Column1>3.9165085388994307</Column1>
-    <Column2>3.9319852941176472</Column2>
   </itemstable>
   <itemstable>
     <Column1>3.3369053047575621</Column1>
-    <Column2>3.5420168067226889</Column2>
   </itemstable>
   <itemstable>
     <Column1>0.096045197740112984</Column1>
-    <Column2>0.0987355394135055</Column2>
   </itemstable>
   <itemstable>
     <Column1>0.0987355394135055</Column1>
-    <Column2>0.0852838310465429</Column2>
   </itemstable>
   <itemstable>
     <Column1>0.66779069767441868</Column1>
-    <Column2>0.66779069767441868</Column2>
   </itemstable>
   <itemstable>
     <Column1>1.5197740112994351</Column1>
-    <Column2>1.5063223029324724</Column2>
   </itemstable>
   <itemstable>
     <Column1>1.5063223029324724</Column1>
-    <Column2>1.5735808447672854</Column2>
   </itemstable>
   <itemstable>
     <Column1>1.0117647058823529</Column1>
-    <Column2>1.0352941176470589</Column2>
   </itemstable>
   <itemstable>
     <Column1>1.0117647058823529</Column1>
-    <Column2>0.9882352941176471</Column2>
   </itemstable>
   <itemstable>
     <Column1>6.363504</Column1>
-    <Column2>6.363504</Column2>
   </itemstable>
   <itemstable>
     <Column1>58.214680781395359</Column1>
-    <Column2>58.214680781395359</Column2>
   </itemstable>
   <itemstable>
     <Column1>58.214680781395359</Column1>
-    <Column2>58.214680781395359</Column2>
   </itemstable>
   <itemstable>
     <Column1>45.5996588739279</Column1>
-    <Column2>45.779853746839954</Column2>
   </itemstable>
   <itemstable>
     <Column1>39.0815656821283</Column1>
-    <Column2>41.239475545139733</Column2>
   </itemstable>
   <itemstable>
     <Column1>53.187055781395358</Column1>
-    <Column2>43.131805781395357</Column2>
   </itemstable>
   <itemstable>
     <Column1>0</Column1>
-    <Column2>0</Column2>
   </itemstable>
   <itemstable>
     <Column1>5.5</Column1>
-    <Column2>5.1</Column2>
   </itemstable>
   <itemstable>
     <Column1>1</Column1>
-    <Column2>1</Column2>
   </itemstable>
   <itemstable>
     <Column1>53.187055781395358</Column1>
-    <Column2>46.267100545139733</Column2>
   </itemstable>
   <itemstable>
     <Column1>0</Column1>
-    <Column2>5.027625</Column2>
   </itemstable>
   <itemstable>
-    <Column1>2.5</Column1>
-    <Column2>No Value!</Column2>
+    <Column1>4</Column1>
   </itemstable>
   <itemstable>
     <Column1>1</Column1>
-    <Column2>No Value!</Column2>
   </itemstable>
   <itemstable>
     <Column1>220</Column1>
-    <Column2>No Value!</Column2>
   </itemstable>
   <itemstable>
     <Column1>220</Column1>
-    <Column2>No Value!</Column2>
   </itemstable>
   <itemstable>
-    <Column1>0.4</Column1>
+    <Column1>0.7</Column1>
   </itemstable>
 </DocumentElement>
