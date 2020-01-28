@@ -1499,7 +1499,6 @@ namespace EPT.modules
                 }
 
 
-
                 //======================
                 // for 75° <= ϕw <= 90°
                 //======================
@@ -1541,31 +1540,34 @@ namespace EPT.modules
                 }
 
                 //================
-                // P [MPa] Plate ---- do zrobienia-----
+                // P [MPa] Plate
                 //================
-                object t_req_sea1AC2 = (sender as DataGridView).Rows[64].Cells[i].Value;
-                object t_req_sea2AC1 = (sender as DataGridView).Rows[65].Cells[i].Value;
-                object t_req = (sender as DataGridView).Rows[11].Cells[i].Value;
+                object t_req_plate_sea1AC2 = (sender as DataGridView).Rows[64].Cells[i].Value;
+                object t_req_plate_sea2AC1 = (sender as DataGridView).Rows[65].Cells[i].Value;
+                object t_req_plate = (sender as DataGridView).Rows[11].Cells[i].Value;
+                object pSea1Plate = (sender as DataGridView).Rows[62].Cells[i].Value;
+                object pSea2Plate = (sender as DataGridView).Rows[63].Cells[i].Value;
 
 
-                if (!t_req_sea1AC2.Equals("No Value!") && !t_req_sea1AC2.Equals("No Value!") && !t_req.Equals("No Value!"))
+                if (!t_req_plate_sea1AC2.Equals("No Value!") && !t_req_plate_sea1AC2.Equals("No Value!") && !t_req_plate.Equals("No Value!"))
                 {
-                    double t_req_sea1AC2input = Convert.ToDouble(t_req_sea1AC2);
-                    double t_req_sea2AC1input = Convert.ToDouble(t_req_sea2AC1);
-
-                    if (t_req_sea1AC2input > t_req_sea2AC1input)
+                    double t_req_plate_sea1AC2input = Convert.ToDouble(t_req_plate_sea1AC2);
+                    double t_req_plate_sea2AC1input = Convert.ToDouble(t_req_plate_sea2AC1);
+                    double t_req_plateInput = Convert.ToDouble(t_req_plate);
+                    
+                    if (t_req_plate_sea1AC2input > t_req_plate_sea2AC1input)
                     {
-                        
 
-                        string resluts = "SEA-1" + "cos";
-
-
-
+                        double pSea1PlateInput = Convert.ToDouble(pSea1Plate);
+                        string resluts = "SEA-1 - " + Math.Round(pSea1PlateInput, 1) + " [MPa]";
                         dgvCalculateSP.Rows[10].Cells[i].Value = resluts;
                     }
                     else
                     {
-                        dgvCalculateSP.Rows[10].Cells[i].Value = "SEA-2";
+                        double pSea2PlateInput = Convert.ToDouble(pSea2Plate);
+                        string resluts = "SEA-2 - " + Math.Round(pSea2PlateInput, 1) + " [MPa]";
+                        dgvCalculateSP.Rows[10].Cells[i].Value = resluts;
+
                     }
                 }
                 else
@@ -1573,18 +1575,141 @@ namespace EPT.modules
                     dgvCalculateSP.Rows[10].Cells[i].Value = "No Value!";
                 }
 
-                //====================
-                // t rq (GROSS) [mm] ----- do zrobienia-----------
-                //====================
-                if(!t_req_sea1AC2.Equals("No Value!") && !t_req_sea2AC1.Equals("No Value!"))
+                //=========================
+                // t rq (GROSS) [mm] Plate
+                //=========================
+                if(!t_req_plate_sea1AC2.Equals("No Value!") && !t_req_plate_sea2AC1.Equals("No Value!"))
                 {
-                    dgvCalculateSP.Rows[11].Cells[i].Value = 0;
+
+                    double t_req_plate_sea1AC2input = Convert.ToDouble(t_req_plate_sea1AC2);
+                    double t_req_plate_sea2AC1input = Convert.ToDouble(t_req_plate_sea2AC1);
+
+                    double[] tReqPlateArray = { t_req_plate_sea1AC2input, t_req_plate_sea2AC1input };
+                    double tReqPlateMax = tReqPlateArray.Max();
+
+                    dgvCalculateSP.Rows[11].Cells[i].Value = Math.Round((tReqPlateMax * 2),1) / 2;
+
                 }
                 else
                 {
                     dgvCalculateSP.Rows[11].Cells[i].Value = "No Value!";
                 }
-                 
+
+                //==============================
+                // t & slenderness status Plate
+                //==============================
+                object b_plate = (sender as DataGridView).Rows[6].Cells[i].Value;
+                object tcPlate = (sender as DataGridView).Rows[9].Cells[i].Value;
+                object tReqPlate = (sender as DataGridView).Rows[11].Cells[i].Value;
+                object thPlate = (sender as DataGridView).Rows[12].Cells[i].Value;
+                if(!tReqPlate.Equals("No Value!"))
+                {
+                    double tReqPlateInput = Convert.ToDouble(tReqPlate);
+                    double thPlateInput = Convert.ToDouble(thPlate);
+                    if (thPlateInput > tReqPlateInput)
+                    {
+                        dgvCalculateSP.Rows[13].Cells[i].Value = "OK";
+                    }
+                    else
+                    {
+                        dgvCalculateSP.Rows[13].Cells[i].Value = "NOT OK";
+                    }
+
+                    double tcPlateInput = Convert.ToDouble(tcPlate);
+                    double b_plateInput = Convert.ToDouble(b_plate);
+
+                    if ((thPlateInput - tcPlateInput) < (b_plateInput / 125))
+                    {
+                        dgvCalculateSP.Rows[14].Cells[i].Value = "NOT OK";
+                    }
+                    else
+                    {
+                        dgvCalculateSP.Rows[14].Cells[i].Value = "OK";
+                    }
+                }
+                
+                
+
+
+                //================
+                // P [MPa] Stiff
+                //================
+                object t_req_stiff_sea1AC2 = (sender as DataGridView).Rows[68].Cells[i].Value;
+                object t_req_stiff_sea2AC1 = (sender as DataGridView).Rows[69].Cells[i].Value;
+                object t_req_stiff = (sender as DataGridView).Rows[34].Cells[i].Value;
+                //object pSea1Stiff = (sender as DataGridView).Rows[66].Cells[i].Value;
+                //object pSea2Stiff = (sender as DataGridView).Rows[67].Cells[i].Value;
+
+
+                if (!t_req_stiff_sea1AC2.Equals("No Value!") && !t_req_stiff_sea1AC2.Equals("No Value!") && !t_req_stiff.Equals("No Value!"))
+                {
+                    double t_req_stiff_sea1AC2input = Convert.ToDouble(t_req_stiff_sea1AC2);
+                    double t_req_stiff_sea2AC1input = Convert.ToDouble(t_req_stiff_sea2AC1);
+                    double t_req_stiffInput = Convert.ToDouble(t_req_stiff);
+
+                    if (t_req_stiff_sea1AC2input > t_req_stiff_sea2AC1input)
+                    {
+
+                        double pSea1StiffInput = Convert.ToDouble(pSea1Stiff);
+                        string resluts = "SEA-1 - " + Math.Round(pSea1StiffInput, 1) + " [MPa]";
+                        dgvCalculateSP.Rows[33].Cells[i].Value = resluts;
+                    }
+                    else
+                    {
+                        double pSea2StiffInput = Convert.ToDouble(pSea2Stiff);
+                        string resluts = "SEA-2 - " + Math.Round(pSea2StiffInput, 1) + " [MPa]";
+                        dgvCalculateSP.Rows[33].Cells[i].Value = resluts;
+
+                    }
+                }
+                else
+                {
+                    dgvCalculateSP.Rows[33].Cells[i].Value = "No Value!";
+                }
+
+                //=========================
+                // t rq (GROSS) [mm] Stiff
+                //=========================
+                if (!t_req_stiff_sea1AC2.Equals("No Value!") && !t_req_stiff_sea2AC1.Equals("No Value!"))
+                {
+
+                    double t_req_stiff_sea1AC2input = Convert.ToDouble(t_req_stiff_sea1AC2);
+                    double t_req_stiff_sea2AC1input = Convert.ToDouble(t_req_stiff_sea2AC1);
+
+                    double[] tReqStiffArray = { t_req_stiff_sea1AC2input, t_req_stiff_sea2AC1input };
+                    double tReqStiffeMax = tReqStiffArray.Max();
+
+                    dgvCalculateSP.Rows[34].Cells[i].Value = Math.Round((tReqStiffeMax * 2), 1) / 2;
+
+                }
+                else
+                {
+                    dgvCalculateSP.Rows[34].Cells[i].Value = "No Value!";
+                }
+
+                //==============================
+                // t & slenderness status Stiff ---------------- 36 --------------------
+                //==============================
+                
+                //object b_plate = (sender as DataGridView).Rows[6].Cells[i].Value;
+                //object tcPlate = (sender as DataGridView).Rows[9].Cells[i].Value;
+                object tReqStiff = (sender as DataGridView).Rows[34].Cells[i].Value;
+                object thWeb = (sender as DataGridView).Rows[35].Cells[i].Value;
+                if (!tReqStiff.Equals("No Value!"))
+                {
+                    double tReqStiffInput = Convert.ToDouble(tReqStiff);
+                    double thWebInput = Convert.ToDouble(thWeb);
+                    if (thWebInput > tReqStiffInput)
+                    {
+                        dgvCalculateSP.Rows[36].Cells[i].Value = "OK";
+                    }
+                    else
+                    {
+                        dgvCalculateSP.Rows[36].Cells[i].Value = "NOT OK";
+                    }
+                }
+
+
             }
         }
 
