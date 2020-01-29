@@ -107,7 +107,9 @@
   <itemstable>
     <Column1>OK</Column1>
   </itemstable>
-  <itemstable />
+  <itemstable>
+    <Column1>Web OK - Flange OK</Column1>
+  </itemstable>
   <itemstable />
   <itemstable>
     <Column1>100</Column1>
