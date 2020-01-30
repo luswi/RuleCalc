@@ -1713,7 +1713,7 @@ namespace EPT.modules
                 // Stiffener Slenderness status
                 //===============================
                 object fuCheck = (sender as DataGridView).Rows[22].Cells[i].Value;
-                object bFlangeCheck = (sender as DataGridView).Rows[31].Cells[i].Value;
+                object bFlangeCheck = (sender as DataGridView).Rows[39].Cells[i].Value;
                 object hwCheck = (sender as DataGridView).Rows[26].Cells[i].Value;
                 object rEHCheck = (sender as DataGridView).Rows[24].Cells[i].Value;
                 object tWebCheck = (sender as DataGridView).Rows[35].Cells[i].Value;
@@ -1816,16 +1816,99 @@ namespace EPT.modules
                 //object sStiffCheck
                 //object fuCheck = 
                 object fbdgCheck = (sender as DataGridView).Rows[23].Cells[i].Value;
-                //object rEHCheck =
-                //object pSea1Stiff = 
-                //object pSea2Stiff = 
+                if (lbdgCheck != DBNull.Value)
+                {
+                    
+                    //object rEHCheck =
+                    //object pSea1Stiff = 
+                    //object pSea2Stiff = 
+                    double zReqStiff = 0;
+                    double pSea1StiffInput = Convert.ToDouble(pSea1Stiff);
+                    double pSea2StiffInput = Convert.ToDouble(pSea2Stiff);
+                    double sStiffCheckInput = Convert.ToDouble(sStiffCheck);
+                    double lbdgCheckInput = Convert.ToDouble(lbdgCheck);
+                    double fbdgCheckInput = Convert.ToDouble(fbdgCheck);
+                    //double rEHCheckInput = Convert.ToDouble(rEHCheck);
 
-                double pSea1StiffInput = Convert.ToDouble(pSea1Stiff);
-                double pSea2StiffInput = Convert.ToDouble(pSea2Stiff);
+                    double[] zStiffArray = { pSea1StiffInput, pSea2StiffInput };
+                    double zStiffMax = zStiffArray.Max();
 
+                    if (zStiffMax == pSea1StiffInput)
+                    {
+                        zReqStiff = (fuCheckInput * Math.Abs(pSea1StiffInput) * sStiffCheckInput * Math.Pow(lbdgCheckInput, 2)) / (fbdgCheckInput * 0.9 * rEHCheckInput);
+                    }
+                    else
+                    {
+                        zReqStiff = (fuCheckInput * Math.Abs(pSea2StiffInput) * sStiffCheckInput * Math.Pow(lbdgCheckInput, 2)) / (fbdgCheckInput * 0.75 * rEHCheckInput);
+                    }
 
-                double[] zStiffArray = { pSea1StiffInput, pSea2StiffInput };
-                double zStiffMax = zStiffArray.Max();
+                    dgvCalculateSP.Rows[38].Cells[i].Value = zReqStiff;
+                }
+                else
+                {
+                    dgvCalculateSP.Rows[38].Cells[i].Value = "No Value!";
+                }
+
+                //============
+                // [Z] Stiff
+                //============
+                object b1Check = (sender as DataGridView).Rows[6].Cells[i].Value;
+                object t1Check = (sender as DataGridView).Rows[27].Cells[i].Value;
+                object bwebCheck = (sender as DataGridView).Rows[26].Cells[i].Value;
+                object twebCheck = (sender as DataGridView).Rows[35].Cells[i].Value;
+                object bflangeCheck = (sender as DataGridView).Rows[39].Cells[i].Value;
+                object tflangeCheck = (sender as DataGridView).Rows[40].Cells[i].Value;
+                //object tcPlateCheck = (sender as DataGridView).Rows[9].Cells[i].Value;
+                //object tcStiffCheck = (sender as DataGridView).Rows[32].Cells[i].Value;
+                double sumAVAR = 0;
+                double sumAxVAR = 0;
+                double sumAxxVAR = 0;
+                double sumIeVAR = 0;
+                double spVAR = 0;
+                double zVAR = 0;
+                double iVAR = 0;
+                double w1VAR = 0;
+                double w2VAR = 0;
+                double selectedW = 0;
+
+                if (b1Check != DBNull.Value && t1Check != DBNull.Value && bwebCheck != DBNull.Value && twebCheck != DBNull.Value && bflangeCheck != DBNull.Value && tflangeCheck != DBNull.Value && tcPlateCheck != DBNull.Value && tcStiffCheck != DBNull.Value )
+                {
+                    double b1CheckInput = Convert.ToDouble(b1Check);
+                    double t1CheckInput = Convert.ToDouble(t1Check);
+                    double bwebCheckInput = Convert.ToDouble(bwebCheck);
+                    double twebCheckInput = Convert.ToDouble(twebCheck);
+                    double bflangeCheckInput = Convert.ToDouble(bflangeCheck);
+                    double tflangeCheckInput = Convert.ToDouble(tflangeCheck);
+                    double tcPlateCheckInput = Convert.ToDouble(tcPlateCheck);
+                    double tcStiffCheckInput = Convert.ToDouble(tcStiffCheck);
+
+                    sumAVAR = b1CheckInput * (t1CheckInput - tcPlateCheckInput) + bwebCheckInput * (twebCheckInput - tcStiffCheckInput) + bFlangeCheckInput * (tFlangeCheckInput - tcStiffCheckInput);
+                    sumAxVAR = b1CheckInput * (t1CheckInput - tcPlateCheckInput) * ((tFlangeCheckInput - tcStiffCheckInput) + bwebCheckInput + (t1CheckInput - tcPlateCheckInput) / 2) + bwebCheckInput * (twebCheckInput - tcStiffCheckInput) * ((tFlangeCheckInput - tcStiffCheckInput) + bwebCheckInput / 2) + bFlangeCheckInput * (tFlangeCheckInput - tcStiffCheckInput) * ((tFlangeCheckInput - tcStiffCheckInput) / 2);
+                    sumAxxVAR = b1CheckInput * (t1CheckInput - tcPlateCheckInput) * Math.Pow((tFlangeCheckInput - tcStiffCheckInput) + bwebCheckInput + (t1CheckInput - tcPlateCheckInput) / 2, 2) + bwebCheckInput * (twebCheckInput - tcStiffCheckInput) * Math.Pow((tFlangeCheckInput - tcStiffCheckInput) + bwebCheckInput / 2, 2) + bFlangeCheckInput * (tFlangeCheckInput - tcStiffCheckInput) * Math.Pow((tFlangeCheckInput - tcStiffCheckInput) / 2, 2);
+                    sumIeVAR = ((Math.Pow(b1CheckInput * (t1CheckInput - tcPlateCheckInput), 3) / 12) + ((Math.Pow((twebCheckInput - tcStiffCheckInput) * bwebCheckInput, 3) / 12) + ((Math.Pow(bflangeCheckInput * (tFlangeCheckInput - tcStiffCheckInput), 3) / 12);
+
+                    spVAR = sumAxVAR / sumAVAR;
+                    iVAR = sumIeVAR + sumAxxVAR - Math.Pow(spVAR, 2) * sumAVAR;
+                    zVAR = ((tFlangeCheckInput - tcStiffCheckInput) + bwebCheckInput + (t1CheckInput - tcPlateCheckInput)) - spVAR;
+
+                    w1VAR = iVAR / spVAR;
+                    w2VAR = iVAR / zVAR;
+                    if(w1VAR > w2VAR)
+                    {
+                        selectedW = w2VAR;
+                    }
+                    else
+                    {
+                        selectedW = w1VAR;
+                    }
+                    dgvCalculateSP.Rows[41].Cells[i].Value = selectedW;
+                }
+                else
+                {
+
+                }
+                
+
 
 
             }
