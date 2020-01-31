@@ -1860,6 +1860,7 @@ namespace EPT.modules
                 object tflangeCheck = (sender as DataGridView).Rows[40].Cells[i].Value;
                 //object tcPlateCheck = (sender as DataGridView).Rows[9].Cells[i].Value;
                 //object tcStiffCheck = (sender as DataGridView).Rows[32].Cells[i].Value;
+                object zReqCheck = (sender as DataGridView).Rows[38].Cells[i].Value;
                 double sumAVAR = 0;
                 double sumAxVAR = 0;
                 double sumAxxVAR = 0;
@@ -1871,7 +1872,7 @@ namespace EPT.modules
                 double w2VAR = 0;
                 double selectedW = 0;
 
-                if (b1Check != DBNull.Value && t1Check != DBNull.Value && bwebCheck != DBNull.Value && twebCheck != DBNull.Value && bflangeCheck != DBNull.Value && tflangeCheck != DBNull.Value && tcPlateCheck != DBNull.Value && tcStiffCheck != DBNull.Value )
+                if (b1Check != DBNull.Value && t1Check != DBNull.Value && bwebCheck != DBNull.Value && twebCheck != DBNull.Value && bflangeCheck != DBNull.Value && tflangeCheck != DBNull.Value && tcPlateCheck != DBNull.Value && tcStiffCheck != DBNull.Value && !zReqCheck.Equals("No Value!"))
                 {
                     double b1CheckInput = Convert.ToDouble(b1Check);
                     double t1CheckInput = Convert.ToDouble(t1Check);
@@ -1881,11 +1882,12 @@ namespace EPT.modules
                     double tflangeCheckInput = Convert.ToDouble(tflangeCheck);
                     double tcPlateCheckInput = Convert.ToDouble(tcPlateCheck);
                     double tcStiffCheckInput = Convert.ToDouble(tcStiffCheck);
+                    double zReqCheckInput = Convert.ToDouble(zReqCheck);
 
                     sumAVAR = b1CheckInput * (t1CheckInput - tcPlateCheckInput) + bwebCheckInput * (twebCheckInput - tcStiffCheckInput) + bFlangeCheckInput * (tFlangeCheckInput - tcStiffCheckInput);
                     sumAxVAR = b1CheckInput * (t1CheckInput - tcPlateCheckInput) * ((tFlangeCheckInput - tcStiffCheckInput) + bwebCheckInput + (t1CheckInput - tcPlateCheckInput) / 2) + bwebCheckInput * (twebCheckInput - tcStiffCheckInput) * ((tFlangeCheckInput - tcStiffCheckInput) + bwebCheckInput / 2) + bFlangeCheckInput * (tFlangeCheckInput - tcStiffCheckInput) * ((tFlangeCheckInput - tcStiffCheckInput) / 2);
                     sumAxxVAR = b1CheckInput * (t1CheckInput - tcPlateCheckInput) * Math.Pow((tFlangeCheckInput - tcStiffCheckInput) + bwebCheckInput + (t1CheckInput - tcPlateCheckInput) / 2, 2) + bwebCheckInput * (twebCheckInput - tcStiffCheckInput) * Math.Pow((tFlangeCheckInput - tcStiffCheckInput) + bwebCheckInput / 2, 2) + bFlangeCheckInput * (tFlangeCheckInput - tcStiffCheckInput) * Math.Pow((tFlangeCheckInput - tcStiffCheckInput) / 2, 2);
-                    sumIeVAR = ((Math.Pow(b1CheckInput * (t1CheckInput - tcPlateCheckInput), 3) / 12) + ((Math.Pow((twebCheckInput - tcStiffCheckInput) * bwebCheckInput, 3) / 12) + ((Math.Pow(bflangeCheckInput * (tFlangeCheckInput - tcStiffCheckInput), 3) / 12);
+                    sumIeVAR = ((b1CheckInput * Math.Pow((t1CheckInput - tcPlateCheckInput),3)) / 12) + (((twebCheckInput - tcStifCheckInput) * Math.Pow(bwebCheckInput, 3)) / 12) + ((bflangeCheckInput * Math.Pow((tflangeCheckInput - tcStifCheckInput), 3)) / 12);
 
                     spVAR = sumAxVAR / sumAVAR;
                     iVAR = sumIeVAR + sumAxxVAR - Math.Pow(spVAR, 2) * sumAVAR;
@@ -1901,16 +1903,25 @@ namespace EPT.modules
                     {
                         selectedW = w1VAR;
                     }
-                    dgvCalculateSP.Rows[41].Cells[i].Value = selectedW;
+                    dgvCalculateSP.Rows[41].Cells[i].Value = selectedW / 1000;
+
+                    if(selectedW/1000 > zReqCheckInput)
+                    {
+                        dgvCalculateSP.Rows[42].Cells[i].Value = "OK";
+                    }
+                    else
+                    {
+                        dgvCalculateSP.Rows[42].Cells[i].Value = "NOT OK";
+                    }
+
                 }
                 else
                 {
-
+                    dgvCalculateSP.Rows[41].Cells[i].Value = "No Value!";
+                    dgvCalculateSP.Rows[42].Cells[i].Value = "NOT OK";
                 }
-                
 
-
-
+            
             }
         }
 
