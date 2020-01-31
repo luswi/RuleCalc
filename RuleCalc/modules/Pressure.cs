@@ -844,7 +844,7 @@ namespace EPT.modules
                 decimal bXplateInput = 0;
                 object yplateCheck = (sender as DataGridView).Rows[2].Cells[i].Value;
                 object bXplateCheck = (sender as DataGridView).Rows[4].Cells[i].Value;
-                if (yplateCheck != null && bXplateCheck != null)
+                if (yplateCheck != null && bXplateCheck != null && bXplateInput != 0)
                 {
 
                     yplateLoadInput = Convert.ToDecimal(yplateCheck);
@@ -867,7 +867,7 @@ namespace EPT.modules
                 decimal bXstiffInput = 0;
                 object ystiffCheck = (sender as DataGridView).Rows[17].Cells[i].Value;
                 object bXstiffCheck = (sender as DataGridView).Rows[19].Cells[i].Value;
-                if (ystiffCheck != null && bXstiffCheck != null)
+                if (ystiffCheck != null && bXstiffCheck != null && bXstiffInput !=0)
                 {
                     ystiffLoadInput = Convert.ToDecimal(ystiffCheck);
                     bXstiffInput = Convert.ToDecimal(bXstiffCheck);
