@@ -34,8 +34,8 @@
             this.moduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pressureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelMain = new System.Windows.Forms.Panel();
             this.aboutRuleCalcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelMain = new System.Windows.Forms.Panel();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,6 +89,13 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
+            // aboutRuleCalcToolStripMenuItem
+            // 
+            this.aboutRuleCalcToolStripMenuItem.Name = "aboutRuleCalcToolStripMenuItem";
+            this.aboutRuleCalcToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutRuleCalcToolStripMenuItem.Text = "About RuleCalc";
+            this.aboutRuleCalcToolStripMenuItem.Click += new System.EventHandler(this.aboutRuleCalcToolStripMenuItem_Click);
+            // 
             // panelMain
             // 
             this.panelMain.Location = new System.Drawing.Point(0, 27);
@@ -96,12 +103,6 @@
             this.panelMain.Size = new System.Drawing.Size(788, 712);
             this.panelMain.TabIndex = 20;
             this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
-            // 
-            // aboutRuleCalcToolStripMenuItem
-            // 
-            this.aboutRuleCalcToolStripMenuItem.Name = "aboutRuleCalcToolStripMenuItem";
-            this.aboutRuleCalcToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aboutRuleCalcToolStripMenuItem.Text = "About RuleCalc";
             // 
             // RuleCalc
             // 

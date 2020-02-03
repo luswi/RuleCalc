@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.rTB_Info = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -41,11 +42,25 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Please select module...";
             // 
+            // rTB_Info
+            // 
+            this.rTB_Info.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rTB_Info.Enabled = false;
+            this.rTB_Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rTB_Info.ForeColor = System.Drawing.Color.Red;
+            this.rTB_Info.Location = new System.Drawing.Point(242, 292);
+            this.rTB_Info.Name = "rTB_Info";
+            this.rTB_Info.Size = new System.Drawing.Size(354, 42);
+            this.rTB_Info.TabIndex = 1;
+            this.rTB_Info.Text = "Be aware that this software base on DNV-GL rules.\nYou use it on your own responsi" +
+    "bilities.";
+            // 
             // intro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 554);
+            this.Controls.Add(this.rTB_Info);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "intro";
@@ -58,5 +73,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RichTextBox rTB_Info;
     }
 }

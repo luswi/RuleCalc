@@ -190,6 +190,7 @@ namespace EPT.modules
             //color and bold fonts/ceels
             RowsColorNames();
             RowsBold();
+            HideRows();
         }
         //------------
         // combobox
@@ -254,19 +255,19 @@ namespace EPT.modules
 
                 else if (i > 9 & i < 12)
                 {
-                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
+                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.PaleTurquoise;
                 }
                 else if (i > 32 & i < 35)
                 {
-                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
+                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.PaleTurquoise;
                 }
                 else if (i == 38)
                 {
-                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
+                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.PaleTurquoise;
                 }
                 else if (i == 41)
                 {
-                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
+                    dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.PaleTurquoise;
                 }
                 else
                 {
@@ -318,19 +319,19 @@ namespace EPT.modules
                 }
                 else if (i > 9 & i < 12)
                 {
-                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
+                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.PaleTurquoise;
                 }
                 else if (i > 32 & i < 35)
                 {
-                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
+                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.PaleTurquoise;
                 }
                 else if (i == 38)
                 {
-                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
+                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.PaleTurquoise;
                 }
                 else if (i == 41)
                 {
-                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.PaleGreen;
+                    dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.PaleTurquoise;
                 }
                 else if (i > 43 & i < 72)
                 {
@@ -343,23 +344,48 @@ namespace EPT.modules
                 }
             }
         }
+        //---------------------
+        // Hide specific rows
+        //---------------------
+        public void HideRows()
+        {
+            for (int i = 0; i < dgvNames.Rows.Count; i++)
+            {
+                if (i == 72)
+                {
+                    dgvNames.Rows[i].Visible = false;
+
+                }
+            }
+            for (int i = 0; i < dgvCalculateSP.Rows.Count; i++)
+            {
+                if (i == 72)
+                {
+                    dgvCalculateSP.Rows[i].Visible = false;
+                }
+            }
+
+
+        }
+
+
         //--------------------
         // BOLD specific row
         //--------------------
         public void RowsBold()
         {
             dgvNames.Rows[0].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            dgvNames.Rows[10].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            dgvNames.Rows[11].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            dgvNames.Rows[13].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            dgvNames.Rows[14].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            //dgvNames.Rows[10].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            //dgvNames.Rows[11].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            //dgvNames.Rows[13].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            //dgvNames.Rows[14].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
             dgvNames.Rows[15].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            dgvNames.Rows[33].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            dgvNames.Rows[34].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            //dgvNames.Rows[33].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            //dgvNames.Rows[34].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
             dgvNames.Rows[43].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            dgvNames.Rows[36].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            dgvNames.Rows[37].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            dgvNames.Rows[42].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            //dgvNames.Rows[36].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            //dgvNames.Rows[37].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            //dgvNames.Rows[42].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
 
             for (int i = 0; i < dgvNames.Rows.Count; i++)
             {
@@ -438,7 +464,9 @@ namespace EPT.modules
                 this.dgvDeleteSP.Rows.Add();
 
                 dropmenu();
+                HideRows();
                 RowsColorCalculate();
+                
             }
             else
             {
@@ -620,11 +648,11 @@ namespace EPT.modules
                         dgvCalculateSP.Rows[30].Cells[i].Value = ds.Tables[0].Rows[30][i].ToString();
                         dgvCalculateSP.Rows[30].Cells[i] = fshr;
 
-
-
-
+                        // change name for all columns
+                        dgvCalculateSP.Columns[i].HeaderText = "Point";
 
                         RowsColorCalculate();
+                        HideRows();
                     }
                     // load Delete Buttons
                     for (int i = 0; i < dgvCalculateSP.Columns.Count; i++)
@@ -674,7 +702,7 @@ namespace EPT.modules
             dgvCalculateSP.HorizontalScrollingOffset = dgvDeleteSP.HorizontalScrollingOffset;
         }
         //-------------------
-        // Check if b < a !!
+        // Check inputs and color cels. !!
         //-------------------
         private void dgvCalculateSP_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -709,8 +737,73 @@ namespace EPT.modules
                 dgvCalculateSP.Rows[7].Cells[e.ColumnIndex].Style.BackColor = Color.Azure;
             }
 
+            // th status for plate
+            object th_PlateStatus = (sender as DataGridView).Rows[13].Cells[e.ColumnIndex].Value;
+            string th_PlateStatusInput = Convert.ToString(th_PlateStatus);
+            
+            if(th_PlateStatusInput == "OK")
+            {
+                dgvCalculateSP.Rows[13].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
+            }
+            else
+            {
+                dgvCalculateSP.Rows[13].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
+            }
+            // slenderness status for plate
+            object slend_PlateStatus = (sender as DataGridView).Rows[14].Cells[e.ColumnIndex].Value;
+            string slend_PlateStatusInput = Convert.ToString(slend_PlateStatus);
+            
+            if(slend_PlateStatusInput == "OK")
+            {
+                dgvCalculateSP.Rows[14].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen};
+            }
+            else
+            {
 
+                dgvCalculateSP.Rows[14].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red};
+            }
+
+            // th status for stiff
+            object th_StiffStatus = (sender as DataGridView).Rows[36].Cells[e.ColumnIndex].Value;
+            string th_StiffStatusInput = Convert.ToString(th_StiffStatus);
+
+            if (th_StiffStatusInput == "OK")
+            {
+                dgvCalculateSP.Rows[36].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
+            }
+            else
+            {
+                dgvCalculateSP.Rows[36].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
+            }
+
+            // slenderness status for stiff
+
+            object slend_StiffStatus = (sender as DataGridView).Rows[37].Cells[e.ColumnIndex].Value;
+            string slend_StiffStatusInput = Convert.ToString(slend_StiffStatus);
+
+            if(slend_StiffStatusInput == "Web OK" || slend_StiffStatusInput == "Web OK - Flange OK" || slend_StiffStatusInput == "Web OK - No Flange")
+            {
+                dgvCalculateSP.Rows[37].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
+            }
+            else
+            {
+                dgvCalculateSP.Rows[37].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
+            }
+
+            // Z status for stiff
+            object Z_StiffStatus = (sender as DataGridView).Rows[42].Cells[e.ColumnIndex].Value;
+            string Z_StiffStatusInput = Convert.ToString(Z_StiffStatus);
+
+            if (Z_StiffStatusInput == "OK")
+            {
+                dgvCalculateSP.Rows[42].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
+            }
+            else
+            {
+                dgvCalculateSP.Rows[42].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
+            }
         }
+
 
         //------------------------------------
         // Calculate module for DataGridView
@@ -840,20 +933,28 @@ namespace EPT.modules
                 //=======================
                 // calculate fyB (Plate)
                 //=======================
-                decimal yplateLoadInput = 0;
-                decimal bXplateInput = 0;
+                
                 object yplateCheck = (sender as DataGridView).Rows[2].Cells[i].Value;
                 object bXplateCheck = (sender as DataGridView).Rows[4].Cells[i].Value;
-                if (yplateCheck != null && bXplateCheck != null && bXplateInput != 0)
+                if (yplateCheck != null && bXplateCheck != null)
                 {
 
-                    yplateLoadInput = Convert.ToDecimal(yplateCheck);
-                    bXplateInput = Convert.ToDecimal(bXplateCheck);
-                    decimal[] fyBplateArray = { (2 * yplateLoadInput) / bXplateInput, 1 };
+                    double yplateLoadInput = Convert.ToDouble(yplateCheck);
+                    double bXplateInput = Convert.ToDouble(bXplateCheck);
 
-                    decimal fybPlateOutput = fyBplateArray.Select(Math.Abs).Min();
+                    if (yplateLoadInput != 0 && bXplateInput !=0)
+                    {
+                        double[] fyBplateArray = { (2 * yplateLoadInput) / bXplateInput, 1 };
 
-                    dgvCalculateSP.Rows[46].Cells[i].Value = fybPlateOutput;
+                        double fybPlateOutput = fyBplateArray.Select(Math.Abs).Min();
+
+                        dgvCalculateSP.Rows[46].Cells[i].Value = fybPlateOutput;
+                    }
+                    else
+                    {
+                        dgvCalculateSP.Rows[46].Cells[i].Value = "No Value!";
+                    }
+                    
 
                 }
                 else
@@ -863,19 +964,26 @@ namespace EPT.modules
                 //===========================
                 // calculate fyB (stiffener)
                 //===========================
-                decimal ystiffLoadInput = 0;
-                decimal bXstiffInput = 0;
+                
                 object ystiffCheck = (sender as DataGridView).Rows[17].Cells[i].Value;
                 object bXstiffCheck = (sender as DataGridView).Rows[19].Cells[i].Value;
-                if (ystiffCheck != null && bXstiffCheck != null && bXstiffInput !=0)
+                if (ystiffCheck != null && bXstiffCheck != null)
                 {
-                    ystiffLoadInput = Convert.ToDecimal(ystiffCheck);
-                    bXstiffInput = Convert.ToDecimal(bXstiffCheck);
-                    decimal[] fyBstiffArray = { (2 * ystiffLoadInput) / bXstiffInput, 1 };
+                    double ystiffLoadInput = Convert.ToDouble(ystiffCheck);
+                    double bXstiffInput = Convert.ToDouble(bXstiffCheck);
+                    if(ystiffLoadInput != 0 && bXstiffInput != 0)
+                    {
+                        double[] fyBstiffArray = { (2 * ystiffLoadInput) / bXstiffInput, 1 };
 
-                    decimal fybStiffOutput = fyBstiffArray.Select(Math.Abs).Min();
+                        double fybStiffOutput = fyBstiffArray.Select(Math.Abs).Min();
 
-                    dgvCalculateSP.Rows[47].Cells[i].Value = fybStiffOutput;
+                        dgvCalculateSP.Rows[47].Cells[i].Value = fybStiffOutput;
+                    }
+                    else
+                    {
+                    dgvCalculateSP.Rows[47].Cells[i].Value = "No Value!";
+                    }
+                    
                 }
                 else
                 {
