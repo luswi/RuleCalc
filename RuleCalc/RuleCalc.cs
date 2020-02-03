@@ -107,7 +107,7 @@ namespace EPT
 
         private void aboutRuleCalcToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Rules: DNV-GL July 2018\nAutor: Lukasz Swiercz\nRuleCalc: beta 0.1");
+            MessageBox.Show("Rules: DNV-GL July 2018\nAuthor: Lukasz Swiercz\nRuleCalc: beta 0.1");
         }
     }
 }
