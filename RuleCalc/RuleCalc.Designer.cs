@@ -1,4 +1,4 @@
-﻿namespace EPT
+﻿namespace RuleCalc
 {
     partial class RuleCalc
     {
@@ -34,6 +34,7 @@
             this.saveXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pressureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accelerationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutRuleCalcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMain = new System.Windows.Forms.Panel();
@@ -70,7 +71,8 @@
             // moduleToolStripMenuItem
             // 
             this.moduleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pressureToolStripMenuItem});
+            this.pressureToolStripMenuItem,
+            this.accelerationsToolStripMenuItem});
             this.moduleToolStripMenuItem.Name = "moduleToolStripMenuItem";
             this.moduleToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.moduleToolStripMenuItem.Text = "Module";
@@ -78,9 +80,16 @@
             // pressureToolStripMenuItem
             // 
             this.pressureToolStripMenuItem.Name = "pressureToolStripMenuItem";
-            this.pressureToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.pressureToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pressureToolStripMenuItem.Text = "Pressure";
             this.pressureToolStripMenuItem.Click += new System.EventHandler(this.pressureToolStripMenuItem_Click);
+            // 
+            // accelerationsToolStripMenuItem
+            // 
+            this.accelerationsToolStripMenuItem.Name = "accelerationsToolStripMenuItem";
+            this.accelerationsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.accelerationsToolStripMenuItem.Text = "Accelerations";
+            this.accelerationsToolStripMenuItem.Click += new System.EventHandler(this.accelerationsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -93,7 +102,7 @@
             // aboutRuleCalcToolStripMenuItem
             // 
             this.aboutRuleCalcToolStripMenuItem.Name = "aboutRuleCalcToolStripMenuItem";
-            this.aboutRuleCalcToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutRuleCalcToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.aboutRuleCalcToolStripMenuItem.Text = "About RuleCalc";
             this.aboutRuleCalcToolStripMenuItem.Click += new System.EventHandler(this.aboutRuleCalcToolStripMenuItem_Click);
             // 
@@ -132,6 +141,7 @@
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem saveXMLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutRuleCalcToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem accelerationsToolStripMenuItem;
     }
 }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.IO;
 
-namespace EPT.classes
+namespace RuleCalc.classes
 {
     public class SaveXML
     {

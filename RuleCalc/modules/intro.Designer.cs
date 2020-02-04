@@ -1,4 +1,4 @@
-﻿namespace EPT.modules
+﻿namespace RuleCalc.modules
 {
     partial class intro
     {

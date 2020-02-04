@@ -9,12 +9,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using EPT.classes;
+using RuleCalc.classes;
 using System.IO;
 using System.Xml.Serialization;
 
 
-namespace EPT
+namespace RuleCalc
 {
     public partial class RuleCalc : Form
     {
@@ -63,6 +63,22 @@ namespace EPT
             pressure.Dock = DockStyle.Fill;
             pressure.Show();
         }
+        //--------------------------
+        // Open Accelerations tool
+        //--------------------------
+        private void accelerationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            modules.Accelerations accelerations = new modules.Accelerations();
+            accelerations.TopLevel = false;
+            accelerations.AutoScroll = true;
+            this.Controls.Add(accelerations);
+            this.Controls.Add(menuStrip);
+            accelerations.Dock = DockStyle.Fill;
+            accelerations.Show();
+
+
+        }
         //--------------
         // Save to XML
         //--------------
@@ -109,5 +125,7 @@ namespace EPT
         {
             MessageBox.Show("Rules: DNV-GL July 2018\nAuthor: Lukasz Swiercz\nRuleCalc: beta 0.1");
         }
+
+
     }
 }

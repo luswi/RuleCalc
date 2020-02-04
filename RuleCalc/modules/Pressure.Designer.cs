@@ -1,4 +1,4 @@
-﻿namespace EPT.modules
+﻿namespace RuleCalc.modules
 {
     partial class Pressure
     {
@@ -34,6 +34,7 @@
             this.saveBT = new System.Windows.Forms.Button();
             this.calculateBT = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.frTB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.bkCB = new System.Windows.Forms.ComboBox();
             this.label49 = new System.Windows.Forms.Label();
@@ -93,7 +94,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.frTB = new System.Windows.Forms.TextBox();
             this.tabControl11.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -203,6 +203,14 @@
             this.groupBox10.TabIndex = 91;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Ship data";
+            // 
+            // frTB
+            // 
+            this.frTB.Location = new System.Drawing.Point(256, 334);
+            this.frTB.Name = "frTB";
+            this.frTB.Size = new System.Drawing.Size(100, 22);
+            this.frTB.TabIndex = 99;
+            this.frTB.Visible = false;
             // 
             // label3
             // 
@@ -834,14 +842,6 @@
             this.toolTip.IsBalloon = true;
             this.toolTip.ReshowDelay = 100;
             this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            // 
-            // frTB
-            // 
-            this.frTB.Location = new System.Drawing.Point(256, 334);
-            this.frTB.Name = "frTB";
-            this.frTB.Size = new System.Drawing.Size(100, 22);
-            this.frTB.TabIndex = 99;
-            this.frTB.Visible = false;
             // 
             // Pressure
             // 

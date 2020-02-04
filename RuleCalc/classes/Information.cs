@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EPT.classes
+namespace RuleCalc.classes
 {
     public class Information
     {

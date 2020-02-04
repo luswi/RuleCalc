@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EPT.modules
+namespace RuleCalc.modules
 {
     public partial class intro : Form
     {
