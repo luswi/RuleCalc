@@ -29,24 +29,45 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.calculateBT = new System.Windows.Forms.Button();
+            this.dgvAccelerations = new System.Windows.Forms.DataGridView();
+            this.lcCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.axU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ayU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.azU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cgCLtb = new System.Windows.Forms.TextBox();
             this.cgXtb = new System.Windows.Forms.TextBox();
             this.cgBLtb = new System.Windows.Forms.TextBox();
-            this.dgvAccelerations = new System.Windows.Forms.DataGridView();
-            this.lcCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.axU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ayU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.azU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.calculateBT = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccelerations)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.calculateBT);
             this.groupBox1.Controls.Add(this.dgvAccelerations);
             this.groupBox1.Controls.Add(this.label3);
@@ -57,61 +78,111 @@
             this.groupBox1.Controls.Add(this.cgBLtb);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(651, 384);
+            this.groupBox1.Size = new System.Drawing.Size(651, 696);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pt.3 Ch.4 Sec.3 3.3. Envelope accelerations (Edition 07-2018)";
             // 
-            // label3
+            // pictureBox1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 80);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "CG from BL";
+            this.pictureBox1.Image = global::RuleCalc.Properties.Resources.DNV_Ship_Motions_cover;
+            this.pictureBox1.Location = new System.Drawing.Point(20, 350);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(613, 323);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
             // 
-            // label2
+            // label12
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "CG from CL";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(121, 80);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(15, 13);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "m";
             // 
-            // label1
+            // label11
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "CG CGx";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(121, 54);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(15, 13);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "m";
             // 
-            // cgCLtb
+            // label10
             // 
-            this.cgCLtb.Location = new System.Drawing.Point(73, 51);
-            this.cgCLtb.Name = "cgCLtb";
-            this.cgCLtb.Size = new System.Drawing.Size(100, 20);
-            this.cgCLtb.TabIndex = 2;
-            this.cgCLtb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(121, 28);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(15, 13);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "m";
             // 
-            // cgXtb
+            // label9
             // 
-            this.cgXtb.Location = new System.Drawing.Point(73, 25);
-            this.cgXtb.Name = "cgXtb";
-            this.cgXtb.Size = new System.Drawing.Size(100, 20);
-            this.cgXtb.TabIndex = 1;
-            this.cgXtb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(306, 252);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(28, 13);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "m/s²";
             // 
-            // cgBLtb
+            // label8
             // 
-            this.cgBLtb.Location = new System.Drawing.Point(73, 77);
-            this.cgBLtb.Name = "cgBLtb";
-            this.cgBLtb.Size = new System.Drawing.Size(100, 20);
-            this.cgBLtb.TabIndex = 0;
-            this.cgBLtb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(306, 230);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(28, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "m/s²";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(306, 209);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(28, 13);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "m/s²";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(306, 187);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(28, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "m/s²";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(306, 166);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(28, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "m/s²";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(306, 143);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "m/s²";
+            // 
+            // calculateBT
+            // 
+            this.calculateBT.Location = new System.Drawing.Point(192, 276);
+            this.calculateBT.Name = "calculateBT";
+            this.calculateBT.Size = new System.Drawing.Size(111, 47);
+            this.calculateBT.TabIndex = 6;
+            this.calculateBT.Text = "Calculate Accelerations";
+            this.calculateBT.UseVisualStyleBackColor = true;
+            this.calculateBT.Click += new System.EventHandler(this.calculateBT_Click);
             // 
             // dgvAccelerations
             // 
@@ -165,15 +236,56 @@
             this.azU.ReadOnly = true;
             this.azU.Width = 64;
             // 
-            // calculateBT
+            // label3
             // 
-            this.calculateBT.Location = new System.Drawing.Point(411, 177);
-            this.calculateBT.Name = "calculateBT";
-            this.calculateBT.Size = new System.Drawing.Size(111, 47);
-            this.calculateBT.TabIndex = 6;
-            this.calculateBT.Text = "Calculate Accelerations";
-            this.calculateBT.UseVisualStyleBackColor = true;
-            this.calculateBT.Click += new System.EventHandler(this.calculateBT_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 80);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "CG from BL";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "CG from CL";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "CG CGx";
+            // 
+            // cgCLtb
+            // 
+            this.cgCLtb.Location = new System.Drawing.Point(73, 51);
+            this.cgCLtb.Name = "cgCLtb";
+            this.cgCLtb.Size = new System.Drawing.Size(46, 20);
+            this.cgCLtb.TabIndex = 2;
+            this.cgCLtb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
+            // 
+            // cgXtb
+            // 
+            this.cgXtb.Location = new System.Drawing.Point(73, 25);
+            this.cgXtb.Name = "cgXtb";
+            this.cgXtb.Size = new System.Drawing.Size(46, 20);
+            this.cgXtb.TabIndex = 1;
+            this.cgXtb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
+            // 
+            // cgBLtb
+            // 
+            this.cgBLtb.Location = new System.Drawing.Point(73, 77);
+            this.cgBLtb.Name = "cgBLtb";
+            this.cgBLtb.Size = new System.Drawing.Size(46, 20);
+            this.cgBLtb.TabIndex = 0;
+            this.cgBLtb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
             // 
             // Accelerations
             // 
@@ -187,6 +299,7 @@
             this.Load += new System.EventHandler(this.Accelerations_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccelerations)).EndInit();
             this.ResumeLayout(false);
 
@@ -207,5 +320,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ayU;
         private System.Windows.Forms.DataGridViewTextBoxColumn azU;
         private System.Windows.Forms.Button calculateBT;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

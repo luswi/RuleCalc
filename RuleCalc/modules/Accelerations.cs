@@ -94,7 +94,7 @@ namespace RuleCalc.modules
                 double krVAR = Convert.ToDouble(info.krData);
                 
                 string saVAR = Convert.ToString(info.saData);
-                //saCB.Text = info.saData;
+                
                 string bkVAR = Convert.ToString(info.bkData);
                 //bkCB.Text = info.bkData;
                 double fCW = 0;
@@ -111,8 +111,44 @@ namespace RuleCalc.modules
                 double accAxENV = 0;
                 double accAyENV = 0;
                 double accAzENV = 0;
+                double accAzENVpitch = 0;
+                double accAzENVroll = 0;
+                double L0 = 0;
 
+                //------------------
+                // x, y, z if null
+                //------------------
 
+                double xInput = 0;
+                double yInput = 0;
+                double zInput = 0;
+
+                if(cgXtb.Text != null)
+                {
+                    xInput = Convert.ToDouble(cgXtb.Text);
+                }
+                else
+                {
+                    xInput = 0;
+                }
+
+                if (cgCLtb.Text != null)
+                {
+                    yInput = Convert.ToDouble(cgCLtb.Text);
+                }
+                else
+                {
+                    yInput = 0;
+                }
+
+                if (cgBLtb.Text != null)
+                {
+                    zInput = Convert.ToDouble(cgBLtb.Text);
+                }
+                else
+                {
+                    zInput = 0;
+                }
 
                 //double angleroll = 0;
                 //double T_roll = 0;
@@ -126,8 +162,6 @@ namespace RuleCalc.modules
                 dgvAccelerations.Rows[3].Cells[1].Value = 0;
                 dgvAccelerations.Rows[0].Cells[2].Value = 0;
                 dgvAccelerations.Rows[1].Cells[2].Value = 0;
-                dgvAccelerations.Rows[0].Cells[1].Value = cgXtb.Text;
-                //dgvAccelerations.Rows[1].Cells[2].Value = cbVAR;
                 dgvAccelerations.Rows[2].Cells[3].Value = lppVAR;
 
                 //------------------------------------------------
@@ -326,11 +360,54 @@ namespace RuleCalc.modules
                     fL = 0.8;
                 }
 
-                accAxENV = 0.7 * fL * (0.65 + ((2 * Convert.ToDouble(cgBLtb)) / 7 * tScVAR)); // do zrobienia
+                // L0
+
+                if (lruleVAR > 110)
+                {
+                    L0 = lruleVAR;
+                }
+                else
+                {
+                    L0 = 110;
+                }
+
+                accAxENV = 0.7 * fL * (0.65 + (((2 * Convert.ToDouble(cgBLtb.Text))) / (7 * tScVAR))) * Math.Sqrt(Math.Pow(accSurge, 2) + (L0 / 325) * Math.Pow(9.81 * Math.Sin(pAngleMIN*Math.PI/180) + accPitchX, 2));
+                
 
 
 
-                    
+                //MessageBox.Show(Convert.ToString(accPitchX));
+
+                dgvAccelerations.Rows[0].Cells[1].Value = Math.Round(accAxENV, 2);
+                dgvAccelerations.Rows[1].Cells[1].Value = Math.Round(accAxENV, 2);
+                dgvAccelerations.Rows[4].Cells[1].Value = Math.Round(0.6 * accAxENV, 2);
+                dgvAccelerations.Rows[5].Cells[1].Value = Math.Round(0.6 * accAxENV, 2);
+
+                // 3.3.2 Transverse acceleration
+
+                accAyENV = (1 - Math.Exp(-(bVAR * lruleVAR) / (215 * gmVAR))) * Math.Sqrt(Math.Pow(accSway, 2) + Math.Pow(9.81 * Math.Sin(angleroll * Math.PI / 180) + accRollY, 2));
+
+                dgvAccelerations.Rows[2].Cells[2].Value = Math.Round(accAyENV, 2);
+                dgvAccelerations.Rows[3].Cells[2].Value = Math.Round(accAyENV, 2);
+                dgvAccelerations.Rows[4].Cells[2].Value = Math.Round(0.6 * accAyENV, 2);
+                dgvAccelerations.Rows[5].Cells[2].Value = Math.Round(0.6 * accAyENV, 2);
+
+
+
+                // 3.3.3 Vertical acceleration
+
+                accAzENV = Math.Sqrt(Math.Pow(accHeave, 2) + Math.Pow((0.95 + Math.Exp(-lruleVAR / 15)) * accPitchZ, 2) + Math.Pow(1.2 * accRollZ, 2));
+
+                accAzENVpitch = Math.Sqrt(Math.Pow(accHeave, 2) + Math.Pow((0.95 + Math.Exp(-lruleVAR / 15)) * accPitchZ, 2));
+
+                accAzENVroll = Math.Sqrt(Math.Pow(accHeave, 2) + Math.Pow(1.2 * accRollZ, 2));
+
+                dgvAccelerations.Rows[0].Cells[3].Value = Math.Round(accAzENVpitch, 2);
+                dgvAccelerations.Rows[1].Cells[3].Value = Math.Round(-accAzENVpitch, 2);
+                dgvAccelerations.Rows[2].Cells[3].Value = Math.Round(accAzENVroll, 2);
+                dgvAccelerations.Rows[3].Cells[3].Value = Math.Round(-accAzENVroll, 2);
+                dgvAccelerations.Rows[4].Cells[3].Value = Math.Round(accAzENV, 2);
+                dgvAccelerations.Rows[5].Cells[3].Value = Math.Round(-accAzENV, 2);
 
 
             }

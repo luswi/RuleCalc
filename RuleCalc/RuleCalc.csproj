@@ -135,6 +135,8 @@
     <None Include="img\vessel.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Image1.jpg" />
+    <None Include="img\DNV-Ship-Motions-cover.jpg" />
     <Content Include="XML_saves\data.xml" />
     <Content Include="XML_saves\saveCalcSP.xml" />
   </ItemGroup>
