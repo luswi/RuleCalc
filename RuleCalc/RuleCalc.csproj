@@ -73,6 +73,12 @@
     <Compile Include="modules\Accelerations.Designer.cs">
       <DependentUpon>Accelerations.cs</DependentUpon>
     </Compile>
+    <Compile Include="modules\MinimumThickness.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modules\MinimumThickness.Designer.cs">
+      <DependentUpon>MinimumThickness.cs</DependentUpon>
+    </Compile>
     <Compile Include="RuleCalc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="modules\Accelerations.resx">
       <DependentUpon>Accelerations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modules\MinimumThickness.resx">
+      <DependentUpon>MinimumThickness.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RuleCalc.resx">
       <DependentUpon>RuleCalc.cs</DependentUpon>

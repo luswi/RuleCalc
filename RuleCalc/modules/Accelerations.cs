@@ -69,7 +69,10 @@ namespace RuleCalc.modules
             // clear selected 1st. row
             dgvAccelerations[0, 1].Selected = true;
             dgvAccelerations.ClearSelection();
+            
         }
+
+        
 
         //-------------------------------
         // Acceleration calculation area
@@ -123,7 +126,7 @@ namespace RuleCalc.modules
                 double yInput = 0;
                 double zInput = 0;
 
-                if(cgXtb.Text != null)
+                if (cgXtb.Text != "")
                 {
                     xInput = Convert.ToDouble(cgXtb.Text);
                 }
@@ -132,7 +135,7 @@ namespace RuleCalc.modules
                     xInput = 0;
                 }
 
-                if (cgCLtb.Text != null)
+                if (cgCLtb.Text != "")
                 {
                     yInput = Convert.ToDouble(cgCLtb.Text);
                 }
@@ -141,7 +144,7 @@ namespace RuleCalc.modules
                     yInput = 0;
                 }
 
-                if (cgBLtb.Text != null)
+                if (cgBLtb.Text != "")
                 {
                     zInput = Convert.ToDouble(cgBLtb.Text);
                 }
@@ -162,7 +165,13 @@ namespace RuleCalc.modules
                 dgvAccelerations.Rows[3].Cells[1].Value = 0;
                 dgvAccelerations.Rows[0].Cells[2].Value = 0;
                 dgvAccelerations.Rows[1].Cells[2].Value = 0;
-                dgvAccelerations.Rows[2].Cells[3].Value = lppVAR;
+                dgvAccelerations.Rows[0].Cells[1].Style = new DataGridViewCellStyle { BackColor = Color.LightBlue };
+                dgvAccelerations.Rows[1].Cells[1].Style = new DataGridViewCellStyle { BackColor = Color.LightBlue };
+                dgvAccelerations.Rows[2].Cells[2].Style = new DataGridViewCellStyle { BackColor = Color.LightBlue };
+                dgvAccelerations.Rows[3].Cells[2].Style = new DataGridViewCellStyle { BackColor = Color.LightBlue };
+                dgvAccelerations.Rows[4].Cells[3].Style = new DataGridViewCellStyle { BackColor = Color.LightBlue };
+                dgvAccelerations.Rows[5].Cells[3].Style = new DataGridViewCellStyle { BackColor = Color.LightBlue };
+                
 
                 //------------------------------------------------
                 // f_CW - Wave coefficient acc Pt.3 Ch.4 Sec.4
@@ -303,8 +312,8 @@ namespace RuleCalc.modules
                 double accRoll = frfp * angleroll * (Math.PI / 180) * Math.Pow(((2 * Math.PI) / T_roll), 2);
 
 
-                double accRollY = accRoll * (Convert.ToDouble(cgBLtb.Text) - vertCORDMIN); // 3.3.2
-                double accRollZ = accRoll * Convert.ToDouble(cgCLtb.Text); // 3.3.3
+                double accRollY = accRoll * (zInput - vertCORDMIN); // 3.3.2
+                double accRollZ = accRoll * yInput; // 3.3.3
 
                 //---------------------------
                 // 2.2.5 Pitch acceleration
@@ -323,7 +332,7 @@ namespace RuleCalc.modules
                     accPitch = frfp * (1.75 - (22 / Math.Sqrt(9.81 * lruleVAR))) * (Math.Pow((2 * Math.PI / pPeriod), 2));
                 }
 
-                double accPitchX = accPitch * (Convert.ToDouble(cgBLtb.Text) - vertCORDMIN);
+                double accPitchX = accPitch * (zInput - vertCORDMIN);
 
                 //--------------
                 // CG (X') CGx
@@ -331,11 +340,11 @@ namespace RuleCalc.modules
 
                 if(lppVAR > lruleVAR)
                 {
-                    cgXtbPrim = Convert.ToDouble(cgXtb.Text) - (lppVAR - lruleVAR);
+                    cgXtbPrim = xInput - (lppVAR - lruleVAR);
                 }
                 else
                 {
-                    cgXtbPrim = Convert.ToDouble(cgXtb.Text) + (lruleVAR - lppVAR);
+                    cgXtbPrim = xInput + (lruleVAR - lppVAR);
                 }
 
                 double accPitchZ = accPitch * (1.08 * cgXtbPrim - (0.45 * lruleVAR));
@@ -371,7 +380,7 @@ namespace RuleCalc.modules
                     L0 = 110;
                 }
 
-                accAxENV = 0.7 * fL * (0.65 + (((2 * Convert.ToDouble(cgBLtb.Text))) / (7 * tScVAR))) * Math.Sqrt(Math.Pow(accSurge, 2) + (L0 / 325) * Math.Pow(9.81 * Math.Sin(pAngleMIN*Math.PI/180) + accPitchX, 2));
+                accAxENV = 0.7 * fL * (0.65 + (((2 * zInput)) / (7 * tScVAR))) * Math.Sqrt(Math.Pow(accSurge, 2) + (L0 / 325) * Math.Pow(9.81 * Math.Sin(pAngleMIN*Math.PI/180) + accPitchX, 2));
                 
 
 

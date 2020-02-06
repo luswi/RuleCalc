@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -41,16 +44,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.calculateBT = new System.Windows.Forms.Button();
             this.dgvAccelerations = new System.Windows.Forms.DataGridView();
-            this.lcCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.axU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ayU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.azU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cgCLtb = new System.Windows.Forms.TextBox();
             this.cgXtb = new System.Windows.Forms.TextBox();
             this.cgBLtb = new System.Windows.Forms.TextBox();
+            this.lcCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.axU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ayU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.azU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccelerations)).BeginInit();
@@ -123,7 +126,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(306, 252);
+            this.label9.Location = new System.Drawing.Point(309, 252);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(28, 13);
             this.label9.TabIndex = 12;
@@ -132,7 +135,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(306, 230);
+            this.label8.Location = new System.Drawing.Point(309, 230);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(28, 13);
             this.label8.TabIndex = 11;
@@ -141,7 +144,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(306, 209);
+            this.label7.Location = new System.Drawing.Point(309, 209);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(28, 13);
             this.label7.TabIndex = 10;
@@ -150,7 +153,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(306, 187);
+            this.label6.Location = new System.Drawing.Point(309, 187);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 13);
             this.label6.TabIndex = 9;
@@ -159,7 +162,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(306, 166);
+            this.label5.Location = new System.Drawing.Point(309, 166);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(28, 13);
             this.label5.TabIndex = 8;
@@ -168,7 +171,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(306, 143);
+            this.label4.Location = new System.Drawing.Point(309, 143);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 13);
             this.label4.TabIndex = 7;
@@ -176,7 +179,7 @@
             // 
             // calculateBT
             // 
-            this.calculateBT.Location = new System.Drawing.Point(192, 276);
+            this.calculateBT.Location = new System.Drawing.Point(192, 287);
             this.calculateBT.Name = "calculateBT";
             this.calculateBT.Size = new System.Drawing.Size(111, 47);
             this.calculateBT.TabIndex = 6;
@@ -190,51 +193,45 @@
             this.dgvAccelerations.AllowUserToDeleteRows = false;
             this.dgvAccelerations.AllowUserToResizeColumns = false;
             this.dgvAccelerations.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvAccelerations.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvAccelerations.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvAccelerations.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvAccelerations.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAccelerations.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvAccelerations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvAccelerations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.lcCol,
             this.axU,
             this.ayU,
             this.azU});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAccelerations.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvAccelerations.EnableHeadersVisualStyles = false;
+            this.dgvAccelerations.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvAccelerations.Location = new System.Drawing.Point(9, 114);
             this.dgvAccelerations.Name = "dgvAccelerations";
             this.dgvAccelerations.ReadOnly = true;
+            this.dgvAccelerations.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dgvAccelerations.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvAccelerations.RowHeadersVisible = false;
+            this.dgvAccelerations.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvAccelerations.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dgvAccelerations.Size = new System.Drawing.Size(294, 156);
+            this.dgvAccelerations.Size = new System.Drawing.Size(294, 167);
             this.dgvAccelerations.TabIndex = 1;
-            // 
-            // lcCol
-            // 
-            this.lcCol.FillWeight = 157.5342F;
-            this.lcCol.HeaderText = "Load combination";
-            this.lcCol.Name = "lcCol";
-            this.lcCol.ReadOnly = true;
-            this.lcCol.Width = 115;
-            // 
-            // axU
-            // 
-            this.axU.FillWeight = 72.59828F;
-            this.axU.HeaderText = "a x-U";
-            this.axU.Name = "axU";
-            this.axU.ReadOnly = true;
-            this.axU.Width = 53;
-            // 
-            // ayU
-            // 
-            this.ayU.FillWeight = 82.29101F;
-            this.ayU.HeaderText = "a y-U";
-            this.ayU.Name = "ayU";
-            this.ayU.ReadOnly = true;
-            this.ayU.Width = 60;
-            // 
-            // azU
-            // 
-            this.azU.FillWeight = 87.57648F;
-            this.azU.HeaderText = "a z-U";
-            this.azU.Name = "azU";
-            this.azU.ReadOnly = true;
-            this.azU.Width = 64;
             // 
             // label3
             // 
@@ -284,8 +281,44 @@
             this.cgBLtb.Location = new System.Drawing.Point(73, 77);
             this.cgBLtb.Name = "cgBLtb";
             this.cgBLtb.Size = new System.Drawing.Size(46, 20);
-            this.cgBLtb.TabIndex = 0;
+            this.cgBLtb.TabIndex = 3;
             this.cgBLtb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
+            // 
+            // lcCol
+            // 
+            this.lcCol.FillWeight = 157.5342F;
+            this.lcCol.HeaderText = "Load combination";
+            this.lcCol.Name = "lcCol";
+            this.lcCol.ReadOnly = true;
+            this.lcCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.lcCol.Width = 115;
+            // 
+            // axU
+            // 
+            this.axU.FillWeight = 72.59828F;
+            this.axU.HeaderText = "a x-U";
+            this.axU.Name = "axU";
+            this.axU.ReadOnly = true;
+            this.axU.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.axU.Width = 53;
+            // 
+            // ayU
+            // 
+            this.ayU.FillWeight = 82.29101F;
+            this.ayU.HeaderText = "a y-U";
+            this.ayU.Name = "ayU";
+            this.ayU.ReadOnly = true;
+            this.ayU.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ayU.Width = 60;
+            // 
+            // azU
+            // 
+            this.azU.FillWeight = 87.57648F;
+            this.azU.HeaderText = "a z-U";
+            this.azU.Name = "azU";
+            this.azU.ReadOnly = true;
+            this.azU.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.azU.Width = 64;
             // 
             // Accelerations
             // 
@@ -315,10 +348,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvAccelerations;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lcCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn axU;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ayU;
-        private System.Windows.Forms.DataGridViewTextBoxColumn azU;
         private System.Windows.Forms.Button calculateBT;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -330,5 +359,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lcCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn axU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ayU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn azU;
     }
 }
