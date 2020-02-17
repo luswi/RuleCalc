@@ -38,6 +38,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutRuleCalcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.minimumThicknessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +73,8 @@
             // 
             this.moduleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pressureToolStripMenuItem,
-            this.accelerationsToolStripMenuItem});
+            this.accelerationsToolStripMenuItem,
+            this.minimumThicknessToolStripMenuItem});
             this.moduleToolStripMenuItem.Name = "moduleToolStripMenuItem";
             this.moduleToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.moduleToolStripMenuItem.Text = "Module";
@@ -114,6 +116,13 @@
             this.panelMain.TabIndex = 20;
             this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
+            // minimumThicknessToolStripMenuItem
+            // 
+            this.minimumThicknessToolStripMenuItem.Name = "minimumThicknessToolStripMenuItem";
+            this.minimumThicknessToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.minimumThicknessToolStripMenuItem.Text = "Minimum thickness";
+            this.minimumThicknessToolStripMenuItem.Click += new System.EventHandler(this.minimumThicknessToolStripMenuItem_Click);
+            // 
             // RuleCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,6 +151,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveXMLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutRuleCalcToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accelerationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem minimumThicknessToolStripMenuItem;
     }
 }
 

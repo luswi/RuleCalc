@@ -77,7 +77,21 @@ namespace RuleCalc
             accelerations.Dock = DockStyle.Fill;
             accelerations.Show();
 
+        }
+        //--------------------------
+        // Open Minimum thickness tool
+        //--------------------------
+        private void minimumThicknessToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
+            this.Controls.Clear();
+            modules.MinimumThickness minimumThickness = new modules.MinimumThickness();
+            minimumThickness.TopLevel = false;
+            minimumThickness.AutoScroll = true;
+            this.Controls.Add(minimumThickness);
+            this.Controls.Add(menuStrip);
+            minimumThickness.Dock = DockStyle.Fill;
+            minimumThickness.Show();
         }
         //--------------
         // Save to XML
@@ -90,7 +104,7 @@ namespace RuleCalc
                 {
 
                     Information info = new Information();
-                    
+
                     info.lppData = modules.Pressure.lppSave;
                     info.lData = modules.Pressure.lSave;
                     info.bData = modules.Pressure.bSave;
@@ -125,7 +139,6 @@ namespace RuleCalc
         {
             MessageBox.Show("Rules: DNV-GL July 2018\nAuthor: Lukasz Swiercz\nRuleCalc: beta 0.2");
         }
-
 
     }
 }
