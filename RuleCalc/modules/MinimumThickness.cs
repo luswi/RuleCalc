@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Xml.Serialization;
+using RuleCalc.classes;
+
 
 namespace RuleCalc.modules
 {
@@ -98,6 +102,32 @@ namespace RuleCalc.modules
             this.dgv_StifAndBra1.ColumnHeadersVisible = false;
             this.dgv_other.ColumnHeadersVisible = false;
 
+            if(File.Exists("data.xml"))
+            {
+                XmlSerializer xs = new XmlSerializer(typeof(Information));
+                FileStream read = new FileStream("data.xml", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                Information info = (Information)xs.Deserialize(read);
+
+                //load data
+                double lruleVAR = Convert.ToDouble(info.lData);
+                double kNS = 1;
+                double k32 = 0.72;
+                double k36 = 0.66;
+
+                dgv_shell1.Rows[0].Cells[1].Value = Math.Round((5 + 0.05 * lruleVAR * Math.Sqrt(kNS)) * 2, MidpointRounding.AwayFromZero) / 2;
+                dgv_shell1.Rows[1].Cells[1].Value = Math.Round((4.5 + 0.035 * lruleVAR * Math.Sqrt(kNS)) * 2, MidpointRounding.AwayFromZero) / 2;
+
+                dgv_shell1.Rows[0].Cells[2].Value = Math.Round((5 + 0.05 * lruleVAR * Math.Sqrt(k32)) * 2, MidpointRounding.AwayFromZero) / 2;
+                dgv_shell1.Rows[1].Cells[2].Value = Math.Round((4.5 + 0.035 * lruleVAR * Math.Sqrt(k32)) * 2, MidpointRounding.AwayFromZero) / 2;
+
+                dgv_shell1.Rows[0].Cells[3].Value = Math.Round((5 + 0.05 * lruleVAR * Math.Sqrt(k36)) * 2, MidpointRounding.AwayFromZero) / 2;
+                dgv_shell1.Rows[1].Cells[3].Value = Math.Round((4.5 + 0.035 * lruleVAR * Math.Sqrt(k36)) * 2, MidpointRounding.AwayFromZero) / 2;
+            }
+            else
+            {
+                //gdy nie istnieje
+            }
+             
 
 
 
