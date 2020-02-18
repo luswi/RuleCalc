@@ -466,7 +466,7 @@ namespace RuleCalc.modules
                 dropmenu();
                 HideRows();
                 RowsColorCalculate();
-                
+
             }
             else
             {
@@ -740,8 +740,8 @@ namespace RuleCalc.modules
             // th status for plate
             object th_PlateStatus = (sender as DataGridView).Rows[13].Cells[e.ColumnIndex].Value;
             string th_PlateStatusInput = Convert.ToString(th_PlateStatus);
-            
-            if(th_PlateStatusInput == "OK")
+
+            if (th_PlateStatusInput == "OK")
             {
                 dgvCalculateSP.Rows[13].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
             }
@@ -752,15 +752,15 @@ namespace RuleCalc.modules
             // slenderness status for plate
             object slend_PlateStatus = (sender as DataGridView).Rows[14].Cells[e.ColumnIndex].Value;
             string slend_PlateStatusInput = Convert.ToString(slend_PlateStatus);
-            
-            if(slend_PlateStatusInput == "OK")
+
+            if (slend_PlateStatusInput == "OK")
             {
-                dgvCalculateSP.Rows[14].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen};
+                dgvCalculateSP.Rows[14].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
             }
             else
             {
 
-                dgvCalculateSP.Rows[14].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red};
+                dgvCalculateSP.Rows[14].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
             }
 
             // th status for stiff
@@ -781,7 +781,7 @@ namespace RuleCalc.modules
             object slend_StiffStatus = (sender as DataGridView).Rows[37].Cells[e.ColumnIndex].Value;
             string slend_StiffStatusInput = Convert.ToString(slend_StiffStatus);
 
-            if(slend_StiffStatusInput == "Web OK" || slend_StiffStatusInput == "Web OK - Flange OK" || slend_StiffStatusInput == "Web OK - No Flange")
+            if (slend_StiffStatusInput == "Web OK" || slend_StiffStatusInput == "Web OK - Flange OK" || slend_StiffStatusInput == "Web OK - No Flange")
             {
                 dgvCalculateSP.Rows[37].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
             }
@@ -933,7 +933,7 @@ namespace RuleCalc.modules
                 //=======================
                 // calculate fyB (Plate)
                 //=======================
-                
+
                 object yplateCheck = (sender as DataGridView).Rows[2].Cells[i].Value;
                 object bXplateCheck = (sender as DataGridView).Rows[4].Cells[i].Value;
                 if (yplateCheck != null && bXplateCheck != null)
@@ -942,7 +942,7 @@ namespace RuleCalc.modules
                     double yplateLoadInput = Convert.ToDouble(yplateCheck);
                     double bXplateInput = Convert.ToDouble(bXplateCheck);
 
-                    if (yplateLoadInput != 0 && bXplateInput !=0)
+                    if (yplateLoadInput != 0 && bXplateInput != 0)
                     {
                         double[] fyBplateArray = { (2 * yplateLoadInput) / bXplateInput, 1 };
 
@@ -954,7 +954,7 @@ namespace RuleCalc.modules
                     {
                         dgvCalculateSP.Rows[46].Cells[i].Value = "No Value!";
                     }
-                    
+
 
                 }
                 else
@@ -964,14 +964,14 @@ namespace RuleCalc.modules
                 //===========================
                 // calculate fyB (stiffener)
                 //===========================
-                
+
                 object ystiffCheck = (sender as DataGridView).Rows[17].Cells[i].Value;
                 object bXstiffCheck = (sender as DataGridView).Rows[19].Cells[i].Value;
                 if (ystiffCheck != null && bXstiffCheck != null)
                 {
                     double ystiffLoadInput = Convert.ToDouble(ystiffCheck);
                     double bXstiffInput = Convert.ToDouble(bXstiffCheck);
-                    if(ystiffLoadInput != 0 && bXstiffInput != 0)
+                    if (ystiffLoadInput != 0 && bXstiffInput != 0)
                     {
                         double[] fyBstiffArray = { (2 * ystiffLoadInput) / bXstiffInput, 1 };
 
@@ -981,9 +981,9 @@ namespace RuleCalc.modules
                     }
                     else
                     {
-                    dgvCalculateSP.Rows[47].Cells[i].Value = "No Value!";
+                        dgvCalculateSP.Rows[47].Cells[i].Value = "No Value!";
                     }
-                    
+
                 }
                 else
                 {
@@ -1662,7 +1662,7 @@ namespace RuleCalc.modules
                     double t_req_plate_sea1AC2input = Convert.ToDouble(t_req_plate_sea1AC2);
                     double t_req_plate_sea2AC1input = Convert.ToDouble(t_req_plate_sea2AC1);
                     double t_req_plateInput = Convert.ToDouble(t_req_plate);
-                    
+
                     if (t_req_plate_sea1AC2input > t_req_plate_sea2AC1input)
                     {
 
@@ -1686,7 +1686,7 @@ namespace RuleCalc.modules
                 //=========================
                 // t rq (GROSS) [mm] Plate
                 //=========================
-                if(!t_req_plate_sea1AC2.Equals("No Value!") && !t_req_plate_sea2AC1.Equals("No Value!"))
+                if (!t_req_plate_sea1AC2.Equals("No Value!") && !t_req_plate_sea2AC1.Equals("No Value!"))
                 {
 
                     double t_req_plate_sea1AC2input = Convert.ToDouble(t_req_plate_sea1AC2);
@@ -1695,7 +1695,7 @@ namespace RuleCalc.modules
                     double[] tReqPlateArray = { t_req_plate_sea1AC2input, t_req_plate_sea2AC1input };
                     double tReqPlateMax = tReqPlateArray.Max();
 
-                    dgvCalculateSP.Rows[11].Cells[i].Value = Math.Round((tReqPlateMax * 2),1) / 2;
+                    dgvCalculateSP.Rows[11].Cells[i].Value = Math.Round((tReqPlateMax * 2), 1) / 2;
 
                 }
                 else
@@ -1710,7 +1710,7 @@ namespace RuleCalc.modules
                 object tcPlate = (sender as DataGridView).Rows[9].Cells[i].Value;
                 object tReqPlate = (sender as DataGridView).Rows[11].Cells[i].Value;
                 object thPlate = (sender as DataGridView).Rows[12].Cells[i].Value;
-                if(!tReqPlate.Equals("No Value!"))
+                if (!tReqPlate.Equals("No Value!"))
                 {
                     double tReqPlateInput = Convert.ToDouble(tReqPlate);
                     double thPlateInput = Convert.ToDouble(thPlate);
@@ -1735,8 +1735,8 @@ namespace RuleCalc.modules
                         dgvCalculateSP.Rows[14].Cells[i].Value = "OK";
                     }
                 }
-                
-                
+
+
 
 
                 //================
@@ -1798,7 +1798,7 @@ namespace RuleCalc.modules
                 //==============================
                 // t status Stiff 
                 //==================
-                
+
                 //object b_plate = (sender as DataGridView).Rows[6].Cells[i].Value;
                 //object tcPlate = (sender as DataGridView).Rows[9].Cells[i].Value;
                 object tReqStiff = (sender as DataGridView).Rows[34].Cells[i].Value;
@@ -1843,10 +1843,10 @@ namespace RuleCalc.modules
                 string webStatus = "";
                 string flangeStatus = "";
 
-                
-                if(fuCheckInput == 1)
+
+                if (fuCheckInput == 1)
                 {
-                    if(bFlangeCheckInput == 0)
+                    if (bFlangeCheckInput == 0)
                     {
                         cwVAR = 22;
                     }
@@ -1855,12 +1855,12 @@ namespace RuleCalc.modules
                         cwVAR = 75;
                         cfVAR = 12;
                     }
-                    
+
                 }
                 else if (fuCheckInput == 1.03)
                 {
                     cwVAR = 45;
-                    
+
                 }
                 else if (fuCheckInput == 1.15)
                 {
@@ -1869,8 +1869,8 @@ namespace RuleCalc.modules
                 }
 
                 double webcheck = (hwCheckInput / cwVAR) * Math.Sqrt(rEHCheckInput / 235);
-                
-                if(webcheck <= (tWebCheckInput - tcStifCheckInput))
+
+                if (webcheck <= (tWebCheckInput - tcStifCheckInput))
                 {
                     webStatus = "Web OK";
                 }
@@ -1878,10 +1878,10 @@ namespace RuleCalc.modules
                 {
                     webStatus = "Web NOT OK";
                 }
-                
-                if(bFlangeCheckInput != 0 && tFlangeCheckInput != 0)
+
+                if (bFlangeCheckInput != 0 && tFlangeCheckInput != 0)
                 {
-                    if(fuCheckInput == 1)
+                    if (fuCheckInput == 1)
                     {
                         bfout = (bFlangeCheckInput / 2) - ((tWebCheckInput - tcStifCheckInput) / 2);
                         flangeCheck = bfout / cfVAR * Math.Sqrt(rEHCheckInput / 235);
@@ -1903,7 +1903,7 @@ namespace RuleCalc.modules
                     flangeCheck = -1;
                 }
 
-                if(flangeCheck <= (tFlangeCheckInput-tcStifCheckInput) && flangeCheck != -1 && tfb <= bFlangeCheckInput)
+                if (flangeCheck <= (tFlangeCheckInput - tcStifCheckInput) && flangeCheck != -1 && tfb <= bFlangeCheckInput)
                 {
                     flangeStatus = "Flange OK";
                 }
@@ -1926,7 +1926,7 @@ namespace RuleCalc.modules
                 object fbdgCheck = (sender as DataGridView).Rows[23].Cells[i].Value;
                 if (lbdgCheck != DBNull.Value)
                 {
-                    
+
                     //object rEHCheck =
                     //object pSea1Stiff = 
                     //object pSea2Stiff = 
@@ -1995,7 +1995,7 @@ namespace RuleCalc.modules
                     sumAVAR = b1CheckInput * (t1CheckInput - tcPlateCheckInput) + bwebCheckInput * (twebCheckInput - tcStiffCheckInput) + bFlangeCheckInput * (tFlangeCheckInput - tcStiffCheckInput);
                     sumAxVAR = b1CheckInput * (t1CheckInput - tcPlateCheckInput) * ((tFlangeCheckInput - tcStiffCheckInput) + bwebCheckInput + (t1CheckInput - tcPlateCheckInput) / 2) + bwebCheckInput * (twebCheckInput - tcStiffCheckInput) * ((tFlangeCheckInput - tcStiffCheckInput) + bwebCheckInput / 2) + bFlangeCheckInput * (tFlangeCheckInput - tcStiffCheckInput) * ((tFlangeCheckInput - tcStiffCheckInput) / 2);
                     sumAxxVAR = b1CheckInput * (t1CheckInput - tcPlateCheckInput) * Math.Pow((tFlangeCheckInput - tcStiffCheckInput) + bwebCheckInput + (t1CheckInput - tcPlateCheckInput) / 2, 2) + bwebCheckInput * (twebCheckInput - tcStiffCheckInput) * Math.Pow((tFlangeCheckInput - tcStiffCheckInput) + bwebCheckInput / 2, 2) + bFlangeCheckInput * (tFlangeCheckInput - tcStiffCheckInput) * Math.Pow((tFlangeCheckInput - tcStiffCheckInput) / 2, 2);
-                    sumIeVAR = ((b1CheckInput * Math.Pow((t1CheckInput - tcPlateCheckInput),3)) / 12) + (((twebCheckInput - tcStifCheckInput) * Math.Pow(bwebCheckInput, 3)) / 12) + ((bflangeCheckInput * Math.Pow((tflangeCheckInput - tcStifCheckInput), 3)) / 12);
+                    sumIeVAR = ((b1CheckInput * Math.Pow((t1CheckInput - tcPlateCheckInput), 3)) / 12) + (((twebCheckInput - tcStifCheckInput) * Math.Pow(bwebCheckInput, 3)) / 12) + ((bflangeCheckInput * Math.Pow((tflangeCheckInput - tcStifCheckInput), 3)) / 12);
 
                     spVAR = sumAxVAR / sumAVAR;
                     iVAR = sumIeVAR + sumAxxVAR - Math.Pow(spVAR, 2) * sumAVAR;
@@ -2003,7 +2003,7 @@ namespace RuleCalc.modules
 
                     w1VAR = iVAR / spVAR;
                     w2VAR = iVAR / zVAR;
-                    if(w1VAR > w2VAR)
+                    if (w1VAR > w2VAR)
                     {
                         selectedW = w2VAR;
                     }
@@ -2013,7 +2013,7 @@ namespace RuleCalc.modules
                     }
                     dgvCalculateSP.Rows[41].Cells[i].Value = selectedW / 1000;
 
-                    if(selectedW/1000 > zReqCheckInput)
+                    if (selectedW / 1000 > zReqCheckInput)
                     {
                         dgvCalculateSP.Rows[42].Cells[i].Value = "OK";
                     }
@@ -2029,7 +2029,7 @@ namespace RuleCalc.modules
                     dgvCalculateSP.Rows[42].Cells[i].Value = "NOT OK";
                 }
 
-            
+
             }
         }
 

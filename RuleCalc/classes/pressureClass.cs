@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RuleCalc.classes
+﻿namespace RuleCalc.classes
 {
     public class pressureClass
     {
@@ -13,8 +7,8 @@ namespace RuleCalc.classes
         //---------------------------------
         public double zdk { get; set; }
         public double zfdk { get; set; }
-       
-        
+
+
 
         public double cCalc { get; set; }
 
