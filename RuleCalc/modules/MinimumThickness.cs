@@ -114,14 +114,27 @@ namespace RuleCalc.modules
                 double k32 = 0.72;
                 double k36 = 0.66;
 
+                //Keel - NS
                 dgv_shell1.Rows[0].Cells[1].Value = Math.Round((5 + 0.05 * lruleVAR * Math.Sqrt(kNS)) * 2, MidpointRounding.AwayFromZero) / 2;
+                //Bottom and bilge - NS
                 dgv_shell1.Rows[1].Cells[1].Value = Math.Round((4.5 + 0.035 * lruleVAR * Math.Sqrt(kNS)) * 2, MidpointRounding.AwayFromZero) / 2;
-
+                //Keel - 32
                 dgv_shell1.Rows[0].Cells[2].Value = Math.Round((5 + 0.05 * lruleVAR * Math.Sqrt(k32)) * 2, MidpointRounding.AwayFromZero) / 2;
+                //Bottom and bilge - 32
                 dgv_shell1.Rows[1].Cells[2].Value = Math.Round((4.5 + 0.035 * lruleVAR * Math.Sqrt(k32)) * 2, MidpointRounding.AwayFromZero) / 2;
-
+                //Keel - 36
                 dgv_shell1.Rows[0].Cells[3].Value = Math.Round((5 + 0.05 * lruleVAR * Math.Sqrt(k36)) * 2, MidpointRounding.AwayFromZero) / 2;
+                //Bottom and bilge - 36
                 dgv_shell1.Rows[1].Cells[3].Value = Math.Round((4.5 + 0.035 * lruleVAR * Math.Sqrt(k36)) * 2, MidpointRounding.AwayFromZero) / 2;
+                //From upper end of bilge plating to TSC + 4.6 m
+                
+                //From TSC + 4.6 m to TSC + 6.9 m
+                
+                //From TSC + 6.9 m to TSC + 9.2 m
+                
+                //Elsewhere6)
+                
+                //Sea chest boundaries
             }
             else
             {
