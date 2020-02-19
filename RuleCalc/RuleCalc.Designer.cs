@@ -35,10 +35,10 @@
             this.moduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pressureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accelerationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.minimumThicknessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutRuleCalcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.minimumThicknessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,16 +82,23 @@
             // pressureToolStripMenuItem
             // 
             this.pressureToolStripMenuItem.Name = "pressureToolStripMenuItem";
-            this.pressureToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pressureToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.pressureToolStripMenuItem.Text = "Pressure";
             this.pressureToolStripMenuItem.Click += new System.EventHandler(this.pressureToolStripMenuItem_Click);
             // 
             // accelerationsToolStripMenuItem
             // 
             this.accelerationsToolStripMenuItem.Name = "accelerationsToolStripMenuItem";
-            this.accelerationsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.accelerationsToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.accelerationsToolStripMenuItem.Text = "Accelerations";
             this.accelerationsToolStripMenuItem.Click += new System.EventHandler(this.accelerationsToolStripMenuItem_Click);
+            // 
+            // minimumThicknessToolStripMenuItem
+            // 
+            this.minimumThicknessToolStripMenuItem.Name = "minimumThicknessToolStripMenuItem";
+            this.minimumThicknessToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.minimumThicknessToolStripMenuItem.Text = "Minimum thickness";
+            this.minimumThicknessToolStripMenuItem.Click += new System.EventHandler(this.minimumThicknessToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -116,13 +123,6 @@
             this.panelMain.TabIndex = 20;
             this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
-            // minimumThicknessToolStripMenuItem
-            // 
-            this.minimumThicknessToolStripMenuItem.Name = "minimumThicknessToolStripMenuItem";
-            this.minimumThicknessToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.minimumThicknessToolStripMenuItem.Text = "Minimum thickness";
-            this.minimumThicknessToolStripMenuItem.Click += new System.EventHandler(this.minimumThicknessToolStripMenuItem_Click);
-            // 
             // RuleCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -130,8 +130,10 @@
             this.ClientSize = new System.Drawing.Size(674, 751);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.menuStrip);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
+            this.MaximizeBox = false;
             this.Name = "RuleCalc";
             this.Text = "RuleCalc";
             this.menuStrip.ResumeLayout(false);

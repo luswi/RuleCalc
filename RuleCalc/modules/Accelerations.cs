@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using RuleCalc.classes;
+using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 using System.Xml.Serialization;
-using RuleCalc.classes;
 
 namespace RuleCalc.modules
 {
@@ -69,10 +63,10 @@ namespace RuleCalc.modules
             // clear selected 1st. row
             dgvAccelerations[0, 1].Selected = true;
             dgvAccelerations.ClearSelection();
-            
+
         }
 
-        
+
 
         //-------------------------------
         // Acceleration calculation area
@@ -95,9 +89,9 @@ namespace RuleCalc.modules
                 double tScVAR = Convert.ToDouble(info.tscData);
                 double gmVAR = Convert.ToDouble(info.gmData);
                 double krVAR = Convert.ToDouble(info.krData);
-                
+
                 string saVAR = Convert.ToString(info.saData);
-                
+
                 string bkVAR = Convert.ToString(info.bkData);
                 //bkCB.Text = info.bkData;
                 double fCW = 0;
@@ -171,26 +165,26 @@ namespace RuleCalc.modules
                 dgvAccelerations.Rows[3].Cells[2].Style = new DataGridViewCellStyle { BackColor = Color.LightBlue };
                 dgvAccelerations.Rows[4].Cells[3].Style = new DataGridViewCellStyle { BackColor = Color.LightBlue };
                 dgvAccelerations.Rows[5].Cells[3].Style = new DataGridViewCellStyle { BackColor = Color.LightBlue };
-                
+
 
                 //------------------------------------------------
                 // f_CW - Wave coefficient acc Pt.3 Ch.4 Sec.4
                 //------------------------------------------------
 
-                if(lruleVAR < 90)
+                if (lruleVAR < 90)
                 {
                     fCW = 0.0856 * lruleVAR;
-                    
+
                 }
-                else if(lruleVAR >= 90 && lruleVAR < 300)
+                else if (lruleVAR >= 90 && lruleVAR < 300)
                 {
                     fCW = 10.75 - Math.Pow(((300 - lruleVAR) / 100), 1.5);
                 }
                 //-----------
                 // fr, fp
                 //-----------
-                
-                if(saVAR == "R0 (No reduction)")
+
+                if (saVAR == "R0 (No reduction)")
                 {
                     frfp = 1.0;
                 }
@@ -222,11 +216,11 @@ namespace RuleCalc.modules
                 //-------
                 // f L
                 //-------
-                if(lruleVAR < 90)
+                if (lruleVAR < 90)
                 {
                     fL = 1;
                 }
-                else if(lruleVAR >= 150)
+                else if (lruleVAR >= 150)
                 {
                     fL = 0.8;
                 }
@@ -245,9 +239,9 @@ namespace RuleCalc.modules
                 //-------
                 if (bkVAR == "YES")
                 {
-                    fbkVAR =  1.0;
+                    fbkVAR = 1.0;
                 }
-                else 
+                else
                 {
                     fbkVAR = 1.2;
                 }
@@ -292,7 +286,7 @@ namespace RuleCalc.modules
                 // 2.2.3 Heave acceleration
                 //---------------------------
 
-                if(lruleVAR <100)
+                if (lruleVAR < 100)
                 {
                     accHeave = 0.8 * (1 + 0.03 * V) * (0.72 + (2 * lruleVAR / 700)) * (1.15 - (6.5 / Math.Sqrt(9.81 * lruleVAR))) * frfp * a0 * 9.81;
                 }
@@ -300,7 +294,7 @@ namespace RuleCalc.modules
                 {
                     accHeave = (0.4 + (lruleVAR / 250)) * (1 + 0.03 * V * (3 - (lruleVAR / 50))) * (1.15 - (6.5 / Math.Sqrt(9.81 * lruleVAR))) * frfp * a0 * 9.81;
                 }
-                else if(lruleVAR >= 150)
+                else if (lruleVAR >= 150)
                 {
                     accHeave = (1.15 - (6.5 / Math.Sqrt(9.81 * lruleVAR))) * frfp * a0 * 9.81;
                 }
@@ -321,7 +315,7 @@ namespace RuleCalc.modules
 
                 if (lruleVAR < 100)
                 {
-                     accPitch = 0.8 * (1 + 0.05 * V) * frfp * (0.72 + (2 * lruleVAR / 700)) * (1.75 - (22 / Math.Sqrt(9.81 * lruleVAR))) * pAngleMIN * (Math.PI / 180) * (Math.Pow((2 * Math.PI / pPeriod), 2));
+                    accPitch = 0.8 * (1 + 0.05 * V) * frfp * (0.72 + (2 * lruleVAR / 700)) * (1.75 - (22 / Math.Sqrt(9.81 * lruleVAR))) * pAngleMIN * (Math.PI / 180) * (Math.Pow((2 * Math.PI / pPeriod), 2));
                 }
                 else if (lruleVAR <= 100 && lruleVAR < 150)
                 {
@@ -338,7 +332,7 @@ namespace RuleCalc.modules
                 // CG (X') CGx
                 //--------------
 
-                if(lppVAR > lruleVAR)
+                if (lppVAR > lruleVAR)
                 {
                     cgXtbPrim = xInput - (lppVAR - lruleVAR);
                 }
@@ -356,11 +350,11 @@ namespace RuleCalc.modules
 
                 // 3.3.1 Longitudinal acceleration
 
-                if(lruleVAR < 90)
+                if (lruleVAR < 90)
                 {
                     fL = 1;
                 }
-                else if(lruleVAR <= 90 && lruleVAR < 150)
+                else if (lruleVAR <= 90 && lruleVAR < 150)
                 {
                     fL = 1.3 - (lruleVAR / 300);
                 }
@@ -380,8 +374,8 @@ namespace RuleCalc.modules
                     L0 = 110;
                 }
 
-                accAxENV = 0.7 * fL * (0.65 + (((2 * zInput)) / (7 * tScVAR))) * Math.Sqrt(Math.Pow(accSurge, 2) + (L0 / 325) * Math.Pow(9.81 * Math.Sin(pAngleMIN*Math.PI/180) + accPitchX, 2));
-                
+                accAxENV = 0.7 * fL * (0.65 + (((2 * zInput)) / (7 * tScVAR))) * Math.Sqrt(Math.Pow(accSurge, 2) + (L0 / 325) * Math.Pow(9.81 * Math.Sin(pAngleMIN * Math.PI / 180) + accPitchX, 2));
+
 
 
 
@@ -424,9 +418,9 @@ namespace RuleCalc.modules
             {
                 // jak brak ship data to dac info!!!!
             }
-            
 
-            
+
+
         }
 
 

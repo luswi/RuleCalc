@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using RuleCalc.classes;
+using System;
 using System.IO;
+using System.Windows.Forms;
 using System.Xml.Serialization;
-using RuleCalc.classes;
 
 
 namespace RuleCalc.modules
@@ -102,7 +95,7 @@ namespace RuleCalc.modules
             this.dgv_StifAndBra1.ColumnHeadersVisible = false;
             this.dgv_other.ColumnHeadersVisible = false;
 
-            if(File.Exists("data.xml"))
+            if (File.Exists("data.xml"))
             {
                 XmlSerializer xs = new XmlSerializer(typeof(Information));
                 FileStream read = new FileStream("data.xml", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
@@ -140,7 +133,7 @@ namespace RuleCalc.modules
             {
                 //gdy nie istnieje
             }
-             
+
 
 
 

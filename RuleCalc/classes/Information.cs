@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RuleCalc.classes
+﻿namespace RuleCalc.classes
 {
     public class Information
     {
@@ -21,7 +15,7 @@ namespace RuleCalc.classes
         private string saSave;
         private string frSave;
         private string bkSave;
-        
+
 
         public string lppData
         {
