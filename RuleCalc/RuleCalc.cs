@@ -89,26 +89,26 @@ namespace RuleCalc
         //--------------
         public void saveXMLToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (modules.Pressure.lppSave != "")
+            if (modules.ShipData.lppSave != "")
             {
                 try
                 {
 
                     Information info = new Information();
 
-                    info.lppData = modules.Pressure.lppSave;
-                    info.lData = modules.Pressure.lSave;
-                    info.bData = modules.Pressure.bSave;
-                    info.dData = modules.Pressure.dSave;
-                    info.vData = modules.Pressure.vSave;
-                    info.cbData = modules.Pressure.cbSave;
-                    info.tbalData = modules.Pressure.tbalSave;
-                    info.tscData = modules.Pressure.tscSave;
-                    info.gmData = modules.Pressure.gmSave;
-                    info.krData = modules.Pressure.krSave;
-                    info.saData = modules.Pressure.saSave;
-                    info.frData = modules.Pressure.frSave;
-                    info.bkData = modules.Pressure.bkSave;
+                    info.lppData = modules.ShipData.lppSave;
+                    info.lData = modules.ShipData.lSave;
+                    info.bData = modules.ShipData.bSave;
+                    info.dData = modules.ShipData.dSave;
+                    info.vData = modules.ShipData.vSave;
+                    info.cbData = modules.ShipData.cbSave;
+                    info.tbalData = modules.ShipData.tbalSave;
+                    info.tscData = modules.ShipData.tscSave;
+                    info.gmData = modules.ShipData.gmSave;
+                    info.krData = modules.ShipData.krSave;
+                    info.saData = modules.ShipData.saSave;
+                    info.frData = modules.ShipData.frSave;
+                    info.bkData = modules.ShipData.bkSave;
 
                     // -->
 
@@ -129,6 +129,21 @@ namespace RuleCalc
         private void aboutRuleCalcToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Rules: DNV-GL July 2018\nAuthor: Lukasz Swiercz\nRuleCalc: beta 0.2");
+        }
+        //--------------------------
+        // Open Ship Data tool
+        //--------------------------
+        private void shipDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            this.Controls.Clear();
+            modules.ShipData shipData = new modules.ShipData();
+            shipData.TopLevel = false;
+            shipData.AutoScroll = true;
+            this.Controls.Add(shipData);
+            this.Controls.Add(menuStrip);
+            shipData.Dock = DockStyle.Fill;
+            shipData.Show();
         }
 
     }

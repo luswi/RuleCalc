@@ -39,6 +39,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutRuleCalcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.shipDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,6 +73,7 @@
             // moduleToolStripMenuItem
             // 
             this.moduleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.shipDataToolStripMenuItem,
             this.pressureToolStripMenuItem,
             this.accelerationsToolStripMenuItem,
             this.minimumThicknessToolStripMenuItem});
@@ -82,21 +84,21 @@
             // pressureToolStripMenuItem
             // 
             this.pressureToolStripMenuItem.Name = "pressureToolStripMenuItem";
-            this.pressureToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.pressureToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pressureToolStripMenuItem.Text = "Pressure";
             this.pressureToolStripMenuItem.Click += new System.EventHandler(this.pressureToolStripMenuItem_Click);
             // 
             // accelerationsToolStripMenuItem
             // 
             this.accelerationsToolStripMenuItem.Name = "accelerationsToolStripMenuItem";
-            this.accelerationsToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.accelerationsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.accelerationsToolStripMenuItem.Text = "Accelerations";
             this.accelerationsToolStripMenuItem.Click += new System.EventHandler(this.accelerationsToolStripMenuItem_Click);
             // 
             // minimumThicknessToolStripMenuItem
             // 
             this.minimumThicknessToolStripMenuItem.Name = "minimumThicknessToolStripMenuItem";
-            this.minimumThicknessToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.minimumThicknessToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.minimumThicknessToolStripMenuItem.Text = "Minimum thickness";
             this.minimumThicknessToolStripMenuItem.Click += new System.EventHandler(this.minimumThicknessToolStripMenuItem_Click);
             // 
@@ -122,6 +124,13 @@
             this.panelMain.Size = new System.Drawing.Size(788, 712);
             this.panelMain.TabIndex = 20;
             this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
+            // 
+            // shipDataToolStripMenuItem
+            // 
+            this.shipDataToolStripMenuItem.Name = "shipDataToolStripMenuItem";
+            this.shipDataToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.shipDataToolStripMenuItem.Text = "Ship Data";
+            this.shipDataToolStripMenuItem.Click += new System.EventHandler(this.shipDataToolStripMenuItem_Click);
             // 
             // RuleCalc
             // 
@@ -154,6 +163,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutRuleCalcToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accelerationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem minimumThicknessToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem shipDataToolStripMenuItem;
     }
 }
 

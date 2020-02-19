@@ -1,6 +1,6 @@
 ﻿namespace RuleCalc.modules
 {
-    partial class Pressure
+    partial class ShipData
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.tabCpressure = new System.Windows.Forms.TabControl();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.saveBT = new System.Windows.Forms.Button();
-            this.calculateBT = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.frTB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -81,72 +76,9 @@
             this.CbTB = new System.Windows.Forms.TextBox();
             this.labelCb = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dgvDeleteSP = new System.Windows.Forms.DataGridView();
-            this.loadDataSP = new System.Windows.Forms.Button();
-            this.saveCalcSP = new System.Windows.Forms.Button();
-            this.newCalcPoint = new System.Windows.Forms.Button();
-            this.dgvNames = new System.Windows.Forms.DataGridView();
-            this.Info = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonTEST = new System.Windows.Forms.Button();
-            this.dgvCalculateSP = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.tabCpressure.SuspendLayout();
-            this.tabPage6.SuspendLayout();
             this.groupBox10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteSP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNames)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCalculateSP)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tabCpressure
-            // 
-            this.tabCpressure.Controls.Add(this.tabPage6);
-            this.tabCpressure.Controls.Add(this.tabPage1);
-            this.tabCpressure.Controls.Add(this.tabPage2);
-            this.tabCpressure.Controls.Add(this.tabPage3);
-            this.tabCpressure.Controls.Add(this.tabPage4);
-            this.tabCpressure.Location = new System.Drawing.Point(12, 12);
-            this.tabCpressure.Name = "tabCpressure";
-            this.tabCpressure.SelectedIndex = 0;
-            this.tabCpressure.Size = new System.Drawing.Size(651, 694);
-            this.tabCpressure.TabIndex = 19;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.saveBT);
-            this.tabPage6.Controls.Add(this.calculateBT);
-            this.tabPage6.Controls.Add(this.groupBox10);
-            this.tabPage6.Controls.Add(this.pictureBox1);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(643, 668);
-            this.tabPage6.TabIndex = 2;
-            this.tabPage6.Text = "Ship data";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // saveBT
-            // 
-            this.saveBT.Location = new System.Drawing.Point(328, 596);
-            this.saveBT.Name = "saveBT";
-            this.saveBT.Size = new System.Drawing.Size(108, 23);
-            this.saveBT.TabIndex = 96;
-            this.saveBT.Text = "Save to XML";
-            this.saveBT.UseVisualStyleBackColor = true;
-            // 
-            // calculateBT
-            // 
-            this.calculateBT.Location = new System.Drawing.Point(247, 596);
-            this.calculateBT.Name = "calculateBT";
-            this.calculateBT.Size = new System.Drawing.Size(75, 23);
-            this.calculateBT.TabIndex = 95;
-            this.calculateBT.Text = "Calculate";
-            this.calculateBT.UseVisualStyleBackColor = true;
             // 
             // groupBox10
             // 
@@ -197,10 +129,10 @@
             this.groupBox10.Controls.Add(this.CbTB);
             this.groupBox10.Controls.Add(this.labelCb);
             this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox10.Location = new System.Drawing.Point(23, 189);
+            this.groupBox10.Location = new System.Drawing.Point(41, 251);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(593, 391);
-            this.groupBox10.TabIndex = 91;
+            this.groupBox10.TabIndex = 93;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Ship data";
             // 
@@ -262,7 +194,6 @@
             this.saCB.Name = "saCB";
             this.saCB.Size = new System.Drawing.Size(141, 23);
             this.saCB.TabIndex = 11;
-            this.toolTip.SetToolTip(this.saCB, "reduction factor related to service restrictions ");
             this.saCB.SelectedValueChanged += new System.EventHandler(this.saCB_SelectedValueChanged);
             this.saCB.TextChanged += new System.EventHandler(this.updateForSave);
             // 
@@ -285,7 +216,6 @@
             this.BTB.TabIndex = 3;
             this.BTB.TextChanged += new System.EventHandler(this.updateForSave);
             this.BTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verifyInput);
-            this.BTB.Leave += new System.EventHandler(this.BTB_Leave);
             // 
             // LppTB
             // 
@@ -682,256 +612,80 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::RuleCalc.Properties.Resources.ship_data;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 17);
+            this.pictureBox1.Location = new System.Drawing.Point(41, 79);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(593, 166);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 47;
+            this.pictureBox1.TabIndex = 92;
             this.pictureBox1.TabStop = false;
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.dgvDeleteSP);
-            this.tabPage1.Controls.Add(this.loadDataSP);
-            this.tabPage1.Controls.Add(this.saveCalcSP);
-            this.tabPage1.Controls.Add(this.newCalcPoint);
-            this.tabPage1.Controls.Add(this.dgvNames);
-            this.tabPage1.Controls.Add(this.buttonTEST);
-            this.tabPage1.Controls.Add(this.dgvCalculateSP);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(643, 668);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Sea Pressure";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // dgvDeleteSP
-            // 
-            this.dgvDeleteSP.AllowUserToAddRows = false;
-            this.dgvDeleteSP.AllowUserToDeleteRows = false;
-            this.dgvDeleteSP.AllowUserToResizeColumns = false;
-            this.dgvDeleteSP.AllowUserToResizeRows = false;
-            this.dgvDeleteSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDeleteSP.ColumnHeadersVisible = false;
-            this.dgvDeleteSP.Location = new System.Drawing.Point(132, 560);
-            this.dgvDeleteSP.MultiSelect = false;
-            this.dgvDeleteSP.Name = "dgvDeleteSP";
-            this.dgvDeleteSP.RowHeadersVisible = false;
-            this.dgvDeleteSP.Size = new System.Drawing.Size(454, 44);
-            this.dgvDeleteSP.TabIndex = 27;
-            this.dgvDeleteSP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeleteSP_CellClick);
-            this.dgvDeleteSP.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgvDeleteSP_Scroll);
-            // 
-            // loadDataSP
-            // 
-            this.loadDataSP.Location = new System.Drawing.Point(6, 589);
-            this.loadDataSP.Name = "loadDataSP";
-            this.loadDataSP.Size = new System.Drawing.Size(120, 23);
-            this.loadDataSP.TabIndex = 25;
-            this.loadDataSP.Text = "Load saved data";
-            this.loadDataSP.UseVisualStyleBackColor = true;
-            this.loadDataSP.Click += new System.EventHandler(this.loadDataSP_Click);
-            // 
-            // saveCalcSP
-            // 
-            this.saveCalcSP.Location = new System.Drawing.Point(6, 618);
-            this.saveCalcSP.Name = "saveCalcSP";
-            this.saveCalcSP.Size = new System.Drawing.Size(120, 44);
-            this.saveCalcSP.TabIndex = 24;
-            this.saveCalcSP.Text = "Save Sea Pressure data";
-            this.saveCalcSP.UseVisualStyleBackColor = true;
-            this.saveCalcSP.Click += new System.EventHandler(this.saveCalcSP_Click);
-            // 
-            // newCalcPoint
-            // 
-            this.newCalcPoint.Location = new System.Drawing.Point(6, 560);
-            this.newCalcPoint.Name = "newCalcPoint";
-            this.newCalcPoint.Size = new System.Drawing.Size(120, 23);
-            this.newCalcPoint.TabIndex = 23;
-            this.newCalcPoint.Text = "New calculating point";
-            this.newCalcPoint.UseVisualStyleBackColor = true;
-            this.newCalcPoint.Click += new System.EventHandler(this.newCalcPoint_Click);
-            // 
-            // dgvNames
-            // 
-            this.dgvNames.AllowUserToAddRows = false;
-            this.dgvNames.AllowUserToDeleteRows = false;
-            this.dgvNames.AllowUserToResizeColumns = false;
-            this.dgvNames.AllowUserToResizeRows = false;
-            this.dgvNames.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNames.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Info});
-            this.dgvNames.Location = new System.Drawing.Point(6, 6);
-            this.dgvNames.MultiSelect = false;
-            this.dgvNames.Name = "dgvNames";
-            this.dgvNames.ReadOnly = true;
-            this.dgvNames.RowHeadersVisible = false;
-            this.dgvNames.Size = new System.Drawing.Size(120, 548);
-            this.dgvNames.TabIndex = 22;
-            this.dgvNames.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgvNames_Scroll);
-            // 
-            // Info
-            // 
-            this.Info.Frozen = true;
-            this.Info.HeaderText = "Info";
-            this.Info.Name = "Info";
-            this.Info.ReadOnly = true;
-            this.Info.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // buttonTEST
-            // 
-            this.buttonTEST.Location = new System.Drawing.Point(511, 629);
-            this.buttonTEST.Name = "buttonTEST";
-            this.buttonTEST.Size = new System.Drawing.Size(75, 23);
-            this.buttonTEST.TabIndex = 21;
-            this.buttonTEST.Text = "buttonTest";
-            this.buttonTEST.UseVisualStyleBackColor = true;
-            this.buttonTEST.Click += new System.EventHandler(this.buttonTest_Click);
-            // 
-            // dgvCalculateSP
-            // 
-            this.dgvCalculateSP.AllowUserToAddRows = false;
-            this.dgvCalculateSP.AllowUserToDeleteRows = false;
-            this.dgvCalculateSP.AllowUserToResizeColumns = false;
-            this.dgvCalculateSP.AllowUserToResizeRows = false;
-            this.dgvCalculateSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCalculateSP.Location = new System.Drawing.Point(132, 6);
-            this.dgvCalculateSP.MultiSelect = false;
-            this.dgvCalculateSP.Name = "dgvCalculateSP";
-            this.dgvCalculateSP.RowHeadersVisible = false;
-            this.dgvCalculateSP.Size = new System.Drawing.Size(454, 548);
-            this.dgvCalculateSP.TabIndex = 19;
-            this.dgvCalculateSP.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCalculateSP_CellEndEdit);
-            this.dgvCalculateSP.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvCalculateSP_CellFormatting);
-            this.dgvCalculateSP.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvCheck_EditingControlShowing);
-            this.dgvCalculateSP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvCheck_KeyPress);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(643, 668);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Tanks Pressure";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(643, 668);
-            this.tabPage3.TabIndex = 3;
-            this.tabPage3.Text = "Deck Pressure";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(643, 668);
-            this.tabPage4.TabIndex = 4;
-            this.tabPage4.Text = "Deckhouse Pressure";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // toolTip
-            // 
-            this.toolTip.AutoPopDelay = 5000;
-            this.toolTip.InitialDelay = 1;
-            this.toolTip.IsBalloon = true;
-            this.toolTip.ReshowDelay = 100;
-            this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            // 
-            // Pressure
+            // ShipData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(675, 720);
-            this.Controls.Add(this.tabCpressure);
+            this.Controls.Add(this.groupBox10);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Pressure";
-            this.Text = "Pressure";
-            this.Load += new System.EventHandler(this.Pressure_Load);
-            this.tabCpressure.ResumeLayout(false);
-            this.tabPage6.ResumeLayout(false);
+            this.Name = "ShipData";
+            this.Text = "ShipData";
+            this.Load += new System.EventHandler(this.ShipData_Load);
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteSP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNames)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCalculateSP)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabCpressure;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox LTB;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox LppTB;
-        private System.Windows.Forms.TextBox BTB;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.TextBox frTB;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox bkCB;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.ComboBox saCB;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox BTB;
+        private System.Windows.Forms.TextBox LppTB;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.TextBox LTB;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.TextBox krTB;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox gmTB;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label labelCb;
-        private System.Windows.Forms.TextBox CbTB;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox DTB;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox TscTB;
+        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox DTB;
         private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox TbalTB;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.ToolTip toolTip;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.TextBox gmTB;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.TextBox krTB;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Button saveBT;
-        private System.Windows.Forms.Button calculateBT;
-        private System.Windows.Forms.ComboBox saCB;
-        private System.Windows.Forms.DataGridView dgvNames;
-        private System.Windows.Forms.Button buttonTEST;
-        private System.Windows.Forms.DataGridView dgvCalculateSP;
-        private System.Windows.Forms.Button newCalcPoint;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.ComboBox bkCB;
-        private System.Windows.Forms.Button saveCalcSP;
-        private System.Windows.Forms.Button loadDataSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Info;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dgvDeleteSP;
-        private System.Windows.Forms.TextBox frTB;
+        private System.Windows.Forms.TextBox CbTB;
+        private System.Windows.Forms.Label labelCb;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

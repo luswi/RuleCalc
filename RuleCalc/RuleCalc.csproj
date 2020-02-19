@@ -79,6 +79,12 @@
     <Compile Include="modules\MinimumThickness.Designer.cs">
       <DependentUpon>MinimumThickness.cs</DependentUpon>
     </Compile>
+    <Compile Include="modules\ShipData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modules\ShipData.Designer.cs">
+      <DependentUpon>ShipData.cs</DependentUpon>
+    </Compile>
     <Compile Include="RuleCalc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="modules\MinimumThickness.resx">
       <DependentUpon>MinimumThickness.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modules\ShipData.resx">
+      <DependentUpon>ShipData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RuleCalc.resx">
       <DependentUpon>RuleCalc.cs</DependentUpon>

@@ -104,6 +104,8 @@ namespace RuleCalc.modules
                 saCB.Text = info.saData;
                 bkCB.Text = info.bkData;
             }
+            // hide ship data
+            tabCpressure.TabPages.Remove(tabPage6);
             //remove scrollbar from dgvCalculateSP table
             dgvCalculateSP.ScrollBars = ScrollBars.None;
             //load data into dgvNames
@@ -192,6 +194,9 @@ namespace RuleCalc.modules
             RowsBold();
             HideRows();
         }
+
+
+
         //------------
         // combobox
         //------------
