@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabCpressure = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.saveBT = new System.Windows.Forms.Button();
@@ -90,8 +95,15 @@
             this.Info = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonTEST = new System.Windows.Forms.Button();
             this.dgvCalculateSP = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.loadDataWD = new System.Windows.Forms.Button();
+            this.saveCalcWD = new System.Windows.Forms.Button();
+            this.newCalcPointWD = new System.Windows.Forms.Button();
+            this.dgvDeleteWD = new System.Windows.Forms.DataGridView();
+            this.dgvCalculateWD = new System.Windows.Forms.DataGridView();
+            this.dgvNamesWD = new System.Windows.Forms.DataGridView();
+            this.InfoWD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tabCpressure.SuspendLayout();
@@ -102,14 +114,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteSP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNames)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCalculateSP)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteWD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCalculateWD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNamesWD)).BeginInit();
             this.SuspendLayout();
             // 
             // tabCpressure
             // 
             this.tabCpressure.Controls.Add(this.tabPage6);
             this.tabCpressure.Controls.Add(this.tabPage1);
-            this.tabCpressure.Controls.Add(this.tabPage2);
             this.tabCpressure.Controls.Add(this.tabPage3);
+            this.tabCpressure.Controls.Add(this.tabPage2);
             this.tabCpressure.Controls.Add(this.tabPage4);
             this.tabCpressure.Location = new System.Drawing.Point(12, 12);
             this.tabCpressure.Name = "tabCpressure";
@@ -712,13 +728,17 @@
             this.dgvDeleteSP.AllowUserToDeleteRows = false;
             this.dgvDeleteSP.AllowUserToResizeColumns = false;
             this.dgvDeleteSP.AllowUserToResizeRows = false;
+            this.dgvDeleteSP.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvDeleteSP.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvDeleteSP.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvDeleteSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDeleteSP.ColumnHeadersVisible = false;
+            this.dgvDeleteSP.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvDeleteSP.Location = new System.Drawing.Point(132, 560);
             this.dgvDeleteSP.MultiSelect = false;
             this.dgvDeleteSP.Name = "dgvDeleteSP";
             this.dgvDeleteSP.RowHeadersVisible = false;
-            this.dgvDeleteSP.Size = new System.Drawing.Size(454, 44);
+            this.dgvDeleteSP.Size = new System.Drawing.Size(505, 44);
             this.dgvDeleteSP.TabIndex = 27;
             this.dgvDeleteSP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeleteSP_CellClick);
             this.dgvDeleteSP.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgvDeleteSP_Scroll);
@@ -759,14 +779,29 @@
             this.dgvNames.AllowUserToDeleteRows = false;
             this.dgvNames.AllowUserToResizeColumns = false;
             this.dgvNames.AllowUserToResizeRows = false;
-            this.dgvNames.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNames.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvNames.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvNames.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNames.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvNames.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvNames.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Info});
+            this.dgvNames.EnableHeadersVisualStyles = false;
+            this.dgvNames.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvNames.Location = new System.Drawing.Point(6, 6);
             this.dgvNames.MultiSelect = false;
             this.dgvNames.Name = "dgvNames";
             this.dgvNames.ReadOnly = true;
+            this.dgvNames.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvNames.RowHeadersVisible = false;
+            this.dgvNames.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvNames.Size = new System.Drawing.Size(120, 548);
             this.dgvNames.TabIndex = 22;
             this.dgvNames.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgvNames_Scroll);
@@ -795,17 +830,179 @@
             this.dgvCalculateSP.AllowUserToDeleteRows = false;
             this.dgvCalculateSP.AllowUserToResizeColumns = false;
             this.dgvCalculateSP.AllowUserToResizeRows = false;
-            this.dgvCalculateSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCalculateSP.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvCalculateSP.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCalculateSP.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCalculateSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCalculateSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvCalculateSP.EnableHeadersVisualStyles = false;
+            this.dgvCalculateSP.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvCalculateSP.Location = new System.Drawing.Point(132, 6);
             this.dgvCalculateSP.MultiSelect = false;
             this.dgvCalculateSP.Name = "dgvCalculateSP";
+            this.dgvCalculateSP.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvCalculateSP.RowHeadersVisible = false;
-            this.dgvCalculateSP.Size = new System.Drawing.Size(454, 548);
+            this.dgvCalculateSP.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvCalculateSP.Size = new System.Drawing.Size(505, 548);
             this.dgvCalculateSP.TabIndex = 19;
             this.dgvCalculateSP.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCalculateSP_CellEndEdit);
             this.dgvCalculateSP.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvCalculateSP_CellFormatting);
             this.dgvCalculateSP.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvCheck_EditingControlShowing);
             this.dgvCalculateSP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvCheck_KeyPress);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.loadDataWD);
+            this.tabPage3.Controls.Add(this.saveCalcWD);
+            this.tabPage3.Controls.Add(this.newCalcPointWD);
+            this.tabPage3.Controls.Add(this.dgvDeleteWD);
+            this.tabPage3.Controls.Add(this.dgvCalculateWD);
+            this.tabPage3.Controls.Add(this.dgvNamesWD);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(643, 668);
+            this.tabPage3.TabIndex = 3;
+            this.tabPage3.Text = "Weatherdeck";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // loadDataWD
+            // 
+            this.loadDataWD.Location = new System.Drawing.Point(6, 589);
+            this.loadDataWD.Name = "loadDataWD";
+            this.loadDataWD.Size = new System.Drawing.Size(120, 23);
+            this.loadDataWD.TabIndex = 27;
+            this.loadDataWD.Text = "Load saved data";
+            this.loadDataWD.UseVisualStyleBackColor = true;
+            this.loadDataWD.Click += new System.EventHandler(this.loadDataWD_Click);
+            // 
+            // saveCalcWD
+            // 
+            this.saveCalcWD.Location = new System.Drawing.Point(6, 618);
+            this.saveCalcWD.Name = "saveCalcWD";
+            this.saveCalcWD.Size = new System.Drawing.Size(120, 44);
+            this.saveCalcWD.TabIndex = 26;
+            this.saveCalcWD.Text = "Save Weatherdeck data";
+            this.saveCalcWD.UseVisualStyleBackColor = true;
+            this.saveCalcWD.Click += new System.EventHandler(this.saveCalcWD_Click);
+            // 
+            // newCalcPointWD
+            // 
+            this.newCalcPointWD.Location = new System.Drawing.Point(6, 560);
+            this.newCalcPointWD.Name = "newCalcPointWD";
+            this.newCalcPointWD.Size = new System.Drawing.Size(120, 23);
+            this.newCalcPointWD.TabIndex = 24;
+            this.newCalcPointWD.Text = "New calculating point";
+            this.newCalcPointWD.UseVisualStyleBackColor = true;
+            this.newCalcPointWD.Click += new System.EventHandler(this.newCalcPointWD_Click);
+            // 
+            // dgvDeleteWD
+            // 
+            this.dgvDeleteWD.AllowUserToAddRows = false;
+            this.dgvDeleteWD.AllowUserToDeleteRows = false;
+            this.dgvDeleteWD.AllowUserToResizeColumns = false;
+            this.dgvDeleteWD.AllowUserToResizeRows = false;
+            this.dgvDeleteWD.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvDeleteWD.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvDeleteWD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDeleteWD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvDeleteWD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvDeleteWD.ColumnHeadersVisible = false;
+            this.dgvDeleteWD.EnableHeadersVisualStyles = false;
+            this.dgvDeleteWD.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvDeleteWD.Location = new System.Drawing.Point(132, 560);
+            this.dgvDeleteWD.Name = "dgvDeleteWD";
+            this.dgvDeleteWD.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvDeleteWD.RowHeadersVisible = false;
+            this.dgvDeleteWD.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvDeleteWD.Size = new System.Drawing.Size(508, 44);
+            this.dgvDeleteWD.TabIndex = 2;
+            this.dgvDeleteWD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeleteWD_CellClick);
+            this.dgvDeleteWD.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgvDeleteWD_Scroll);
+            // 
+            // dgvCalculateWD
+            // 
+            this.dgvCalculateWD.AllowUserToAddRows = false;
+            this.dgvCalculateWD.AllowUserToDeleteRows = false;
+            this.dgvCalculateWD.AllowUserToResizeColumns = false;
+            this.dgvCalculateWD.AllowUserToResizeRows = false;
+            this.dgvCalculateWD.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvCalculateWD.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCalculateWD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCalculateWD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvCalculateWD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvCalculateWD.EnableHeadersVisualStyles = false;
+            this.dgvCalculateWD.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvCalculateWD.Location = new System.Drawing.Point(132, 6);
+            this.dgvCalculateWD.Name = "dgvCalculateWD";
+            this.dgvCalculateWD.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvCalculateWD.RowHeadersVisible = false;
+            this.dgvCalculateWD.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvCalculateWD.Size = new System.Drawing.Size(508, 548);
+            this.dgvCalculateWD.TabIndex = 1;
+            this.dgvCalculateWD.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvCheckWD_EditingControlShowing);
+            this.dgvCalculateWD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvCheck_KeyPress);
+            // 
+            // dgvNamesWD
+            // 
+            this.dgvNamesWD.AllowUserToAddRows = false;
+            this.dgvNamesWD.AllowUserToDeleteRows = false;
+            this.dgvNamesWD.AllowUserToResizeColumns = false;
+            this.dgvNamesWD.AllowUserToResizeRows = false;
+            this.dgvNamesWD.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvNamesWD.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvNamesWD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNamesWD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvNamesWD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvNamesWD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.InfoWD});
+            this.dgvNamesWD.EnableHeadersVisualStyles = false;
+            this.dgvNamesWD.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvNamesWD.Location = new System.Drawing.Point(6, 6);
+            this.dgvNamesWD.MultiSelect = false;
+            this.dgvNamesWD.Name = "dgvNamesWD";
+            this.dgvNamesWD.ReadOnly = true;
+            this.dgvNamesWD.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvNamesWD.RowHeadersVisible = false;
+            this.dgvNamesWD.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvNamesWD.Size = new System.Drawing.Size(120, 548);
+            this.dgvNamesWD.TabIndex = 0;
+            this.dgvNamesWD.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgvNamesWD_Scroll);
+            // 
+            // InfoWD
+            // 
+            this.InfoWD.Frozen = true;
+            this.InfoWD.HeaderText = "Info";
+            this.InfoWD.Name = "InfoWD";
+            this.InfoWD.ReadOnly = true;
+            this.InfoWD.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // tabPage2
             // 
@@ -816,15 +1013,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tanks Pressure";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(643, 668);
-            this.tabPage3.TabIndex = 3;
-            this.tabPage3.Text = "Deck Pressure";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
@@ -862,6 +1050,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteSP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNames)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCalculateSP)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteWD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCalculateWD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNamesWD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -933,5 +1125,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvDeleteSP;
         private System.Windows.Forms.TextBox frTB;
+        private System.Windows.Forms.DataGridView dgvDeleteWD;
+        private System.Windows.Forms.DataGridView dgvCalculateWD;
+        private System.Windows.Forms.DataGridView dgvNamesWD;
+        private System.Windows.Forms.Button loadDataWD;
+        private System.Windows.Forms.Button saveCalcWD;
+        private System.Windows.Forms.Button newCalcPointWD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InfoWD;
     }
 }

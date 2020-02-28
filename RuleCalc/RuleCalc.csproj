@@ -67,6 +67,7 @@
     <Compile Include="classes\Information.cs" />
     <Compile Include="classes\SaveXML.cs" />
     <Compile Include="classes\pressureClass.cs" />
+    <Compile Include="classes\WeatherDeck.cs" />
     <Compile Include="modules\Accelerations.cs">
       <SubType>Form</SubType>
     </Compile>

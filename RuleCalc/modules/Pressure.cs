@@ -108,6 +108,7 @@ namespace RuleCalc.modules
             tabCpressure.TabPages.Remove(tabPage6);
             //remove scrollbar from dgvCalculateSP table
             dgvCalculateSP.ScrollBars = ScrollBars.None;
+            dgvCalculateWD.ScrollBars = ScrollBars.None;
             //load data into dgvNames
             // Plate informations
             dgvNames.Rows.Add("Plate");
@@ -186,13 +187,117 @@ namespace RuleCalc.modules
             dgvNames.Rows.Add("for ϕw <= 75°");
             dgvNames.Rows.Add("fshr");
 
+            // load data into WeatherDeck TAB
+            dgvNamesWD.Rows.Add("General properties");
+            dgvNamesWD.Rows.Add("Lll");
+            dgvNamesWD.Rows.Add("Plate");
+            dgvNamesWD.Rows.Add("x [m] load point");
+            dgvNamesWD.Rows.Add("y [m] load point");
+            dgvNamesWD.Rows.Add("z [m] load point");
+            dgvNamesWD.Rows.Add("Zdk [m]");
+            dgvNamesWD.Rows.Add("Bx [m]");
+            dgvNamesWD.Rows.Add("Zfdk [m]");
+            dgvNamesWD.Rows.Add("R_eH [MPa]");
+            dgvNamesWD.Rows.Add("b [mm]");
+            dgvNamesWD.Rows.Add("a [mm] (EPP Length]");
+            dgvNamesWD.Rows.Add("Alpha (aspect ratio)");
+            dgvNamesWD.Rows.Add("tc plate [mm]");
+            dgvNamesWD.Rows.Add("P [MPa]");
+            dgvNamesWD.Rows.Add("t req (GROSS) [mm]");
+            dgvNamesWD.Rows.Add("Plate thickness (GROSS) [mm]");
+            dgvNamesWD.Rows.Add("th. status");
+            dgvNamesWD.Rows.Add("Slenderness status");
+            // Stiffeners informations
+            dgvNamesWD.Rows.Add("Stiffener");
+            dgvNamesWD.Rows.Add("x [m] load point");
+            dgvNamesWD.Rows.Add("xll [m] load point");
+            dgvNamesWD.Rows.Add("y [m] load point");
+            dgvNamesWD.Rows.Add("z [m] load point");
+            dgvNamesWD.Rows.Add("Zdk [m]");
+            dgvNamesWD.Rows.Add("Bx");
+            dgvNamesWD.Rows.Add("Zfdk [m]");
+            dgvNamesWD.Rows.Add("lbdg [m] (Stiffener bending span)");
+            dgvNamesWD.Rows.Add("s [mm] (stiffener spacing)");
+            dgvNamesWD.Rows.Add("f_u");
+            dgvNamesWD.Rows.Add("f_bdg");
+            dgvNamesWD.Rows.Add("R_eH [MPa]");
+            dgvNamesWD.Rows.Add("dshr [mm]");
+            dgvNamesWD.Rows.Add("hstif (GROSS) [mm]");
+            dgvNamesWD.Rows.Add("tp [mm]");
+            dgvNamesWD.Rows.Add("ϕw [deg]");
+            dgvNamesWD.Rows.Add("lshr [m]");
+            dgvNamesWD.Rows.Add("fshr");
+            dgvNamesWD.Rows.Add("ΤeH [MPa]");
+            dgvNamesWD.Rows.Add("tc stiffener (total) [mm]");
+            dgvNamesWD.Rows.Add("P [MPa]");
+            dgvNamesWD.Rows.Add("t req (GROSS) [mm]");
+            dgvNamesWD.Rows.Add("Web thickness (GROSS) [mm]");
+            dgvNamesWD.Rows.Add("th. status");
+            dgvNamesWD.Rows.Add("Slenderness status");
+            dgvNamesWD.Rows.Add("zreq NET");
+            dgvNamesWD.Rows.Add("Flange width (GROSS) [mm]");
+            dgvNamesWD.Rows.Add("Flange thickness (GROSS) [mm]");
+            dgvNamesWD.Rows.Add("Z [cm^3] (NET)");
+            dgvNamesWD.Rows.Add("Z status");
+            //Intermediate informations
+            dgvNamesWD.Rows.Add("Intermediate values");
+            dgvNamesWD.Rows.Add("xll load point");
+            dgvNamesWD.Rows.Add("X’ (plate) [m]");
+            dgvNamesWD.Rows.Add("X’ (stiff) [m]");
+            dgvNamesWD.Rows.Add("c");
+            dgvNamesWD.Rows.Add("χ (plate)");
+            dgvNamesWD.Rows.Add("χ (stiffener)");
+            dgvNamesWD.Rows.Add("χ (stiffener)");
+            dgvNamesWD.Rows.Add("PD-min (plate)");
+            dgvNamesWD.Rows.Add("PD-min (stiffener)");
+            dgvNamesWD.Rows.Add("fyB (plate)");
+            dgvNamesWD.Rows.Add("fyB(stiffener)");
+            dgvNamesWD.Rows.Add("fyz (plate)");
+            dgvNamesWD.Rows.Add("fyz (stiffener)");
+            dgvNamesWD.Rows.Add("fxL (plate)");
+            dgvNamesWD.Rows.Add("fxL (stiffeners)");
+            dgvNamesWD.Rows.Add("f_3");
+            dgvNamesWD.Rows.Add("f_4 (based on f_xl, plate)");
+            dgvNamesWD.Rows.Add("f_4 (stiffners on f_xl, stiffeners)");
+            dgvNamesWD.Rows.Add("f_5 (plate)");
+            dgvNamesWD.Rows.Add("f_5 (stiffners)");
+            dgvNamesWD.Rows.Add("Cw");
+            dgvNamesWD.Rows.Add("Pwd (plate) HS [MPa]");
+            dgvNamesWD.Rows.Add("Pwd (plate) BS [MPa]");
+            dgvNamesWD.Rows.Add("Pwd (plate) BS linear [MPa]");
+            dgvNamesWD.Rows.Add("Pwd (stiffener) HS [MPa]");
+            dgvNamesWD.Rows.Add("Pwd (stiffener) BS [MPa]");
+            dgvNamesWD.Rows.Add("Pwd (stiffener) BS linear [MPa]");
+            dgvNamesWD.Rows.Add("P_ENV - HS (plate) [MPa]");
+            dgvNamesWD.Rows.Add("P_ENV - BS (plate) [MPa]");
+            dgvNamesWD.Rows.Add("P_ENV - HS (stiffener) [MPa]");
+            dgvNamesWD.Rows.Add("P_ENV - BS (stiffener) [MPa]");
+            //For linear calculations
+            dgvNamesWD.Rows.Add("Linear calc");
+            dgvNamesWD.Rows.Add("B/2 (Plate) [m]");
+            dgvNamesWD.Rows.Add("B/B (Plate) [m]");
+            dgvNamesWD.Rows.Add("Pwd (plate) BS [MPa]");
+            dgvNamesWD.Rows.Add("0.5*Pwd [MPa]");
+            dgvNamesWD.Rows.Add("Pwd at point [MPa]");
+            dgvNamesWD.Rows.Add("B/2 (stiffener) [m]");
+            dgvNamesWD.Rows.Add("B/B (Plate) [m]");
+            dgvNamesWD.Rows.Add("Pwd (plate) BS [MPa]");
+            dgvNamesWD.Rows.Add("0.5*Pwd [MPa]");
+            dgvNamesWD.Rows.Add("Pwd at point [MPa]");
+
+            dgvNamesWD.Rows.Add("for 75° <= ϕw <= 90°");
+            dgvNamesWD.Rows.Add("for ϕw <= 75°");
+
             //clear selected 1st row
             dgvNames[0, 1].Selected = true;
             dgvNames.ClearSelection();
+            dgvNamesWD[0, 1].Selected = true;
+            dgvNamesWD.ClearSelection();
             //color and bold fonts/ceels
             RowsColorNames();
             RowsBold();
             HideRows();
+
         }
 
 
@@ -237,6 +342,41 @@ namespace RuleCalc.modules
 
                 }
             }
+            for (int i = 0; i < dgvCalculateWD.ColumnCount; i++)
+            {
+                // f_u
+                DataGridViewComboBoxCell f_u = new DataGridViewComboBoxCell();
+
+                if ((string)dgvCalculateWD.Rows[22].Cells[i].Value == null)
+                {
+                    f_u.Items.Add("1");
+                    f_u.Items.Add("1.03");
+                    f_u.Items.Add("1.15");
+                    dgvCalculateWD.Rows[22].Cells[i] = f_u;
+                }
+                // f_bdg
+                DataGridViewComboBoxCell f_bdg = new DataGridViewComboBoxCell();
+
+                if ((string)dgvCalculateWD.Rows[23].Cells[i].Value == null)
+                {
+                    f_bdg.Items.Add("8");
+                    f_bdg.Items.Add("10");
+                    f_bdg.Items.Add("12");
+                    dgvCalculateWD.Rows[23].Cells[i] = f_bdg;
+
+                }
+                // fshr
+                DataGridViewComboBoxCell fshr = new DataGridViewComboBoxCell();
+
+                if ((string)dgvCalculateWD.Rows[30].Cells[i].Value == null)
+                {
+                    fshr.Items.Add("Upper end of vertical stiffeners");
+                    fshr.Items.Add("Lower end of vertical stiffeners");
+                    fshr.Items.Add("General");
+                    dgvCalculateWD.Rows[30].Cells[i] = fshr;
+
+                }
+            }
         }
         //--------------------------------
         // color rows depends from group
@@ -277,6 +417,52 @@ namespace RuleCalc.modules
                 else
                 {
                     dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.Azure;
+                }
+            
+            }
+            // for weatherDeck
+            for (int j = 0; j < dgvNamesWD.Rows.Count; j++)
+            {
+                if (j == 0) // General properties
+                {
+                    dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
+                }
+                else if (j == 2) // plate
+                {
+                    dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
+                }
+                else if (j > 13 & j < 16)
+                {
+                    dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.PaleTurquoise;
+                }
+                else if (j == 19) // stiffener
+                {
+                    dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
+                }
+
+                else if (j > 39 & j < 42)
+                {
+                    dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.PaleTurquoise;
+                }
+                else if (j == 45)
+                {
+                    dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.PaleTurquoise;
+                }
+                else if (j == 48)
+                {
+                    dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.PaleTurquoise;
+                }
+                else if (j == 50) // intermediate
+                {
+                    dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
+                }
+                else if (j == 82) // linear calc
+                {
+                    dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
+                }
+                else
+                {
+                    dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.Azure;
                 }
             }
         }
@@ -347,6 +533,57 @@ namespace RuleCalc.modules
                 {
                     dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.Azure;
                 }
+            
+            }
+            // for weatherDeck
+            for (int j = 0; j < dgvCalculateWD.Rows.Count; j++)
+            {
+                if (j == 0) // General properties
+                {
+                    dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
+                    dgvCalculateWD.Rows[j].ReadOnly = true;
+                }
+                else if (j == 2) // plate
+                {
+                    dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
+                    dgvCalculateWD.Rows[j].ReadOnly = true;
+                }
+                else if (j > 13 & j < 16)
+                {
+                    dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.PaleTurquoise;
+                }
+                else if (j == 19) // stiffener
+                {
+                    dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
+                    dgvCalculateWD.Rows[j].ReadOnly = true;
+                }
+
+                else if (j > 39 & j < 42)
+                {
+                    dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.PaleTurquoise;
+                }
+                else if (j == 45)
+                {
+                    dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.PaleTurquoise;
+                }
+                else if (j == 48)
+                {
+                    dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.PaleTurquoise;
+                }
+                else if (j == 50) // intermediate
+                {
+                    dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
+                    dgvCalculateWD.Rows[j].ReadOnly = true;
+                }
+                else if (j == 82) // linear calc
+                {
+                    dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
+                    dgvCalculateWD.Rows[j].ReadOnly = true;
+                }
+                else
+                {
+                    dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.Azure;
+                }
             }
         }
         //---------------------
@@ -380,17 +617,14 @@ namespace RuleCalc.modules
         public void RowsBold()
         {
             dgvNames.Rows[0].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            //dgvNames.Rows[10].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            //dgvNames.Rows[11].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            //dgvNames.Rows[13].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            //dgvNames.Rows[14].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
             dgvNames.Rows[15].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            //dgvNames.Rows[33].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            //dgvNames.Rows[34].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
             dgvNames.Rows[43].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            //dgvNames.Rows[36].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            //dgvNames.Rows[37].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
-            //dgvNames.Rows[42].Cells[0].Style.Font = new Font(dgvNames.Font, FontStyle.Bold);
+            //weather deck
+            dgvNamesWD.Rows[0].Cells[0].Style.Font = new Font(dgvNamesWD.Font, FontStyle.Bold);
+            dgvNamesWD.Rows[2].Cells[0].Style.Font = new Font(dgvNamesWD.Font, FontStyle.Bold);
+            dgvNamesWD.Rows[19].Cells[0].Style.Font = new Font(dgvNamesWD.Font, FontStyle.Bold);
+            dgvNamesWD.Rows[50].Cells[0].Style.Font = new Font(dgvNamesWD.Font, FontStyle.Bold);
+            dgvNamesWD.Rows[82].Cells[0].Style.Font = new Font(dgvNamesWD.Font, FontStyle.Bold);
 
             for (int i = 0; i < dgvNames.Rows.Count; i++)
             {
@@ -434,9 +668,9 @@ namespace RuleCalc.modules
             saSave = saCB.Text;
             bkSave = bkCB.Text;
         }
-        //---------------------------------------
-        // Add new column for calculating point
-        //---------------------------------------
+        //--------------------------------------------
+        // Add new column for calculating point [SEA]
+        //--------------------------------------------
         private void newCalcPoint_Click(object sender, EventArgs e)
         {
             if (dgvCalculateSP.ColumnCount == 0)
@@ -450,13 +684,18 @@ namespace RuleCalc.modules
                 this.dgvDeleteSP.Rows.Clear();
 
                 dgvCalculateSP.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
+                
                 //----------------------------------
                 // add rows for calculation table
                 //----------------------------------
                 for (int i = 0; i <= 72; i++)
                 {
                     i = dgvCalculateSP.Rows.Add();
+                    
+
                 }
+
+
                 //unselect 1st cell
                 dgvCalculateSP.ClearSelection();
 
@@ -472,11 +711,15 @@ namespace RuleCalc.modules
                 HideRows();
                 RowsColorCalculate();
 
+
+
             }
             else
             {
                 dgvCalculateSP.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
                 dropmenu();
+                   
+
                 var deleteButton = new DataGridViewButtonColumn();
                 deleteButton.Name = "dgvDeleteButton";
                 deleteButton.HeaderText = "Delete";
@@ -484,10 +727,77 @@ namespace RuleCalc.modules
                 deleteButton.UseColumnTextForButtonValue = true;
                 this.dgvDeleteSP.Columns.Add(deleteButton);
             }
+            //---------------------------
+            // block column sort for SEA
+            //---------------------------
+            for (int i = 0; i < dgvCalculateSP.ColumnCount; i++)
+            {
+                dgvCalculateSP.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
-        //---------------------
-        // synchronize 2 grids
-        //---------------------
+        
+        //-----------------------------------------------------
+        // Add new column for calculating point [Weatherdeck]
+        //-----------------------------------------------------
+        private void newCalcPointWD_Click(object sender, EventArgs e)
+        {
+            if (dgvCalculateWD.ColumnCount == 0)
+            {
+                //clear selected 1st row
+
+                // clear datasource to avoid errors after data load
+                this.dgvCalculateWD.DataSource = null;
+                this.dgvCalculateWD.Rows.Clear();
+                this.dgvDeleteWD.DataSource = null;
+                this.dgvDeleteWD.Rows.Clear();
+
+                dgvCalculateWD.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
+                //----------------------------------
+                // add rows for calculation table
+                //----------------------------------
+                for (int i = 0; i <= 94; i++)
+                {
+                    i = dgvCalculateWD.Rows.Add();
+                    
+                }
+                //unselect 1st cell
+                dgvCalculateWD.ClearSelection();
+
+                var deleteButtonWD = new DataGridViewButtonColumn();
+                deleteButtonWD.Name = "dgvDeleteButtonWD";
+                deleteButtonWD.HeaderText = "Delete";
+                deleteButtonWD.Text = "Delete";
+                deleteButtonWD.UseColumnTextForButtonValue = true;
+                this.dgvDeleteWD.Columns.Add(deleteButtonWD);
+                this.dgvDeleteWD.Rows.Add();
+
+                dropmenu();
+                HideRows();
+                RowsColorCalculate();
+
+            }
+            else
+            {
+                dgvCalculateWD.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
+                dropmenu();
+                var deleteButton = new DataGridViewButtonColumn();
+                deleteButton.Name = "dgvDeleteButtonWD";
+                deleteButton.HeaderText = "Delete";
+                deleteButton.Text = "Delete";
+                deleteButton.UseColumnTextForButtonValue = true;
+                this.dgvDeleteWD.Columns.Add(deleteButton);
+            }
+            //-----------------------------------
+            // block column sort for Weatherdeck
+            //-----------------------------------
+            for (int i = 0; i < dgvCalculateWD.ColumnCount; i++)
+            {
+                dgvCalculateWD.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+        }
+        //---------------------------
+        // synchronize 2 grids [SEA]
+        //---------------------------
         private void dgvNames_Scroll(object sender, ScrollEventArgs e)
         {
             if (dgvCalculateSP.Columns.Count != 0)
@@ -496,9 +806,20 @@ namespace RuleCalc.modules
             }
 
         }
-        //----------------------------------------------------------------
-        // DataGridView number and only one "." check IMPORTANT in Events
-        //----------------------------------------------------------------
+        //-----------------------------------
+        // synchronize 2 grids [Weatherdeck]
+        //-----------------------------------
+        private void dgvNamesWD_Scroll(object sender, ScrollEventArgs e)
+        {
+            if (dgvCalculateWD.Columns.Count != 0)
+            {
+                dgvCalculateWD.FirstDisplayedScrollingRowIndex = dgvNamesWD.FirstDisplayedScrollingRowIndex;
+            }
+
+        }
+        //----------------------------------------------------------------------
+        // DataGridView number and only one "." check IMPORTANT in Events [SEA]
+        //----------------------------------------------------------------------
         private void dgvCheck_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             if (dgvCalculateSP.CurrentCell.ColumnIndex == 0)
@@ -506,8 +827,21 @@ namespace RuleCalc.modules
                 e.Control.KeyPress += new KeyPressEventHandler(dgvCheck_KeyPress);
             }
         }
+
+
+        //-------------------------------------------------------------------------------------
+        // DataGridView number and only one "." check IMPORTANT in Events [WeatherDeck]
+        //-------------------------------------------------------------------------------------
+        private void dgvCheckWD_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+
+            if (dgvCalculateWD.CurrentCell.ColumnIndex == 0)
+            {
+                e.Control.KeyPress += new KeyPressEventHandler(dgvCheck_KeyPress);
+            }
+        }
         //----------------------------------------------------------------------------------
-        // DataGridView number and only one "." check (after check remove from Events !!!)
+        // DataGridView number and only one "." check (after check remove from Events !!!) 
         //----------------------------------------------------------------------------------
         private void dgvCheck_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -524,6 +858,8 @@ namespace RuleCalc.modules
 
 
         }
+
+
 
 
 
@@ -602,6 +938,36 @@ namespace RuleCalc.modules
             dt.WriteXml("saveCalcSP.xml");
 
         }
+
+        //------------------------------------------------------------
+        // Save button for Calculate Table (Weatherdeck)
+        //------------------------------------------------------------
+        private void saveCalcWD_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable("CalcWD");
+
+            for (int i = 0; i < dgvCalculateWD.ColumnCount; i++)
+            {
+                dt.Columns.Add(dgvCalculateWD.Columns[i].Name, typeof(System.String));
+            }
+
+            DataRow myrow;
+            int icols = dgvCalculateWD.Columns.Count;
+            foreach (DataGridViewRow drow in this.dgvCalculateWD.Rows)
+            {
+                myrow = dt.NewRow();
+                for (int i = 0; i <= icols - 1; i++)
+                {
+
+                    myrow[i] = drow.Cells[i].Value;
+                }
+                dt.Rows.Add(myrow);
+            }
+
+            dt.WriteXml("saveCalcWD.xml");
+
+        }
+
         //----------------------------------
         // Load saved data for Sea Pressure
         //----------------------------------
@@ -658,6 +1024,9 @@ namespace RuleCalc.modules
 
                         RowsColorCalculate();
                         HideRows();
+
+                        // block sort mode
+                        dgvCalculateSP.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
                     }
                     // load Delete Buttons
                     for (int i = 0; i < dgvCalculateSP.Columns.Count; i++)
@@ -684,7 +1053,94 @@ namespace RuleCalc.modules
                 MessageBox.Show("Data inside table already exists, Please clear table before.");
             }
         }
-        static DataSet ds_input = new DataSet();
+
+        //----------------------------------
+        // Load saved data for Weatherdeck
+        //----------------------------------
+        private void loadDataWD_Click(object sender, EventArgs e)
+        {
+
+            //check to avoid load data when table already exist.
+            if (dgvCalculateWD.ColumnCount == 0)
+            {
+                try
+                {
+
+                    // load data into table
+                    XmlReader xmlFile;
+                    xmlFile = XmlReader.Create("saveCalcWD.xml", new XmlReaderSettings());
+                    DataSet ds = new DataSet();
+                    ds.ReadXml(xmlFile);
+                    dgvCalculateWD.DataSource = ds.Tables[0];
+                    xmlFile.Close();
+                    //unselect 1st cell
+                    dgvCalculateWD.ClearSelection();
+                    // load ComboBox
+                    for (int i = 0; i < dgvCalculateWD.ColumnCount; i++)
+                    {
+                        dgvCalculateWD.Rows[0].Cells[i].Value = null; //this is important.
+
+                        // f_u
+                        DataGridViewComboBoxCell f_u = new DataGridViewComboBoxCell();
+                        f_u.Items.Add("1");
+                        f_u.Items.Add("1.03");
+                        f_u.Items.Add("1.15");
+
+                        dgvCalculateWD.Rows[22].Cells[i].Value = ds.Tables[0].Rows[22][i].ToString();
+                        dgvCalculateWD.Rows[22].Cells[i] = f_u;
+
+                        // f_bdg
+                        DataGridViewComboBoxCell f_bdg = new DataGridViewComboBoxCell();
+                        f_bdg.Items.Add("8");
+                        f_bdg.Items.Add("10");
+                        f_bdg.Items.Add("12");
+                        dgvCalculateWD.Rows[23].Cells[i].Value = ds.Tables[0].Rows[23][i].ToString();
+                        dgvCalculateWD.Rows[23].Cells[i] = f_bdg;
+
+                        // fshr
+                        DataGridViewComboBoxCell fshr = new DataGridViewComboBoxCell();
+                        fshr.Items.Add("Upper end of vertical stiffeners");
+                        fshr.Items.Add("Lower end of vertical stiffeners");
+                        fshr.Items.Add("General");
+                        dgvCalculateWD.Rows[30].Cells[i].Value = ds.Tables[0].Rows[30][i].ToString();
+                        dgvCalculateWD.Rows[30].Cells[i] = fshr;
+
+                        // change name for all columns
+                        dgvCalculateWD.Columns[i].HeaderText = "Point";
+
+                        RowsColorCalculate();
+                        HideRows();
+
+                        // block sort mode
+                        dgvCalculateWD.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+                    }
+                    // load Delete Buttons
+                    for (int i = 0; i < dgvCalculateWD.Columns.Count; i++)
+                    {
+                        var deleteButtonWD = new DataGridViewButtonColumn();
+                        deleteButtonWD.Name = "dgvDeleteButtonWD";
+                        deleteButtonWD.HeaderText = "Delete";
+                        deleteButtonWD.Text = "Delete";
+                        deleteButtonWD.UseColumnTextForButtonValue = true;
+                        this.dgvDeleteWD.Columns.Add(deleteButtonWD);
+                        if (dgvDeleteWD.Rows.Count == 0)
+                        {
+                            dgvDeleteWD.Rows.Add();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Data inside table already exists, Please clear table before.");
+            }
+        }
+
+        //static DataSet ds_input = new DataSet();
         //--------------------------------
         // Button delete for Sea Pressure
         //--------------------------------
@@ -699,6 +1155,20 @@ namespace RuleCalc.modules
                 }
             }
         }
+        //--------------------------------
+        // Button delete for Weatherdeck
+        //--------------------------------
+        private void dgvDeleteWD_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            for (int i = 0; i < dgvCalculateWD.Columns.Count; i++)
+            {
+                if (e.ColumnIndex == dgvDeleteWD.Columns[i].DisplayIndex)
+                {
+                    dgvCalculateWD.Columns.RemoveAt(e.ColumnIndex);
+                    dgvDeleteWD.Columns.RemoveAt(e.ColumnIndex);
+                }
+            }
+        }
         //-----------------------------------------------------------
         // Synchronize horizontal Scroll bar calculateSP - Delete SP
         //-----------------------------------------------------------
@@ -706,9 +1176,17 @@ namespace RuleCalc.modules
         {
             dgvCalculateSP.HorizontalScrollingOffset = dgvDeleteSP.HorizontalScrollingOffset;
         }
-        //-------------------
+        //-----------------------------------------------------------
+        // Synchronize horizontal Scroll bar calculateWD - Delete SP
+        //-----------------------------------------------------------
+        private void dgvDeleteWD_Scroll(object sender, ScrollEventArgs e)
+        {
+            dgvCalculateWD.HorizontalScrollingOffset = dgvDeleteWD.HorizontalScrollingOffset;
+        }
+
+        //---------------------------------
         // Check inputs and color cels. !!
-        //-------------------
+        //---------------------------------
         private void dgvCalculateSP_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
 
@@ -2054,6 +2532,8 @@ namespace RuleCalc.modules
 
             }
         }
+
+
 
 
         //----------------------------------------
