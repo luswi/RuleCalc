@@ -960,6 +960,8 @@
             this.dgvCalculateWD.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCalculateWD.Size = new System.Drawing.Size(508, 548);
             this.dgvCalculateWD.TabIndex = 1;
+            this.dgvCalculateWD.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCalculateWD_CellEndEdit);
+            this.dgvCalculateWD.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvCalculateWD_CellFormatting);
             this.dgvCalculateWD.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvCheckWD_EditingControlShowing);
             this.dgvCalculateWD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvCheck_KeyPress);
             // 

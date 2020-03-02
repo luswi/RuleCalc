@@ -2,96 +2,129 @@
 <DocumentElement>
   <CalcWD />
   <CalcWD>
-    <Column1>1</Column1>
-    <Column3>3</Column3>
-    <Column2>2</Column2>
+    <Column1>74.34</Column1>
   </CalcWD>
   <CalcWD />
+  <CalcWD>
+    <Column1>9</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>6</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>10</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>10</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>17.2</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>6</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>235</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>600</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>1200</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>0.96190476190476182</Column1>
+  </CalcWD>
   <CalcWD>
     <Column1>1</Column1>
-    <Column3>3</Column3>
-    <Column2>2</Column2>
+  </CalcWD>
+  <CalcWD />
+  <CalcWD />
+  <CalcWD>
+    <Column1>6</Column1>
+  </CalcWD>
+  <CalcWD />
+  <CalcWD />
+  <CalcWD />
+  <CalcWD>
+    <Column1>9</Column1>
+  </CalcWD>
+  <CalcWD />
+  <CalcWD>
+    <Column1>2.5</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>3.8</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>10</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>17.20</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>6</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>3.5</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>600</Column1>
   </CalcWD>
   <CalcWD>
     <Column1>1</Column1>
-    <Column3>3</Column3>
-    <Column2>2</Column2>
   </CalcWD>
+  <CalcWD>
+    <Column1>12</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>235</Column1>
+  </CalcWD>
+  <CalcWD />
+  <CalcWD>
+    <Column1>200</Column1>
+  </CalcWD>
+  <CalcWD />
+  <CalcWD>
+    <Column1>90</Column1>
+  </CalcWD>
+  <CalcWD />
+  <CalcWD>
+    <Column1>Upper end of vertical stiffeners</Column1>
+  </CalcWD>
+  <CalcWD />
   <CalcWD>
     <Column1>1</Column1>
-    <Column3>3</Column3>
-    <Column2>2</Column2>
   </CalcWD>
+  <CalcWD />
+  <CalcWD />
   <CalcWD>
-    <Column1>1</Column1>
-    <Column3>3</Column3>
-    <Column2>2</Column2>
+    <Column1>5</Column1>
   </CalcWD>
-  <CalcWD>
-    <Column1>1</Column1>
-    <Column3>3</Column3>
-    <Column2>2</Column2>
-  </CalcWD>
-  <CalcWD>
-    <Column1>1</Column1>
-    <Column3>3</Column3>
-    <Column2>2</Column2>
-  </CalcWD>
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
   <CalcWD />
   <CalcWD />
   <CalcWD />
   <CalcWD>
-    <Column1 />
-    <Column3 />
+    <Column1>100</Column1>
   </CalcWD>
   <CalcWD>
-    <Column1 />
-    <Column3 />
+    <Column1>12</Column1>
   </CalcWD>
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
   <CalcWD />
   <CalcWD />
   <CalcWD />
   <CalcWD>
-    <Column1 />
-    <Column3 />
+    <Column1>8.34</Column1>
   </CalcWD>
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
+  <CalcWD>
+    <Column1>8.34</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>8.34</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>1.74</Column1>
+  </CalcWD>
   <CalcWD />
   <CalcWD />
   <CalcWD />
