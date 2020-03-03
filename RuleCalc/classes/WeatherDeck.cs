@@ -91,6 +91,49 @@ namespace RuleCalc.classes
             }
         }
 
+        //--------------
+        // Calculate X
+        //--------------
+        public static double xValue(double zdk, double zfdk, double pdmin, double cValue)
+        {
+            if(zdk != 0 && zfdk != 0 && pdmin != 0)
+            {
+                if(zdk == zfdk)
+                {
+                    double xValue = 1.0;
+                    return (double)Math.Round(xValue ,2);
+                }
+                else if (pdmin == 0)
+                {
+                    double xValue = 0.0;
+                    return (double)Math.Round(xValue ,2);
+                }
+                else if (cValue >= 3)
+                {
+                    double xValue = 2.5/pdmin;
+                    return (double)Math.Round(xValue, 2);
+                }
+                else if (cValue < 3)
+                {
+                    double xValue = Math.Pow(0.75, cValue);
+                    return (double)Math.Round(xValue,2);
+                }
+                else
+                {
+                    double xValue = 0.0;
+                    return (double)xValue;
+                }
+            }
+            else
+            {
+                double xValue = 0.0;
+                return (double)xValue;
+            }
+        }
+        //-----------------
+        // Calculate Pdmin
+        //-----------------
+        //public static double pdmin(double Lll, double xllStiff, double xll)
 
 
 

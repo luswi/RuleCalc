@@ -192,6 +192,7 @@ namespace RuleCalc.modules
             dgvNamesWD.Rows.Add("Lll");
             dgvNamesWD.Rows.Add("Plate");
             dgvNamesWD.Rows.Add("x [m] load point");
+            dgvNamesWD.Rows.Add("xll load point");
             dgvNamesWD.Rows.Add("y [m] load point");
             dgvNamesWD.Rows.Add("z [m] load point");
             dgvNamesWD.Rows.Add("Zdk [m]");
@@ -241,12 +242,11 @@ namespace RuleCalc.modules
             dgvNamesWD.Rows.Add("Z status");
             //Intermediate informations
             dgvNamesWD.Rows.Add("Intermediate values");
-            dgvNamesWD.Rows.Add("xll load point");
+            //dgvNamesWD.Rows.Add("xll load point");
             dgvNamesWD.Rows.Add("X’ (plate) [m]");
             dgvNamesWD.Rows.Add("X’ (stiff) [m]");
             dgvNamesWD.Rows.Add("c");
             dgvNamesWD.Rows.Add("χ (plate)");
-            dgvNamesWD.Rows.Add("χ (stiffener)");
             dgvNamesWD.Rows.Add("χ (stiffener)");
             dgvNamesWD.Rows.Add("PD-min (plate)");
             dgvNamesWD.Rows.Add("PD-min (stiffener)");
@@ -456,7 +456,7 @@ namespace RuleCalc.modules
                 {
                     dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
                 }
-                else if (j == 82) // linear calc
+                else if (j == 81) // linear calc
                 {
                     dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
                 }
@@ -575,7 +575,7 @@ namespace RuleCalc.modules
                     dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
                     dgvCalculateWD.Rows[j].ReadOnly = true;
                 }
-                else if (j == 82) // linear calc
+                else if (j == 81) // linear calc
                 {
                     dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
                     dgvCalculateWD.Rows[j].ReadOnly = true;
@@ -624,7 +624,7 @@ namespace RuleCalc.modules
             dgvNamesWD.Rows[2].Cells[0].Style.Font = new Font(dgvNamesWD.Font, FontStyle.Bold);
             dgvNamesWD.Rows[19].Cells[0].Style.Font = new Font(dgvNamesWD.Font, FontStyle.Bold);
             dgvNamesWD.Rows[50].Cells[0].Style.Font = new Font(dgvNamesWD.Font, FontStyle.Bold);
-            dgvNamesWD.Rows[82].Cells[0].Style.Font = new Font(dgvNamesWD.Font, FontStyle.Bold);
+            dgvNamesWD.Rows[81].Cells[0].Style.Font = new Font(dgvNamesWD.Font, FontStyle.Bold);
 
             for (int i = 0; i < dgvNames.Rows.Count; i++)
             {
@@ -755,7 +755,7 @@ namespace RuleCalc.modules
                 //----------------------------------
                 // add rows for calculation table
                 //----------------------------------
-                for (int i = 0; i <= 94; i++)
+                for (int i = 0; i <= 93; i++)
                 {
                     i = dgvCalculateWD.Rows.Add();
                     
@@ -2582,25 +2582,72 @@ namespace RuleCalc.modules
 
             for (int i = 0; i < dgvCalculateWD.Columns.Count; i++)
             {
-                double bInput = Convert.ToDouble(dgvCalculateWD.Rows[10].Cells[i].Value);
-                double aInput = Convert.ToDouble(dgvCalculateWD.Rows[11].Cells[i].Value);
                 double Lppnput = Convert.ToDouble(LppTB.Text);
-                double LllInput = Convert.ToDouble(dgvCalculateWD.Rows[1].Cells[i].Value);
-                double x_pointPlate = Convert.ToDouble(dgvCalculateWD.Rows[3].Cells[i].Value);
-                double x_pointStiff = Convert.ToDouble(dgvCalculateWD.Rows[20].Cells[i].Value);
                 double Lrule = Convert.ToDouble(LTB.Text);
 
-                double zdk = Convert.ToDouble(dgvCalculateWD.Rows[6].Cells[i].Value);
-                double zfdk = Convert.ToDouble(dgvCalculateWD.Rows[8].Cells[i].Value);
-                
+                double LllInput = Convert.ToDouble(dgvCalculateWD.Rows[1].Cells[i].Value);
+                double x_pointPlate = Convert.ToDouble(dgvCalculateWD.Rows[3].Cells[i].Value);
+                //double y_pointPlate = Convert.ToDouble(dgvCalculateWD.Rows[4].Cells[i].Value);
+                //double z_pointPlate = Convert.ToDouble(dgvCalculateWD.Rows[5].Cells[i].Value);
+                double zdkPlate = Convert.ToDouble(dgvCalculateWD.Rows[6].Cells[i].Value);
+                //double bxPlate = Convert.ToDouble(dgvCalculateWD.Rows[7].Cells[i].Value);
+                double zfdkPlate = Convert.ToDouble(dgvCalculateWD.Rows[8].Cells[i].Value);
+                //double rEhPlate = Convert.ToDouble(dgvCalculateWD.Rows[9].Cells[i].Value);
+                double bInput = Convert.ToDouble(dgvCalculateWD.Rows[10].Cells[i].Value);
+                double aInput = Convert.ToDouble(dgvCalculateWD.Rows[11].Cells[i].Value);
+                double alpha = Convert.ToDouble(dgvCalculateWD.Rows[12].Cells[i].Value);
+                //double tcPlate = Convert.ToDouble(dgvCalculateWD.Rows[13].Cells[i].Value);
+                //double pPlate = Convert.ToDouble(dgvCalculateWD.Rows[14].Cells[i].Value);
+                //double tReqPlate = Convert.ToDouble(dgvCalculateWD.Rows[15].Cells[i].Value);
+                //double thPlate = Convert.ToDouble(dgvCalculateWD.Rows[16].Cells[i].Value);
+
+                //string  thStatusPlate = Convert.ToString(dgvCalculateWD.Rows[17].Cells[i].Value);
+                //string  slendStatusPlate = Convert.ToString(dgvCalculateWD.Rows[18].Cells[i].Value);
+
+                double x_pointStiff = Convert.ToDouble(dgvCalculateWD.Rows[20].Cells[i].Value);
+                //double y_pointStiff = Convert.ToDouble(dgvCalculateWD.Rows[22].Cells[i].Value);
+                //double z_pointStiff = Convert.ToDouble(dgvCalculateWD.Rows[23].Cells[i].Value);
+                double zdkStiff = Convert.ToDouble(dgvCalculateWD.Rows[24].Cells[i].Value);
+                //double bxStiff = Convert.ToDouble(dgvCalculateWD.Rows[25].Cells[i].Value);
+                double zfdkStiff = Convert.ToDouble(dgvCalculateWD.Rows[26].Cells[i].Value);
+                //double lbdg = Convert.ToDouble(dgvCalculateWD.Rows[27].Cells[i].Value);
+                //double sStiff = Convert.ToDouble(dgvCalculateWD.Rows[28].Cells[i].Value);
+                //double fu = Convert.ToDouble(dgvCalculateWD.Rows[29].Cells[i].Value);
+                //double fbdg = Convert.ToDouble(dgvCalculateWD.Rows[30].Cells[i].Value);
+                //double dshr = Convert.ToDouble(dgvCalculateWD.Rows[31].Cells[i].Value);
+                //double hStiff = Convert.ToDouble(dgvCalculateWD.Rows[32].Cells[i].Value);
+                //double tpStiff = Convert.ToDouble(dgvCalculateWD.Rows[33].Cells[i].Value);
+                //double degw = Convert.ToDouble(dgvCalculateWD.Rows[34].Cells[i].Value);
+                //double lshr = Convert.ToDouble(dgvCalculateWD.Rows[35].Cells[i].Value);
+                //double TeH = Convert.ToDouble(dgvCalculateWD.Rows[36].Cells[i].Value);
+                //double tcStiff = Convert.ToDouble(dgvCalculateWD.Rows[37].Cells[i].Value);
+                //double pStiff = Convert.ToDouble(dgvCalculateWD.Rows[38].Cells[i].Value);
+                //double tReqStiff = Convert.ToDouble(dgvCalculateWD.Rows[39].Cells[i].Value);
+                //double webThStiff = Convert.ToDouble(dgvCalculateWD.Rows[40].Cells[i].Value);
+                //double thStatStiff = Convert.ToDouble(dgvCalculateWD.Rows[41].Cells[i].Value);
+                //double slendStatusStiff = Convert.ToDouble(dgvCalculateWD.Rows[42].Cells[i].Value);
+                //double zReq = Convert.ToDouble(dgvCalculateWD.Rows[43].Cells[i].Value);
+                //double flangeWidth = Convert.ToDouble(dgvCalculateWD.Rows[44].Cells[i].Value);
+                //double flangeTh = Convert.ToDouble(dgvCalculateWD.Rows[45].Cells[i].Value);
+                //double zNet = Convert.ToDouble(dgvCalculateWD.Rows[46].Cells[i].Value);
+                //double zStatus = Convert.ToDouble(dgvCalculateWD.Rows[47].Cells[i].Value);
+                double xll = 0;
+                double cValue = Convert.ToDouble(dgvCalculateWD.Rows[54].Cells[i].Value);
+
+
+
+
+
+                double pdminPlate = 0.0;
+                double pdminStiff = 0;
                 
 
 
                 // calculate alpha
-                dgvCalculateWD.Rows[12].Cells[i].Value = WeatherDeck.alphaPlate(bInput, aInput);
+                alpha = Convert.ToDouble(dgvCalculateWD.Rows[12].Cells[i].Value = WeatherDeck.alphaPlate(bInput, aInput));
 
-                // calculate xll
-                dgvCalculateWD.Rows[51].Cells[i].Value = WeatherDeck.xll(Lppnput, LllInput, x_pointPlate);
+                // calculate xll_inter
+                xll = Convert.ToDouble(dgvCalculateWD.Rows[51].Cells[i].Value = WeatherDeck.xll(Lppnput, LllInput, x_pointPlate));
 
                 // calculate X' Plate
                 dgvCalculateWD.Rows[52].Cells[i].Value = WeatherDeck.xPrim(Lppnput, Lrule, x_pointPlate);
@@ -2609,8 +2656,13 @@ namespace RuleCalc.modules
                 dgvCalculateWD.Rows[53].Cells[i].Value = WeatherDeck.xPrim(Lppnput, Lrule, x_pointStiff);
 
                 // calculate C
-                dgvCalculateWD.Rows[54].Cells[i].Value = WeatherDeck.cValue(zdk, zfdk);
+                cValue = Convert.ToDouble(dgvCalculateWD.Rows[54].Cells[i].Value = WeatherDeck.cValue(zdkPlate, zfdkPlate));
 
+                // X Plate
+                dgvCalculateWD.Rows[55].Cells[i].Value = WeatherDeck.xValue(zdkPlate, zfdkPlate, pdminPlate, cValue);
+
+                // X Stiff
+                dgvCalculateWD.Rows[56].Cells[i].Value = WeatherDeck.xValue(zdkPlate, zfdkPlate, pdminStiff, cValue);
 
 
 
