@@ -133,9 +133,47 @@ namespace RuleCalc.classes
         //-----------------
         // Calculate Pdmin
         //-----------------
-        //public static double pdmin(double Lll, double xllStiff, double xll)
+        public static double pdmin(double Lll, double xll)
+        {
+            if (Lll != 0 && xll != 0)
+            {
+                if(xll/Lll <= 0.75)
+                {
 
+                    double pdmin = 14.9 + 0.195 * Lll;
+                return (double)Math.Round(pdmin, 2);
+                }
+                else
+                {
+                    double pdmin = 12.2 + (Lll / 9) * (5 * (xll / Lll) - 2) + 3.6 * (xll / Lll);
+                return (double)Math.Round(pdmin, 2);
+                }
 
+            }
+            else
+            {
+                double pdmin = 0.0;
+                return (double)pdmin;
+            }
+        }
+
+        //=====
+        // fyb
+        //=====
+        public static double fyB(double bShip, double Bx)
+        {
+            if(bShip != 0 && Bx != 0)
+            {
+                double[] fyBArray = { (2 * (bShip / 2)) / Bx, 1 };
+                double fyB = fyBArray.Select(Math.Abs).Min();
+                return (double)Math.Round(fyB, 2);
+            }
+            else
+            {
+                double fyB = 0.0;
+                return (double)fyB;
+            }
+        }
 
     }
 

@@ -9,6 +9,9 @@
     <Column1>9</Column1>
   </CalcWD>
   <CalcWD>
+    <Column1>8.34</Column1>
+  </CalcWD>
+  <CalcWD>
     <Column1>6</Column1>
   </CalcWD>
   <CalcWD>
@@ -18,7 +21,7 @@
     <Column1>10</Column1>
   </CalcWD>
   <CalcWD>
-    <Column1>17.2</Column1>
+    <Column1>17.20</Column1>
   </CalcWD>
   <CalcWD>
     <Column1>6</Column1>
@@ -49,7 +52,9 @@
   <CalcWD>
     <Column1>9</Column1>
   </CalcWD>
-  <CalcWD />
+  <CalcWD>
+    <Column1>8.34</Column1>
+  </CalcWD>
   <CalcWD>
     <Column1>2.5</Column1>
   </CalcWD>
@@ -88,7 +93,9 @@
   <CalcWD>
     <Column1>90</Column1>
   </CalcWD>
-  <CalcWD />
+  <CalcWD>
+    <Column1>3.5</Column1>
+  </CalcWD>
   <CalcWD>
     <Column1>Upper end of vertical stiffeners</Column1>
   </CalcWD>
@@ -120,16 +127,20 @@
     <Column1>8.34</Column1>
   </CalcWD>
   <CalcWD>
-    <Column1>8.34</Column1>
-  </CalcWD>
-  <CalcWD>
     <Column1>1.74</Column1>
   </CalcWD>
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
+  <CalcWD>
+    <Column1>0.61</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>0.61</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>29.4</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>29.4</Column1>
+  </CalcWD>
   <CalcWD />
   <CalcWD />
   <CalcWD />

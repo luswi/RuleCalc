@@ -347,33 +347,33 @@ namespace RuleCalc.modules
                 // f_u
                 DataGridViewComboBoxCell f_u = new DataGridViewComboBoxCell();
 
-                if ((string)dgvCalculateWD.Rows[29].Cells[j].Value == null)
+                if ((string)dgvCalculateWD.Rows[30].Cells[j].Value == null)
                 {
                     f_u.Items.Add("1");
                     f_u.Items.Add("1.03");
                     f_u.Items.Add("1.15");
-                    dgvCalculateWD.Rows[29].Cells[j] = f_u;
+                    dgvCalculateWD.Rows[30].Cells[j] = f_u;
                 }
                 // f_bdg
                 DataGridViewComboBoxCell f_bdg = new DataGridViewComboBoxCell();
 
-                if ((string)dgvCalculateWD.Rows[30].Cells[j].Value == null)
+                if ((string)dgvCalculateWD.Rows[31].Cells[j].Value == null)
                 {
                     f_bdg.Items.Add("8");
                     f_bdg.Items.Add("10");
                     f_bdg.Items.Add("12");
-                    dgvCalculateWD.Rows[30].Cells[j] = f_bdg;
+                    dgvCalculateWD.Rows[31].Cells[j] = f_bdg;
 
                 }
                 // fshr
                 DataGridViewComboBoxCell fshr = new DataGridViewComboBoxCell();
 
-                if ((string)dgvCalculateWD.Rows[37].Cells[j].Value == null)
+                if ((string)dgvCalculateWD.Rows[38].Cells[j].Value == null)
                 {
                     fshr.Items.Add("Upper end of vertical stiffeners");
                     fshr.Items.Add("Lower end of vertical stiffeners");
                     fshr.Items.Add("General");
-                    dgvCalculateWD.Rows[37].Cells[j] = fshr;
+                    dgvCalculateWD.Rows[38].Cells[j] = fshr;
 
                 }
             }
@@ -431,28 +431,28 @@ namespace RuleCalc.modules
                 {
                     dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
                 }
-                else if (j > 13 & j < 16)
+                else if (j > 14 & j < 17)
                 {
                     dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.PaleTurquoise;
                 }
-                else if (j == 19) // stiffener
+                else if (j == 20) // stiffener
                 {
                     dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
                 }
 
-                else if (j > 39 & j < 42)
+                else if (j > 40 & j < 43)
                 {
                     dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.PaleTurquoise;
                 }
-                else if (j == 45)
+                else if (j == 46)
                 {
                     dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.PaleTurquoise;
                 }
-                else if (j == 48)
+                else if (j == 49)
                 {
                     dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.PaleTurquoise;
                 }
-                else if (j == 50) // intermediate
+                else if (j == 51) // intermediate
                 {
                     dgvNamesWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
                 }
@@ -548,29 +548,29 @@ namespace RuleCalc.modules
                     dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
                     dgvCalculateWD.Rows[j].ReadOnly = true;
                 }
-                else if (j > 13 & j < 16)
+                else if (j > 14 & j < 17)
                 {
                     dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.PaleTurquoise;
                 }
-                else if (j == 19) // stiffener
+                else if (j == 20) // stiffener
                 {
                     dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
                     dgvCalculateWD.Rows[j].ReadOnly = true;
                 }
 
-                else if (j > 39 & j < 42)
+                else if (j > 40 & j < 43)
                 {
                     dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.PaleTurquoise;
                 }
-                else if (j == 45)
+                else if (j == 46)
                 {
                     dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.PaleTurquoise;
                 }
-                else if (j == 48)
+                else if (j == 49)
                 {
                     dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.PaleTurquoise;
                 }
-                else if (j == 50) // intermediate
+                else if (j == 51) // intermediate
                 {
                     dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.SkyBlue;
                     dgvCalculateWD.Rows[j].ReadOnly = true;
@@ -622,8 +622,8 @@ namespace RuleCalc.modules
             //weather deck
             dgvNamesWD.Rows[0].Cells[0].Style.Font = new Font(dgvNamesWD.Font, FontStyle.Bold);
             dgvNamesWD.Rows[2].Cells[0].Style.Font = new Font(dgvNamesWD.Font, FontStyle.Bold);
-            dgvNamesWD.Rows[19].Cells[0].Style.Font = new Font(dgvNamesWD.Font, FontStyle.Bold);
-            dgvNamesWD.Rows[50].Cells[0].Style.Font = new Font(dgvNamesWD.Font, FontStyle.Bold);
+            dgvNamesWD.Rows[20].Cells[0].Style.Font = new Font(dgvNamesWD.Font, FontStyle.Bold);
+            dgvNamesWD.Rows[51].Cells[0].Style.Font = new Font(dgvNamesWD.Font, FontStyle.Bold);
             dgvNamesWD.Rows[81].Cells[0].Style.Font = new Font(dgvNamesWD.Font, FontStyle.Bold);
 
             for (int i = 0; i < dgvNames.Rows.Count; i++)
@@ -1086,24 +1086,24 @@ namespace RuleCalc.modules
                         f_u.Items.Add("1.03");
                         f_u.Items.Add("1.15");
 
-                        dgvCalculateWD.Rows[29].Cells[i].Value = ds.Tables[0].Rows[29][i].ToString();
-                        dgvCalculateWD.Rows[29].Cells[i] = f_u;
+                        dgvCalculateWD.Rows[30].Cells[i].Value = ds.Tables[0].Rows[30][i].ToString();
+                        dgvCalculateWD.Rows[30].Cells[i] = f_u;
 
                         // f_bdg
                         DataGridViewComboBoxCell f_bdg = new DataGridViewComboBoxCell();
                         f_bdg.Items.Add("8");
                         f_bdg.Items.Add("10");
                         f_bdg.Items.Add("12");
-                        dgvCalculateWD.Rows[30].Cells[i].Value = ds.Tables[0].Rows[30][i].ToString();
-                        dgvCalculateWD.Rows[30].Cells[i] = f_bdg;
+                        dgvCalculateWD.Rows[31].Cells[i].Value = ds.Tables[0].Rows[31][i].ToString();
+                        dgvCalculateWD.Rows[31].Cells[i] = f_bdg;
 
                         // fshr
                         DataGridViewComboBoxCell fshr = new DataGridViewComboBoxCell();
                         fshr.Items.Add("Upper end of vertical stiffeners");
                         fshr.Items.Add("Lower end of vertical stiffeners");
                         fshr.Items.Add("General");
-                        dgvCalculateWD.Rows[37].Cells[i].Value = ds.Tables[0].Rows[37][i].ToString();
-                        dgvCalculateWD.Rows[37].Cells[i] = fshr;
+                        dgvCalculateWD.Rows[38].Cells[i].Value = ds.Tables[0].Rows[38][i].ToString();
+                        dgvCalculateWD.Rows[38].Cells[i] = fshr;
 
                         // change name for all columns
                         dgvCalculateWD.Columns[i].HeaderText = "Point";
@@ -1300,28 +1300,28 @@ namespace RuleCalc.modules
             }
 
             // correct
-            if (dgvCalculateWD.Rows[10].Cells[e.ColumnIndex].Value != null && Convert.ToDecimal(dgvCalculateWD.Rows[10].Cells[e.ColumnIndex].Value) < Convert.ToDecimal(dgvCalculateWD.Rows[11].Cells[e.ColumnIndex].Value) && dgvCalculateWD.Rows[11].Cells[e.ColumnIndex].Value != null)
+            if (dgvCalculateWD.Rows[11].Cells[e.ColumnIndex].Value != null && Convert.ToDecimal(dgvCalculateWD.Rows[11].Cells[e.ColumnIndex].Value) < Convert.ToDecimal(dgvCalculateWD.Rows[12].Cells[e.ColumnIndex].Value) && dgvCalculateWD.Rows[12].Cells[e.ColumnIndex].Value != null)
             {
-                dgvCalculateWD.Rows[10].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
                 dgvCalculateWD.Rows[11].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
+                dgvCalculateWD.Rows[12].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
             }
             // waiting for value
-            else if (dgvCalculateWD.Rows[10].Cells[e.ColumnIndex].Value != null && Convert.ToDecimal(dgvCalculateWD.Rows[10].Cells[e.ColumnIndex].Value) < Convert.ToDecimal(dgvCalculateWD.Rows[11].Cells[e.ColumnIndex].Value) && dgvCalculateWD.Rows[11].Cells[e.ColumnIndex].Value == null)
+            else if (dgvCalculateWD.Rows[10].Cells[e.ColumnIndex].Value != null && Convert.ToDecimal(dgvCalculateWD.Rows[11].Cells[e.ColumnIndex].Value) < Convert.ToDecimal(dgvCalculateWD.Rows[12].Cells[e.ColumnIndex].Value) && dgvCalculateWD.Rows[12].Cells[e.ColumnIndex].Value == null)
             {
-                dgvCalculateWD.Rows[10].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Azure };
                 dgvCalculateWD.Rows[11].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Azure };
+                dgvCalculateWD.Rows[12].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Azure };
             }
             // wrong
-            else if (dgvCalculateWD.Rows[10].Cells[e.ColumnIndex].Value != null && Convert.ToDecimal(dgvCalculateWD.Rows[10].Cells[e.ColumnIndex].Value) >= Convert.ToDecimal(dgvCalculateWD.Rows[11].Cells[e.ColumnIndex].Value) && dgvCalculateWD.Rows[11].Cells[e.ColumnIndex].Value != null)
+            else if (dgvCalculateWD.Rows[10].Cells[e.ColumnIndex].Value != null && Convert.ToDecimal(dgvCalculateWD.Rows[11].Cells[e.ColumnIndex].Value) >= Convert.ToDecimal(dgvCalculateWD.Rows[12].Cells[e.ColumnIndex].Value) && dgvCalculateWD.Rows[12].Cells[e.ColumnIndex].Value != null)
             {
-                dgvCalculateWD.Rows[10].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
                 dgvCalculateWD.Rows[11].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
+                dgvCalculateWD.Rows[12].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
             }
             // start
             else
             {
-                dgvCalculateWD.Rows[10].Cells[e.ColumnIndex].Style.BackColor = Color.Azure;
                 dgvCalculateWD.Rows[11].Cells[e.ColumnIndex].Style.BackColor = Color.Azure;
+                dgvCalculateWD.Rows[12].Cells[e.ColumnIndex].Style.BackColor = Color.Azure;
             }
 
         
@@ -2582,20 +2582,22 @@ namespace RuleCalc.modules
 
             for (int i = 0; i < dgvCalculateWD.Columns.Count; i++)
             {
-                double Lppnput = Convert.ToDouble(LppTB.Text);
+                double LppInput = Convert.ToDouble(LppTB.Text);
                 double Lrule = Convert.ToDouble(LTB.Text);
+                double bShipInput = Convert.ToDouble(BTB.Text);
+
 
                 double LllInput = Convert.ToDouble(dgvCalculateWD.Rows[1].Cells[i].Value);
                 double x_pointPlate = Convert.ToDouble(dgvCalculateWD.Rows[3].Cells[i].Value);
                 //double y_pointPlate = Convert.ToDouble(dgvCalculateWD.Rows[4].Cells[i].Value);
                 //double z_pointPlate = Convert.ToDouble(dgvCalculateWD.Rows[5].Cells[i].Value);
-                double zdkPlate = Convert.ToDouble(dgvCalculateWD.Rows[6].Cells[i].Value);
+                double zdkPlate = Convert.ToDouble(dgvCalculateWD.Rows[7].Cells[i].Value);
                 //double bxPlate = Convert.ToDouble(dgvCalculateWD.Rows[7].Cells[i].Value);
-                double zfdkPlate = Convert.ToDouble(dgvCalculateWD.Rows[8].Cells[i].Value);
+                double zfdkPlate = Convert.ToDouble(dgvCalculateWD.Rows[9].Cells[i].Value);
                 //double rEhPlate = Convert.ToDouble(dgvCalculateWD.Rows[9].Cells[i].Value);
-                double bInput = Convert.ToDouble(dgvCalculateWD.Rows[10].Cells[i].Value);
-                double aInput = Convert.ToDouble(dgvCalculateWD.Rows[11].Cells[i].Value);
-                double alpha = Convert.ToDouble(dgvCalculateWD.Rows[12].Cells[i].Value);
+                double bInput = Convert.ToDouble(dgvCalculateWD.Rows[11].Cells[i].Value);
+                double aInput = Convert.ToDouble(dgvCalculateWD.Rows[12].Cells[i].Value);
+                double alpha = Convert.ToDouble(dgvCalculateWD.Rows[13].Cells[i].Value);
                 //double tcPlate = Convert.ToDouble(dgvCalculateWD.Rows[13].Cells[i].Value);
                 //double pPlate = Convert.ToDouble(dgvCalculateWD.Rows[14].Cells[i].Value);
                 //double tReqPlate = Convert.ToDouble(dgvCalculateWD.Rows[15].Cells[i].Value);
@@ -2604,12 +2606,12 @@ namespace RuleCalc.modules
                 //string  thStatusPlate = Convert.ToString(dgvCalculateWD.Rows[17].Cells[i].Value);
                 //string  slendStatusPlate = Convert.ToString(dgvCalculateWD.Rows[18].Cells[i].Value);
 
-                double x_pointStiff = Convert.ToDouble(dgvCalculateWD.Rows[20].Cells[i].Value);
+                double x_pointStiff = Convert.ToDouble(dgvCalculateWD.Rows[21].Cells[i].Value);
                 //double y_pointStiff = Convert.ToDouble(dgvCalculateWD.Rows[22].Cells[i].Value);
                 //double z_pointStiff = Convert.ToDouble(dgvCalculateWD.Rows[23].Cells[i].Value);
-                double zdkStiff = Convert.ToDouble(dgvCalculateWD.Rows[24].Cells[i].Value);
+                double zdkStiff = Convert.ToDouble(dgvCalculateWD.Rows[25].Cells[i].Value);
                 //double bxStiff = Convert.ToDouble(dgvCalculateWD.Rows[25].Cells[i].Value);
-                double zfdkStiff = Convert.ToDouble(dgvCalculateWD.Rows[26].Cells[i].Value);
+                double zfdkStiff = Convert.ToDouble(dgvCalculateWD.Rows[27].Cells[i].Value);
                 //double lbdg = Convert.ToDouble(dgvCalculateWD.Rows[27].Cells[i].Value);
                 //double sStiff = Convert.ToDouble(dgvCalculateWD.Rows[28].Cells[i].Value);
                 //double fu = Convert.ToDouble(dgvCalculateWD.Rows[29].Cells[i].Value);
@@ -2631,39 +2633,55 @@ namespace RuleCalc.modules
                 //double flangeTh = Convert.ToDouble(dgvCalculateWD.Rows[45].Cells[i].Value);
                 //double zNet = Convert.ToDouble(dgvCalculateWD.Rows[46].Cells[i].Value);
                 //double zStatus = Convert.ToDouble(dgvCalculateWD.Rows[47].Cells[i].Value);
-                double xll = 0;
+                double xllplate = 0;
+                double xllstiff = 0;
                 double cValue = Convert.ToDouble(dgvCalculateWD.Rows[54].Cells[i].Value);
-
+                double xplate = 0;
+                double xstiffener = 0;
 
 
 
 
                 double pdminPlate = 0.0;
-                double pdminStiff = 0;
-                
+                double pdminStiff = 0.0;
 
+                double fyBplate = 0.0;
+                double fyBstiff = 0.0;
 
                 // calculate alpha
-                alpha = Convert.ToDouble(dgvCalculateWD.Rows[12].Cells[i].Value = WeatherDeck.alphaPlate(bInput, aInput));
+                alpha = Convert.ToDouble(dgvCalculateWD.Rows[13].Cells[i].Value = WeatherDeck.alphaPlate(bInput, aInput));
 
-                // calculate xll_inter
-                xll = Convert.ToDouble(dgvCalculateWD.Rows[51].Cells[i].Value = WeatherDeck.xll(Lppnput, LllInput, x_pointPlate));
-
+                // calculate xll plate
+                xllplate = Convert.ToDouble(dgvCalculateWD.Rows[4].Cells[i].Value = WeatherDeck.xll(LppInput, LllInput, x_pointPlate));
+                
+                // calculate xll stiffener
+                xllstiff = Convert.ToDouble(dgvCalculateWD.Rows[22].Cells[i].Value = WeatherDeck.xll(LppInput, LllInput, x_pointStiff));
+                
                 // calculate X' Plate
-                dgvCalculateWD.Rows[52].Cells[i].Value = WeatherDeck.xPrim(Lppnput, Lrule, x_pointPlate);
+                dgvCalculateWD.Rows[52].Cells[i].Value = WeatherDeck.xPrim(LppInput, Lrule, x_pointPlate);
 
                 // calculate X' Stiffener
-                dgvCalculateWD.Rows[53].Cells[i].Value = WeatherDeck.xPrim(Lppnput, Lrule, x_pointStiff);
+                dgvCalculateWD.Rows[53].Cells[i].Value = WeatherDeck.xPrim(LppInput, Lrule, x_pointStiff);
 
                 // calculate C
                 cValue = Convert.ToDouble(dgvCalculateWD.Rows[54].Cells[i].Value = WeatherDeck.cValue(zdkPlate, zfdkPlate));
 
+
+                // pdmin plate
+                pdminPlate = Convert.ToDouble(dgvCalculateWD.Rows[57].Cells[i].Value = WeatherDeck.pdmin(LllInput, xllplate));
+
+                // pdmin stiffener
+                pdminStiff = Convert.ToDouble(dgvCalculateWD.Rows[58].Cells[i].Value = WeatherDeck.pdmin(LllInput, xllstiff));
+                
                 // X Plate
-                dgvCalculateWD.Rows[55].Cells[i].Value = WeatherDeck.xValue(zdkPlate, zfdkPlate, pdminPlate, cValue);
+                xplate = Convert.ToDouble(dgvCalculateWD.Rows[55].Cells[i].Value = WeatherDeck.xValue(zdkPlate, zfdkPlate, pdminPlate, cValue));
 
                 // X Stiff
-                dgvCalculateWD.Rows[56].Cells[i].Value = WeatherDeck.xValue(zdkPlate, zfdkPlate, pdminStiff, cValue);
-
+                xstiffener = Convert.ToDouble(dgvCalculateWD.Rows[56].Cells[i].Value = WeatherDeck.xValue(zdkPlate, zfdkPlate, pdminStiff, cValue));
+             
+                // fyB Plate
+                fyBplate = Convert.ToDouble(dgvCalculateWD.Rows[56].Cells[i].Value = WeatherDeck.fyB(bShipInput, ********* ));
+                // fyB Stiffener
 
 
 
