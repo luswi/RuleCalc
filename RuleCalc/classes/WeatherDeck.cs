@@ -174,6 +174,122 @@ namespace RuleCalc.classes
                 return (double)fyB;
             }
         }
+        //=====
+        // fyz
+        //=====
+        public static double fyz(double fyB)
+        {
+            if (fyB != 0)
+            {
+                double fyz = 0.5 * 1 + 2.5 * fyB + 2;
+                return (double)Math.Round(fyz, 2);
+            }
+            else
+            {
+                double fyz = 0.0;
+                return (double)fyz;
+            }
+        }
+        //=====
+        // fxL
+        //=====
+        public static double fxL(double xprim, double Lrule)
+        {
+            if (xprim != 0 && Lrule != 0)
+            {
+                double fxL = xprim / Lrule;
+                return (double)Math.Round(fxL, 2);
+            }
+            else
+            {
+                double fxL = 0.0;
+                return (double)fxL;
+            }
+        }
+
+        //=====
+        // f_3
+        //=====
+        public static double f_3(double CB, double Lrule, double bShip)
+        {
+            if(CB != 0 && Lrule != 0 && bShip != 0)
+            {
+                double[] f_3Array = { 0.06, 0.05 + CB, 1.1 - 0.1 * (Lrule / bShip) };
+                double f_3 = f_3Array.Select(Math.Abs).Max();
+                return (double)Math.Round(f_3, 2);
+            }
+            else
+            {
+                double f_3 = 0.0;
+                return (double)f_3;
+            }
+        }
+
+        //=====
+        // f_4
+        //=====
+        public static double f_4(double fxL)
+        {
+            if(fxL = 0)
+            {
+                double f_4 = 2.0;
+                return (double)Math.Round(f_4, 2);
+            }
+            else if(fxL >= 0.2 && fxL <= 0.6)
+            {
+                double f_4 = 1.0;
+                return (double)Math.Round(f_4, 2);
+            }
+            else if()
+        }
+
+        //=====
+        // Cw
+        //=====
+        public static double Cw(double Lrule)
+        {
+
+        }
+
+        //===================
+        //Pwd(plate) HS[MPa]
+        //===================
+
+        //===================
+        //Pwd(plate) BS[MPa]
+        //===================
+
+        //==========================
+        //Pwd(plate) BS linear[MPa]
+        //==========================
+
+        //=======================
+        //Pwd(stiffener) HS[MPa]
+        //=======================
+
+        //=======================
+        //Pwd(stiffener) BS[MPa]
+        //=======================
+
+        //==============================
+        //Pwd(stiffener) BS linear[MPa]
+        //==============================
+
+        //========================
+        //P_ENV - HS(plate) [MPa]
+        //========================
+
+        //========================
+        //P_ENV - BS(plate) [MPa]
+        //========================
+
+        //============================
+        //P_ENV - HS(stiffener) [MPa]
+        //============================
+
+        //============================
+        //P_ENV - BS(stiffener) [MPa]
+        //============================
 
     }
 

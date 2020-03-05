@@ -2592,7 +2592,7 @@ namespace RuleCalc.modules
                 //double y_pointPlate = Convert.ToDouble(dgvCalculateWD.Rows[4].Cells[i].Value);
                 //double z_pointPlate = Convert.ToDouble(dgvCalculateWD.Rows[5].Cells[i].Value);
                 double zdkPlate = Convert.ToDouble(dgvCalculateWD.Rows[7].Cells[i].Value);
-                //double bxPlate = Convert.ToDouble(dgvCalculateWD.Rows[7].Cells[i].Value);
+                double bxPlate = Convert.ToDouble(dgvCalculateWD.Rows[8].Cells[i].Value);
                 double zfdkPlate = Convert.ToDouble(dgvCalculateWD.Rows[9].Cells[i].Value);
                 //double rEhPlate = Convert.ToDouble(dgvCalculateWD.Rows[9].Cells[i].Value);
                 double bInput = Convert.ToDouble(dgvCalculateWD.Rows[11].Cells[i].Value);
@@ -2610,7 +2610,7 @@ namespace RuleCalc.modules
                 //double y_pointStiff = Convert.ToDouble(dgvCalculateWD.Rows[22].Cells[i].Value);
                 //double z_pointStiff = Convert.ToDouble(dgvCalculateWD.Rows[23].Cells[i].Value);
                 double zdkStiff = Convert.ToDouble(dgvCalculateWD.Rows[25].Cells[i].Value);
-                //double bxStiff = Convert.ToDouble(dgvCalculateWD.Rows[25].Cells[i].Value);
+                double bxStiff = Convert.ToDouble(dgvCalculateWD.Rows[26].Cells[i].Value);
                 double zfdkStiff = Convert.ToDouble(dgvCalculateWD.Rows[27].Cells[i].Value);
                 //double lbdg = Convert.ToDouble(dgvCalculateWD.Rows[27].Cells[i].Value);
                 //double sStiff = Convert.ToDouble(dgvCalculateWD.Rows[28].Cells[i].Value);
@@ -2648,6 +2648,17 @@ namespace RuleCalc.modules
                 double fyBplate = 0.0;
                 double fyBstiff = 0.0;
 
+                double fyzplate = 0.0;
+                double fyzstiff = 0.0;
+
+                double fxLplate = 0.0;
+                double fxLstiff = 0.0;
+
+                double xPrimPlate = 0.0;
+                double xPrimStiff = 0.0;
+
+                double f_5 = 1.0;
+                
                 // calculate alpha
                 alpha = Convert.ToDouble(dgvCalculateWD.Rows[13].Cells[i].Value = WeatherDeck.alphaPlate(bInput, aInput));
 
@@ -2658,10 +2669,10 @@ namespace RuleCalc.modules
                 xllstiff = Convert.ToDouble(dgvCalculateWD.Rows[22].Cells[i].Value = WeatherDeck.xll(LppInput, LllInput, x_pointStiff));
                 
                 // calculate X' Plate
-                dgvCalculateWD.Rows[52].Cells[i].Value = WeatherDeck.xPrim(LppInput, Lrule, x_pointPlate);
+                xPrimPlate = Convert.ToDouble(dgvCalculateWD.Rows[52].Cells[i].Value = WeatherDeck.xPrim(LppInput, Lrule, x_pointPlate));
 
                 // calculate X' Stiffener
-                dgvCalculateWD.Rows[53].Cells[i].Value = WeatherDeck.xPrim(LppInput, Lrule, x_pointStiff);
+                xPrimStiff = Convert.ToDouble(dgvCalculateWD.Rows[53].Cells[i].Value = WeatherDeck.xPrim(LppInput, Lrule, x_pointStiff));
 
                 // calculate C
                 cValue = Convert.ToDouble(dgvCalculateWD.Rows[54].Cells[i].Value = WeatherDeck.cValue(zdkPlate, zfdkPlate));
@@ -2680,8 +2691,22 @@ namespace RuleCalc.modules
                 xstiffener = Convert.ToDouble(dgvCalculateWD.Rows[56].Cells[i].Value = WeatherDeck.xValue(zdkPlate, zfdkPlate, pdminStiff, cValue));
              
                 // fyB Plate
-                fyBplate = Convert.ToDouble(dgvCalculateWD.Rows[56].Cells[i].Value = WeatherDeck.fyB(bShipInput, ********* ));
+                fyBplate = Convert.ToDouble(dgvCalculateWD.Rows[59].Cells[i].Value = WeatherDeck.fyB(bShipInput, bxPlate ));
+
                 // fyB Stiffener
+                fyBstiff = Convert.ToDouble(dgvCalculateWD.Rows[60].Cells[i].Value = WeatherDeck.fyB(bShipInput, bxStiff ));
+
+                // fyz Plate
+                fyzplate = Convert.ToDouble(dgvCalculateWD.Rows[61].Cells[i].Value = WeatherDeck.fyz(fyBplate));
+
+                // fyz Stiffener
+                fyzstiff = Convert.ToDouble(dgvCalculateWD.Rows[62].Cells[i].Value = WeatherDeck.fyz(fyBstiff));
+
+                // fxL Plate
+                fxLplate = Convert.ToDouble(dgvCalculateWD.Rows[63].Cells[i].Value = WeatherDeck.fxL(xPrimPlate, Lrule));
+
+                // fxL Stiffener
+                fxLstiff = Convert.ToDouble(dgvCalculateWD.Rows[64].Cells[i].Value = WeatherDeck.fxL(xPrimStiff, Lrule));
 
 
 

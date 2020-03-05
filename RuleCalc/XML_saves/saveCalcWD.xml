@@ -141,12 +141,24 @@
   <CalcWD>
     <Column1>29.4</Column1>
   </CalcWD>
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
+  <CalcWD>
+    <Column1>1</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>1</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>5</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>5</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>0.11</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>0.11</Column1>
+  </CalcWD>
   <CalcWD />
   <CalcWD />
   <CalcWD />
