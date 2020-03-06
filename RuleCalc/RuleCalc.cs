@@ -128,7 +128,7 @@ namespace RuleCalc
 
         private void aboutRuleCalcToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Rules: DNV-GL July 2018\nAuthor: Lukasz Swiercz\nRuleCalc: beta 0.3");
+            MessageBox.Show("Rules: DNV-GL July 2018\nAuthor: Lukasz Swiercz\nRuleCalc: beta 0.4");
         }
         //--------------------------
         // Open Ship Data tool

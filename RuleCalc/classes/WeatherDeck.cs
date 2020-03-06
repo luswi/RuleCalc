@@ -226,21 +226,28 @@ namespace RuleCalc.classes
         }
 
         //=====
-        // f_4
+        // f_4 
         //=====
         public static double f_4(double fxL)
         {
-            if(fxL = 0)
+            if(fxL < 2)
             {
-                double f_4 = 2.0;
+                double[] f_4Array = { 2, (-5 * fxL + 2) };
+                double f_4 = f_4Array.Select(Math.Abs).Min();
                 return (double)Math.Round(f_4, 2);
             }
-            else if(fxL >= 0.2 && fxL <= 0.6)
+            else if (fxL > 0.6)
             {
-                double f_4 = 1.0;
+                double[] f_4Array = { 3, (5 * fxL - 2) };
+                double f_4 = f_4Array.Select(Math.Abs).Min();
                 return (double)Math.Round(f_4, 2);
             }
-            else if()
+            else
+            {
+                double f_4 = 1;
+                return (double)f_4;
+            }
+
         }
 
         //=====
@@ -248,7 +255,8 @@ namespace RuleCalc.classes
         //=====
         public static double Cw(double Lrule)
         {
-
+            double Cw = 0.0856 * Lrule;
+            return (double)Math.Round(Cw, 2);
         }
 
         //===================

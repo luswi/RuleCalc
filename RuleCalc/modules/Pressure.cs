@@ -1659,7 +1659,7 @@ namespace RuleCalc.modules
                     }
                     else if (fxLplateInput > 0.6)
                     {
-                        double[] f_4Array = { 3, fxLplateInput - 2 };
+                        double[] f_4Array = { 3, (5 * fxLplateInput - 2) };
                         double f_4ArrayOutput = f_4Array.Min();
                         dgvCalculateSP.Rows[53].Cells[i].Value = f_4ArrayOutput;
                     }
@@ -1690,7 +1690,7 @@ namespace RuleCalc.modules
                     }
                     else if (fxLplateInput > 0.6)
                     {
-                        double[] f_4Array = { 3, fxLstiffInput - 2 };
+                        double[] f_4Array = { 3, (5 * fxLstiffInput - 2) };
                         double f_4ArrayOutput = f_4Array.Min();
                         dgvCalculateSP.Rows[54].Cells[i].Value = f_4ArrayOutput;
                     }
@@ -2585,6 +2585,7 @@ namespace RuleCalc.modules
                 double LppInput = Convert.ToDouble(LppTB.Text);
                 double Lrule = Convert.ToDouble(LTB.Text);
                 double bShipInput = Convert.ToDouble(BTB.Text);
+                double CBInput = Convert.ToDouble(CbTB.Text);
 
 
                 double LllInput = Convert.ToDouble(dgvCalculateWD.Rows[1].Cells[i].Value);
@@ -2657,7 +2658,13 @@ namespace RuleCalc.modules
                 double xPrimPlate = 0.0;
                 double xPrimStiff = 0.0;
 
-                double f_5 = 1.0;
+                double f_3 = 0.0;
+                double f_4plate = 0.0;
+                double f_4stiff = 0.0;
+
+                double Cw = 0.0;
+                                
+
                 
                 // calculate alpha
                 alpha = Convert.ToDouble(dgvCalculateWD.Rows[13].Cells[i].Value = WeatherDeck.alphaPlate(bInput, aInput));
@@ -2708,7 +2715,22 @@ namespace RuleCalc.modules
                 // fxL Stiffener
                 fxLstiff = Convert.ToDouble(dgvCalculateWD.Rows[64].Cells[i].Value = WeatherDeck.fxL(xPrimStiff, Lrule));
 
+                //f_3
+                f_3 = Convert.ToDouble(dgvCalculateWD.Rows[65].Cells[i].Value = WeatherDeck.f_3(CBInput, Lrule, bShipInput ));
 
+                //f_4 plate
+                f_4plate = Convert.ToDouble(dgvCalculateWD.Rows[66].Cells[i].Value = WeatherDeck.f_4(fxLplate));//f_4 plate
+
+                //f_4 stiff
+                f_4stiff = Convert.ToDouble(dgvCalculateWD.Rows[67].Cells[i].Value = WeatherDeck.f_4(fxLstiff));
+
+                //f_5 deck stiff & plate
+
+                double f_5_WDplate = Convert.ToDouble(dgvCalculateWD.Rows[68].Cells[i].Value = 1.0); ; ; // tylko dla pokladu!!
+                double f_5_Wdstiff = Convert.ToDouble(dgvCalculateWD.Rows[69].Cells[i].Value = 1.0); // tylko dla pokladu!!
+
+                //Cw
+                Cw = Convert.ToDouble(dgvCalculateWD.Rows[70].Cells[i].Value = WeatherDeck.Cw(Lrule));
 
             }
 
