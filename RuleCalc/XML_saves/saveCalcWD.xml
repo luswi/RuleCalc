@@ -159,12 +159,24 @@
   <CalcWD>
     <Column1>0.11</Column1>
   </CalcWD>
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
-  <CalcWD />
+  <CalcWD>
+    <Column1>0.67</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>1.45</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>1.45</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>1</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>1</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>6.36</Column1>
+  </CalcWD>
   <CalcWD />
   <CalcWD />
   <CalcWD />
