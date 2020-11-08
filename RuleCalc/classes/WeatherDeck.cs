@@ -262,10 +262,21 @@ namespace RuleCalc.classes
         //===================
         //Pwd(plate) HS[MPa]
         //===================
+        public static double PwdPlateHS(double pENVplateHS, double zdk, double Tsc)
+        {
+            double PwdPlateHS = pENVplateHS - 1.1025 * 9.81 * (zdk - Tsc);
+            return (double)Math.Round(PwdPlateHS, 2);
+        }
 
         //===================
         //Pwd(plate) BS[MPa]
         //===================
+        public static double PwdPlateBS(double pENVplateBS, double zdk, double Tsc)
+        {
+            double PwdPlateBS = pENVplateBS - 1.1025 * 9.81 * (zdk - Tsc);
+            return (double)Math.Round(PwdPlateBS, 2);
+        }
+
 
         //==========================
         //Pwd(plate) BS linear[MPa]
