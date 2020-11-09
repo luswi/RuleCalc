@@ -297,6 +297,12 @@ namespace RuleCalc.classes
         //========================
         //P_ENV - HS(plate) [MPa]
         //========================
+        public static double P_ENVplateHS(double fr, double f_4, double f_5, double CB, double Cw, double Lrule)
+        {
+            //=5*GeneralInputData!$D$16*B80*B82*(1-GeneralInputData!$D$7/3)*B84*((1.2*GeneralInputData!$D$3-15)/GeneralInputData!$D$3)^0.5
+            double P_ENVplateHS = 5 * fr * f_4 * f_5 * (1 - CB / 3) * Cw * Math.Sqrt((1.2 * Lrule - 15) / Lrule);
+            return (double)Math.Round(P_ENVplateHS, 2);
+        }
 
         //========================
         //P_ENV - BS(plate) [MPa]

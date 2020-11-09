@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\Information.cs" />
+    <Compile Include="classes\RcTools.cs" />
     <Compile Include="classes\SaveXML.cs" />
     <Compile Include="classes\pressureClass.cs" />
     <Compile Include="classes\WeatherDeck.cs" />
