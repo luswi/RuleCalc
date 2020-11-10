@@ -260,61 +260,47 @@ namespace RuleCalc.classes
         }
 
         //===================
-        //Pwd(plate) HS[MPa]
+        //Pwd HS[MPa]
         //===================
-        public static double PwdPlateHS(double pENVplateHS, double zdk, double Tsc)
+        public static double PwdHS(double P_envHS, double zdk, double Tsc)
         {
-            double PwdPlateHS = pENVplateHS - 1.1025 * 9.81 * (zdk - Tsc);
-            return (double)Math.Round(PwdPlateHS, 2);
+            double PwdHS = P_envHS - 1.1025 * 9.81 * (zdk - Tsc);
+            return (double)Math.Round(PwdHS, 2);
         }
 
         //===================
-        //Pwd(plate) BS[MPa]
+        //Pwd BS[MPa]
         //===================
-        public static double PwdPlateBS(double pENVplateBS, double zdk, double Tsc)
+        public static double PwdBS(double P_envBS, double zdk, double Tsc)
         {
-            double PwdPlateBS = pENVplateBS - 1.1025 * 9.81 * (zdk - Tsc);
-            return (double)Math.Round(PwdPlateBS, 2);
+            double PwdBS = P_envBS - 1.1025 * 9.81 * (zdk - Tsc);
+            return (double)Math.Round(PwdBS, 2);
         }
-
-
-        //==========================
-        //Pwd(plate) BS linear[MPa]
-        //==========================
-
-        //=======================
-        //Pwd(stiffener) HS[MPa]
-        //=======================
-
-        //=======================
-        //Pwd(stiffener) BS[MPa]
-        //=======================
-
-        //==============================
-        //Pwd(stiffener) BS linear[MPa]
-        //==============================
-
+       
         //========================
-        //P_ENV - HS(plate) [MPa]
+        //P_ENV - HS [MPa]
         //========================
-        public static double P_ENVplateHS(double fr, double f_4, double f_5, double CB, double Cw, double Lrule)
+        public static double P_envHS(double fr, double f_4, double f_5, double CB, double Cw, double Lrule)
         {
-            //=5*GeneralInputData!$D$16*B80*B82*(1-GeneralInputData!$D$7/3)*B84*((1.2*GeneralInputData!$D$3-15)/GeneralInputData!$D$3)^0.5
-            double P_ENVplateHS = 5 * fr * f_4 * f_5 * (1 - CB / 3) * Cw * Math.Sqrt((1.2 * Lrule - 15) / Lrule);
-            return (double)Math.Round(P_ENVplateHS, 2);
+            double P_envHS = 5 * fr * f_4 * f_5 * (1 - CB / 3) * Cw * Math.Sqrt((1.2 * Lrule - 15) / Lrule);
+            return (double)Math.Round(P_envHS, 2);
         }
 
         //========================
-        //P_ENV - BS(plate) [MPa]
+        //P_ENV - BS [MPa]
         //========================
+        public static double P_envBS(double fr, double f_3, double Lrule, double fyzPlate, double Cw)
+        {
+            double P_envBS = fr * f_3 * (2 + 55 / Lrule) * fyzPlate * Cw;
+            return (double)Math.Round(P_envBS, 2);
+        }
 
-        //============================
-        //P_ENV - HS(stiffener) [MPa]
-        //============================
+        //==============================================
+        // Linear calculation for plate and stiffeners
+        //==============================================
 
-        //============================
-        //P_ENV - BS(stiffener) [MPa]
-        //============================
+        //https://stackoverflow.com/questions/26179973/create-a-method-to-calculate-linear-interpolation-in-c-sharp
+
 
     }
 

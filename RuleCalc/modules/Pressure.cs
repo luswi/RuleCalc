@@ -2587,8 +2587,9 @@ namespace RuleCalc.modules
                 double bShipInput = Convert.ToDouble(BTB.Text);
                 double CBInput = Convert.ToDouble(CbTB.Text);
 
-                //do sprawdzenia!!!!
+                
                 double frInput = Convert.ToDouble(frTB.Text);
+                double tscInput = Convert.ToDouble(TscTB.Text);
 
 
                 double LllInput = Convert.ToDouble(dgvCalculateWD.Rows[1].Cells[i].Value);
@@ -2666,10 +2667,11 @@ namespace RuleCalc.modules
                 double f_4stiff = 0.0;
 
                 double Cw = 0.0;
-
+                double PwdPlateHS = 0.0;
+                double PwdPlateBS = 0.0;
 
                 double P_ENVplateHS = 0.0;
-
+                double P_ENVplateBS = 0.0;
 
 
                 // calculate alpha
@@ -2738,9 +2740,17 @@ namespace RuleCalc.modules
                 //Cw
                 Cw = Convert.ToDouble(dgvCalculateWD.Rows[70].Cells[i].Value = WeatherDeck.Cw(Lrule));
 
+                //P_ENV - HS(plate) [MPa]
+                P_ENVplateHS = Convert.ToDouble(dgvCalculateWD.Rows[77].Cells[i].Value = WeatherDeck.P_envHS(frInput, f_4plate, f_5_WDplate, CBInput, Cw, Lrule));
 
-                //P_ENV - HS(plate) [MPa] sprawdzic frinput!!!!
-                P_ENVplateHS = Convert.ToDouble(dgvCalculateWD.Rows[77].Cells[i].Value = WeatherDeck.P_ENVplateHS(frInput, f_4plate, f_5_WDplate, CBInput, Cw, Lrule));
+                //P_ENV - BS(plate) [MPa]
+                P_ENVplateBS = Convert.ToDouble(dgvCalculateWD.Rows[78].Cells[i].Value = WeatherDeck.P_envBS(frInput, f_3, Lrule, fyzplate, Cw));
+
+                //Pwd(plate) HS[MPa]
+                PwdPlateHS = Convert.ToDouble(dgvCalculateWD.Rows[71].Cells[i].Value = WeatherDeck.PwdHS(P_ENVplateHS, zdkPlate, tscInput));
+
+                //Pwd(plate) BS[MPa]
+                PwdPlateBS = Convert.ToDouble(dgvCalculateWD.Rows[72].Cells[i].Value = WeatherDeck.PwdBS(P_ENVplateBS, zdkPlate, tscInput));
             }
 
 
