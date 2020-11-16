@@ -2672,6 +2672,9 @@ namespace RuleCalc.modules
 
                 double P_ENVplateHS = 0.0;
                 double P_ENVplateBS = 0.0;
+                double P_ENVstiffHS = 0.0;
+                double P_ENVstiffBS = 0.0;
+
 
 
                 // calculate alpha
@@ -2735,7 +2738,7 @@ namespace RuleCalc.modules
                 //f_5 deck stiff & plate
 
                 double f_5_WDplate = Convert.ToDouble(dgvCalculateWD.Rows[68].Cells[i].Value = 1.0); ; ; // tylko dla pokladu!!
-                double f_5_Wdstiff = Convert.ToDouble(dgvCalculateWD.Rows[69].Cells[i].Value = 1.0); // tylko dla pokladu!!
+                double f_5_WDstiff = Convert.ToDouble(dgvCalculateWD.Rows[69].Cells[i].Value = 1.0); // tylko dla pokladu!!
 
                 //Cw
                 Cw = Convert.ToDouble(dgvCalculateWD.Rows[70].Cells[i].Value = WeatherDeck.Cw(Lrule));
@@ -2746,11 +2749,20 @@ namespace RuleCalc.modules
                 //P_ENV - BS(plate) [MPa]
                 P_ENVplateBS = Convert.ToDouble(dgvCalculateWD.Rows[78].Cells[i].Value = WeatherDeck.P_envBS(frInput, f_3, Lrule, fyzplate, Cw));
 
+                //P_ENV - HS(stiff) [MPa]
+                P_ENVstiffHS = Convert.ToDouble(dgvCalculateWD.Rows[79].Cells[i].Value = WeatherDeck.P_envHS(frInput, f_4stiff, f_5_WDstiff, CBInput, Cw, Lrule));
+
+                //P_ENV - BS(stiff) [MPa]
+                P_ENVstiffBS = Convert.ToDouble(dgvCalculateWD.Rows[80].Cells[i].Value = WeatherDeck.P_envBS(frInput, f_3, Lrule, fyzstiff, Cw));
+                
+
                 //Pwd(plate) HS[MPa]
                 PwdPlateHS = Convert.ToDouble(dgvCalculateWD.Rows[71].Cells[i].Value = WeatherDeck.PwdHS(P_ENVplateHS, zdkPlate, tscInput));
 
                 //Pwd(plate) BS[MPa]
                 PwdPlateBS = Convert.ToDouble(dgvCalculateWD.Rows[72].Cells[i].Value = WeatherDeck.PwdBS(P_ENVplateBS, zdkPlate, tscInput));
+                //Pwd(stiff) HS[MPa]
+                //Pwd(stiff) BS[MPa]
             }
 
 
