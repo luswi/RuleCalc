@@ -2675,6 +2675,8 @@ namespace RuleCalc.modules
                 double P_ENVstiffHS = 0.0;
                 double P_ENVstiffBS = 0.0;
 
+                double PwdAtPoint = 0.0;
+
 
 
                 // calculate alpha
@@ -2737,7 +2739,7 @@ namespace RuleCalc.modules
 
                 //f_5 deck stiff & plate
 
-                double f_5_WDplate = Convert.ToDouble(dgvCalculateWD.Rows[68].Cells[i].Value = 1.0); ; ; // tylko dla pokladu!!
+                double f_5_WDplate = Convert.ToDouble(dgvCalculateWD.Rows[68].Cells[i].Value = 1.0); // tylko dla pokladu!!
                 double f_5_WDstiff = Convert.ToDouble(dgvCalculateWD.Rows[69].Cells[i].Value = 1.0); // tylko dla pokladu!!
 
                 //Cw
@@ -2762,7 +2764,13 @@ namespace RuleCalc.modules
                 //Pwd(plate) BS[MPa]
                 PwdPlateBS = Convert.ToDouble(dgvCalculateWD.Rows[72].Cells[i].Value = WeatherDeck.PwdBS(P_ENVplateBS, zdkPlate, tscInput));
                 //Pwd(stiff) HS[MPa]
+
                 //Pwd(stiff) BS[MPa]
+
+                //Pwd at point [MPa] plate
+                //PwdAtPoint = Convert.ToDouble(dgvCalculateWD.Rows[86].Cells[i].Value = 1.1);
+                PwdAtPoint = Convert.ToDouble(dgvCalculateWD.Rows[86].Cells[i].Value = WeatherDeck.Interpolate(8.6,43.1,0,21.6,2.5));
+
             }
 
 

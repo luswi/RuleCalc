@@ -301,6 +301,14 @@ namespace RuleCalc.classes
 
         //https://stackoverflow.com/questions/26179973/create-a-method-to-calculate-linear-interpolation-in-c-sharp
 
+        //https://stackoverflow.com/questions/12838007/c-sharp-linear-interpolation
+        
+        public static double Interpolate (double x0, double y0, double x1, double y1, double target)
+        {
+
+            return y0 + ((y1 - y0) / (x1 - x0)) * (target - x0);
+        }
+
 
     }
 
