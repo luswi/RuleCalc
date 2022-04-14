@@ -132,9 +132,9 @@ namespace RuleCalc.modules
         public static string saSave = "";
         public static string frSave = "";
         public static string bkSave = "";
-        //---------------------------
+        //----------------------------
         // Update textboxes for save
-        //---------------------------
+        //----------------------------
         private void updateForSave(object sender, EventArgs e)
         {
             lppSave = LppTB.Text;
