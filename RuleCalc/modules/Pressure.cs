@@ -2769,7 +2769,7 @@ namespace RuleCalc.modules
 
                 //Pwd at point [MPa] plate
                 //PwdAtPoint = Convert.ToDouble(dgvCalculateWD.Rows[86].Cells[i].Value = 1.1);
-                PwdAtPoint = Convert.ToDouble(dgvCalculateWD.Rows[86].Cells[i].Value = WeatherDeck.Interpolate(8.6,43.1,0,21.6,2.5));
+                PwdAtPoint = Convert.ToDouble(dgvCalculateWD.Rows[86].Cells[i].Value = WeatherDeck.Interpolate(bShipInput,43.1,0,21.6,2.5));
 
             }
 
