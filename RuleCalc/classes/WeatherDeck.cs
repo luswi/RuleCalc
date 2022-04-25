@@ -319,76 +319,26 @@ namespace RuleCalc.classes
                 double degStiffInput = Convert.ToDouble(degStiff);
                 if(degStiffInput <= 75)
                 {
+                    return (double) Math.Round(degStiffInput*Math.Sin((Math.PI*degStiffInput/180.0)), 2);
+                }
+                else if(degStiffInput >= 75 && degStiffInput <= 90)
+                {
+                    return (double)0.0;
 
+                    //            double tpStiffCheckInput = Convert.ToDouble(tpStiffCheck);
+                    //double hStiffCheckInput = Convert.ToDouble(hStiffCheck);
+                    //dgvCalculateSP.Rows[70].Cells[i].Value = tpStiffCheckInput + hStiffCheckInput;
+                }
+                else
+                {
+                    return (double)0.0;
                 }
             }
+            else
+            {
+                return (double)0.0;
+            }
         }
-        //        object degStiff = (sender as DataGridView).Rows[28].Cells[i].Value;
-        //        object deg7090 = (sender as DataGridView).Rows[70].Cells[i].Value;
-        //        object deg75 = (sender as DataGridView).Rows[71].Cells[i].Value;
-
-        //                if (degStiff != DBNull.Value && deg7090 != DBNull.Value && deg75 != DBNull.Value)
-        //                {
-        //                    double degStiffInput = Convert.ToDouble(degStiff);
-        //        double deg7090Input = Convert.ToDouble(deg7090);
-        //        double deg75Input = Convert.ToDouble(deg75);
-
-        //                    if (degStiffInput <= 75)
-        //                    {
-        //                        dgvCalculateSP.Rows[25].Cells[i].Value = deg75Input;
-        //                    }
-        //                    else
-        //                    {
-        //                        dgvCalculateSP.Rows[25].Cells[i].Value = deg7090Input;
-        //                    }
-
-        //                }
-        //                else
-        //{
-        //    dgvCalculateSP.Rows[25].Cells[i].Value = "No Value!";
-        //}
-
-
-        //======================
-        // for 75° <= ϕw <= 90°
-        //======================
-        //dgvCalculateSP.Rows[27].Cells[i].Value = (sender as DataGridView).Rows[12].Cells[i].Value;
-
-        //        object tpStiffCheck = (sender as DataGridView).Rows[27].Cells[i].Value;
-        //object hStiffCheck = (sender as DataGridView).Rows[26].Cells[i].Value;
-
-        //        if (tpStiffCheck != null && hStiffCheck != DBNull.Value)
-        //        {
-        //            double tpStiffCheckInput = Convert.ToDouble(tpStiffCheck);
-        //double hStiffCheckInput = Convert.ToDouble(hStiffCheck);
-        //dgvCalculateSP.Rows[70].Cells[i].Value = tpStiffCheckInput + hStiffCheckInput;
-        //        }
-        //        else
-        //        {
-        //            dgvCalculateSP.Rows[70].Cells[i].Value = 0.0;
-        //        }
-
-        //===============
-        // for ϕw <= 75°
-        //===============
-
-        //object degStiffCheck = (sender as DataGridView).Rows[28].Cells[i].Value;
-        //object deg7090Check = (sender as DataGridView).Rows[70].Cells[i].Value;
-
-
-
-        //if (deg7090Check != null && degStiffCheck != DBNull.Value)
-        //{
-
-        //    double degStiffCheckInput = Convert.ToDouble(degStiffCheck);
-        //    double deg7090CheckInput = Convert.ToDouble(deg7090Check);
-        //    dgvCalculateSP.Rows[71].Cells[i].Value = Math.Round(deg7090CheckInput * Math.Sin(DegToRad(degStiffCheckInput)), 2);
-        //}
-        //else
-        //{
-        //    dgvCalculateSP.Rows[71].Cells[i].Value = "No Value!";
-        //}
-
 
     }
 

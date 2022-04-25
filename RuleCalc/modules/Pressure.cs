@@ -2804,6 +2804,7 @@ namespace RuleCalc.modules
                 //for 75° <= ϕw <= 90°   91
                 // --------- sprawdzic przepisy w excelu jest blad
                 //for ϕw <= 75° 92
+                _ = Convert.ToDouble(dgvCalculateWD.Rows[92].Cells[i].Value = WeatherDeck.dshr(60.0));
 
                 //
 
