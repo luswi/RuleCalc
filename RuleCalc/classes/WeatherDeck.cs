@@ -312,7 +312,17 @@ namespace RuleCalc.classes
         //=====================
         // Calculate dshr [mm]
         //=====================
+        public static double dshr (object degStiff)
+        {
+            if(degStiff!=DBNull.Value)
+            {
+                double degStiffInput = Convert.ToDouble(degStiff);
+                if(degStiffInput <= 75)
+                {
 
+                }
+            }
+        }
         //        object degStiff = (sender as DataGridView).Rows[28].Cells[i].Value;
         //        object deg7090 = (sender as DataGridView).Rows[70].Cells[i].Value;
         //        object deg75 = (sender as DataGridView).Rows[71].Cells[i].Value;
