@@ -312,22 +312,21 @@ namespace RuleCalc.classes
         //=====================
         // Calculate dshr [mm]
         //=====================
-        public static double dshr (object degStiff)
+        public static double dshr (object degStiff, object hStiff, object tpStiff)
         {
-            if(degStiff!=DBNull.Value)
+            if(degStiff!=DBNull.Value && hStiff!=DBNull.Value && tpStiff!=DBNull.Value)
             {
                 double degStiffInput = Convert.ToDouble(degStiff);
                 if(degStiffInput <= 75)
                 {
-                    return (double) Math.Round(degStiffInput*Math.Sin((Math.PI*degStiffInput/180.0)), 2);
+                    double deg7090 = Convert.ToDouble(hStiff)+Convert.ToDouble(tpStiff);                    
+                    return (double) Math.Round(deg7090*Math.Sin((Math.PI*degStiffInput/180.0)), 2);
                 }
                 else if(degStiffInput >= 75 && degStiffInput <= 90)
                 {
-                    return (double)0.0;
-
-                    //            double tpStiffCheckInput = Convert.ToDouble(tpStiffCheck);
-                    //double hStiffCheckInput = Convert.ToDouble(hStiffCheck);
-                    //dgvCalculateSP.Rows[70].Cells[i].Value = tpStiffCheckInput + hStiffCheckInput;
+                        double hStiffInput = Convert.ToDouble(hStiff);
+                        double tpStiffInput = Convert.ToDouble(tpStiff);
+                        return (double)hStiffInput + tpStiffInput;
                 }
                 else
                 {

@@ -2801,10 +2801,12 @@ namespace RuleCalc.modules
                 //0.5*Pwd 90
                 _ = Convert.ToDouble(dgvCalculateWD.Rows[90].Cells[i].Value = PwdStiffBS/2);
 
-                //for 75° <= ϕw <= 90°   91
-                // --------- sprawdzic przepisy w excelu jest blad
-                //for ϕw <= 75° 92
-                _ = Convert.ToDouble(dgvCalculateWD.Rows[92].Cells[i].Value = WeatherDeck.dshr(60.0));
+                //dshr
+                
+                double degStiff = Convert.ToDouble(dgvCalculateWD.Rows[36].Cells[i].Value);
+                double hStiff = Convert.ToDouble(dgvCalculateWD.Rows[34].Cells[i].Value);
+                double tpStiff = Convert.ToDouble(dgvCalculateWD.Rows[35].Cells[i].Value);
+                _ = Convert.ToDouble(dgvCalculateWD.Rows[33].Cells[i].Value = WeatherDeck.dshr(degStiff, hStiff, tpStiff));
 
                 //
 
