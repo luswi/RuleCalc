@@ -2785,15 +2785,16 @@ namespace RuleCalc.modules
                 _ = Convert.ToDouble(dgvCalculateWD.Rows[85].Cells[i].Value = PwdPlateBS / 2);
 
                 //Pwd at point [MPa] plate 86
-                PwdAtPointPlate = Convert.ToDouble(dgvCalculateWD.Rows[86].Cells[i].Value = WeatherDeck.Interpolate(bShipInput / 2, PwdPlateBS, 0, PwdPlateBS * 0.5, y_pointPlate));
+                PwdAtPointPlate = Convert.ToDouble(dgvCalculateWD.Rows[73].Cells[i].Value = WeatherDeck.Interpolate(bShipInput / 2, PwdPlateBS, 0, PwdPlateBS * 0.5, y_pointPlate));
 
                 //Pwd(stiff) HS[MPa]
+                PwdStiffHS = Convert.ToDouble(dgvCalculateWD.Rows[74].Cells[i].Value = WeatherDeck.PwdHS(P_ENVstiffHS, zdkStiff, tscInput));
 
                 //Pwd(stiff) BS[MPa]
                 PwdStiffBS = Convert.ToDouble(dgvCalculateWD.Rows[75].Cells[i].Value = WeatherDeck.PwdBS(P_ENVstiffBS, zdkStiff,tscInput));
 
                 //Pwd at point [MPa] stiff
-                PwdAtPointStiff = Convert.ToDouble(dgvCalculateWD.Rows[91].Cells[i].Value = WeatherDeck.Interpolate(bShipInput / 2, PwdStiffBS, 0, PwdStiffBS * 0.5, y_pointStiff));
+                PwdAtPointStiff = Convert.ToDouble(dgvCalculateWD.Rows[76].Cells[i].Value = WeatherDeck.Interpolate(bShipInput / 2, PwdStiffBS, 0, PwdStiffBS * 0.5, y_pointStiff));
 
                 //Pwd (stiff) BS 89
                 _ = Convert.ToDouble(dgvCalculateWD.Rows[89].Cells[i].Value = PwdStiffBS);
