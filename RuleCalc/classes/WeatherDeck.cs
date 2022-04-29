@@ -326,6 +326,7 @@ namespace RuleCalc.classes
                 {
                         double hStiffInput = Convert.ToDouble(hStiff);
                         double tpStiffInput = Convert.ToDouble(tpStiff);
+                    
                         return (double)hStiffInput + tpStiffInput;
                 }
                 else
@@ -338,6 +339,25 @@ namespace RuleCalc.classes
                 return (double)0.0;
             }
         }
+        //================
+        // P [MPa] SEA-1
+        //================
+        public static double pSEA (double chi, double pdMin, double pwdHS, double pwdBS, double zLoadPoint, double zdk)
+        {
+            double[] pSeaArray = { chi * pdMin, pwdHS - 1.025 * 9.81 * (zLoadPoint - zdk), pwdBS - 1.025 * 9.81 * (zLoadPoint - zdk) };
+            double pSeaArrayMAX = pSeaArray.Max();
+            return (double)pSeaArrayMAX;
+        }
+        //
+        //t req (GROSS) [mm]
+        //
+        public static double tReqGROSS (double alpha, double b, double pressure, double rEH, double tC)
+        {
+            return (double)Math.Round((0.0158 * alpha * b * Math.Sqrt(Math.Abs(pressure) / (0.95 * rEH)) + tC) * 2, 0) / 2;
+        }
+
+
+        //dgvCalculateSP.Rows[58].Cells[i].Value = PwwlPlateArrayOutput;
 
     }
 

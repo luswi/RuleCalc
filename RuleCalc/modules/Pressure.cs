@@ -2679,6 +2679,7 @@ namespace RuleCalc.modules
 
                 double PwdAtPointPlate = 0.0;
                 double PwdAtPointStiff = 0.0;
+                double pPlate = 0.0;
 
 
 
@@ -2803,14 +2804,22 @@ namespace RuleCalc.modules
                 _ = Convert.ToDouble(dgvCalculateWD.Rows[90].Cells[i].Value = PwdStiffBS/2);
 
                 //dshr
-                
                 double degStiff = Convert.ToDouble(dgvCalculateWD.Rows[36].Cells[i].Value);
                 double hStiff = Convert.ToDouble(dgvCalculateWD.Rows[34].Cells[i].Value);
                 double tpStiff = Convert.ToDouble(dgvCalculateWD.Rows[35].Cells[i].Value);
                 _ = Convert.ToDouble(dgvCalculateWD.Rows[33].Cells[i].Value = WeatherDeck.dshr(degStiff, hStiff, tpStiff));
 
                 //
+                // P [MPa] SEA-1
+                double zLoadPointPlate = Convert.ToDouble(dgvCalculateWD.Rows[6].Cells[i].Value);
+                pPlate = Convert.ToDouble(dgvCalculateWD.Rows[15].Cells[i].Value = Math.Round(WeatherDeck.pSEA(xplate, pdminPlate, PwdPlateHS, PwdAtPointPlate, zLoadPointPlate, zdkPlate), 1));
+                //string ewq = Convert.ToString(PwdAtPointPlate);
+                //MessageBox.Show(ewq);
 
+                //double degStiff = Convert.ToDouble(dgvCalculateWD.Rows[36].Cells[i].Value);
+
+                //t req (GROSS) [mm]
+                _ = Convert.ToDouble(dgvCalculateWD.Rows[16].Cells[i].Value = WeatherDeck.tReqGROSS(0.96, 600, 36.6, 235, 1));
 
             }
 

@@ -85,7 +85,9 @@
   <CalcWD>
     <Column1>235</Column1>
   </CalcWD>
-  <CalcWD />
+  <CalcWD>
+    <Column1>206</Column1>
+  </CalcWD>
   <CalcWD>
     <Column1>200</Column1>
   </CalcWD>
@@ -185,41 +187,32 @@
   <CalcWD>
     <Column1>42.16</Column1>
   </CalcWD>
-  <CalcWD />
-  <CalcWD />
-  <CalcWD>
-    <Column1>42.16</Column1>
-  </CalcWD>
-  <CalcWD />
-  <CalcWD>
-    <Column1>37.16</Column1>
-  </CalcWD>
-  <CalcWD>
-    <Column1>58.38</Column1>
-  </CalcWD>
-  <CalcWD>
-    <Column1>37.16</Column1>
-  </CalcWD>
-  <CalcWD>
-    <Column1>58.38</Column1>
-  </CalcWD>
-  <CalcWD />
-  <CalcWD>
-    <Column1>8.6</Column1>
-  </CalcWD>
-  <CalcWD>
-    <Column1>0</Column1>
-  </CalcWD>
-  <CalcWD>
-    <Column1>42.16</Column1>
-  </CalcWD>
-  <CalcWD>
-    <Column1>21.08</Column1>
-  </CalcWD>
   <CalcWD>
     <Column1>35.786976744186042</Column1>
   </CalcWD>
   <CalcWD>
+    <Column1>20.94</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>42.16</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>27.207906976744184</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>37.16</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>58.38</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>37.16</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>58.38</Column1>
+  </CalcWD>
+  <CalcWD />
+  <CalcWD>
     <Column1>8.6</Column1>
   </CalcWD>
   <CalcWD>
@@ -231,9 +224,20 @@
   <CalcWD>
     <Column1>21.08</Column1>
   </CalcWD>
+  <CalcWD />
   <CalcWD>
-    <Column1>27.207906976744184</Column1>
+    <Column1>8.6</Column1>
   </CalcWD>
+  <CalcWD>
+    <Column1>0</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>42.16</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>21.08</Column1>
+  </CalcWD>
+  <CalcWD />
   <CalcWD />
   <CalcWD />
 </DocumentElement>
