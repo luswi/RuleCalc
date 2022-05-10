@@ -2603,7 +2603,7 @@ namespace RuleCalc.modules
                 double bInput = Convert.ToDouble(dgvCalculateWD.Rows[11].Cells[i].Value);
                 double aInput = Convert.ToDouble(dgvCalculateWD.Rows[12].Cells[i].Value);
                 double alpha = Convert.ToDouble(dgvCalculateWD.Rows[13].Cells[i].Value);
-                //double tcPlate = Convert.ToDouble(dgvCalculateWD.Rows[13].Cells[i].Value);
+                double tcPlate = Convert.ToDouble(dgvCalculateWD.Rows[14].Cells[i].Value);
                 //double pPlate = Convert.ToDouble(dgvCalculateWD.Rows[14].Cells[i].Value);
                 //double tReqPlate = Convert.ToDouble(dgvCalculateWD.Rows[15].Cells[i].Value);
                 //double thPlate = Convert.ToDouble(dgvCalculateWD.Rows[16].Cells[i].Value);
@@ -2819,7 +2819,12 @@ namespace RuleCalc.modules
                 //double degStiff = Convert.ToDouble(dgvCalculateWD.Rows[36].Cells[i].Value);
 
                 //t req (GROSS) [mm]
-                _ = Convert.ToDouble(dgvCalculateWD.Rows[16].Cells[i].Value = WeatherDeck.tReqGROSS(0.96, 600, 36.6, 235, 1));
+                double rEHplate = Convert.ToDouble(dgvCalculateWD.Rows[10].Cells[i].Value); 
+                double tReq = Convert.ToDouble(dgvCalculateWD.Rows[16].Cells[i].Value = WeatherDeck.tReqGROSS(alpha, bInput, pPlate, rEHplate, tcPlate));
+
+                //th status check Plate
+                double thPlateSelected = Convert.ToDouble(dgvCalculateWD.Rows[17].Cells[i].Value);
+                _ = Convert.ToString(dgvCalculateWD.Rows[18].Cells[i].Value = WeatherDeck.thStatusCheck(thPlateSelected, tReq));
 
             }
 

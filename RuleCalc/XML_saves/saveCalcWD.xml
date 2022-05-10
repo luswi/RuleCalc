@@ -41,12 +41,18 @@
   <CalcWD>
     <Column1>1</Column1>
   </CalcWD>
-  <CalcWD />
-  <CalcWD />
+  <CalcWD>
+    <Column1>35.8</Column1>
+  </CalcWD>
+  <CalcWD>
+    <Column1>4.5</Column1>
+  </CalcWD>
   <CalcWD>
     <Column1>6</Column1>
   </CalcWD>
-  <CalcWD />
+  <CalcWD>
+    <Column1>OK</Column1>
+  </CalcWD>
   <CalcWD />
   <CalcWD />
   <CalcWD>

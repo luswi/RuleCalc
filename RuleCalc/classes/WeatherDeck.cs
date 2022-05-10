@@ -359,6 +359,23 @@ namespace RuleCalc.classes
 
         //dgvCalculateSP.Rows[58].Cells[i].Value = PwwlPlateArrayOutput;
 
+        //===================
+        // th status check
+        //===================
+        public static string thStatusCheck(double thSelected, double thReq)
+        {
+
+            if (thSelected >= thReq)
+            {
+                //string msg = "OK";
+                return (string)"OK";
+            }
+            else
+            {
+                return (string)"NOT OK";
+
+            }
+        }
     }
 
 }
