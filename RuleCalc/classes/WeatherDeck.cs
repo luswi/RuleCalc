@@ -362,7 +362,7 @@ namespace RuleCalc.classes
         //===================
         // th status check
         //===================
-        public static string thStatusCheck(double thSelected, double thReq)
+        public static string thStatusCheck (double thSelected, double thReq)
         {
 
             if (thSelected >= thReq)
@@ -373,6 +373,32 @@ namespace RuleCalc.classes
             else
             {
                 return (string)"NOT OK";
+
+            }
+        }
+
+        //====================
+        // slenderness status
+        //====================
+        public static string slendernessCheck (double option, double thSelected, double tC, double bPlate)
+        {
+            if(option == 1)
+            {
+                //plate
+                if((thSelected-tC) < (bPlate / 125))
+                {
+                    return (string)"NOT OK";
+                }
+                else
+                {
+                    return (string)"OK";
+                }
+
+            }
+            else
+            {
+                //stiffener
+                return (string)"stiff";
 
             }
         }

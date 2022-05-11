@@ -1288,9 +1288,9 @@ namespace RuleCalc.modules
         }
 
 
-        //---------------------------------
+        //-----------------------------------------------
         // Check inputs and color cels. [Weatherdeck]
-        //---------------------------------
+        //-----------------------------------------------
         private void dgvCalculateWD_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
 
@@ -1323,8 +1323,35 @@ namespace RuleCalc.modules
                 dgvCalculateWD.Rows[11].Cells[e.ColumnIndex].Style.BackColor = Color.Azure;
                 dgvCalculateWD.Rows[12].Cells[e.ColumnIndex].Style.BackColor = Color.Azure;
             }
+            
+            // th status for plate
+            object th_PlateStatus = (sender as DataGridView).Rows[18].Cells[e.ColumnIndex].Value;
+            string th_PlateStatusInput = Convert.ToString(th_PlateStatus);
 
-        
+            if (th_PlateStatusInput == "OK")
+            {
+                dgvCalculateWD.Rows[18].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
+            }
+            else
+            {
+                dgvCalculateWD.Rows[18].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
+            }
+            // slenderness status for plate
+            object slend_PlateStatus = (sender as DataGridView).Rows[19].Cells[e.ColumnIndex].Value;
+            string slend_PlateStatusInput = Convert.ToString(slend_PlateStatus);
+
+            if (slend_PlateStatusInput == "OK")
+            {
+                dgvCalculateWD.Rows[19].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
+            }
+            else
+            {
+
+                dgvCalculateWD.Rows[19].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
+            }
+            
+
+
         }
 
 
@@ -2825,6 +2852,9 @@ namespace RuleCalc.modules
                 //th status check Plate
                 double thPlateSelected = Convert.ToDouble(dgvCalculateWD.Rows[17].Cells[i].Value);
                 _ = Convert.ToString(dgvCalculateWD.Rows[18].Cells[i].Value = WeatherDeck.thStatusCheck(thPlateSelected, tReq));
+
+                //slenderness status Plate
+                _ = Convert.ToString(dgvCalculateWD.Rows[19].Cells[i].Value = WeatherDeck.slendernessCheck(1, 6, 1, 600));
 
             }
 
