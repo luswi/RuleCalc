@@ -2707,6 +2707,7 @@ namespace RuleCalc.modules
                 double PwdAtPointPlate = 0.0;
                 double PwdAtPointStiff = 0.0;
                 double pPlate = 0.0;
+                double pStiffener = 0.0;
 
 
 
@@ -2837,7 +2838,7 @@ namespace RuleCalc.modules
                 _ = Convert.ToDouble(dgvCalculateWD.Rows[33].Cells[i].Value = WeatherDeck.dshr(degStiff, hStiff, tpStiff));
 
                 //
-                // P [MPa] SEA-1
+                // P [MPa] SEA-1 plate
                 double zLoadPointPlate = Convert.ToDouble(dgvCalculateWD.Rows[6].Cells[i].Value);
                 pPlate = Convert.ToDouble(dgvCalculateWD.Rows[15].Cells[i].Value = Math.Round(WeatherDeck.pSEA(xplate, pdminPlate, PwdPlateHS, PwdAtPointPlate, zLoadPointPlate, zdkPlate), 1));
                 //string ewq = Convert.ToString(PwdAtPointPlate);
@@ -2854,8 +2855,13 @@ namespace RuleCalc.modules
                 _ = Convert.ToString(dgvCalculateWD.Rows[18].Cells[i].Value = WeatherDeck.thStatusCheck(thPlateSelected, tReq));
 
                 //slenderness status Plate
-                _ = Convert.ToString(dgvCalculateWD.Rows[19].Cells[i].Value = WeatherDeck.slendernessCheck(1, 6, 1, 600));
+                _ = Convert.ToString(dgvCalculateWD.Rows[19].Cells[i].Value = WeatherDeck.slendernessCheck(1, thPlateSelected, tcPlate, bInput));
 
+                ///// stiffener
+                double tEH = Convert.ToDouble(dgvCalculateWD.Rows[39].Cells[i].Value = Convert.ToDouble(dgvCalculateWD.Rows[32].Cells[i].Value) / Math.Sqrt(3));
+
+                // P [MPa] SEA-1 stiffener
+                pStiffener = Convert.ToDouble(dgvCalculateWD.Rows[41].Cells[i].Value = Math.Round(WeatherDeck.pSEA(0.6, 29.4, 21.8, 27.8, 3.8, 10), 1));
             }
 
 

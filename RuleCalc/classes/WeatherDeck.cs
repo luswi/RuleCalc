@@ -348,9 +348,9 @@ namespace RuleCalc.classes
             double pSeaArrayMAX = pSeaArray.Max();
             return (double)pSeaArrayMAX;
         }
-        //
+        //====================
         //t req (GROSS) [mm]
-        //
+        //====================
         public static double tReqGROSS (double alpha, double b, double pressure, double rEH, double tC)
         {
             return (double)Math.Round((0.0158 * alpha * b * Math.Sqrt(Math.Abs(pressure) / (0.95 * rEH)) + tC) * 2, 0) / 2;
@@ -377,9 +377,9 @@ namespace RuleCalc.classes
             }
         }
 
-        //====================
-        // slenderness status
-        //====================
+        //=========================================
+        // slenderness status dodac dla usztywnien
+        //=========================================
         public static string slendernessCheck (double option, double thSelected, double tC, double bPlate)
         {
             if(option == 1)

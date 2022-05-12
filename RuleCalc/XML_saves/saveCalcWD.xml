@@ -53,7 +53,9 @@
   <CalcWD>
     <Column1>OK</Column1>
   </CalcWD>
-  <CalcWD />
+  <CalcWD>
+    <Column1>OK</Column1>
+  </CalcWD>
   <CalcWD />
   <CalcWD>
     <Column1>9</Column1>
@@ -109,11 +111,15 @@
   <CalcWD>
     <Column1>Upper end of vertical stiffeners</Column1>
   </CalcWD>
-  <CalcWD />
+  <CalcWD>
+    <Column1>135.67731325956206</Column1>
+  </CalcWD>
   <CalcWD>
     <Column1>1</Column1>
   </CalcWD>
-  <CalcWD />
+  <CalcWD>
+    <Column1>90.1</Column1>
+  </CalcWD>
   <CalcWD />
   <CalcWD>
     <Column1>5</Column1>
