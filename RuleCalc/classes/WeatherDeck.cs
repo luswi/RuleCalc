@@ -348,13 +348,21 @@ namespace RuleCalc.classes
             double pSeaArrayMAX = pSeaArray.Max();
             return (double)pSeaArrayMAX;
         }
-        //====================
-        //t req (GROSS) [mm]
-        //====================
-        public static double tReqGROSS (double alpha, double b, double pressure, double rEH, double tC)
+        //==========================
+        //t req (GROSS) [mm] plate
+        //==========================
+        public static double tReqGROSSplate (double alpha, double b, double pressure, double rEH, double tC)
         {
             return (double)Math.Round((0.0158 * alpha * b * Math.Sqrt(Math.Abs(pressure) / (0.95 * rEH)) + tC) * 2, 0) / 2;
         }
+        //==========================
+        //t req (GROSS) [mm] stiff
+        //==========================
+        public static double tReqGROSSstiff (double fshr, double pressure, double sStiffSpacing, double lshr, double dshr, double tEH, double tcStiff)
+        {
+            return (double)(Math.Round(((fshr * Math.Abs(pressure) * sStiffSpacing * lshr) / (dshr * 0.9 * tEH) + tcStiff) * 2, 0) / 2);
+        }
+
 
 
         //dgvCalculateSP.Rows[58].Cells[i].Value = PwwlPlateArrayOutput;

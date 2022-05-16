@@ -2846,13 +2846,13 @@ namespace RuleCalc.modules
 
                 //double degStiff = Convert.ToDouble(dgvCalculateWD.Rows[36].Cells[i].Value);
 
-                //t req (GROSS) [mm]
+                //t req (GROSS) [mm] plate
                 double rEHplate = Convert.ToDouble(dgvCalculateWD.Rows[10].Cells[i].Value); 
-                double tReq = Convert.ToDouble(dgvCalculateWD.Rows[16].Cells[i].Value = WeatherDeck.tReqGROSS(alpha, bInput, pPlate, rEHplate, tcPlate));
+                double tReqPlate = Convert.ToDouble(dgvCalculateWD.Rows[16].Cells[i].Value = WeatherDeck.tReqGROSSplate(alpha, bInput, pPlate, rEHplate, tcPlate));
 
                 //th status check Plate
                 double thPlateSelected = Convert.ToDouble(dgvCalculateWD.Rows[17].Cells[i].Value);
-                _ = Convert.ToString(dgvCalculateWD.Rows[18].Cells[i].Value = WeatherDeck.thStatusCheck(thPlateSelected, tReq));
+                _ = Convert.ToString(dgvCalculateWD.Rows[18].Cells[i].Value = WeatherDeck.thStatusCheck(thPlateSelected, tReqPlate));
 
                 //slenderness status Plate
                 _ = Convert.ToString(dgvCalculateWD.Rows[19].Cells[i].Value = WeatherDeck.slendernessCheck(1, thPlateSelected, tcPlate, bInput));
@@ -2861,7 +2861,13 @@ namespace RuleCalc.modules
                 double tEH = Convert.ToDouble(dgvCalculateWD.Rows[39].Cells[i].Value = Convert.ToDouble(dgvCalculateWD.Rows[32].Cells[i].Value) / Math.Sqrt(3));
 
                 // P [MPa] SEA-1 stiffener
-                pStiffener = Convert.ToDouble(dgvCalculateWD.Rows[41].Cells[i].Value = Math.Round(WeatherDeck.pSEA(0.6, 29.4, 21.8, 27.8, 3.8, 10), 1));
+                double zLoadPointStiff = Convert.ToDouble(dgvCalculateWD.Rows[24].Cells[i].Value);
+                //string ewq = Convert.ToString(zLoadPointStiff);
+                //MessageBox.Show(ewq);
+                pStiffener = Convert.ToDouble(dgvCalculateWD.Rows[41].Cells[i].Value = Math.Round(WeatherDeck.pSEA(xstiffener, pdminStiff, PwdStiffHS, PwdAtPointStiff, zLoadPointStiff, zdkStiff), 1));
+
+                //t req (GROSS) [mm] stiff
+                double tReqStiff = Convert.ToDouble(dgvCalculateWD.Rows[42].Cells[i].Value = WeatherDeck.tReqGROSSstiff(0.4, 90.2, 600, 3.5, 193.58, 135.677, 1));
             }
 
 
