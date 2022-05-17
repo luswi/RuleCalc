@@ -1336,6 +1336,34 @@ namespace RuleCalc.modules
             {
                 dgvCalculateWD.Rows[18].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
             }
+            // th status for stiff
+            object th_StiffStatus = (sender as DataGridView).Rows[44].Cells[e.ColumnIndex].Value;
+            string th_StiffStatusInput = Convert.ToString(th_StiffStatus);
+
+            if (th_StiffStatusInput == "OK")
+            {
+                dgvCalculateWD.Rows[44].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
+            }
+            else
+            {
+                dgvCalculateWD.Rows[44].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
+            }
+
+            // slenderness status for stiff
+            object slend_StiffStatus = (sender as DataGridView).Rows[45].Cells[e.ColumnIndex].Value;
+            string slend_StiffStatusInput = Convert.ToString(slend_StiffStatus);
+
+            if (slend_StiffStatusInput == "OK")
+            {
+                dgvCalculateWD.Rows[45].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
+            }
+            else
+            {
+
+                dgvCalculateWD.Rows[45].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
+            }
+
+
             // slenderness status for plate
             object slend_PlateStatus = (sender as DataGridView).Rows[19].Cells[e.ColumnIndex].Value;
             string slend_PlateStatusInput = Convert.ToString(slend_PlateStatus);
@@ -2631,6 +2659,7 @@ namespace RuleCalc.modules
                 double aInput = Convert.ToDouble(dgvCalculateWD.Rows[12].Cells[i].Value);
                 double alpha = Convert.ToDouble(dgvCalculateWD.Rows[13].Cells[i].Value);
                 double tcPlate = Convert.ToDouble(dgvCalculateWD.Rows[14].Cells[i].Value);
+                double tcStiff = Convert.ToDouble(dgvCalculateWD.Rows[40].Cells[i].Value);
                 //double pPlate = Convert.ToDouble(dgvCalculateWD.Rows[14].Cells[i].Value);
                 //double tReqPlate = Convert.ToDouble(dgvCalculateWD.Rows[15].Cells[i].Value);
                 //double thPlate = Convert.ToDouble(dgvCalculateWD.Rows[16].Cells[i].Value);
@@ -2835,7 +2864,7 @@ namespace RuleCalc.modules
                 double degStiff = Convert.ToDouble(dgvCalculateWD.Rows[36].Cells[i].Value);
                 double hStiff = Convert.ToDouble(dgvCalculateWD.Rows[34].Cells[i].Value);
                 double tpStiff = Convert.ToDouble(dgvCalculateWD.Rows[35].Cells[i].Value);
-                _ = Convert.ToDouble(dgvCalculateWD.Rows[33].Cells[i].Value = WeatherDeck.dshr(degStiff, hStiff, tpStiff));
+                double dshr = Convert.ToDouble(dgvCalculateWD.Rows[33].Cells[i].Value = WeatherDeck.dshr(degStiff, hStiff, tpStiff));
 
                 //
                 // P [MPa] SEA-1 plate
@@ -2855,7 +2884,7 @@ namespace RuleCalc.modules
                 _ = Convert.ToString(dgvCalculateWD.Rows[18].Cells[i].Value = WeatherDeck.thStatusCheck(thPlateSelected, tReqPlate));
 
                 //slenderness status Plate
-                _ = Convert.ToString(dgvCalculateWD.Rows[19].Cells[i].Value = WeatherDeck.slendernessCheck(1, thPlateSelected, tcPlate, bInput));
+                _ = Convert.ToString(dgvCalculateWD.Rows[19].Cells[i].Value = WeatherDeck.slendernessCheckPlate(thPlateSelected, tcPlate, bInput));
 
                 ///// stiffener
                 double tEH = Convert.ToDouble(dgvCalculateWD.Rows[39].Cells[i].Value = Convert.ToDouble(dgvCalculateWD.Rows[32].Cells[i].Value) / Math.Sqrt(3));
@@ -2867,7 +2896,19 @@ namespace RuleCalc.modules
                 pStiffener = Convert.ToDouble(dgvCalculateWD.Rows[41].Cells[i].Value = Math.Round(WeatherDeck.pSEA(xstiffener, pdminStiff, PwdStiffHS, PwdAtPointStiff, zLoadPointStiff, zdkStiff), 1));
 
                 //t req (GROSS) [mm] stiff
-                double tReqStiff = Convert.ToDouble(dgvCalculateWD.Rows[42].Cells[i].Value = WeatherDeck.tReqGROSSstiff(0.4, 90.2, 600, 3.5, 193.58, 135.677, 1));
+                //fshr
+                string fshrtostring = Convert.ToString(dgvCalculateWD.Rows[38].Cells[i].Value);
+                double fshr = WeatherDeck.fshrCheck(fshrtostring);
+                double sSpacing = Convert.ToDouble(dgvCalculateWD.Rows[29].Cells[i].Value);
+                double lshr = Convert.ToDouble(dgvCalculateWD.Rows[37].Cells[i].Value);
+                double tReqStiff = Convert.ToDouble(dgvCalculateWD.Rows[42].Cells[i].Value = WeatherDeck.tReqGROSSstiff(fshr, pStiffener, sSpacing, lshr, dshr, tEH, tcStiff));
+
+                //th status check stiff.
+                double thStiffSelected = Convert.ToDouble(dgvCalculateWD.Rows[43].Cells[i].Value);
+                _ = Convert.ToString(dgvCalculateWD.Rows[44].Cells[i].Value = WeatherDeck.thStatusCheck(thStiffSelected, tReqStiff));
+
+                //slenderness status Stiff.
+                _ = Convert.ToString(dgvCalculateWD.Rows[45].Cells[i].Value = WeatherDeck.slendernessCheckStiff(1, 1, 1, 1, 1, 1, 1));
             }
 
 

@@ -385,13 +385,11 @@ namespace RuleCalc.classes
             }
         }
 
-        //=========================================
-        // slenderness status dodac dla usztywnien
-        //=========================================
-        public static string slendernessCheck (double option, double thSelected, double tC, double bPlate)
+        //=====================
+        // slenderness Plate
+        //=====================
+        public static string slendernessCheckPlate (double thSelected, double tC, double bPlate)
         {
-            if(option == 1)
-            {
                 //plate
                 if((thSelected-tC) < (bPlate / 125))
                 {
@@ -401,14 +399,33 @@ namespace RuleCalc.classes
                 {
                     return (string)"OK";
                 }
+        }
 
+        //=========================
+        // slenderness stiffener
+        //=========================
+        public static string slendernessCheckStiff(double fuCheck, double hw, double rEH, double tWeb, double bFlange, double tFlange, double tcStiff)
+        {
+            return ("OK");
+        }
+
+
+        public static double fshrCheck (string optionSelected)
+        {
+            if(optionSelected == "Upper end of vertical stiffeners")
+            {
+                return (double)0.4;
+
+            }
+            else if(optionSelected == "Lower end of vertical stiffeners")
+            {
+                return (double)0.7;
             }
             else
             {
-                //stiffener
-                return (string)"stiff";
-
+                return (double)0.5;
             }
+            
         }
     }
 

@@ -118,13 +118,17 @@
     <Column1>1</Column1>
   </CalcWD>
   <CalcWD>
-    <Column1>90.1</Column1>
+    <Column1>89.6</Column1>
   </CalcWD>
-  <CalcWD />
+  <CalcWD>
+    <Column1>4</Column1>
+  </CalcWD>
   <CalcWD>
     <Column1>5</Column1>
   </CalcWD>
-  <CalcWD />
+  <CalcWD>
+    <Column1>OK</Column1>
+  </CalcWD>
   <CalcWD />
   <CalcWD />
   <CalcWD>
