@@ -401,6 +401,26 @@ namespace RuleCalc.classes
                 }
         }
 
+        //===========
+        // fu check
+        //===========
+        public static double fuCheck (string optionSelected)
+        {
+            if(optionSelected == "FB and sym. profile (T-profile)")
+            {
+                return (double)1.0;
+            }
+            else if(optionSelected == "Bulb profile")
+            {
+                return(double)1.03;
+            }
+            else
+            //unsymetric profile (L-profile)
+            {
+                return (double)1.15;
+            }
+        }
+
         //=========================
         // slenderness stiffener
         //=========================
@@ -409,7 +429,9 @@ namespace RuleCalc.classes
             return ("OK");
         }
 
-
+        //============
+        // fshr check
+        //============
         public static double fshrCheck (string optionSelected)
         {
             if(optionSelected == "Upper end of vertical stiffeners")

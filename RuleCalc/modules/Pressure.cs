@@ -349,9 +349,9 @@ namespace RuleCalc.modules
 
                 if ((string)dgvCalculateWD.Rows[30].Cells[j].Value == null)
                 {
-                    f_u.Items.Add("1");
-                    f_u.Items.Add("1.03");
-                    f_u.Items.Add("1.15");
+                    f_u.Items.Add("FB and sym. profile (T-profile)");
+                    f_u.Items.Add("Bulb profile");
+                    f_u.Items.Add("unsymetric prof. (L-profile)");
                     dgvCalculateWD.Rows[30].Cells[j] = f_u;
                 }
                 // f_bdg
@@ -1082,9 +1082,12 @@ namespace RuleCalc.modules
 
                         // f_u
                         DataGridViewComboBoxCell f_u = new DataGridViewComboBoxCell();
-                        f_u.Items.Add("1");
-                        f_u.Items.Add("1.03");
-                        f_u.Items.Add("1.15");
+                        f_u.Items.Add("FB and sym. profile (T-profile)");
+                        f_u.Items.Add("Bulb profile");
+                        f_u.Items.Add("unsymetric prof. (L-profile)");
+                        //f_u.Items.Add("1");
+                        //f_u.Items.Add("1.03");
+                        //f_u.Items.Add("1.15");
 
                         dgvCalculateWD.Rows[30].Cells[i].Value = ds.Tables[0].Rows[30][i].ToString();
                         dgvCalculateWD.Rows[30].Cells[i] = f_u;
