@@ -2911,6 +2911,9 @@ namespace RuleCalc.modules
                 _ = Convert.ToString(dgvCalculateWD.Rows[44].Cells[i].Value = WeatherDeck.thStatusCheck(thStiffSelected, tReqStiff));
 
                 //slenderness status Stiff.
+
+                string fuCheckString = Convert.ToString(dgvCalculateWD.Rows[30].Cells[i].Value);
+
                 _ = Convert.ToString(dgvCalculateWD.Rows[45].Cells[i].Value = WeatherDeck.slendernessCheckStiff(1, 1, 1, 1, 1, 1, 1));
             }
 
