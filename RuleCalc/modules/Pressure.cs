@@ -2913,8 +2913,113 @@ namespace RuleCalc.modules
                 //slenderness status Stiff.
 
                 string fuCheckString = Convert.ToString(dgvCalculateWD.Rows[30].Cells[i].Value);
+                double fuCheck = WeatherDeck.fuCheck(fuCheckString);
 
-                _ = Convert.ToString(dgvCalculateWD.Rows[45].Cells[i].Value = WeatherDeck.slendernessCheckStiff(1, 1, 1, 1, 1, 1, 1));
+                //===============================
+                // Stiffener Slenderness status ---------- w budowie
+                //===============================
+                object fuCheck = (sender as DataGridView).Rows[22].Cells[i].Value;
+                object bFlangeCheck = (sender as DataGridView).Rows[39].Cells[i].Value;
+                object hwCheck = (sender as DataGridView).Rows[26].Cells[i].Value;
+                object rEHCheck = (sender as DataGridView).Rows[24].Cells[i].Value;
+                object tWebCheck = (sender as DataGridView).Rows[35].Cells[i].Value;
+                object tFlangeCheck = (sender as DataGridView).Rows[40].Cells[i].Value;
+
+                double cwVAR = 0;
+                double cfVAR = 0;
+                double bfout = 0;
+                double flangeCheck = 0;
+                double tfb = 0;
+
+                double fuCheckInput = Convert.ToDouble(fuCheck);
+                double bFlangeCheckInput = Convert.ToDouble(bFlangeCheck);
+                double hwCheckInput = Convert.ToDouble(fuCheck);
+                double rEHCheckInput = Convert.ToDouble(rEHCheck);
+                double tWebCheckInput = Convert.ToDouble(tWebCheck);
+                double tcStifCheckInput = Convert.ToDouble(tcStiffCheck);
+                double tFlangeCheckInput = Convert.ToDouble(tFlangeCheck);
+                string webStatus = "";
+                string flangeStatus = "";
+
+
+                if (fuCheckInput == 1)
+                {
+                    if (bFlangeCheckInput == 0)
+                    {
+                        cwVAR = 22;
+                    }
+                    else
+                    {
+                        cwVAR = 75;
+                        cfVAR = 12;
+                    }
+
+                }
+                else if (fuCheckInput == 1.03)
+                {
+                    cwVAR = 45;
+
+                }
+                else if (fuCheckInput == 1.15)
+                {
+                    cwVAR = 75;
+                    cfVAR = 12;
+                }
+
+                double webcheck = (hwCheckInput / cwVAR) * Math.Sqrt(rEHCheckInput / 235);
+
+                if (webcheck <= (tWebCheckInput - tcStifCheckInput))
+                {
+                    webStatus = "Web OK";
+                }
+                else
+                {
+                    webStatus = "Web NOT OK";
+                }
+
+                if (bFlangeCheckInput != 0 && tFlangeCheckInput != 0)
+                {
+                    if (fuCheckInput == 1)
+                    {
+                        bfout = (bFlangeCheckInput / 2) - ((tWebCheckInput - tcStifCheckInput) / 2);
+                        flangeCheck = bfout / cfVAR * Math.Sqrt(rEHCheckInput / 235);
+                        tfb = 0.25 * hwCheckInput;
+                    }
+                    else if (fuCheckInput == 1.15)
+                    {
+                        bfout = bFlangeCheckInput - (tWebCheckInput - tcStifCheckInput);
+                        flangeCheck = bfout / cfVAR * Math.Sqrt(rEHCheckInput / 235);
+                        tfb = 0.25 * hwCheckInput;
+                    }
+                    else
+                    {
+                        flangeCheck = -1;
+                    }
+                }
+                else
+                {
+                    flangeCheck = -1;
+                }
+
+                if (flangeCheck <= (tFlangeCheckInput - tcStifCheckInput) && flangeCheck != -1 && tfb <= bFlangeCheckInput)
+                {
+                    flangeStatus = "Flange OK";
+                }
+                else if (flangeCheck == -1)
+                {
+                    flangeStatus = "No Flange";
+                }
+                else
+                {
+                    flangeStatus = "Flange NOT OK";
+                }
+                dgvCalculateSP.Rows[37].Cells[i].Value = webStatus + " - " + flangeStatus;
+
+
+
+                ////////////////////
+
+
             }
 
 

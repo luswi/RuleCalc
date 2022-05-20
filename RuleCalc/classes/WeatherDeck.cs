@@ -421,13 +421,7 @@ namespace RuleCalc.classes
             }
         }
 
-        //=========================
-        // slenderness stiffener
-        //=========================
-        public static string slendernessCheckStiff(double fuCheck, double hw, double rEH, double tWeb, double bFlange, double tFlange, double tcStiff)
-        {
-            return ("OK");
-        }
+
 
         //============
         // fshr check
