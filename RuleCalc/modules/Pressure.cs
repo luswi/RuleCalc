@@ -2910,20 +2910,21 @@ namespace RuleCalc.modules
                 double thStiffSelected = Convert.ToDouble(dgvCalculateWD.Rows[43].Cells[i].Value);
                 _ = Convert.ToString(dgvCalculateWD.Rows[44].Cells[i].Value = WeatherDeck.thStatusCheck(thStiffSelected, tReqStiff));
 
-                //slenderness status Stiff.
+                //=================================
+                // Stiffener Slenderness status WD
+                //=================================
 
-                string fuCheckString = Convert.ToString(dgvCalculateWD.Rows[30].Cells[i].Value);
-                double fuCheck = WeatherDeck.fuCheck(fuCheckString);
+                string fuCheckString = Convert.ToString(dgvCalculateWD.Rows[30].Cells[i].Value); //ok
+                double fuCheck = WeatherDeck.fuCheck(fuCheckString); //ok
 
-                //===============================
-                // Stiffener Slenderness status ---------- w budowie
-                //===============================
-                object fuCheck = (sender as DataGridView).Rows[22].Cells[i].Value;
-                object bFlangeCheck = (sender as DataGridView).Rows[39].Cells[i].Value;
-                object hwCheck = (sender as DataGridView).Rows[26].Cells[i].Value;
+                //object fuCheckWD = (sender as DataGridView).Rows[22].Cells[i].Value; ///
+                object bFlangeCheck = (sender as DataGridView).Rows[47].Cells[i].Value;//ok
+                object hwCheck = (sender as DataGridView).Rows[34].Cells[i].Value;//ok
                 object rEHCheck = (sender as DataGridView).Rows[24].Cells[i].Value;
                 object tWebCheck = (sender as DataGridView).Rows[35].Cells[i].Value;
                 object tFlangeCheck = (sender as DataGridView).Rows[40].Cells[i].Value;
+
+                object tcStiffCheck = (sender as DataGridView).Rows[32].Cells[i].Value;
 
                 double cwVAR = 0;
                 double cfVAR = 0;
@@ -2932,8 +2933,9 @@ namespace RuleCalc.modules
                 double tfb = 0;
 
                 double fuCheckInput = Convert.ToDouble(fuCheck);
+                
                 double bFlangeCheckInput = Convert.ToDouble(bFlangeCheck);
-                double hwCheckInput = Convert.ToDouble(fuCheck);
+                double hwCheckInput = Convert.ToDouble(hwCheck);//ok
                 double rEHCheckInput = Convert.ToDouble(rEHCheck);
                 double tWebCheckInput = Convert.ToDouble(tWebCheck);
                 double tcStifCheckInput = Convert.ToDouble(tcStiffCheck);
@@ -2944,6 +2946,7 @@ namespace RuleCalc.modules
 
                 if (fuCheckInput == 1)
                 {
+                    //for flat bars And symmetrical profiles (T-profiles)
                     if (bFlangeCheckInput == 0)
                     {
                         cwVAR = 22;
@@ -2955,11 +2958,13 @@ namespace RuleCalc.modules
                     }
 
                 }
+                //for bulb profiles
                 else if (fuCheckInput == 1.03)
                 {
                     cwVAR = 45;
 
                 }
+                //for unsymmetrical profiles (L-profiles)
                 else if (fuCheckInput == 1.15)
                 {
                     cwVAR = 75;
