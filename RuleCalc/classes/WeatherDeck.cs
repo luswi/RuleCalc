@@ -443,6 +443,14 @@ namespace RuleCalc.classes
             }
             
         }
+
+        //============
+        // Zreq (NET)
+        //============
+        public static double zReqNET(double lbdg, double sStiff, double fU, double fbdg, double rEH, double pressure)
+        {
+
+        }
     }
 
 }

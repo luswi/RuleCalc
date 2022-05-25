@@ -1353,19 +1353,18 @@ namespace RuleCalc.modules
             }
 
             // slenderness status for stiff
+
             object slend_StiffStatus = (sender as DataGridView).Rows[45].Cells[e.ColumnIndex].Value;
             string slend_StiffStatusInput = Convert.ToString(slend_StiffStatus);
 
-            if (slend_StiffStatusInput == "OK")
+            if (slend_StiffStatusInput == "Web OK" || slend_StiffStatusInput == "Web OK - Flange OK" || slend_StiffStatusInput == "Web OK - No Flange")
             {
                 dgvCalculateWD.Rows[45].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
             }
             else
             {
-
                 dgvCalculateWD.Rows[45].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
             }
-
 
             // slenderness status for plate
             object slend_PlateStatus = (sender as DataGridView).Rows[19].Cells[e.ColumnIndex].Value;
@@ -2917,22 +2916,21 @@ namespace RuleCalc.modules
                 string fuCheckString = Convert.ToString(dgvCalculateWD.Rows[30].Cells[i].Value); //ok
                 double fuCheck = WeatherDeck.fuCheck(fuCheckString); //ok
 
-                //object fuCheckWD = (sender as DataGridView).Rows[22].Cells[i].Value; ///
                 object bFlangeCheck = (sender as DataGridView).Rows[47].Cells[i].Value;//ok
                 object hwCheck = (sender as DataGridView).Rows[34].Cells[i].Value;//ok
-                object rEHCheck = (sender as DataGridView).Rows[24].Cells[i].Value;
-                object tWebCheck = (sender as DataGridView).Rows[35].Cells[i].Value;
-                object tFlangeCheck = (sender as DataGridView).Rows[40].Cells[i].Value;
+                object rEHCheck = (sender as DataGridView).Rows[32].Cells[i].Value;//ok
+                object tWebCheck = (sender as DataGridView).Rows[43].Cells[i].Value; //ok
+                object tFlangeCheck = (sender as DataGridView).Rows[48].Cells[i].Value;//ok
 
-                object tcStiffCheck = (sender as DataGridView).Rows[32].Cells[i].Value;
+                object tcStiffCheck = (sender as DataGridView).Rows[40].Cells[i].Value;//ok
 
-                double cwVAR = 0;
-                double cfVAR = 0;
+                double cwVAR = 0;//ok
+                double cfVAR = 0;//ok
                 double bfout = 0;
                 double flangeCheck = 0;
                 double tfb = 0;
 
-                double fuCheckInput = Convert.ToDouble(fuCheck);
+                double fuCheckInput = Convert.ToDouble(fuCheck);//ok
                 
                 double bFlangeCheckInput = Convert.ToDouble(bFlangeCheck);
                 double hwCheckInput = Convert.ToDouble(hwCheck);//ok
@@ -3018,11 +3016,12 @@ namespace RuleCalc.modules
                 {
                     flangeStatus = "Flange NOT OK";
                 }
-                dgvCalculateSP.Rows[37].Cells[i].Value = webStatus + " - " + flangeStatus;
+                dgvCalculateWD.Rows[45].Cells[i].Value = webStatus + " - " + flangeStatus;
 
 
 
-                ////////////////////
+
+
 
 
             }
