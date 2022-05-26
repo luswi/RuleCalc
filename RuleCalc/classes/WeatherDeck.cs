@@ -447,10 +447,12 @@ namespace RuleCalc.classes
         //============
         // Zreq (NET)
         //============
-        public static double zReqNET(double lbdg, double sStiff, double fU, double fbdg, double rEH, double pressure)
+        public static double zReqNET(double fU, double pressure, double sStiff, double lbdg, double fbdg, double rEH)
         {
-
+            return (double)Math.Round((fU * Math.Abs(pressure) * sStiff * Math.Pow(lbdg, 2) / (fbdg * 0.95 * rEH)), 1);
         }
+
+
     }
 
 }
