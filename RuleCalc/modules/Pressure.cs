@@ -418,7 +418,7 @@ namespace RuleCalc.modules
                 {
                     dgvNames.Rows[i].DefaultCellStyle.BackColor = Color.Azure;
                 }
-            
+
             }
             // for weatherDeck
             for (int j = 0; j < dgvNamesWD.Rows.Count; j++)
@@ -533,7 +533,7 @@ namespace RuleCalc.modules
                 {
                     dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.Azure;
                 }
-            
+
             }
             // for weatherDeck
             for (int j = 0; j < dgvCalculateWD.Rows.Count; j++)
@@ -684,14 +684,14 @@ namespace RuleCalc.modules
                 this.dgvDeleteSP.Rows.Clear();
 
                 dgvCalculateSP.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
-                
+
                 //----------------------------------
                 // add rows for calculation table
                 //----------------------------------
                 for (int i = 0; i <= 72; i++)
                 {
                     i = dgvCalculateSP.Rows.Add();
-                    
+
 
                 }
 
@@ -718,7 +718,7 @@ namespace RuleCalc.modules
             {
                 dgvCalculateSP.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Point" });
                 dropmenu();
-                   
+
 
                 var deleteButton = new DataGridViewButtonColumn();
                 deleteButton.Name = "dgvDeleteButton";
@@ -735,7 +735,7 @@ namespace RuleCalc.modules
                 dgvCalculateSP.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
         }
-        
+
         //-----------------------------------------------------
         // Add new column for calculating point [Weatherdeck]
         //-----------------------------------------------------
@@ -758,7 +758,7 @@ namespace RuleCalc.modules
                 for (int i = 0; i <= 93; i++)
                 {
                     i = dgvCalculateWD.Rows.Add();
-                    
+
                 }
                 //unselect 1st cell
                 dgvCalculateWD.ClearSelection();
@@ -1326,7 +1326,7 @@ namespace RuleCalc.modules
                 dgvCalculateWD.Rows[11].Cells[e.ColumnIndex].Style.BackColor = Color.Azure;
                 dgvCalculateWD.Rows[12].Cells[e.ColumnIndex].Style.BackColor = Color.Azure;
             }
-            
+
             // th status for plate
             object th_PlateStatus = (sender as DataGridView).Rows[18].Cells[e.ColumnIndex].Value;
             string th_PlateStatusInput = Convert.ToString(th_PlateStatus);
@@ -1379,7 +1379,7 @@ namespace RuleCalc.modules
 
                 dgvCalculateWD.Rows[19].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
             }
-            
+
 
 
         }
@@ -2644,7 +2644,7 @@ namespace RuleCalc.modules
                 double bShipInput = Convert.ToDouble(BTB.Text);
                 double CBInput = Convert.ToDouble(CbTB.Text);
 
-                
+
                 double frInput = Convert.ToDouble(frTB.Text);
                 double tscInput = Convert.ToDouble(TscTB.Text);
 
@@ -2747,10 +2747,10 @@ namespace RuleCalc.modules
 
                 // calculate xll plate
                 xllplate = Convert.ToDouble(dgvCalculateWD.Rows[4].Cells[i].Value = WeatherDeck.xll(LppInput, LllInput, x_pointPlate));
-                
+
                 // calculate xll stiffener
                 xllstiff = Convert.ToDouble(dgvCalculateWD.Rows[22].Cells[i].Value = WeatherDeck.xll(LppInput, LllInput, x_pointStiff));
-                
+
                 // calculate X' Plate
                 xPrimPlate = Convert.ToDouble(dgvCalculateWD.Rows[52].Cells[i].Value = WeatherDeck.xPrim(LppInput, Lrule, x_pointPlate));
 
@@ -2766,18 +2766,18 @@ namespace RuleCalc.modules
 
                 // pdmin stiffener
                 pdminStiff = Convert.ToDouble(dgvCalculateWD.Rows[58].Cells[i].Value = WeatherDeck.pdmin(LllInput, xllstiff));
-                
+
                 // X Plate
                 xplate = Convert.ToDouble(dgvCalculateWD.Rows[55].Cells[i].Value = WeatherDeck.xValue(zdkPlate, zfdkPlate, pdminPlate, cValue));
 
                 // X Stiff
                 xstiffener = Convert.ToDouble(dgvCalculateWD.Rows[56].Cells[i].Value = WeatherDeck.xValue(zdkPlate, zfdkPlate, pdminStiff, cValue));
-             
+
                 // fyB Plate
-                fyBplate = Convert.ToDouble(dgvCalculateWD.Rows[59].Cells[i].Value = WeatherDeck.fyB(bShipInput, bxPlate ));
+                fyBplate = Convert.ToDouble(dgvCalculateWD.Rows[59].Cells[i].Value = WeatherDeck.fyB(bShipInput, bxPlate));
 
                 // fyB Stiffener
-                fyBstiff = Convert.ToDouble(dgvCalculateWD.Rows[60].Cells[i].Value = WeatherDeck.fyB(bShipInput, bxStiff ));
+                fyBstiff = Convert.ToDouble(dgvCalculateWD.Rows[60].Cells[i].Value = WeatherDeck.fyB(bShipInput, bxStiff));
 
                 // fyz Plate
                 fyzplate = Convert.ToDouble(dgvCalculateWD.Rows[61].Cells[i].Value = WeatherDeck.fyz(fyBplate));
@@ -2792,7 +2792,7 @@ namespace RuleCalc.modules
                 fxLstiff = Convert.ToDouble(dgvCalculateWD.Rows[64].Cells[i].Value = WeatherDeck.fxL(xPrimStiff, Lrule));
 
                 //f_3
-                f_3 = Convert.ToDouble(dgvCalculateWD.Rows[65].Cells[i].Value = WeatherDeck.f_3(CBInput, Lrule, bShipInput ));
+                f_3 = Convert.ToDouble(dgvCalculateWD.Rows[65].Cells[i].Value = WeatherDeck.f_3(CBInput, Lrule, bShipInput));
 
                 //f_4 plate
                 f_4plate = Convert.ToDouble(dgvCalculateWD.Rows[66].Cells[i].Value = WeatherDeck.f_4(fxLplate));//f_4 plate
@@ -2851,7 +2851,7 @@ namespace RuleCalc.modules
                 PwdStiffHS = Convert.ToDouble(dgvCalculateWD.Rows[74].Cells[i].Value = WeatherDeck.PwdHS(P_ENVstiffHS, zdkStiff, tscInput));
 
                 //Pwd(stiff) BS[MPa]
-                PwdStiffBS = Convert.ToDouble(dgvCalculateWD.Rows[75].Cells[i].Value = WeatherDeck.PwdBS(P_ENVstiffBS, zdkStiff,tscInput));
+                PwdStiffBS = Convert.ToDouble(dgvCalculateWD.Rows[75].Cells[i].Value = WeatherDeck.PwdBS(P_ENVstiffBS, zdkStiff, tscInput));
 
                 //Pwd at point [MPa] stiff
                 PwdAtPointStiff = Convert.ToDouble(dgvCalculateWD.Rows[76].Cells[i].Value = WeatherDeck.Interpolate(bShipInput / 2, PwdStiffBS, 0, PwdStiffBS * 0.5, y_pointStiff));
@@ -2860,7 +2860,7 @@ namespace RuleCalc.modules
                 _ = Convert.ToDouble(dgvCalculateWD.Rows[89].Cells[i].Value = PwdStiffBS);
 
                 //0.5*Pwd 90
-                _ = Convert.ToDouble(dgvCalculateWD.Rows[90].Cells[i].Value = PwdStiffBS/2);
+                _ = Convert.ToDouble(dgvCalculateWD.Rows[90].Cells[i].Value = PwdStiffBS / 2);
 
                 //dshr
                 double degStiff = Convert.ToDouble(dgvCalculateWD.Rows[36].Cells[i].Value);
@@ -2878,7 +2878,7 @@ namespace RuleCalc.modules
                 //double degStiff = Convert.ToDouble(dgvCalculateWD.Rows[36].Cells[i].Value);
 
                 //t req (GROSS) [mm] plate
-                double rEHplate = Convert.ToDouble(dgvCalculateWD.Rows[10].Cells[i].Value); 
+                double rEHplate = Convert.ToDouble(dgvCalculateWD.Rows[10].Cells[i].Value);
                 double tReqPlate = Convert.ToDouble(dgvCalculateWD.Rows[16].Cells[i].Value = WeatherDeck.tReqGROSSplate(alpha, bInput, pPlate, rEHplate, tcPlate));
 
                 //th status check Plate
@@ -2931,7 +2931,7 @@ namespace RuleCalc.modules
                 double tfb = 0;
 
                 double fuCheckInput = Convert.ToDouble(fuCheck);//ok
-                
+
                 double bFlangeCheckInput = Convert.ToDouble(bFlangeCheck);
                 double hwCheckInput = Convert.ToDouble(hwCheck);//ok
                 double rEHCheckInput = Convert.ToDouble(rEHCheck);
@@ -3029,13 +3029,13 @@ namespace RuleCalc.modules
                 ///////////////
                 object b1Check = (sender as DataGridView).Rows[11].Cells[i].Value;//ok
                 object t1Check = (sender as DataGridView).Rows[17].Cells[i].Value;//ok
-                object bwebCheck = (sender as DataGridView).Rows[26].Cells[i].Value; 
-                object twebCheck = (sender as DataGridView).Rows[35].Cells[i].Value;
-                object bflangeCheck = (sender as DataGridView).Rows[39].Cells[i].Value;
-                object tflangeCheck = (sender as DataGridView).Rows[40].Cells[i].Value;
-                //object tcPlateCheck = (sender as DataGridView).Rows[9].Cells[i].Value;
-                //object tcStiffCheck = (sender as DataGridView).Rows[32].Cells[i].Value;
-                object zReqCheck = (sender as DataGridView).Rows[38].Cells[i].Value;
+                object bwebCheck = (sender as DataGridView).Rows[34].Cells[i].Value;//ok 
+                object twebCheck = (sender as DataGridView).Rows[43].Cells[i].Value;//ok
+                object bflangeCheck = (sender as DataGridView).Rows[47].Cells[i].Value;//ok
+                object tflangeCheck = (sender as DataGridView).Rows[48].Cells[i].Value;//ok
+                object tcPlateCheckZ = (sender as DataGridView).Rows[14].Cells[i].Value;//ok
+                object tcStiffCheckZ = (sender as DataGridView).Rows[40].Cells[i].Value;//ok
+                object zReqCheck = (sender as DataGridView).Rows[46].Cells[i].Value;//ok
                 double sumAVAR = 0;
                 double sumAxVAR = 0;
                 double sumAxxVAR = 0;
@@ -3047,7 +3047,7 @@ namespace RuleCalc.modules
                 double w2VAR = 0;
                 double selectedW = 0;
 
-                if (b1Check != DBNull.Value && t1Check != DBNull.Value && bwebCheck != DBNull.Value && twebCheck != DBNull.Value && bflangeCheck != DBNull.Value && tflangeCheck != DBNull.Value && tcPlateCheck != DBNull.Value && tcStiffCheck != DBNull.Value && !zReqCheck.Equals("No Value!"))
+                if (b1Check != DBNull.Value && t1Check != DBNull.Value && bwebCheck != DBNull.Value && twebCheck != DBNull.Value && bflangeCheck != DBNull.Value && tflangeCheck != DBNull.Value && tcPlateCheckZ != DBNull.Value && tcStiffCheckZ != DBNull.Value && !zReqCheck.Equals("No Value!"))
                 {
                     double b1CheckInput = Convert.ToDouble(b1Check);
                     double t1CheckInput = Convert.ToDouble(t1Check);
@@ -3055,8 +3055,8 @@ namespace RuleCalc.modules
                     double twebCheckInput = Convert.ToDouble(twebCheck);
                     double bflangeCheckInput = Convert.ToDouble(bflangeCheck);
                     double tflangeCheckInput = Convert.ToDouble(tflangeCheck);
-                    double tcPlateCheckInput = Convert.ToDouble(tcPlateCheck);
-                    double tcStiffCheckInput = Convert.ToDouble(tcStiffCheck);
+                    double tcPlateCheckInput = Convert.ToDouble(tcPlateCheckZ);
+                    double tcStiffCheckInput = Convert.ToDouble(tcStiffCheckZ);
                     double zReqCheckInput = Convert.ToDouble(zReqCheck);
 
                     sumAVAR = b1CheckInput * (t1CheckInput - tcPlateCheckInput) + bwebCheckInput * (twebCheckInput - tcStiffCheckInput) + bFlangeCheckInput * (tFlangeCheckInput - tcStiffCheckInput);
@@ -3078,7 +3078,7 @@ namespace RuleCalc.modules
                     {
                         selectedW = w1VAR;
                     }
-                    dgvCalculateSP.Rows[41].Cells[i].Value = selectedW / 1000;
+                    dgvCalculateWD.Rows[41].Cells[i].Value = selectedW / 1000;
 
                     if (selectedW / 1000 > zReqCheckInput)
                     {
@@ -3095,7 +3095,7 @@ namespace RuleCalc.modules
                     dgvCalculateSP.Rows[41].Cells[i].Value = "No Value!";
                     dgvCalculateSP.Rows[42].Cells[i].Value = "NOT OK";
                 }
-                ///////////////
+                ///////////////49 50
 
 
 
