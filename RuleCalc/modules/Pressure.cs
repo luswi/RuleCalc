@@ -1379,7 +1379,19 @@ namespace RuleCalc.modules
 
                 dgvCalculateWD.Rows[19].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
             }
+            // Z status
+            object z_ProfStatus = (sender as DataGridView).Rows[50].Cells[e.ColumnIndex].Value;
+            string z_ProfStatusInput = Convert.ToString(z_ProfStatus);
 
+            if (z_ProfStatusInput == "OK")
+            {
+                dgvCalculateWD.Rows[50].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.PaleGreen };
+            }
+            else
+            {
+
+                dgvCalculateWD.Rows[50].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { BackColor = Color.Red };
+            }
 
 
         }
@@ -3019,9 +3031,14 @@ namespace RuleCalc.modules
                 dgvCalculateWD.Rows[45].Cells[i].Value = webStatus + " - " + flangeStatus;
 
 
-                _ = Convert.ToDouble(dgvCalculateWD.Rows[46].Cells[i].Value = WeatherDeck.zReqNET(1, 90.2, 600, 3.5, 12, 235));
-
-
+                //==================
+                //Z required by DNV
+                //==================
+                double lbdg = Convert.ToDouble(dgvCalculateWD.Rows[28].Cells[i].Value);
+                object f_bdgCheck = (sender as DataGridView).Rows[31].Cells[i].Value;//ok
+                double rEHstiff = Convert.ToDouble(dgvCalculateWD.Rows[32].Cells[i].Value);
+                double f_bdgCheckInput = Convert.ToDouble(f_bdgCheck);
+                _ = Convert.ToDouble(dgvCalculateWD.Rows[46].Cells[i].Value = WeatherDeck.zReqNET(fuCheck, pStiffener, sSpacing, lbdg, f_bdgCheckInput, rEHstiff));
 
                 //============
                 // [Z] Stiff
@@ -3078,22 +3095,22 @@ namespace RuleCalc.modules
                     {
                         selectedW = w1VAR;
                     }
-                    dgvCalculateWD.Rows[41].Cells[i].Value = selectedW / 1000;
+                    dgvCalculateWD.Rows[49].Cells[i].Value = Math.Round(selectedW / 1000,1);
 
                     if (selectedW / 1000 > zReqCheckInput)
                     {
-                        dgvCalculateSP.Rows[42].Cells[i].Value = "OK";
+                        dgvCalculateWD.Rows[50].Cells[i].Value = "OK";
                     }
                     else
                     {
-                        dgvCalculateSP.Rows[42].Cells[i].Value = "NOT OK";
+                        dgvCalculateWD.Rows[50].Cells[i].Value = "NOT OK";
                     }
 
                 }
                 else
                 {
-                    dgvCalculateSP.Rows[41].Cells[i].Value = "No Value!";
-                    dgvCalculateSP.Rows[42].Cells[i].Value = "NOT OK";
+                    dgvCalculateWD.Rows[49].Cells[i].Value = "No Value!";
+                    dgvCalculateWD.Rows[50].Cells[i].Value = "NOT OK";
                 }
                 ///////////////49 50
 
