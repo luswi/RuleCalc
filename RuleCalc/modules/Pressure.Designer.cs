@@ -106,6 +106,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tabCpressure.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -1134,5 +1135,6 @@
         private System.Windows.Forms.Button saveCalcWD;
         private System.Windows.Forms.Button newCalcPointWD;
         private System.Windows.Forms.DataGridViewTextBoxColumn InfoWD;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

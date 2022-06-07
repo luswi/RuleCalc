@@ -466,6 +466,20 @@ namespace RuleCalc.modules
                 }
             }
         }
+        //----------------------
+        // Popup informations ---------- > test
+        //----------------------
+        public void popups()
+        {
+            for(int j = 0; j <  dgvCalculateWD.Rows.Count; j++)
+            {
+                MessageBox.Show("qwewqeq");
+            }
+        }
+
+
+
+
         //--------------------------------
         // color rows depends from group
         //--------------------------------
@@ -3125,8 +3139,16 @@ namespace RuleCalc.modules
 
 
 
+
+
+
+
+
+
+
+
         //----------------------------------------
-        // TEST AREA FOR REMOVE == END ==
+        // TEST AREA FOR REMOVE == END ====
         //----------------------------------------
 
     }
