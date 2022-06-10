@@ -304,9 +304,9 @@ namespace RuleCalc.modules
 
 
 
-        //------------
+        //-------------
         // combobox
-        //------------
+        //-------------
         public void dropmenu()
         {
             for (int i = 0; i < dgvCalculateSP.ColumnCount; i++)
