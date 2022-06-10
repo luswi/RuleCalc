@@ -9,9 +9,9 @@ namespace RuleCalc.classes
     class WeatherDeck
     {
 
-        //=================
+        //==================
         //calculate alpha
-        //=================
+        //==================
         public static double alphaPlate(double bInput, double aInput)
         {
 
