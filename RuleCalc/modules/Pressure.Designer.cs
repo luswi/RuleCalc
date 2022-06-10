@@ -96,17 +96,18 @@
             this.buttonTEST = new System.Windows.Forms.Button();
             this.dgvCalculateSP = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.loadDataWD = new System.Windows.Forms.Button();
             this.saveCalcWD = new System.Windows.Forms.Button();
             this.newCalcPointWD = new System.Windows.Forms.Button();
             this.dgvDeleteWD = new System.Windows.Forms.DataGridView();
             this.dgvCalculateWD = new System.Windows.Forms.DataGridView();
             this.dgvNamesWD = new System.Windows.Forms.DataGridView();
-            this.InfoWD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.InfoWD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabCpressure.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -129,7 +130,7 @@
             this.tabCpressure.Controls.Add(this.tabPage2);
             this.tabCpressure.Controls.Add(this.tabPage4);
             this.tabCpressure.Location = new System.Drawing.Point(16, 15);
-            this.tabCpressure.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabCpressure.Margin = new System.Windows.Forms.Padding(4);
             this.tabCpressure.Name = "tabCpressure";
             this.tabCpressure.SelectedIndex = 0;
             this.tabCpressure.Size = new System.Drawing.Size(868, 854);
@@ -142,7 +143,7 @@
             this.tabPage6.Controls.Add(this.groupBox10);
             this.tabPage6.Controls.Add(this.pictureBox1);
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Size = new System.Drawing.Size(860, 825);
             this.tabPage6.TabIndex = 2;
@@ -152,7 +153,7 @@
             // saveBT
             // 
             this.saveBT.Location = new System.Drawing.Point(437, 734);
-            this.saveBT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveBT.Margin = new System.Windows.Forms.Padding(4);
             this.saveBT.Name = "saveBT";
             this.saveBT.Size = new System.Drawing.Size(144, 28);
             this.saveBT.TabIndex = 96;
@@ -162,7 +163,7 @@
             // calculateBT
             // 
             this.calculateBT.Location = new System.Drawing.Point(329, 734);
-            this.calculateBT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.calculateBT.Margin = new System.Windows.Forms.Padding(4);
             this.calculateBT.Name = "calculateBT";
             this.calculateBT.Size = new System.Drawing.Size(100, 28);
             this.calculateBT.TabIndex = 95;
@@ -219,9 +220,9 @@
             this.groupBox10.Controls.Add(this.labelCb);
             this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox10.Location = new System.Drawing.Point(31, 233);
-            this.groupBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox10.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox10.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox10.Size = new System.Drawing.Size(791, 481);
             this.groupBox10.TabIndex = 91;
             this.groupBox10.TabStop = false;
@@ -230,7 +231,7 @@
             // frTB
             // 
             this.frTB.Location = new System.Drawing.Point(341, 411);
-            this.frTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frTB.Margin = new System.Windows.Forms.Padding(4);
             this.frTB.Name = "frTB";
             this.frTB.Size = new System.Drawing.Size(132, 26);
             this.frTB.TabIndex = 99;
@@ -256,7 +257,7 @@
             "YES",
             "NO"});
             this.bkCB.Location = new System.Drawing.Point(341, 354);
-            this.bkCB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bkCB.Margin = new System.Windows.Forms.Padding(4);
             this.bkCB.Name = "bkCB";
             this.bkCB.Size = new System.Drawing.Size(160, 26);
             this.bkCB.TabIndex = 97;
@@ -286,7 +287,7 @@
             "R4 (40% reduction)",
             "RE (50% reduction)"});
             this.saCB.Location = new System.Drawing.Point(341, 319);
-            this.saCB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saCB.Margin = new System.Windows.Forms.Padding(4);
             this.saCB.Name = "saCB";
             this.saCB.Size = new System.Drawing.Size(187, 26);
             this.saCB.TabIndex = 11;
@@ -309,7 +310,7 @@
             // 
             this.BTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.BTB.Location = new System.Drawing.Point(341, 94);
-            this.BTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BTB.Margin = new System.Windows.Forms.Padding(4);
             this.BTB.Name = "BTB";
             this.BTB.Size = new System.Drawing.Size(132, 24);
             this.BTB.TabIndex = 3;
@@ -321,7 +322,7 @@
             // 
             this.LppTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.LppTB.Location = new System.Drawing.Point(341, 30);
-            this.LppTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LppTB.Margin = new System.Windows.Forms.Padding(4);
             this.LppTB.Name = "LppTB";
             this.LppTB.Size = new System.Drawing.Size(132, 24);
             this.LppTB.TabIndex = 1;
@@ -354,7 +355,7 @@
             // 
             this.LTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.LTB.Location = new System.Drawing.Point(341, 62);
-            this.LTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LTB.Margin = new System.Windows.Forms.Padding(4);
             this.LTB.Name = "LTB";
             this.LTB.Size = new System.Drawing.Size(132, 24);
             this.LTB.TabIndex = 2;
@@ -387,7 +388,7 @@
             // 
             this.krTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.krTB.Location = new System.Drawing.Point(341, 286);
-            this.krTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.krTB.Margin = new System.Windows.Forms.Padding(4);
             this.krTB.Name = "krTB";
             this.krTB.ReadOnly = true;
             this.krTB.Size = new System.Drawing.Size(132, 24);
@@ -465,7 +466,7 @@
             // 
             this.gmTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.gmTB.Location = new System.Drawing.Point(341, 254);
-            this.gmTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gmTB.Margin = new System.Windows.Forms.Padding(4);
             this.gmTB.Name = "gmTB";
             this.gmTB.ReadOnly = true;
             this.gmTB.Size = new System.Drawing.Size(132, 24);
@@ -576,7 +577,7 @@
             // 
             this.TscTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.TscTB.Location = new System.Drawing.Point(341, 222);
-            this.TscTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TscTB.Margin = new System.Windows.Forms.Padding(4);
             this.TscTB.Name = "TscTB";
             this.TscTB.Size = new System.Drawing.Size(132, 24);
             this.TscTB.TabIndex = 8;
@@ -631,7 +632,7 @@
             // 
             this.DTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.DTB.Location = new System.Drawing.Point(341, 126);
-            this.DTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DTB.Margin = new System.Windows.Forms.Padding(4);
             this.DTB.Name = "DTB";
             this.DTB.Size = new System.Drawing.Size(132, 24);
             this.DTB.TabIndex = 4;
@@ -686,7 +687,7 @@
             // 
             this.TbalTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.TbalTB.Location = new System.Drawing.Point(341, 190);
-            this.TbalTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TbalTB.Margin = new System.Windows.Forms.Padding(4);
             this.TbalTB.Name = "TbalTB";
             this.TbalTB.Size = new System.Drawing.Size(132, 24);
             this.TbalTB.TabIndex = 7;
@@ -730,7 +731,7 @@
             // 
             this.CbTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.CbTB.Location = new System.Drawing.Point(341, 159);
-            this.CbTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CbTB.Margin = new System.Windows.Forms.Padding(4);
             this.CbTB.Name = "CbTB";
             this.CbTB.Size = new System.Drawing.Size(132, 24);
             this.CbTB.TabIndex = 6;
@@ -752,7 +753,7 @@
             // 
             this.pictureBox1.Image = global::RuleCalc.Properties.Resources.ship_data;
             this.pictureBox1.Location = new System.Drawing.Point(31, 21);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(791, 204);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -769,9 +770,9 @@
             this.tabPage1.Controls.Add(this.buttonTEST);
             this.tabPage1.Controls.Add(this.dgvCalculateSP);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(860, 825);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sea Pressure";
@@ -790,7 +791,7 @@
             this.dgvDeleteSP.ColumnHeadersVisible = false;
             this.dgvDeleteSP.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvDeleteSP.Location = new System.Drawing.Point(176, 689);
-            this.dgvDeleteSP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDeleteSP.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDeleteSP.MultiSelect = false;
             this.dgvDeleteSP.Name = "dgvDeleteSP";
             this.dgvDeleteSP.RowHeadersVisible = false;
@@ -803,7 +804,7 @@
             // loadDataSP
             // 
             this.loadDataSP.Location = new System.Drawing.Point(8, 725);
-            this.loadDataSP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.loadDataSP.Margin = new System.Windows.Forms.Padding(4);
             this.loadDataSP.Name = "loadDataSP";
             this.loadDataSP.Size = new System.Drawing.Size(160, 28);
             this.loadDataSP.TabIndex = 25;
@@ -814,7 +815,7 @@
             // saveCalcSP
             // 
             this.saveCalcSP.Location = new System.Drawing.Point(8, 761);
-            this.saveCalcSP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveCalcSP.Margin = new System.Windows.Forms.Padding(4);
             this.saveCalcSP.Name = "saveCalcSP";
             this.saveCalcSP.Size = new System.Drawing.Size(160, 54);
             this.saveCalcSP.TabIndex = 24;
@@ -825,7 +826,7 @@
             // newCalcPoint
             // 
             this.newCalcPoint.Location = new System.Drawing.Point(8, 689);
-            this.newCalcPoint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newCalcPoint.Margin = new System.Windows.Forms.Padding(4);
             this.newCalcPoint.Name = "newCalcPoint";
             this.newCalcPoint.Size = new System.Drawing.Size(160, 28);
             this.newCalcPoint.TabIndex = 23;
@@ -857,7 +858,7 @@
             this.dgvNames.EnableHeadersVisualStyles = false;
             this.dgvNames.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvNames.Location = new System.Drawing.Point(8, 7);
-            this.dgvNames.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvNames.Margin = new System.Windows.Forms.Padding(4);
             this.dgvNames.MultiSelect = false;
             this.dgvNames.Name = "dgvNames";
             this.dgvNames.ReadOnly = true;
@@ -882,7 +883,7 @@
             // buttonTEST
             // 
             this.buttonTEST.Location = new System.Drawing.Point(681, 774);
-            this.buttonTEST.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonTEST.Margin = new System.Windows.Forms.Padding(4);
             this.buttonTEST.Name = "buttonTEST";
             this.buttonTEST.Size = new System.Drawing.Size(100, 28);
             this.buttonTEST.TabIndex = 21;
@@ -912,7 +913,7 @@
             this.dgvCalculateSP.EnableHeadersVisualStyles = false;
             this.dgvCalculateSP.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvCalculateSP.Location = new System.Drawing.Point(176, 7);
-            this.dgvCalculateSP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvCalculateSP.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCalculateSP.MultiSelect = false;
             this.dgvCalculateSP.Name = "dgvCalculateSP";
             this.dgvCalculateSP.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -928,6 +929,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.loadDataWD);
             this.tabPage3.Controls.Add(this.saveCalcWD);
             this.tabPage3.Controls.Add(this.newCalcPointWD);
@@ -935,17 +937,29 @@
             this.tabPage3.Controls.Add(this.dgvCalculateWD);
             this.tabPage3.Controls.Add(this.dgvNamesWD);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(860, 825);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Weatherdeck";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::RuleCalc.Properties.Resources.info;
+            this.button1.Location = new System.Drawing.Point(324, 492);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(16, 16);
+            this.button1.TabIndex = 28;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // loadDataWD
             // 
             this.loadDataWD.Location = new System.Drawing.Point(8, 725);
-            this.loadDataWD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.loadDataWD.Margin = new System.Windows.Forms.Padding(4);
             this.loadDataWD.Name = "loadDataWD";
             this.loadDataWD.Size = new System.Drawing.Size(160, 28);
             this.loadDataWD.TabIndex = 27;
@@ -956,7 +970,7 @@
             // saveCalcWD
             // 
             this.saveCalcWD.Location = new System.Drawing.Point(8, 761);
-            this.saveCalcWD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveCalcWD.Margin = new System.Windows.Forms.Padding(4);
             this.saveCalcWD.Name = "saveCalcWD";
             this.saveCalcWD.Size = new System.Drawing.Size(160, 54);
             this.saveCalcWD.TabIndex = 26;
@@ -967,7 +981,7 @@
             // newCalcPointWD
             // 
             this.newCalcPointWD.Location = new System.Drawing.Point(8, 689);
-            this.newCalcPointWD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newCalcPointWD.Margin = new System.Windows.Forms.Padding(4);
             this.newCalcPointWD.Name = "newCalcPointWD";
             this.newCalcPointWD.Size = new System.Drawing.Size(160, 28);
             this.newCalcPointWD.TabIndex = 24;
@@ -998,7 +1012,7 @@
             this.dgvDeleteWD.EnableHeadersVisualStyles = false;
             this.dgvDeleteWD.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvDeleteWD.Location = new System.Drawing.Point(176, 689);
-            this.dgvDeleteWD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDeleteWD.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDeleteWD.Name = "dgvDeleteWD";
             this.dgvDeleteWD.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvDeleteWD.RowHeadersVisible = false;
@@ -1031,7 +1045,7 @@
             this.dgvCalculateWD.EnableHeadersVisualStyles = false;
             this.dgvCalculateWD.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvCalculateWD.Location = new System.Drawing.Point(176, 7);
-            this.dgvCalculateWD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvCalculateWD.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCalculateWD.Name = "dgvCalculateWD";
             this.dgvCalculateWD.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvCalculateWD.RowHeadersVisible = false;
@@ -1068,7 +1082,7 @@
             this.dgvNamesWD.EnableHeadersVisualStyles = false;
             this.dgvNamesWD.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvNamesWD.Location = new System.Drawing.Point(8, 7);
-            this.dgvNamesWD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvNamesWD.Margin = new System.Windows.Forms.Padding(4);
             this.dgvNamesWD.MultiSelect = false;
             this.dgvNamesWD.Name = "dgvNamesWD";
             this.dgvNamesWD.ReadOnly = true;
@@ -1078,24 +1092,15 @@
             this.dgvNamesWD.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvNamesWD.Size = new System.Drawing.Size(160, 674);
             this.dgvNamesWD.TabIndex = 0;
+            this.dgvNamesWD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNamesWD_CellClick);
             this.dgvNamesWD.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgvNamesWD_Scroll);
-            // 
-            // InfoWD
-            // 
-            this.InfoWD.Frozen = true;
-            this.InfoWD.HeaderText = "Info";
-            this.InfoWD.MinimumWidth = 6;
-            this.InfoWD.Name = "InfoWD";
-            this.InfoWD.ReadOnly = true;
-            this.InfoWD.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.InfoWD.Width = 125;
             // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(860, 825);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tanks Pressure";
@@ -1104,7 +1109,7 @@
             // tabPage4
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(860, 825);
             this.tabPage4.TabIndex = 4;
@@ -1119,6 +1124,16 @@
             this.toolTip.ReshowDelay = 100;
             this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
+            // InfoWD
+            // 
+            this.InfoWD.Frozen = true;
+            this.InfoWD.HeaderText = "Info";
+            this.InfoWD.MinimumWidth = 6;
+            this.InfoWD.Name = "InfoWD";
+            this.InfoWD.ReadOnly = true;
+            this.InfoWD.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.InfoWD.Width = 125;
+            // 
             // Pressure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1126,7 +1141,7 @@
             this.ClientSize = new System.Drawing.Size(900, 886);
             this.Controls.Add(this.tabCpressure);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Pressure";
             this.Text = "Pressure";
             this.Load += new System.EventHandler(this.Pressure_Load);
@@ -1150,77 +1165,78 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabCpressure;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox LTB;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox LppTB;
-        private System.Windows.Forms.TextBox BTB;
+        private System.Windows.Forms.Button saveBT;
+        private System.Windows.Forms.Button calculateBT;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.TextBox frTB;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox bkCB;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.ComboBox saCB;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox BTB;
+        private System.Windows.Forms.TextBox LppTB;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.TextBox LTB;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.TextBox krTB;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox gmTB;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label labelCb;
-        private System.Windows.Forms.TextBox CbTB;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox DTB;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox TscTB;
+        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox DTB;
         private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox TbalTB;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.ToolTip toolTip;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.TextBox gmTB;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.TextBox krTB;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Button saveBT;
-        private System.Windows.Forms.Button calculateBT;
-        private System.Windows.Forms.ComboBox saCB;
+        private System.Windows.Forms.TextBox CbTB;
+        private System.Windows.Forms.Label labelCb;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView dgvDeleteSP;
+        private System.Windows.Forms.Button loadDataSP;
+        private System.Windows.Forms.Button saveCalcSP;
+        private System.Windows.Forms.Button newCalcPoint;
         private System.Windows.Forms.DataGridView dgvNames;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Info;
         private System.Windows.Forms.Button buttonTEST;
         private System.Windows.Forms.DataGridView dgvCalculateSP;
-        private System.Windows.Forms.Button newCalcPoint;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.ComboBox bkCB;
-        private System.Windows.Forms.Button saveCalcSP;
-        private System.Windows.Forms.Button loadDataSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Info;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dgvDeleteSP;
-        private System.Windows.Forms.TextBox frTB;
-        private System.Windows.Forms.DataGridView dgvDeleteWD;
-        private System.Windows.Forms.DataGridView dgvCalculateWD;
-        private System.Windows.Forms.DataGridView dgvNamesWD;
         private System.Windows.Forms.Button loadDataWD;
         private System.Windows.Forms.Button saveCalcWD;
         private System.Windows.Forms.Button newCalcPointWD;
+        private System.Windows.Forms.DataGridView dgvDeleteWD;
+        private System.Windows.Forms.DataGridView dgvCalculateWD;
+        private System.Windows.Forms.DataGridView dgvNamesWD;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn InfoWD;
-        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
