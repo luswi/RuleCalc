@@ -291,6 +291,7 @@ namespace RuleCalc.modules
             ///
             /// dodanie helpa ------- budowa https://www.youtube.com/watch?v=mCxAvQVpCH0
             ///https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.form.helpbutton?view=windowsdesktop-6.0
+            /////
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
             btn.HeaderText = "test";
             btn.Text = "help";
