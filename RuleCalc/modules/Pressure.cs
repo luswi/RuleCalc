@@ -287,6 +287,7 @@ namespace RuleCalc.modules
 
             dgvNamesWD.Rows.Add("for 75° <= ϕw <= 90°");
             dgvNamesWD.Rows.Add("for ϕw <= 75°");
+            
 
             //clear selected 1st row
             dgvNames[0, 1].Selected = true;
@@ -297,6 +298,7 @@ namespace RuleCalc.modules
             RowsColorNames();
             RowsBold();
             HideRows();
+            popups();
 
         }
 
