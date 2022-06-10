@@ -158,6 +158,7 @@
   <ItemGroup>
     <None Include="Resources\Image1.jpg" />
     <None Include="img\DNV-Ship-Motions-cover.jpg" />
+    <None Include="img\info.png" />
     <Content Include="XML_saves\data.xml" />
     <Content Include="XML_saves\saveCalcSP.xml" />
   </ItemGroup>
