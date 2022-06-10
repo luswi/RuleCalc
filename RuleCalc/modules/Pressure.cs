@@ -287,7 +287,18 @@ namespace RuleCalc.modules
 
             dgvNamesWD.Rows.Add("for 75° <= ϕw <= 90°");
             dgvNamesWD.Rows.Add("for ϕw <= 75°");
+
+            ///
+            /// dodanie helpa ------- budowa https://www.youtube.com/watch?v=mCxAvQVpCH0
+            ///https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.form.helpbutton?view=windowsdesktop-6.0
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            btn.HeaderText = "test";
+            btn.Text = "help";
+            btn.Name = "btn";
+            btn.UseColumnTextForButtonValue = true;
+            dgvNamesWD.Columns.Add(btn);
             
+
 
             //clear selected 1st row
             dgvNames[0, 1].Selected = true;
@@ -549,6 +560,7 @@ namespace RuleCalc.modules
                 {
                     dgvCalculateSP.Rows[i].DefaultCellStyle.BackColor = Color.Azure;
                 }
+                
 
             }
             // for weatherDeck
@@ -601,6 +613,7 @@ namespace RuleCalc.modules
                     dgvCalculateWD.Rows[j].DefaultCellStyle.BackColor = Color.Azure;
                 }
             }
+            
         }
         //---------------------
         // Hide specific rows
@@ -3136,6 +3149,14 @@ namespace RuleCalc.modules
 
 
 
+        }
+
+        private void dgvNamesWD_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex == 1)
+            {
+                MessageBox.Show("test");
+            }
         }
 
 
