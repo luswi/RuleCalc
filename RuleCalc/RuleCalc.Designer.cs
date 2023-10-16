@@ -33,13 +33,13 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.shipDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pressureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accelerationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimumThicknessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutRuleCalcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.shipDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,24 +81,31 @@
             this.moduleToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.moduleToolStripMenuItem.Text = "Module";
             // 
+            // shipDataToolStripMenuItem
+            // 
+            this.shipDataToolStripMenuItem.Name = "shipDataToolStripMenuItem";
+            this.shipDataToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.shipDataToolStripMenuItem.Text = "Ship Data";
+            this.shipDataToolStripMenuItem.Click += new System.EventHandler(this.shipDataToolStripMenuItem_Click);
+            // 
             // pressureToolStripMenuItem
             // 
             this.pressureToolStripMenuItem.Name = "pressureToolStripMenuItem";
-            this.pressureToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pressureToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.pressureToolStripMenuItem.Text = "Pressure";
             this.pressureToolStripMenuItem.Click += new System.EventHandler(this.pressureToolStripMenuItem_Click);
             // 
             // accelerationsToolStripMenuItem
             // 
             this.accelerationsToolStripMenuItem.Name = "accelerationsToolStripMenuItem";
-            this.accelerationsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.accelerationsToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.accelerationsToolStripMenuItem.Text = "Accelerations";
             this.accelerationsToolStripMenuItem.Click += new System.EventHandler(this.accelerationsToolStripMenuItem_Click);
             // 
             // minimumThicknessToolStripMenuItem
             // 
             this.minimumThicknessToolStripMenuItem.Name = "minimumThicknessToolStripMenuItem";
-            this.minimumThicknessToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.minimumThicknessToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.minimumThicknessToolStripMenuItem.Text = "Minimum thickness";
             this.minimumThicknessToolStripMenuItem.Click += new System.EventHandler(this.minimumThicknessToolStripMenuItem_Click);
             // 
@@ -125,13 +132,6 @@
             this.panelMain.TabIndex = 20;
             this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
-            // shipDataToolStripMenuItem
-            // 
-            this.shipDataToolStripMenuItem.Name = "shipDataToolStripMenuItem";
-            this.shipDataToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.shipDataToolStripMenuItem.Text = "Ship Data";
-            this.shipDataToolStripMenuItem.Click += new System.EventHandler(this.shipDataToolStripMenuItem_Click);
-            // 
             // RuleCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,6 +145,7 @@
             this.MaximizeBox = false;
             this.Name = "RuleCalc";
             this.Text = "RuleCalc";
+            this.Load += new System.EventHandler(this.RuleCalc_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
